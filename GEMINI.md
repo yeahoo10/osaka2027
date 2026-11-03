@@ -1,6 +1,6 @@
 # 2027 日本大阪京都家族旅行專案規範 (GEMINI.md)
 
-本專案核心行為準則與引擎分工規則已統一定義於 [AGENTS.md](file:///c:/Users/yeaho/OneDrive/文件/claudeuse/2027日本大阪行/AGENTS.md)。
+本專案核心行為準則與引擎分工規則已統一定義於 [AGENTS.md](AGENTS.md)。
 
 ---
 
@@ -18,6 +18,6 @@
    - **第四優先（戰略比價）**：`travel-flights` & `travel-hotels`（SerpAPI，每月 250 次，嚴格限制「僅查機票與飯店即時含稅價」）。
 
 3. **路書維護原則**：
-   - 更新行程時，同步維護 [index.html](file:///c:/Users/yeaho/OneDrive/文件/claudeuse/2027日本大阪行/index.html)。
+   - 更新行程時，同步維護 [index.html](index.html)。
    - 確保手機端與電腦端 RWD 閱讀體驗。
    - 線上即時路書：`https://yeahoo10.github.io/osaka2027/`。
