@@ -2,98 +2,2138 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#1e1b4b">
-  <title>2027 京都・大阪 8天7夜 三代同堂家族行 🗺️ 隨身與電腦旗艦路書</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <title>2027 大阪京都 8天7夜 三代同堂隨身路書 (去趣版) 🗺️</title>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap');
     body {
       font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       -webkit-tap-highlight-color: transparent;
+      background-color: #f7f8fa;
     }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .nav-active {
-      background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
-      color: #ffffff !important;
-      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+    
+    /* 去趣 Day Tab Active Style */
+    .chictrip-day-active {
+      color: #0f172a !important;
+      font-weight: 800 !important;
+      border-bottom: 2.5px solid #0f172a !important;
     }
-    .subtab-active {
-      background-color: #4f46e5 !important;
+
+    /* Top Category Tab Active */
+    .chic-tab-active {
+      background-color: #0f172a !important;
       color: #ffffff !important;
-      border-color: #4f46e5 !important;
+      font-weight: 700 !important;
+    }
+
+    /* Timeline connector dashed line */
+    .timeline-segment {
+      position: relative;
+      margin-left: 2rem;
+      padding-left: 1.25rem;
+      border-left: 2px dashed #cbd5e1;
+      padding-top: 0.35rem;
+      padding-bottom: 0.35rem;
+    }
+    @media (min-width: 640px) {
+      .timeline-segment {
+        margin-left: 2.5rem;
+        padding-left: 1.5rem;
+      }
+    }
+
+    /* Navigation Airplane Button */
+    .nav-plane-btn {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 9999px;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      background-color: #ffffff;
+    }
+    .nav-plane-btn:hover {
+      border-color: #0084ff;
+      color: #0084ff;
+      background-color: #f0f7ff;
+    }
+
+    /* Elder reading large font */
+    body.elder-font {
+      font-size: 1.125rem;
+    }
+    body.elder-font .spot-card h4 {
+      font-size: 1.25rem;
     }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 antialiased min-h-screen pb-24 md:pb-12">
+<body class="text-slate-800 antialiased min-h-screen pb-24">
 
-  <!-- Responsive Top Header -->
-  <header class="bg-gradient-to-r from-slate-950 via-indigo-950 to-slate-900 text-white sticky top-0 z-50 shadow-md">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-        <!-- Title & Badges -->
+  <!-- ==================== CHICTRIP TOP APP BAR ==================== -->
+  <header class="bg-white border-b border-slate-200/90 sticky top-0 z-50 shadow-2xs">
+    <div class="max-w-5xl mx-auto px-4 py-2.5 flex items-center justify-between">
+      <!-- Left: Back Arrow & Title -->
+      <div class="flex items-center gap-3">
+        <button onclick="goBackOrHome()" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 transition active:scale-95" title="返回行程">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
         <div>
-          <div class="flex items-center gap-2 flex-wrap">
-            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="text-[11px] md:text-xs font-bold tracking-wider uppercase text-indigo-300">國泰直飛 CX564 / CX565</span>
-            <span class="bg-indigo-600/90 text-white text-[10px] md:text-xs px-2 py-0.5 rounded-md font-semibold">京都前2晚 ＋ 大阪後5晚</span>
-            <span class="bg-rose-500/90 text-white text-[10px] md:text-xs px-2 py-0.5 rounded-md font-semibold">D4變9人・USJ圓夢</span>
-          </div>
-          <h1 class="text-lg md:text-2xl font-bold text-white tracking-tight mt-1 flex items-center gap-2">
-            <span>2027 日本關西三代同堂家族旅行</span>
-            <span class="hidden sm:inline-block text-xs font-normal text-slate-300 px-2.5 py-0.5 bg-white/10 rounded-full">📱 手機・💻 電腦雙適配</span>
+          <h1 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight flex items-center gap-1.5">
+            <span>2027 大阪京都家族旅行</span>
+            <span class="text-[10px] font-bold bg-rose-50 text-[#ff1844] px-1.5 py-0.2 rounded">去趣版</span>
           </h1>
+          <p class="text-[11px] text-slate-400 font-medium">8天7夜・三代同堂・68歲長輩與3幼童友善</p>
         </div>
+      </div>
 
-        <!-- Quick Emergency Button on Header -->
-        <div class="flex items-center gap-2">
-          <span class="hidden lg:inline-block text-xs text-slate-300">📅 2027/02/24（三）～ 03/03（三）</span>
-          <button onclick="switchMainTab('emergency')" class="bg-rose-600 hover:bg-rose-500 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-sm transition active:scale-95">
-            <span>🚑</span> <span>急診就醫卡</span>
-          </button>
-        </div>
+      <!-- Right: Publish & Settings Buttons -->
+      <div class="flex items-center gap-2">
+        <!-- 去趣「發佈行程」按鈕 -->
+        <button onclick="openPublishModal()" class="px-3 py-1 rounded-full border border-slate-300 text-xs font-bold text-slate-700 hover:border-slate-400 hover:bg-slate-50 transition shadow-2xs active:scale-95">
+          發佈行程
+        </button>
+        <!-- 齒輪設定按鈕 -->
+        <button onclick="openSettingsModal()" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-600 hover:bg-slate-100 transition" title="功能設定">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        </button>
       </div>
     </div>
 
-    <!-- Main Navigation Bar (Swipeable on mobile, Centered grid on desktop) -->
-    <div class="border-t border-indigo-900/40 bg-slate-950/50 backdrop-blur-md">
-      <div class="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-2">
-        <nav class="flex items-center gap-1.5 md:gap-2 overflow-x-auto no-scrollbar md:justify-center">
-          <button onclick="switchMainTab('overview')" id="main-tab-overview" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition nav-active flex items-center gap-1.5">
-            <span>📋</span><span>行程總覽</span>
-          </button>
-          <button onclick="switchMainTab('itinerary')" id="main-tab-itinerary" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
-            <span>📅</span><span>每日行程</span>
-          </button>
-          <button onclick="switchMainTab('usj')" id="main-tab-usj" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
-            <span>🍄</span><span>USJ環球攻略</span>
-          </button>
-          <button onclick="switchMainTab('kyoto-spots')" id="main-tab-kyoto-spots" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
-            <span>🏯</span><span>京都景點庫</span>
-          </button>
-          <button onclick="switchMainTab('osaka-spots')" id="main-tab-osaka-spots" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
-            <span>🏙️</span><span>大阪景點庫</span>
-          </button>
-          <button onclick="switchMainTab('hotels')" id="main-tab-hotels" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
-            <span>🏨</span><span>備選飯店</span>
-          </button>
-          <button onclick="switchMainTab('packing')" id="main-tab-packing" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
-            <span>🎒</span><span>行李清單</span>
-          </button>
-          <button onclick="switchMainTab('emergency')" id="main-tab-emergency" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
-            <span>🚑</span><span>緊急醫療</span>
-          </button>
-        </nav>
+    <!-- Category Nav Bar (去趣功能分頁) -->
+    <div class="border-t border-slate-150 bg-white">
+      <div class="max-w-5xl mx-auto px-3 flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1.5 text-xs">
+        <button onclick="switchMainTab('itinerary')" id="main-tab-itinerary" class="main-tab-btn px-3 py-1 rounded-full text-xs font-bold transition whitespace-nowrap chic-tab-active">
+          📅 每日去趣行程
+        </button>
+        <button onclick="switchMainTab('usj')" id="main-tab-usj" class="main-tab-btn px-3 py-1 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap">
+          🍄 USJ 環球影城
+        </button>
+        <button onclick="switchMainTab('kyoto-spots')" id="main-tab-kyoto-spots" class="main-tab-btn px-3 py-1 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap">
+          🏯 京都景點庫
+        </button>
+        <button onclick="switchMainTab('osaka-spots')" id="main-tab-osaka-spots" class="main-tab-btn px-3 py-1 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap">
+          🏙️ 大阪景點庫
+        </button>
+        <button onclick="switchMainTab('hotels')" id="main-tab-hotels" class="main-tab-btn px-3 py-1 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap">
+          🏨 備選飯店
+        </button>
+        <button onclick="switchMainTab('packing')" id="main-tab-packing" class="main-tab-btn px-3 py-1 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap">
+          🎒 行李清單
+        </button>
+        <button onclick="switchMainTab('emergency')" id="main-tab-emergency" class="main-tab-btn px-3 py-1 rounded-full text-xs font-bold text-rose-600 hover:bg-rose-50 transition whitespace-nowrap">
+          🚑 急診醫療卡
+        </button>
+        <button onclick="switchMainTab('overview')" id="main-tab-overview" class="main-tab-btn px-3 py-1 rounded-full text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap">
+          📋 方案總覽
+        </button>
+      </div>
+    </div>
+
+    <!-- 去趣專屬 Day Switcher Bar (僅在每日行程時顯示) -->
+    <div id="chictrip-day-bar" class="border-t border-slate-150 bg-white">
+      <div class="max-w-5xl mx-auto px-4 flex items-center justify-between">
+        <div class="flex items-center gap-6 overflow-x-auto no-scrollbar py-2 text-sm">
+          <button onclick="switchDaySub('d1')" id="sub-tab-d1" class="day-sub-btn whitespace-nowrap pb-1 chictrip-day-active">第 1 天</button>
+          <button onclick="switchDaySub('d2')" id="sub-tab-d2" class="day-sub-btn whitespace-nowrap pb-1 text-slate-400 font-medium hover:text-slate-700">第 2 天</button>
+          <button onclick="switchDaySub('d3')" id="sub-tab-d3" class="day-sub-btn whitespace-nowrap pb-1 text-slate-400 font-medium hover:text-slate-700">第 3 天</button>
+          <button onclick="switchDaySub('d4')" id="sub-tab-d4" class="day-sub-btn whitespace-nowrap pb-1 text-slate-400 font-medium hover:text-slate-700">第 4 天</button>
+          <button onclick="switchDaySub('d5')" id="sub-tab-d5" class="day-sub-btn whitespace-nowrap pb-1 text-slate-400 font-medium hover:text-slate-700">第 5 天</button>
+          <button onclick="switchDaySub('d6')" id="sub-tab-d6" class="day-sub-btn whitespace-nowrap pb-1 text-slate-400 font-medium hover:text-slate-700">第 6 天</button>
+          <button onclick="switchDaySub('d7')" id="sub-tab-d7" class="day-sub-btn whitespace-nowrap pb-1 text-slate-400 font-medium hover:text-slate-700">第 7 天</button>
+          <button onclick="switchDaySub('d8')" id="sub-tab-d8" class="day-sub-btn whitespace-nowrap pb-1 text-slate-400 font-medium hover:text-slate-700">第 8 天</button>
+        </div>
+        <div class="flex items-center gap-1.5 pl-2 flex-shrink-0 text-slate-600">
+          <button onclick="openAddSpotModal()" class="w-6 h-6 rounded-md bg-slate-100 hover:bg-slate-200 flex items-center justify-center font-bold text-slate-700 transition active:scale-95" title="新增景點">＋</button>
+          <button onclick="alert('提示：可於設定中調整天數候選方案')" class="w-6 h-6 rounded-md bg-slate-100 hover:bg-slate-200 flex items-center justify-center font-bold text-slate-700 transition active:scale-95" title="天數管理">－</button>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Responsive Main Content Container -->
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 space-y-6">
+  <!-- ==================== MAIN CONTENT CONTAINER ==================== -->
+  <main class="max-w-5xl mx-auto px-3 sm:px-6 pt-4 space-y-6">
 
-    <!-- ==================== TAB 1: OVERVIEW ==================== -->
-    <div id="page-overview" class="main-sec space-y-6">
+    <!-- ITINERARY PAGE (去趣風格每日時間流，預設顯示) -->
+    <div id="page-itinerary" class="main-sec space-y-5">
+      
+    <!-- Day Content: d1 -->
+    <div id="sub-page-d1" class="day-sub-content  space-y-4">
+      
+      <!-- Date & Action Bar (去趣風格) -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 pt-1 border-b border-slate-200/80">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>02/24 週三 抵達關西 ➔ Haruka 直達京都</span>
+          </h2>
+        </div>
+
+        <!-- Action Pills Bar -->
+        <div class="flex items-center gap-2">
+          <!-- Dropdown Mode Pill -->
+          <button class="bg-white border border-slate-250 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 shadow-2xs hover:bg-slate-50 flex items-center gap-1.5 transition">
+            <span>🚇 大眾運輸/JR特急 ∨</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+
+          <!-- Blue Action Button -->
+          <button onclick="openFullDayMap('d1')" class="bg-[#0084ff] hover:bg-[#0074e0] text-white px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs flex items-center gap-1.5 transition active:scale-95">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <span>Google 導航</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Responsive Grid: Sidebar + Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+    <div class="lg:col-span-4 space-y-4">
+      <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-black text-rose-500 uppercase tracking-wider">D1 當日導覽</span>
+        <h3 class="text-lg font-black text-slate-900 mt-1">抵達關西 ➔ Haruka 直達京都</h3>
+        
+        <div class="mt-3 space-y-2 text-xs">
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當日氣溫</span>
+            <strong class="text-slate-800">約 3°C ～ 11°C（晴乾冷，注意洋蔥穿著）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當晚住宿</span>
+            <strong class="text-indigo-600 font-bold">宿京都 MIMARU 站前（連住 2 晚）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">出行成員</span>
+            <strong class="text-slate-800">8 人出發（6大含長輩、5歲/3歲女童、1歲男嬰）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5">
+            <span class="text-slate-400">交通工具</span>
+            <strong class="text-slate-800">國泰 CX564 ＋ JR 特急 Haruka</strong>
+          </div>
+        </div>
+
+        <div class="mt-4 bg-indigo-50/80 border border-indigo-100 p-3 rounded-2xl text-xs text-indigo-950 leading-relaxed">
+          💡 <strong>當日重點心法</strong>：出關直通 2F 空橋搭 JR Haruka，78分鐘直達京都車站免轉車，不需在大阪地下街拖行李！
+        </div>
+      </div>
+    </div>
+    
+        <div class="lg:col-span-8 space-y-2">
+          
+    <!-- Spot Card 1 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          1
+        </div>
+        <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?w=400&q=80" alt="桃園國際機場 T1 ➔ 關西國際機場 T1" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">✈️</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">11:15</span>
+            <span class="text-slate-400 text-[11px] font-medium">(國泰 CX564)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            桃園國際機場 T1 ➔ 關西國際機場 T1
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            航程 02 時 30 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🛗 機艙門推車提領</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🍼 預選搖籃座</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">長輩靠走道</span>
+          </div>
+          <a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 15 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+        <div class="my-2 p-2 sm:p-2.5 bg-orange-50/90 border border-orange-200/80 rounded-xl flex items-center justify-between text-xs text-orange-950 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="bg-[#ff5a00] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow-2xs">貼心</span>
+            <span class="font-medium text-slate-800 text-[11px] sm:text-xs">出關過天橋即達 JR 車站，免受海風吹，電梯直達 Haruka 月台</span>
+          </div>
+          <span class="text-orange-500 font-bold ml-1.5">❯</span>
+        </div>
+        
+    </div>
+    
+    <!-- Spot Card 2 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          2
+        </div>
+        <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=400&q=80" alt="JR 關空特急 Haruka（Hello Kitty 彩繪列車）" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🚆</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">15:45</span>
+            <span class="text-slate-400 text-[11px] font-medium">(直達指定席)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            JR 關空特急 Haruka（Hello Kitty 彩繪列車）
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            車程 01 時 18 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🛗 大件行李放置區</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🍼 車廂無障礙廁所</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">直達京都免轉乘</span>
+          </div>
+          <a href="https://maps.google.com/?q=Kyoto+Station" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 03 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 3 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          3
+        </div>
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=400&q=80" alt="MIMARU 京都站前（連住 2 晚）" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🏨</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">17:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(辦理入住)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            MIMARU 京都站前（連住 2 晚）
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 01 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🍳 附簡易小廚房</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🧺 房內洗脫烘</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">長輩客廳泡茶</span>
+          </div>
+          <a href="https://maps.google.com/?q=MIMARU+KYOTO+STATION" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 05 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 4 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          4
+        </div>
+        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&q=80" alt="京都車站伊勢丹百貨 11F 美食街 ＆ B2 超市" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🍲</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">18:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(美食街＆超市)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            京都車站伊勢丹百貨 11F 美食街 ＆ B2 超市
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 01 時 30 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🛗 電梯直達11F</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🥩 三嶋亭壽喜燒</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">採買水果日本鮮乳</span>
+          </div>
+          <a href="https://maps.google.com/?q=Kyoto+Station+Isetan" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Day Content: d2 -->
+    <div id="sub-page-d2" class="day-sub-content hidden space-y-4">
+      
+      <!-- Date & Action Bar (去趣風格) -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 pt-1 border-b border-slate-200/80">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>02/25 週四 北野天滿宮梅花祭 ＋ 鐵道館</span>
+          </h2>
+        </div>
+
+        <!-- Action Pills Bar -->
+        <div class="flex items-center gap-2">
+          <!-- Dropdown Mode Pill -->
+          <button class="bg-white border border-slate-250 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 shadow-2xs hover:bg-slate-50 flex items-center gap-1.5 transition">
+            <span>🚕 計程車/短駁 ∨</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+
+          <!-- Blue Action Button -->
+          <button onclick="openFullDayMap('d2')" class="bg-[#0084ff] hover:bg-[#0074e0] text-white px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs flex items-center gap-1.5 transition active:scale-95">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <span>Google 導航</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Responsive Grid: Sidebar + Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+    <div class="lg:col-span-4 space-y-4">
+      <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-black text-rose-500 uppercase tracking-wider">D2 當日導覽</span>
+        <h3 class="text-lg font-black text-slate-900 mt-1">北野天滿宮梅花祭 ＋ 鐵道博物館</h3>
+        
+        <div class="mt-3 space-y-2 text-xs">
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當日氣溫</span>
+            <strong class="text-slate-800">約 2°C ～ 10°C（清晨乾冷，正午微涼）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當晚住宿</span>
+            <strong class="text-indigo-600 font-bold">宿京都 MIMARU 站前（連住第 2 晚）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">出行成員</span>
+            <strong class="text-slate-800">8 人同行（6大含長輩、2幼、1嬰）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5">
+            <span class="text-slate-400">交通工具</span>
+            <strong class="text-slate-800">排班計程車 2 輛（免受凍擠公車）</strong>
+          </div>
+        </div>
+
+        <div class="mt-4 bg-indigo-50/80 border border-indigo-100 p-3 rounded-2xl text-xs text-indigo-950 leading-relaxed">
+          💡 <strong>當日重點心法</strong>：2/25 適逢年度最大盛事梅花祭滿開與天神市市集；下午回飯店大休整，節奏極度寬鬆！
+        </div>
+      </div>
+    </div>
+    
+        <div class="lg:col-span-8 space-y-2">
+          
+    <!-- Spot Card 1 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          1
+        </div>
+        <img src="https://images.unsplash.com/photo-1532105956626-9569c03602f6?w=400&q=80" alt="京都鐵道博物館（全室內暖氣放電基地）" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🚂</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">09:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(室內避寒)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            京都鐵道博物館（全室內暖氣放電基地）
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 03 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🛗 全館無階梯</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🍼 育嬰哺乳室</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">2F景觀餐廳看新幹線</span>
+          </div>
+          <a href="https://maps.google.com/?q=Kyoto+Railway+Museum" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚕</span>
+        <span>00 時 15 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+        <div class="my-2 p-2 sm:p-2.5 bg-orange-50/90 border border-orange-200/80 rounded-xl flex items-center justify-between text-xs text-orange-950 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="bg-[#ff5a00] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow-2xs">貼心</span>
+            <span class="font-medium text-slate-800 text-[11px] sm:text-xs">叫 2 輛計程車約 ¥1,400 門對門直達，免吹冷風等公車</span>
+          </div>
+          <span class="text-orange-500 font-bold ml-1.5">❯</span>
+        </div>
+        
+    </div>
+    
+    <!-- Spot Card 2 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          2
+        </div>
+        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&q=80" alt="北野天滿宮（2/25 梅花祭滿開盛放 ＋ 天神市）" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🌸</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">13:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(年度盛典)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            北野天滿宮（2/25 梅花祭滿開盛放 ＋ 天神市）
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 30 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🌸 2,000株梅花花海</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">♿ 平坦石板參道</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">摸神牛祈福</span>
+          </div>
+          <a href="https://maps.google.com/?q=Kitano+Tenmangu" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚕</span>
+        <span>00 時 18 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 3 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          3
+        </div>
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&q=80" alt="MIMARU 飯店房間全員大休整 ＆ 熱水澡" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🛌</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">16:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(午後大充電)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            MIMARU 飯店房間全員大休整 ＆ 熱水澡
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">幼童午睡補眠</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">長輩泡茶歇腳</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">避開寒冬晚風</span>
+          </div>
+          <a href="https://maps.google.com/?q=MIMARU+KYOTO+STATION" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 05 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 4 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          4
+        </div>
+        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80" alt="京都車站周邊 溫暖湯豆腐料理 / 日式和牛鍋" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🍲</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">18:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(暖胃晚餐)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            京都車站周邊 溫暖湯豆腐料理 / 日式和牛鍋
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 01 時 30 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">清爽長輩最愛</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">兒童專用軟椅</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">地下街推車直達</span>
+          </div>
+          <a href="https://maps.google.com/?q=Kyoto+Station+Porta" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Day Content: d3 -->
+    <div id="sub-page-d3" class="day-sub-content hidden space-y-4">
+      
+      <!-- Date & Action Bar (去趣風格) -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 pt-1 border-b border-slate-200/80">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>02/26 週五 移防大阪 ➔ 大阪城梅林滿開</span>
+          </h2>
+        </div>
+
+        <!-- Action Pills Bar -->
+        <div class="flex items-center gap-2">
+          <!-- Dropdown Mode Pill -->
+          <button class="bg-white border border-slate-250 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 shadow-2xs hover:bg-slate-50 flex items-center gap-1.5 transition">
+            <span>🚆 JR新快速 ＋ 計程車 ∨</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+
+          <!-- Blue Action Button -->
+          <button onclick="openFullDayMap('d3')" class="bg-[#0084ff] hover:bg-[#0074e0] text-white px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs flex items-center gap-1.5 transition active:scale-95">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <span>Google 導航</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Responsive Grid: Sidebar + Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+    <div class="lg:col-span-4 space-y-4">
+      <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-black text-rose-500 uppercase tracking-wider">D3 當日導覽</span>
+        <h3 class="text-lg font-black text-slate-900 mt-1">移防大阪 ➔ 大阪城梅林滿開</h3>
+        
+        <div class="mt-3 space-y-2 text-xs">
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當日氣溫</span>
+            <strong class="text-slate-800">約 4°C ～ 12°C（晴時多雲）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當晚住宿</span>
+            <strong class="text-indigo-600 font-bold">宿大阪心齋橋 MIMARU（連住 5 晚）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">出行成員</span>
+            <strong class="text-slate-800">8 人同行（跨城移動）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5">
+            <span class="text-slate-400">交通工具</span>
+            <strong class="text-slate-800">JR 新快速（29分鐘）＋ 計程車</strong>
+          </div>
+        </div>
+
+        <div class="mt-4 bg-indigo-50/80 border border-indigo-100 p-3 rounded-2xl text-xs text-indigo-950 leading-relaxed">
+          💡 <strong>當日重點心法</strong>：森之宮站 3-B 號電梯直上地面公園，大阪城梅林正是全年最美盛放期！
+        </div>
+      </div>
+    </div>
+    
+        <div class="lg:col-span-8 space-y-2">
+          
+    <!-- Spot Card 1 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          1
+        </div>
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80" alt="退房搭乘 JR新快速 ➔ 大阪心齋橋 MIMARU 先寄放大行李" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🧳</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">10:00</span>
+            <span class="text-slate-400 text-[11px] font-medium">(跨城移防)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            退房搭乘 JR新快速 ➔ 大阪心齋橋 MIMARU 先寄放大行李
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            車程 00 時 29 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">JR直達大阪梅田</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">轉計程車門對門</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">輕裝出發免拉行李</span>
+          </div>
+          <a href="https://maps.google.com/?q=MIMARU+Osaka+Shinsaibashi" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚇</span>
+        <span>00 時 20 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+        <div class="my-2 p-2 sm:p-2.5 bg-orange-50/90 border border-orange-200/80 rounded-xl flex items-center justify-between text-xs text-orange-950 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="bg-[#ff5a00] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow-2xs">貼心</span>
+            <span class="font-medium text-slate-800 text-[11px] sm:text-xs">森之宮站 3-B 號電梯直上地面公園，100% 避開階梯</span>
+          </div>
+          <span class="text-orange-500 font-bold ml-1.5">❯</span>
+        </div>
+        
+    </div>
+    
+    <!-- Spot Card 2 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          2
+        </div>
+        <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=400&q=80" alt="大阪城公園梅林（1,270株梅花見頃盛開） ＆ 金色御座船" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🌸</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">13:00</span>
+            <span class="text-slate-400 text-[11px] font-medium">(季節限定)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            大阪城公園梅林（1,270株梅花見頃盛開） ＆ 金色御座船
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 30 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🌸 大阪第一梅林花海</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🚢 20分金色御座船</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">JO-TERRACE景觀茶座</span>
+          </div>
+          <a href="https://maps.google.com/?q=Osaka+Castle+Plum+Grove" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚕</span>
+        <span>00 時 12 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 3 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          3
+        </div>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" alt="MIMARU 大阪心齋橋（連住 5 晚）" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🏨</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">16:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(入住連住5晚)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            MIMARU 大阪心齋橋（連住 5 晚）
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 01 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">兩房連通超大空間</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">附洗脫烘小廚房</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">心齋橋黃金生活圈</span>
+          </div>
+          <a href="https://maps.google.com/?q=MIMARU+Osaka+Shinsaibashi" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 08 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 4 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          4
+        </div>
+        <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=400&q=80" alt="心齋橋筋雨棚拱廊街 ＆ 道頓堀固力果跑者散步" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🛒</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">17:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(雨棚夜市)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            心齋橋筋雨棚拱廊街 ＆ 道頓堀固力果跑者散步
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🌧️ 全天候避寒雨棚</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">平坦無障礙好推</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">暖心烏龍麵定食晚餐</span>
+          </div>
+          <a href="https://maps.google.com/?q=Dotonbori+Glico+Sign" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Day Content: d4 -->
+    <div id="sub-page-d4" class="day-sub-content hidden space-y-4">
+      
+      <!-- Date & Action Bar (去趣風格) -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 pt-1 border-b border-slate-200/80">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>02/27 週六 9人全員到齊！HARUKAS 夕陽</span>
+          </h2>
+        </div>
+
+        <!-- Action Pills Bar -->
+        <div class="flex items-center gap-2">
+          <!-- Dropdown Mode Pill -->
+          <button class="bg-white border border-slate-250 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 shadow-2xs hover:bg-slate-50 flex items-center gap-1.5 transition">
+            <span>🚇 地鐵直達 ＋ 計程車 ∨</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+
+          <!-- Blue Action Button -->
+          <button onclick="openFullDayMap('d4')" class="bg-[#0084ff] hover:bg-[#0074e0] text-white px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs flex items-center gap-1.5 transition active:scale-95">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <span>Google 導航</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Responsive Grid: Sidebar + Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+    <div class="lg:col-span-4 space-y-4">
+      <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-black text-rose-500 uppercase tracking-wider">D4 當日導覽</span>
+        <h3 class="text-lg font-black text-slate-900 mt-1">9人全員到齊！HARUKAS 夕陽</h3>
+        
+        <div class="mt-3 space-y-2 text-xs">
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當日氣溫</span>
+            <strong class="text-slate-800">約 4°C ～ 13°C（晴空萬里）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當晚住宿</span>
+            <strong class="text-indigo-600 font-bold">宿大阪心齋橋 MIMARU（連住第 2 晚）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">出行成員</span>
+            <strong class="text-slate-800">8 人 ➔ 9 人全員到齊（新成員搭 CX564 抵達）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5">
+            <span class="text-slate-400">交通工具</span>
+            <strong class="text-slate-800">大阪地鐵御堂筋線 ＋ 計程車</strong>
+          </div>
+        </div>
+
+        <div class="mt-4 bg-indigo-50/80 border border-indigo-100 p-3 rounded-2xl text-xs text-indigo-950 leading-relaxed">
+          💡 <strong>當日重點心法</strong>：新成員抵達客廳大團圓，傍晚登阿倍野 60 樓玻璃景觀台賞百萬夕陽夜景！
+        </div>
+      </div>
+    </div>
+    
+        <div class="lg:col-span-8 space-y-2">
+          
+    <!-- Spot Card 1 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          1
+        </div>
+        <img src="https://images.unsplash.com/photo-1580828343064-fde4fc206bc6?w=400&q=80" alt="黑門市場大阪廚房慢步巡禮" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🍢</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">09:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(晨光散步)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            黑門市場大阪廚房慢步巡禮
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 01 時 30 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">烤扇貝海鮮</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">草莓大福甜點</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">寬敞無階梯平路</span>
+          </div>
+          <a href="https://maps.google.com/?q=Kuromon+Ichiba+Market" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 10 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+        <div class="my-2 p-2 sm:p-2.5 bg-orange-50/90 border border-orange-200/80 rounded-xl flex items-center justify-between text-xs text-orange-950 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="bg-[#ff5a00] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow-2xs">貼心</span>
+            <span class="font-medium text-slate-800 text-[11px] sm:text-xs">13:00~16:30 大部隊回房午休避寒，新成員搭南海特急直達難波會合</span>
+          </div>
+          <span class="text-orange-500 font-bold ml-1.5">❯</span>
+        </div>
+        
+    </div>
+    
+    <!-- Spot Card 2 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          2
+        </div>
+        <img src="https://images.unsplash.com/photo-1517840901100-8179e982acb7?w=400&q=80" alt="新成員（第9人）抵達！飯店客廳大合照會合" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🎉</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">16:45</span>
+            <span class="text-slate-400 text-[11px] font-medium">(大會合)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            新成員（第9人）抵達！飯店客廳大合照會合
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 00 時 45 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🎊 9人全員到齊</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">全家大合照紀念</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">卸下大行李梳洗</span>
+          </div>
+          <a href="https://maps.google.com/?q=MIMARU+Osaka+Shinsaibashi" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚇</span>
+        <span>00 時 15 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 3 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          3
+        </div>
+        <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=400&q=80" alt="阿倍野 HARUKAS 300 展望台夕陽 ＆ Q's Mall" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🏙️</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">17:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(百萬絕景)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            阿倍野 HARUKAS 300 展望台夕陽 ＆ Q's Mall
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 01 時 30 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🛗 60樓無障礙直梯</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🌇 金黃夕陽轉百萬夜景</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">母嬰阿卡將旗艦店</span>
+          </div>
+          <a href="https://maps.google.com/?q=Harukas+300" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 05 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 4 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          4
+        </div>
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80" alt="近鐵百貨頂樓 景觀黑毛和牛壽喜燒 / 獨立大包廂晚宴" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🥩</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">19:00</span>
+            <span class="text-slate-400 text-[11px] font-medium">(團聚大餐)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            近鐵百貨頂樓 景觀黑毛和牛壽喜燒 / 獨立大包廂晚宴
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">慶祝9人全員團圓</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">長輩舒適包廂椅</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">兒童餐具座椅提供</span>
+          </div>
+          <a href="https://maps.google.com/?q=Abeno+Harukas+Dining" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Day Content: d5 -->
+    <div id="sub-page-d5" class="day-sub-content hidden space-y-4">
+      
+      <!-- Date & Action Bar (去趣風格) -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 pt-1 border-b border-slate-200/80">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>02/28 週日 Harvest Hill 採草莓吃到飽</span>
+          </h2>
+        </div>
+
+        <!-- Action Pills Bar -->
+        <div class="flex items-center gap-2">
+          <!-- Dropdown Mode Pill -->
+          <button class="bg-white border border-slate-250 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 shadow-2xs hover:bg-slate-50 flex items-center gap-1.5 transition">
+            <span>🚐 全日 9 人座包車 Hiace ∨</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+
+          <!-- Blue Action Button -->
+          <button onclick="openFullDayMap('d5')" class="bg-[#0084ff] hover:bg-[#0074e0] text-white px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs flex items-center gap-1.5 transition active:scale-95">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <span>Google 導航</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Responsive Grid: Sidebar + Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+    <div class="lg:col-span-4 space-y-4">
+      <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-black text-rose-500 uppercase tracking-wider">D5 當日導覽</span>
+        <h3 class="text-lg font-black text-slate-900 mt-1">Harvest Hill 採草莓吃到飽</h3>
+        
+        <div class="mt-3 space-y-2 text-xs">
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當日氣溫</span>
+            <strong class="text-slate-800">約 5°C ～ 13°C（郊區晴朗無風）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當晚住宿</span>
+            <strong class="text-indigo-600 font-bold">宿大阪心齋橋 MIMARU（連住第 3 晚）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">出行成員</span>
+            <strong class="text-slate-800">9 人全員同行</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5">
+            <span class="text-slate-400">交通工具</span>
+            <strong class="text-slate-800">全日 9 人座包車 Toyota Hiace Grand Cabin</strong>
+          </div>
+        </div>
+
+        <div class="mt-4 bg-indigo-50/80 border border-indigo-100 p-3 rounded-2xl text-xs text-indigo-950 leading-relaxed">
+          💡 <strong>當日重點心法</strong>：溫室高架種植免彎腰，2月寒冬草莓最鮮甜，水豚羊駝溫馴極致療癒！
+        </div>
+      </div>
+    </div>
+    
+        <div class="lg:col-span-8 space-y-2">
+          
+    <!-- Spot Card 1 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          1
+        </div>
+        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&q=80" alt="飯店大門上車 ➔ 直達堺市 Harvest Hill 農場" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🚐</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">09:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(專車啟程)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            飯店大門上車 ➔ 直達堺市 Harvest Hill 農場
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            車程 00 時 40 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🚪 門對門全日包車</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">免拉推車換地鐵</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">長輩車上安穩補眠</span>
+          </div>
+          <a href="https://maps.google.com/?q=Harvest+Hill+Sakai" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 05 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+        <div class="my-2 p-2 sm:p-2.5 bg-orange-50/90 border border-orange-200/80 rounded-xl flex items-center justify-between text-xs text-orange-950 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="bg-[#ff5a00] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow-2xs">貼心</span>
+            <span class="font-medium text-slate-800 text-[11px] sm:text-xs">高架草莓園站著採不腰痠，溫室內無風溫暖（約 18~20°C）</span>
+          </div>
+          <span class="text-orange-500 font-bold ml-1.5">❯</span>
+        </div>
+        
+    </div>
+    
+    <!-- Spot Card 2 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          2
+        </div>
+        <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&q=80" alt="溫室高架草莓園 現採鮮甜草莓吃到飽（30分鐘）" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🍓</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">10:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(甜度巔峰)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            溫室高架草莓園 現採鮮甜草莓吃到飽（30分鐘）
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 01 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🍓 2月寒冬糖度累積巔峰</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">長輩站著採不腰痠</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">幼童推車可入溫室</span>
+          </div>
+          <a href="https://maps.google.com/?q=Harvest+Hill+Strawberry" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 05 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 3 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          3
+        </div>
+        <img src="https://images.unsplash.com/photo-1568644396922-5c3bfae12521?w=400&q=80" alt="石窯柴燒披薩午餐 ＆ 水豚/羊駝餵食萌拍 ＆ 森林小火車" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🦙</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">11:45</span>
+            <span class="text-slate-400 text-[11px] font-medium">(親子互動)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            石窯柴燒披薩午餐 ＆ 水豚/羊駝餵食萌拍 ＆ 森林小火車
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 30 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🍕 自產香腸石窯披薩</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🐹 超人氣溫馴水豚</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">森林家族夢幻造景村</span>
+          </div>
+          <a href="https://maps.google.com/?q=Harvest+Hill+Sakai" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚐</span>
+        <span>00 時 40 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 4 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          4
+        </div>
+        <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?w=400&q=80" alt="返回大阪飯店充分休息 ＆ 道頓堀拉麵小食" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🏨</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">15:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(舒心返航)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            返回大阪飯店充分休息 ＆ 道頓堀拉麵小食
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">為後續 USJ 儲備體能</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">房內洗烘髒衣</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">長輩享用下午茶</span>
+          </div>
+          <a href="https://maps.google.com/?q=MIMARU+Osaka+Shinsaibashi" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Day Content: d6 -->
+    <div id="sub-page-d6" class="day-sub-content hidden space-y-4">
+      
+      <!-- Date & Action Bar (去趣風格) -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 pt-1 border-b border-slate-200/80">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>03/01 週一 天保山樂高避寒 ＋ 摩天輪</span>
+          </h2>
+        </div>
+
+        <!-- Action Pills Bar -->
+        <div class="flex items-center gap-2">
+          <!-- Dropdown Mode Pill -->
+          <button class="bg-white border border-slate-250 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 shadow-2xs hover:bg-slate-50 flex items-center gap-1.5 transition">
+            <span>🚇 中央線大阪港站 ∨</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+
+          <!-- Blue Action Button -->
+          <button onclick="openFullDayMap('d6')" class="bg-[#0084ff] hover:bg-[#0074e0] text-white px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs flex items-center gap-1.5 transition active:scale-95">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <span>Google 導航</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Responsive Grid: Sidebar + Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+    <div class="lg:col-span-4 space-y-4">
+      <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-black text-rose-500 uppercase tracking-wider">D6 當日導覽</span>
+        <h3 class="text-lg font-black text-slate-900 mt-1">天保山樂高避寒 ＋ 摩天輪</h3>
+        
+        <div class="mt-3 space-y-2 text-xs">
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當日氣溫</span>
+            <strong class="text-slate-800">約 4°C ～ 11°C（海灣有風，室內避寒）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當晚住宿</span>
+            <strong class="text-indigo-600 font-bold">宿大阪心齋橋 MIMARU（連住第 4 晚）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">出行成員</span>
+            <strong class="text-slate-800">9 人全員同行</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5">
+            <span class="text-slate-400">交通工具</span>
+            <strong class="text-slate-800">大阪地鐵中央線 ＋ 排班計程車</strong>
+          </div>
+        </div>
+
+        <div class="mt-4 bg-indigo-50/80 border border-indigo-100 p-3 rounded-2xl text-xs text-indigo-950 leading-relaxed">
+          💡 <strong>當日重點心法</strong>：全日室內避寒休整！今晚早早吃晚餐早點睡，全家為隔天 USJ 儲備 100% 體力！
+        </div>
+      </div>
+    </div>
+    
+        <div class="lg:col-span-8 space-y-2">
+          
+    <!-- Spot Card 1 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          1
+        </div>
+        <img src="https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?w=400&q=80" alt="天保山樂高樂園探索中心（Legoland Discovery Center）" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🧱</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">10:00</span>
+            <span class="text-slate-400 text-[11px] font-medium">(全室內暖氣)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            天保山樂高樂園探索中心（Legoland Discovery Center）
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 30 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🛗 大阪港站1號直梯</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🧱 4D動感劇院</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">積木池全室內吹暖氣</span>
+          </div>
+          <a href="https://maps.google.com/?q=Legoland+Discovery+Center+Osaka" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 03 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 2 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          2
+        </div>
+        <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=400&q=80" alt="天保山大摩天輪（密閉保暖防風車廂）" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🎡</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">13:40</span>
+            <span class="text-slate-400 text-[11px] font-medium">(海灣美景)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            天保山大摩天輪（密閉保暖防風車廂）
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 00 時 40 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🎡 15分鐘平穩緩慢旋轉</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">長輩幼童無負擔</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">眺望大阪灣海天一色</span>
+          </div>
+          <a href="https://maps.google.com/?q=Tempozan+Ferris+Wheel" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚇</span>
+        <span>00 時 25 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+        <div class="my-2 p-2 sm:p-2.5 bg-orange-50/90 border border-orange-200/80 rounded-xl flex items-center justify-between text-xs text-orange-950 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="bg-[#ff5a00] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow-2xs">貼心</span>
+            <span class="font-medium text-slate-800 text-[11px] sm:text-xs">今晚務必早吃晚餐、提早睡覺，為明天 USJ 環球影城儲備 100% 體力</span>
+          </div>
+          <span class="text-orange-500 font-bold ml-1.5">❯</span>
+        </div>
+        
+    </div>
+    
+    <!-- Spot Card 3 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          3
+        </div>
+        <img src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?w=400&q=80" alt="心齋橋商圈採買 ＆ 19:00 早睡充電" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🛍️</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">15:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(養精蓄銳)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            心齋橋商圈採買 ＆ 19:00 早睡充電
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">藥妝零食補貨</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">溫暖海鮮火鍋定食</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">21:00 前熄燈就寢</span>
+          </div>
+          <a href="https://maps.google.com/?q=Shinsaibashi-suji" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Day Content: d7 -->
+    <div id="sub-page-d7" class="day-sub-content hidden space-y-4">
+      
+      <!-- Date & Action Bar (去趣風格) -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 pt-1 border-b border-slate-200/80">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>03/02 週二 日本環球影城 USJ 全員圓夢日！</span>
+          </h2>
+        </div>
+
+        <!-- Action Pills Bar -->
+        <div class="flex items-center gap-2">
+          <!-- Dropdown Mode Pill -->
+          <button class="bg-white border border-slate-250 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 shadow-2xs hover:bg-slate-50 flex items-center gap-1.5 transition">
+            <span>🚕 2 台計程車門對門直達 ∨</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+
+          <!-- Blue Action Button -->
+          <button onclick="openFullDayMap('d7')" class="bg-[#0084ff] hover:bg-[#0074e0] text-white px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs flex items-center gap-1.5 transition active:scale-95">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <span>Google 導航</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Responsive Grid: Sidebar + Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+    <div class="lg:col-span-4 space-y-4">
+      <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-black text-rose-500 uppercase tracking-wider">D7 當日導覽</span>
+        <h3 class="text-lg font-black text-slate-900 mt-1">日本環球影城 USJ 全員圓夢日！</h3>
+        
+        <div class="mt-3 space-y-2 text-xs">
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當日氣溫</span>
+            <strong class="text-slate-800">約 3°C ～ 11°C（海灣微風，保暖防寒）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當晚住宿</span>
+            <strong class="text-indigo-600 font-bold">宿大阪心齋橋 MIMARU（連住第 5 晚）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">出行成員</span>
+            <strong class="text-slate-800">9 人全員出擊</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5">
+            <span class="text-slate-400">交通工具</span>
+            <strong class="text-slate-800">2 台計程車門對門直達（25分鐘免擠車）</strong>
+          </div>
+        </div>
+
+        <div class="mt-4 bg-indigo-50/80 border border-indigo-100 p-3 rounded-2xl text-xs text-indigo-950 leading-relaxed">
+          💡 <strong>當日重點心法</strong>：長輩租輪椅尊榮看遊行、幼童室內暖氣球池不吹風、大人 Child Switch 接力刷設施！
+        </div>
+      </div>
+    </div>
+    
+        <div class="lg:col-span-8 space-y-2">
+          
+    <!-- Spot Card 1 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          1
+        </div>
+        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400&q=80" alt="飯店門口搭 2 台計程車直達 USJ 大門（25分鐘）" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🚕</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">08:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(專車出擊)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            飯店門口搭 2 台計程車直達 USJ 大門（25分鐘）
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            車程 00 時 25 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🚪 免擠地鐵換線</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">直達驗票大閘門</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">門口¥500租長輩輪椅</span>
+          </div>
+          <a href="https://maps.google.com/?q=Universal+Studios+Japan" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 08 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+        <div class="my-2 p-2 sm:p-2.5 bg-orange-50/90 border border-orange-200/80 rounded-xl flex items-center justify-between text-xs text-orange-950 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="bg-[#ff5a00] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow-2xs">貼心</span>
+            <span class="font-medium text-slate-800 text-[11px] sm:text-xs">入門第一步：¥500 租借長輩輪椅！看遊行排第一排，平坦柏油路推車超尊榮</span>
+          </div>
+          <span class="text-orange-500 font-bold ml-1.5">❯</span>
+        </div>
+        
+    </div>
+    
+    <!-- Spot Card 2 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          2
+        </div>
+        <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=400&q=80" alt="超級任天堂世界：耀西冒險 ＆ 瑪利歐賽車（Child Switch）" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🍄</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">09:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(任天堂王國)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            超級任天堂世界：耀西冒險 ＆ 瑪利歐賽車（Child Switch）
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 03 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🐢 耀西冒險全員搭乘(92cm)</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🏎️ 大人換手乘車玩賽車</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">長輩小童在休息室喝熱飲</span>
+          </div>
+          <a href="https://maps.google.com/?q=Super+Nintendo+World+USJ" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 05 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 3 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          3
+        </div>
+        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&q=80" alt="日式雅致餐廳「彩道」溫暖午餐 ＆ 歡樂好聲音（Sing）大劇院" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🍲</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">12:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(避風休息)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            日式雅致餐廳「彩道」溫暖午餐 ＆ 歡樂好聲音（Sing）大劇院
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 01 時 30 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">長輩最愛熟食御膳</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🎭 百老匯級室內暖氣歌舞</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">軟質沙發椅充分歇腳</span>
+          </div>
+          <a href="https://maps.google.com/?q=Saido+Restaurant+USJ" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚶</span>
+        <span>00 時 05 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 4 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          4
+        </div>
+        <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=400&q=80" alt="哈利波特城堡絕美合影 ＆ 環球奇境史努比室內暖氣球池" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🏰</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">14:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(魔法奇境)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            哈利波特城堡絕美合影 ＆ 環球奇境史努比室內暖氣球池
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">霍格華茲全家合影</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🐶 艾蒙室內球池幼童放電</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">16:30 見好就收搭計程車回飯店</span>
+          </div>
+          <a href="https://maps.google.com/?q=The+Wizarding+World+of+Harry+Potter+USJ" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Day Content: d8 -->
+    <div id="sub-page-d8" class="day-sub-content hidden space-y-4">
+      
+      <!-- Date & Action Bar (去趣風格) -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 pt-1 border-b border-slate-200/80">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>03/03 週三 難波空中花園 ➔ 送機返台</span>
+          </h2>
+        </div>
+
+        <!-- Action Pills Bar -->
+        <div class="flex items-center gap-2">
+          <!-- Dropdown Mode Pill -->
+          <button class="bg-white border border-slate-250 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-700 shadow-2xs hover:bg-slate-50 flex items-center gap-1.5 transition">
+            <span>🚐 送機包車 Hiace ∨</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+
+          <!-- Blue Action Button -->
+          <button onclick="openFullDayMap('d8')" class="bg-[#0084ff] hover:bg-[#0074e0] text-white px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs flex items-center gap-1.5 transition active:scale-95">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <span>Google 導航</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Responsive Grid: Sidebar + Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        
+    <div class="lg:col-span-4 space-y-4">
+      <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-black text-rose-500 uppercase tracking-wider">D8 當日導覽</span>
+        <h3 class="text-lg font-black text-slate-900 mt-1">難波空中花園 ➔ 送機返台</h3>
+        
+        <div class="mt-3 space-y-2 text-xs">
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當日氣溫</span>
+            <strong class="text-slate-800">約 4°C ～ 12°C（晴天舒適）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">當晚住宿</span>
+            <strong class="text-indigo-600 font-bold">返回溫暖的家（台北桃園）</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5 border-b border-slate-100">
+            <span class="text-slate-400">出行成員</span>
+            <strong class="text-slate-800">9 人全員順暢歸國</strong>
+          </div>
+          <div class="flex items-center justify-between py-1.5">
+            <span class="text-slate-400">交通工具</span>
+            <strong class="text-slate-800">送機包車 Toyota Hiace ＋ 國泰 CX565</strong>
+          </div>
+        </div>
+
+        <div class="mt-4 bg-indigo-50/80 border border-indigo-100 p-3 rounded-2xl text-xs text-indigo-950 leading-relaxed">
+          💡 <strong>當日重點心法</strong>：包車載運全部行李直達機場免搬動，提前 3 小時開逛關西機場 T1 免稅店！
+        </div>
+      </div>
+    </div>
+    
+        <div class="lg:col-span-8 space-y-2">
+          
+    <!-- Spot Card 1 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          1
+        </div>
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80" alt="退房 ＆ 8 件大行李（184kg）全數送上包車" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🧳</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">09:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(退房上車)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            退房 ＆ 8 件大行李（184kg）全數送上包車
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 00 時 45 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">免拖大行李搭車</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">飯店專人協助裝車</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">行李同行免寄放</span>
+          </div>
+          <a href="https://maps.google.com/?q=MIMARU+Osaka+Shinsaibashi" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚐</span>
+        <span>00 時 10 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+    </div>
+    
+    <!-- Spot Card 2 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          2
+        </div>
+        <img src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?w=400&q=80" alt="難波 Parks 階梯式空中花園散步 ＆ 最後日式土產採買" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">🌳</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">10:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(森呼吸)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            難波 Parks 階梯式空中花園散步 ＆ 最後日式土產採買
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            停留 02 時 00 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🌿 階梯峽谷綠化美景</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">無障礙斜坡電梯好推</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">採買精緻伴手禮點心</span>
+          </div>
+          <a href="https://maps.google.com/?q=Namba+Parks" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-segment">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 bg-white border border-slate-200/80 rounded-full px-3 py-1 shadow-2xs hover:bg-slate-50 transition cursor-pointer">
+        <span>🚐</span>
+        <span>00 時 45 分</span>
+        <span class="text-slate-400">›</span>
+      </div>
+      
+        <div class="my-2 p-2 sm:p-2.5 bg-orange-50/90 border border-orange-200/80 rounded-xl flex items-center justify-between text-xs text-orange-950 shadow-2xs">
+          <div class="flex items-center gap-2">
+            <span class="bg-[#ff5a00] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow-2xs">貼心</span>
+            <span class="font-medium text-slate-800 text-[11px] sm:text-xs">提前 3 小時抵達機場，悠閒托運行李後逛免稅店採買生巧克力</span>
+          </div>
+          <span class="text-orange-500 font-bold ml-1.5">❯</span>
+        </div>
+        
+    </div>
+    
+    <!-- Spot Card 3 -->
+    <div class="spot-card relative bg-white rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-150 flex gap-3 sm:gap-4 items-stretch transition hover:shadow-md">
+      <!-- Left Thumbnail with Red Number Badge -->
+      <div class="relative flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-slate-100">
+        <div class="num-badge absolute top-0 left-0 bg-[#ff1844] text-white font-black text-xs px-2 py-0.5 rounded-br-lg shadow-sm z-10 min-w-[22px] flex items-center justify-center">
+          3
+        </div>
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=80" alt="關西機場 T1 報到托運 ➔ 免稅店 ➔ 16:15 CX565 返台" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center gap-1.5 text-xs">
+            <span class="w-4 h-4 rounded-full bg-rose-50 text-[#ff1844] flex items-center justify-center text-[10px] font-bold">✈️</span>
+            <span class="font-extrabold text-[#ff1844] text-xs sm:text-sm">13:30</span>
+            <span class="text-slate-400 text-[11px] font-medium">(順暢返航)</span>
+          </div>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug truncate mt-1">
+            關西機場 T1 報到托運 ➔ 免稅店 ➔ 16:15 CX565 返台
+          </h4>
+
+          <div class="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">
+            航程 02 時 45 分
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-100/90">
+          <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🛍️ 免稅店白色戀人生巧克力</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">🛫 16:15 CX565 起飛</span><span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md text-[10px] font-semibold whitespace-nowrap">18:30 平安抵達台北桃園 T1</span>
+          </div>
+          <a href="https://maps.google.com/?q=Kansai+International+Airport" target="_blank" title="開啟 Google Maps 導航" class="nav-plane-btn flex-shrink-0 text-slate-400 hover:text-blue-600 hover:border-blue-500 shadow-2xs">
+            <svg class="w-3.5 h-3.5 rotate-45 -translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+        </div>
+      </div>
+
+    </div>
+    
+    </div>
+
+    <!-- OVERVIEW PAGE -->
+    <div id="page-overview" class="main-sec hidden space-y-6">
       <!-- Strategy Highlights Hero Card -->
       <div class="bg-white rounded-3xl p-5 md:p-7 shadow-sm border border-slate-200/80">
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between pb-4 border-b border-slate-100 gap-3">
@@ -303,450 +2343,8 @@
     </div>
 
     <!-- ==================== TAB 2: ITINERARY ==================== -->
-    <div id="page-itinerary" class="main-sec hidden space-y-5">
-      <!-- Sub-day switcher tabs -->
-      <div class="bg-white p-2.5 rounded-2xl shadow-sm border border-slate-200/70">
-        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar md:justify-center">
-          <button onclick="switchDaySub('d1')" id="sub-tab-d1" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 subtab-active transition whitespace-nowrap">D1 2/24 週三</button>
-          <button onclick="switchDaySub('d2')" id="sub-tab-d2" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D2 2/25 週四</button>
-          <button onclick="switchDaySub('d3')" id="sub-tab-d3" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D3 2/26 週五</button>
-          <button onclick="switchDaySub('d4')" id="sub-tab-d4" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D4 2/27 週六</button>
-          <button onclick="switchDaySub('d5')" id="sub-tab-d5" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D5 2/28 週日</button>
-          <button onclick="switchDaySub('d6')" id="sub-tab-d6" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D6 3/01 週一</button>
-          <button onclick="switchDaySub('d7')" id="sub-tab-d7" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D7 3/02 週二</button>
-          <button onclick="switchDaySub('d8')" id="sub-tab-d8" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D8 3/03 週三</button>
-        </div>
-      </div>
 
-      <!-- D1 Content -->
-      <div id="sub-page-d1" class="day-sub-content space-y-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          <!-- Left Column (Desktop 4 cols): Overview & Advice -->
-          <div class="lg:col-span-4 space-y-4">
-            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
-              <span class="text-xs font-bold text-indigo-600">Day 1 ｜ 2027/02/24 (週三)</span>
-              <h3 class="text-lg font-bold text-slate-900 mt-1">抵達關西 ➔ Haruka 直達京都</h3>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">當日氣溫</span>
-                  <strong class="text-slate-800">約 3°C ～ 11°C</strong>
-                </div>
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">當晚住宿</span>
-                  <strong class="text-indigo-600 font-bold">宿京都 MIMARU 站前</strong>
-                </div>
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">出行成員</span>
-                  <strong class="text-slate-800">8 人出發（5大2幼1嬰）</strong>
-                </div>
-                <div class="flex items-center justify-between py-1">
-                  <span class="text-slate-400">交通工具</span>
-                  <strong class="text-slate-800">JR 關空特急 Haruka 直達</strong>
-                </div>
-              </div>
-              <div class="mt-4 bg-indigo-50 p-3 rounded-xl text-xs text-indigo-950 leading-relaxed">
-                💡 <strong>首日亮點</strong>：出關直接在機場車站上車，78分鐘免換車直達京都車站，不需在大阪地鐵拉行李！
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column (Desktop 8 cols): Timeline Cards -->
-          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <div class="flex justify-between items-center text-slate-400 font-semibold text-xs">
-                <span>11:15 - 14:45</span>
-                <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded">航程 2h 30m</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🛫 國泰 CX564 台北桃園直飛大阪關西 T1</h4>
-              <p class="text-slate-600 mt-1">預選第一排嬰兒搖籃座與幼童餐。抵達後推車直接在機艙門口提領。</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <div class="flex justify-between items-center text-slate-400 font-semibold text-xs">
-                <span>15:45 - 17:15</span>
-                <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-bold">直達指定席</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🚆 搭乘 JR 關空特急 Haruka 直達京都車站</h4>
-              <p class="text-slate-600 mt-1">出關直上空橋至 JR 車站，行車 78 分鐘直達京都車站！大件行李放置於車廂行李架，Hello Kitty 彩繪幼童超喜歡。</p>
-              <a href="https://maps.google.com/?q=Kyoto+Station" target="_blank" class="mt-2 inline-block px-3 py-1 bg-indigo-50 text-indigo-700 font-bold rounded-lg text-xs">📍 京都車站 Google Maps</a>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <div class="flex justify-between items-center text-slate-400 font-semibold text-xs">
-                <span>17:30 入住</span>
-                <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-bold">步行 3 分鐘</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🏨 入住 MIMARU 京都站前（連住 2 晚）</h4>
-              <p class="text-slate-600 mt-1">公寓式大房型有小廚房、客廳沙發與洗脫烘衣機。長輩泡茶休息、幼童安置補充水份。</p>
-              <a href="https://maps.google.com/?q=MIMARU+KYOTO+STATION" target="_blank" class="mt-2 inline-block px-3 py-1 bg-emerald-50 text-emerald-700 font-bold rounded-lg text-xs">📍 飯店位置導航</a>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <div class="flex justify-between items-center text-slate-400 font-semibold text-xs">
-                <span>18:30 晚餐</span>
-                <span class="bg-amber-50 text-amber-700 px-2 py-0.5 rounded font-bold">推車直達</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🍲 京都車站伊勢丹百貨 11F 美食街</h4>
-              <p class="text-slate-600 mt-1">無障礙電梯直通，品嚐三嶋亭壽喜燒或炸豬排定食。地下超市採買當晚水果、日本鮮乳與早餐麵包。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- D2 Content -->
-      <div id="sub-page-d2" class="day-sub-content hidden space-y-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          <div class="lg:col-span-4 space-y-4">
-            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
-              <span class="text-xs font-bold text-rose-600">Day 2 ｜ 2027/02/25 (週四)</span>
-              <h3 class="text-lg font-bold text-slate-900 mt-1">🌸 北野天滿宮梅花祭 ＋ 鐵道館</h3>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">當日特色</span>
-                  <strong class="text-rose-600 font-bold">2/25 一年一度梅花祭 ＋ 天神市</strong>
-                </div>
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">當晚住宿</span>
-                  <strong class="text-slate-800">宿京都 MIMARU 站前</strong>
-                </div>
-                <div class="flex items-center justify-between py-1">
-                  <span class="text-slate-400">交通建議</span>
-                  <strong class="text-slate-800">短程計程車（免等公車受凍）</strong>
-                </div>
-              </div>
-              <div class="mt-4 bg-rose-50 p-3 rounded-xl text-xs text-rose-950 leading-relaxed">
-                💡 <strong>推車動線</strong>：北野天滿宮主參道為平整石板路；鐵道博物館 100% 全館平坦無障礙電梯。
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">09:30 - 12:30 上午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🚂 京都鐵道博物館（全室內暖氣避寒）</h4>
-              <p class="text-slate-600 mt-1">收藏 53 輛真火車、新幹線實車近距離接觸、蒸汽火車扇形車庫。2 樓景觀餐廳邊吃火車造型便當邊看東海道新幹線疾駛奔馳！</p>
-              <div class="flex gap-2 mt-2">
-                <a href="https://maps.google.com/?q=Kyoto+Railway+Museum" target="_blank" class="px-3 py-1 bg-blue-50 text-blue-700 font-bold rounded-lg text-xs">📍 鐵道館 Google Maps</a>
-                <a href="https://www.youtube.com/watch?v=F_fV171xOqQ" target="_blank" class="px-3 py-1 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">▶️ YouTube 介紹</a>
-              </div>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">13:30 - 16:00 下午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🌸 北野天滿宮（2/25 年度盛事「梅花祭」滿開）</h4>
-              <p class="text-slate-600 mt-1">搭計程車直接抵達！2,000 株梅花此時正值滿開盛放花海，走平坦石板參道賞梅聞香、摸撫神牛祈福，順逛每月 25 日著名的「天神市」市集。</p>
-              <a href="https://maps.google.com/?q=Kitano+Tenmangu" target="_blank" class="mt-2 inline-block px-3 py-1 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">📍 天滿宮 Google Maps</a>
-            </div>
-
-            <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl text-emerald-950">
-              <h4 class="font-bold text-base">🛌 16:30 - 18:30 飯店全員充電休整</h4>
-              <p class="mt-1 text-xs md:text-sm text-emerald-800">住京都不必匆忙趕回大阪！長輩與小孩在房間舒適午休洗澡，晚間於京都車站品嚐清爽湯豆腐或日式和牛火鍋。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- D3 Content -->
-      <div id="sub-page-d3" class="day-sub-content hidden space-y-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          <div class="lg:col-span-4 space-y-4">
-            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
-              <span class="text-xs font-bold text-blue-600">Day 3 ｜ 2027/02/26 (週五)</span>
-              <h3 class="text-lg font-bold text-slate-900 mt-1">移防大阪 ➔ 大阪城梅林滿開</h3>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">跨城移動</span>
-                  <strong class="text-blue-600 font-bold">JR 新快速 29 分鐘直達</strong>
-                </div>
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">當晚住宿</span>
-                  <strong class="text-slate-800 font-bold">宿大阪心齋橋（連住5晚）</strong>
-                </div>
-              </div>
-              <div class="mt-4 bg-blue-50 p-3 rounded-xl text-xs text-blue-950 leading-relaxed">
-                💡 <strong>電梯出口</strong>：大阪城走「森之宮站 3-B 號電梯出口」直達地面公園，完全沒有任何階梯！
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">10:00 - 11:30 上午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🧳 退房移動至大阪心齋橋</h4>
-              <p class="text-slate-600 mt-1">JR新快速 29分鐘抵達大阪梅田，轉計程車至 MIMARU 大阪 心齋橋先放行李。</p>
-              <a href="https://maps.google.com/?q=MIMARU+Osaka+Shinsaibashi" target="_blank" class="mt-2 inline-block px-3 py-1 bg-indigo-50 text-indigo-700 font-bold rounded-lg text-xs">📍 MIMARU 心齋橋導航</a>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">13:00 - 16:00 下午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🌸 大阪城梅林滿開（1,270 株見頃花海） ＋ 御座船</h4>
-              <p class="text-slate-600 mt-1">此時正是大阪城梅林全年最壯麗花期！粉白花海香氣撲鼻，平坦柏油路推車好推。搭乘金色御座船巡航護城河 20 分鐘，JO-TERRACE 景觀午茶。</p>
-              <a href="https://maps.google.com/?q=Osaka+Castle+Plum+Grove" target="_blank" class="mt-2 inline-block px-3 py-1 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">📍 大阪城梅林 Google Maps</a>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">17:30 傍晚</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🛒 心齋橋筋雨棚街散步 ＋ 暖胃晚餐</h4>
-              <p class="text-slate-600 mt-1">雨棚避風防寒，晚餐安排道頓堀暖心烏龍麵或日式壽喜燒定食。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- D4 Content -->
-      <div id="sub-page-d4" class="day-sub-content hidden space-y-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          <div class="lg:col-span-4 space-y-4">
-            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
-              <span class="text-xs font-bold text-emerald-600">Day 4 ｜ 2027/02/27 (週六)</span>
-              <h3 class="text-lg font-bold text-slate-900 mt-1">🎉 9人全員到齊！HARUKAS 夕陽</h3>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">成員變化</span>
-                  <strong class="text-emerald-600 font-bold">8 人 ➔ 9 人全員會合！</strong>
-                </div>
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">當日晚餐</span>
-                  <strong class="text-slate-800">全員團聚慶祝大餐</strong>
-                </div>
-              </div>
-              <div class="mt-4 bg-emerald-50 p-3 rounded-xl text-xs text-emerald-950 leading-relaxed">
-                💡 <strong>新成員（第 9 位成員）班機已訂妥</strong>：國泰 CX564 14:45 抵關西 T1，搭乘南海特急 Rapi:t 直達難波站（38分鐘），轉排班計程車 5 分鐘抵達飯店！
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">09:30 - 11:30 上午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🍢 主部隊慢步黑門市場</h4>
-              <p class="text-slate-600 mt-1">步行或 1 站地鐵！品嚐烤海鮮、草莓大福、豆乳甜點與玉子燒。</p>
-            </div>
-
-            <div class="bg-indigo-50/70 border border-indigo-200 p-4 rounded-2xl text-indigo-950">
-              <span class="text-indigo-600 font-semibold text-xs">11:15 - 16:30 飛行與午後大休整</span>
-              <h4 class="font-bold text-base mt-1">🛫 CX564 飛行入境 ＆ 主部隊午後避寒充電</h4>
-              <p class="mt-1 text-xs md:text-sm text-slate-700">新成員 11:15 桃機起飛、14:45 降落關西 T1。大部隊 13:00 返回飯店，長輩泡茶歇腳、幼童換尿布午睡，全團徹底避開寒風充電！</p>
-            </div>
-
-            <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl text-emerald-950">
-              <h4 class="font-bold text-base">🎉 16:45 第九名成員抵達與飯店客廳大會合！</h4>
-              <p class="mt-1 text-xs md:text-sm text-slate-700">新成員搭南海 Rapi:t（38分）轉計程車順利抵達飯店大門。<strong>9 人全員在客廳大團聚、拍全家大合照！</strong> 卸下大行李梳洗準備出發。</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">17:30 - 18:30 傍晚</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🏙️ HARUKAS 300 展望台夕陽夜景 ＋ Q's Mall</h4>
-              <p class="text-slate-600 mt-1">天王寺站無障礙直達！直上 60 樓玻璃景觀台看大阪平原金黃夕陽轉百萬夜景；媽媽們逛阿卡將本舖，長輩咖啡座悠閒歇腳。</p>
-              <a href="https://maps.google.com/?q=Harukas+300" target="_blank" class="mt-2 inline-block px-3 py-1 bg-indigo-50 text-indigo-700 font-bold rounded-lg text-xs">📍 HARUKAS 300 導航</a>
-            </div>
-
-            <div class="bg-rose-50 border border-rose-200 p-4 rounded-2xl text-rose-950 font-bold">
-              🥩 18:30 【9人全員團聚晚宴】預約近鐵百貨頂樓景觀和牛餐廳或心齋橋和牛包廂
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- D5 Content -->
-      <div id="sub-page-d5" class="day-sub-content hidden space-y-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          <div class="lg:col-span-4 space-y-4">
-            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
-              <span class="text-xs font-bold text-rose-600">Day 5 ｜ 2027/02/28 (週日)</span>
-              <h3 class="text-lg font-bold text-slate-900 mt-1">🍓 Harvest Hill 採草莓吃到飽</h3>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">交通方式</span>
-                  <strong class="text-rose-600 font-bold">全日 9 人座包車 Hiace</strong>
-                </div>
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">當日亮點</span>
-                  <strong class="text-slate-800">溫室極甜草莓 ＋ 水豚羊駝</strong>
-                </div>
-              </div>
-              <div class="mt-4 bg-rose-50 p-3 rounded-xl text-xs text-rose-950 leading-relaxed">
-                💡 <strong>長輩推車友善</strong>：高架式草莓園讓長輩站著採不腰痠，溫室內無風溫暖（約 18°C~20°C）。
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">09:30 - 10:15 出發</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🚐 飯店門口上車直達堺市 Harvest Hill</h4>
-              <p class="text-slate-600 mt-1">車程約 40 分鐘，直達農場入口免走路。</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">10:30 - 11:30 上午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🍓 溫室高架草莓現採吃到飽（30分鐘）</h4>
-              <p class="text-slate-600 mt-1">2月下旬寒冬糖度累積巔峰！日本頂級鮮甜草莓，溫室防風溫暖，幼童與長輩吃得開心又保暖。</p>
-              <a href="https://maps.google.com/?q=Harvest+Hill+Sakai" target="_blank" class="mt-2 inline-block px-3 py-1 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">📍 農場 Google Maps</a>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">11:30 - 14:30 下午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🦙 石窯披薩午餐 ＋ 餵食水豚 ＋ 森林小火車</h4>
-              <p class="text-slate-600 mt-1">園區自產香腸披薩、近距離餵水豚羊駝小羊、森林家族造景村合影。</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">15:30 傍晚</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🚐 包車舒適返回大阪飯店休息</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- D6 Content -->
-      <div id="sub-page-d6" class="day-sub-content hidden space-y-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          <div class="lg:col-span-4 space-y-4">
-            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
-              <span class="text-xs font-bold text-amber-600">Day 6 ｜ 2027/03/01 (週一)</span>
-              <h3 class="text-lg font-bold text-slate-900 mt-1">🧱 天保山樂高避寒 ＋ 摩天輪</h3>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">當日定位</span>
-                  <strong class="text-amber-600 font-bold">全室內避寒 ＋ 充電休整</strong>
-                </div>
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">戰略意義</span>
-                  <strong class="text-slate-800">為次日 USJ 儲備 100% 體力</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">10:00 - 12:30 上午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🧱 天保山樂高樂園探索中心（全室內暖氣）</h4>
-              <p class="text-slate-600 mt-1">大阪港站 1 號出口直梯！室內 4D 動感劇院、樂高迷你大阪城、積木池，幼童盡情放電。</p>
-              <a href="https://maps.google.com/?q=Legoland+Discovery+Center+Osaka" target="_blank" class="mt-2 inline-block px-3 py-1 bg-amber-50 text-amber-700 font-bold rounded-lg text-xs">📍 樂高樂園 Google Maps</a>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">13:40 - 14:30 下午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🎡 天保山大摩天輪</h4>
-              <p class="text-slate-600 mt-1">密閉防風保暖車廂，眺望大阪灣跨海大橋海景，長幼同享 15 分鐘平穩旋轉。</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">15:30 傍晚</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🛍️ 飯店充分午休 ＋ 心齋橋電器藥妝補貨</h4>
-              <p class="text-slate-600 mt-1">早早吃晚餐回房休息，全家為隔天環球影城儲備體能！</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- D7 Content: USJ -->
-      <div id="sub-page-d7" class="day-sub-content hidden space-y-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          <div class="lg:col-span-4 space-y-4">
-            <div class="bg-gradient-to-br from-purple-900 via-indigo-950 to-purple-900 text-white p-5 rounded-3xl shadow-sm">
-              <span class="text-xs font-bold text-purple-200">Day 7 ｜ 2027/03/02 (週二)</span>
-              <h3 class="text-lg font-bold mt-1">🍄 日本環球影城 USJ 全員圓夢日！</h3>
-              <div class="mt-3 space-y-2 text-xs text-purple-100">
-                <div class="flex items-center justify-between py-1 border-b border-purple-800">
-                  <span class="text-purple-300">客流評等</span>
-                  <strong class="text-amber-300 font-bold">全週最少人黃金日！</strong>
-                </div>
-                <div class="flex items-center justify-between py-1 border-b border-purple-800">
-                  <span class="text-purple-300">接駁方式</span>
-                  <strong class="text-white">2台計程車門對門直達</strong>
-                </div>
-              </div>
-              <div class="mt-4 bg-white/10 p-3 rounded-xl text-xs text-purple-100 leading-relaxed">
-                💡 <strong>三大保證</strong>：長輩租輪椅不走路、幼童室內暖氣球池不吹風、大人 Child Switch 刷設施！
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">08:30 - 09:00</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🚕 飯店門口搭 2 台計程車直達 USJ（25分鐘）</h4>
-              <p class="text-slate-600 mt-1">免擠地鐵換線，在門口下車直達驗票閘門。</p>
-            </div>
-
-            <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-amber-950">
-              <h4 class="font-bold text-base">💡 入門第一步：¥500 租借長輩輪椅 ＋ App よやくのり</h4>
-              <p class="mt-1 text-xs md:text-sm text-slate-700">驗票口右側租輪椅給長輩，平坦柏油路推行尊榮免走萬步；手機 App 預約「環球奇境」親子設施（史努比/小小兵）。</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">09:30 - 12:00 上午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🍄 超級任天堂世界：耀西冒險 ＋ 瑪利歐賽車</h4>
-              <p class="text-slate-600 mt-1">全家搭乘平穩可愛的「耀西冒險（滿92cm）」；年輕人使用 **Child Switch（輪流乘坐）** 挑戰瑪利歐賽車，長輩在專屬休息室陪小童喝熱可可！</p>
-              <a href="https://maps.google.com/?q=Universal+Studios+Japan" target="_blank" class="mt-2 inline-block px-3 py-1 bg-purple-50 text-purple-700 font-bold rounded-lg text-xs">📍 USJ Google Maps</a>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">12:30 - 14:00 午餐與表演</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🍲 日式餐廳「彩道」溫暖午餐 ＋ Sing 室內大劇院</h4>
-              <p class="text-slate-600 mt-1">長輩最愛的熟食御膳定食；午後至「歡樂好聲音（Sing）」室內大劇院吹暖氣看歌舞秀放鬆。</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">14:30 - 16:30 下午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🏰 哈利波特城堡拍照 ＋ 史努比室內球池</h4>
-              <p class="text-slate-600 mt-1">霍格華茲全家合影，傍晚 16:30 見好就收搭計程車返回飯店，吃溫暖大餐！</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- D8 Content -->
-      <div id="sub-page-d8" class="day-sub-content hidden space-y-4">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          <div class="lg:col-span-4 space-y-4">
-            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
-              <span class="text-xs font-bold text-teal-600">Day 8 ｜ 2027/03/03 (週三)</span>
-              <h3 class="text-lg font-bold text-slate-900 mt-1">🛫 難波空中花園 ➔ 送機返台</h3>
-              <div class="mt-3 space-y-2 text-xs">
-                <div class="flex items-center justify-between py-1 border-b">
-                  <span class="text-slate-400">返台航班</span>
-                  <strong class="text-teal-700 font-bold">國泰 CX565 16:15➔18:30</strong>
-                </div>
-                <div class="flex items-center justify-between py-1">
-                  <span class="text-slate-400">行李配額</span>
-                  <strong class="text-slate-800">8 件行李 184kg 托運</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">09:30 - 10:30 上午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🏨 退房 ＋ 8 咖行李上包車</h4>
-              <p class="text-slate-600 mt-1">包車直接載運全家大行李，免拖推車走大街。</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">10:30 - 12:30 上午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🌳 難波 Parks 階梯空中花園散步與最後採買</h4>
-              <p class="text-slate-600 mt-1">綠化階梯商場散步，採買精緻日本點心伴手禮。</p>
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
-              <span class="text-slate-400 font-semibold text-xs">12:30 - 13:30 下午</span>
-              <h4 class="font-bold text-slate-900 text-base mt-1">🚐 包車直達關西機場 T1（45分鐘）</h4>
-              <p class="text-slate-600 mt-1">13:30 抵達櫃檯提早托運通關，免稅店採買生巧克力。</p>
-            </div>
-
-            <div class="bg-teal-50 border border-teal-200 p-4 rounded-2xl text-teal-950 font-bold">
-              ✈️ 16:15 國泰 CX565 起飛 ➔ 18:30 平安降落台北桃園 T1，圓滿結束 8 天之旅！
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== TAB 3: USJ ==================== -->
+    <!-- USJ PAGE -->
     <div id="page-usj" class="main-sec hidden space-y-5">
       <div class="bg-gradient-to-r from-purple-950 via-indigo-950 to-purple-900 text-white p-5 md:p-7 rounded-3xl shadow-sm">
         <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">USJ 三代同堂全員圓夢攻略</span>
@@ -817,6 +2415,8 @@
     </div>
 
     <!-- ==================== TAB 4: KYOTO SPOTS ==================== -->
+
+    <!-- KYOTO SPOTS PAGE -->
     <div id="page-kyoto-spots" class="main-sec hidden space-y-5">
       <div class="bg-white p-5 md:p-6 rounded-3xl shadow-sm border border-slate-200/80">
         <span class="text-xs font-bold text-rose-600">京都前兩天候選大庫</span>
@@ -927,6 +2527,8 @@
     </div>
 
     <!-- ==================== TAB 5: OSAKA SPOTS ==================== -->
+
+    <!-- OSAKA SPOTS PAGE -->
     <div id="page-osaka-spots" class="main-sec hidden space-y-5">
       <div class="bg-white p-5 md:p-6 rounded-3xl shadow-sm border border-slate-200/80">
         <span class="text-xs font-bold text-indigo-600">大阪與近郊備選大庫</span>
@@ -994,6 +2596,8 @@
     </div>
 
     <!-- ==================== TAB 6: HOTELS ==================== -->
+
+    <!-- HOTELS PAGE -->
     <div id="page-hotels" class="main-sec hidden space-y-5">
       <div class="bg-white p-5 md:p-6 rounded-3xl shadow-sm border border-slate-200/80">
         <span class="text-xs font-bold text-indigo-600">京都 2 晚 ＋ 大阪 5 晚</span>
@@ -1061,6 +2665,8 @@
     </div>
 
     <!-- ==================== TAB 7: PACKING ==================== -->
+
+    <!-- PACKING CHECKLIST PAGE -->
     <div id="page-packing" class="main-sec hidden space-y-5">
       <div class="bg-white p-5 md:p-6 rounded-3xl shadow-sm border border-slate-200/80">
         <span class="text-xs font-bold text-indigo-600">隨行裝備與打包全攻略</span>
@@ -1243,6 +2849,8 @@
     </div>
 
     <!-- ==================== TAB 8: EMERGENCY ==================== -->
+
+    <!-- EMERGENCY PAGE -->
     <div id="page-emergency" class="main-sec hidden space-y-5">
       <div class="bg-rose-600 text-white p-5 md:p-6 rounded-3xl shadow-md">
         <span class="text-xs uppercase font-bold tracking-wider text-rose-200">緊急應變專線</span>
@@ -1326,34 +2934,108 @@
 
   </main>
 
-  <!-- Sticky Bottom Navigation Bar (Mobile Only: hidden on md screens) -->
-  <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 py-2 z-50 shadow-lg">
-    <div class="max-w-md mx-auto px-4 flex justify-around items-center text-[10px] font-semibold text-slate-500">
-      <button onclick="switchMainTab('overview')" class="flex flex-col items-center gap-1 active:scale-95 transition">
-        <span class="text-base">📋</span>
-        <span>總覽</span>
+  <!-- ==================== FLOATING ACTION BUTTONS (去趣風格) ==================== -->
+  <div class="fixed right-4 sm:right-8 bottom-6 z-40 flex flex-col items-center gap-3">
+    <!-- Orange Plus Button -->
+    <button onclick="openAddSpotModal()" class="w-12 h-12 rounded-full bg-[#ff9500] hover:bg-[#e68600] text-white shadow-xl flex items-center justify-center text-2xl font-bold cursor-pointer transition active:scale-90" title="新增自訂行程/筆記">
+      ＋
+    </button>
+    
+    <!-- Dark Capsule Map/List Toggle -->
+    <div class="bg-[#243342] text-white rounded-2xl w-11 h-20 shadow-xl flex flex-col items-center justify-around py-1.5 border border-slate-700/50">
+      <button onclick="openCurrentDayMap()" class="text-lg hover:text-blue-400 transition" title="開啟當日 Google 地圖全景">
+        🗺️
       </button>
-      <button onclick="switchMainTab('itinerary')" class="flex flex-col items-center gap-1 active:scale-95 transition">
-        <span class="text-base">📅</span>
-        <span>日程</span>
-      </button>
-      <button onclick="switchMainTab('usj')" class="flex flex-col items-center gap-1 active:scale-95 transition">
-        <span class="text-base">🍄</span>
-        <span>USJ</span>
-      </button>
-      <button onclick="switchMainTab('hotels')" class="flex flex-col items-center gap-1 active:scale-95 transition">
-        <span class="text-base">🏨</span>
-        <span>住宿</span>
-      </button>
-      <button onclick="switchMainTab('packing')" class="flex flex-col items-center gap-1 active:scale-95 transition">
-        <span class="text-base">🎒</span>
-        <span>清單</span>
+      <div class="w-5 h-[1px] bg-slate-600"></div>
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-base hover:text-blue-400 transition" title="返回頂端">
+        ☰
       </button>
     </div>
-  </nav>
+  </div>
 
-  <!-- Interactive Scripts -->
+  <!-- Bottom Home Indicator Bar (Mobile App Feel) -->
+  <div class="max-w-xs mx-auto pt-8 pb-3">
+    <div class="w-32 h-1 bg-slate-900/40 rounded-full mx-auto"></div>
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+  <!-- 1. 發佈行程 Modal -->
+  <div id="publish-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 class="text-base font-extrabold text-slate-900">✨ 發佈與分享隨身路書</h3>
+        <button onclick="closePublishModal()" class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200">✕</button>
+      </div>
+      <p class="text-xs text-slate-600 leading-relaxed">
+        本旅行路書已發佈至 GitHub Pages，支援所有家族成員手機直連、離線儲存與無障礙查看：
+      </p>
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex items-center justify-between gap-2">
+        <input type="text" id="share-url" readonly value="https://yeahoo10.github.io/osaka2027/" class="bg-transparent text-xs text-slate-700 font-mono w-full outline-hidden" />
+        <button onclick="copyShareUrl()" id="copy-btn" class="px-3 py-1 rounded-lg bg-indigo-600 text-white text-xs font-bold whitespace-nowrap active:scale-95 transition">複製連結</button>
+      </div>
+      <div class="flex items-center gap-2 pt-2">
+        <button onclick="window.print()" class="flex-1 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">🖨️ 列印 / 存為 PDF</button>
+        <button onclick="closePublishModal()" class="flex-1 py-2 rounded-xl bg-[#0084ff] hover:bg-[#0074e0] text-white text-xs font-bold transition">完成</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 設定 Modal -->
+  <div id="settings-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 class="text-base font-extrabold text-slate-900">⚙️ 路書閱讀與長輩友善設定</h3>
+        <button onclick="closeSettingsModal()" class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200">✕</button>
+      </div>
+      <div class="space-y-3 text-xs">
+        <div class="flex items-center justify-between p-3 bg-slate-50 rounded-2xl">
+          <div>
+            <div class="font-bold text-slate-800">長輩大字體模式</div>
+            <div class="text-[11px] text-slate-500">放大行程字體與標題，便於長輩隨身閱讀</div>
+          </div>
+          <button onclick="toggleElderFont()" id="font-toggle-btn" class="px-3 py-1 bg-slate-200 font-bold rounded-lg text-slate-700">標準</button>
+        </div>
+        <div class="p-3 bg-slate-50 rounded-2xl space-y-1">
+          <div class="font-bold text-slate-800">家族成員即時備忘</div>
+          <div class="text-[11px] text-slate-500">68歲長輩、5歲女孩、3歲女孩、1歲男嬰及成人照顧者</div>
+        </div>
+      </div>
+      <button onclick="closeSettingsModal()" class="w-full py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold">關閉</button>
+    </div>
+  </div>
+
+  <!-- 3. 新增景點 Modal -->
+  <div id="add-spot-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+        <h3 class="text-base font-extrabold text-slate-900">➕ 新增自訂景點 / 臨時筆記</h3>
+        <button onclick="closeAddSpotModal()" class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200">✕</button>
+      </div>
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">景點或地點名稱</label>
+          <input type="text" id="new-spot-title" placeholder="例如：便利商店補給或藥妝店" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-hidden focus:border-blue-500" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">預計時間與停留</label>
+          <input type="text" id="new-spot-time" placeholder="例如：14:30 停留 30 分鐘" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-hidden focus:border-blue-500" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">無障礙或哺乳筆記</label>
+          <input type="text" id="new-spot-note" placeholder="例如：有電梯、可買熱水" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-hidden focus:border-blue-500" />
+        </div>
+      </div>
+      <div class="flex items-center gap-2 pt-2">
+        <button onclick="closeAddSpotModal()" class="flex-1 py-2 rounded-xl bg-slate-100 text-slate-600 text-xs font-bold">取消</button>
+        <button onclick="saveCustomSpot()" class="flex-1 py-2 rounded-xl bg-[#ff9500] hover:bg-[#e68600] text-white text-xs font-bold transition">儲存筆記</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
   <script>
+    let currentDay = 'd1';
+
     function switchMainTab(tabId) {
       // Hide all main pages
       document.querySelectorAll('.main-sec').forEach(el => el.classList.add('hidden'));
@@ -1365,20 +3047,32 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
-      // Update Top Nav Button styles
+      // Toggle Day Switcher Bar visibility (only show on itinerary page)
+      const dayBar = document.getElementById('chictrip-day-bar');
+      if (dayBar) {
+        if (tabId === 'itinerary') {
+          dayBar.classList.remove('hidden');
+        } else {
+          dayBar.classList.add('hidden');
+        }
+      }
+
+      // Update Main Category Nav Buttons
       document.querySelectorAll('.main-tab-btn').forEach(tab => {
-        tab.classList.remove('nav-active');
-        tab.classList.add('bg-slate-800/80', 'text-slate-300');
+        tab.classList.remove('chic-tab-active');
+        tab.classList.add('text-slate-600');
       });
       const activeBtn = document.getElementById('main-tab-' + tabId);
       if (activeBtn) {
-        activeBtn.classList.add('nav-active');
-        activeBtn.classList.remove('bg-slate-800/80', 'text-slate-300');
+        activeBtn.classList.add('chic-tab-active');
+        activeBtn.classList.remove('text-slate-600');
         activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     }
 
     function switchDaySub(dayId) {
+      currentDay = dayId;
+
       // Hide all day sub-pages
       document.querySelectorAll('.day-sub-content').forEach(el => el.classList.add('hidden'));
       
@@ -1388,21 +3082,99 @@
         target.classList.remove('hidden');
       }
 
-      // Update Sub-tab Button styles
+      // Update Sub-tab Button styles (去趣風格黑底線標籤)
       document.querySelectorAll('.day-sub-btn').forEach(btn => {
-        btn.classList.remove('subtab-active');
-        btn.classList.add('text-slate-600', 'border-slate-200');
+        btn.classList.remove('chictrip-day-active');
+        btn.classList.add('text-slate-400', 'font-medium');
       });
       const activeBtn = document.getElementById('sub-tab-' + dayId);
       if (activeBtn) {
-        activeBtn.classList.add('subtab-active');
+        activeBtn.classList.add('chictrip-day-active');
+        activeBtn.classList.remove('text-slate-400', 'font-medium');
         activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     }
 
-    function jumpToDay(dayId) {
-      switchMainTab('itinerary');
-      switchDaySub(dayId);
+    function goBackOrHome() {
+      const itin = document.getElementById('page-itinerary');
+      if (itin && itin.classList.contains('hidden')) {
+        switchMainTab('itinerary');
+      } else {
+        // If already on itinerary, jump to D1 or scroll top
+        switchDaySub('d1');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    const dayMapLinks = {
+      'd1': 'https://maps.google.com/?q=Kansai+Airport+to+Kyoto+Station',
+      'd2': 'https://maps.google.com/?q=Kitano+Tenmangu+Kyoto',
+      'd3': 'https://maps.google.com/?q=Kyoto+Station+to+Osaka+Castle',
+      'd4': 'https://maps.google.com/?q=Osaka+Abeno+Harukas',
+      'd5': 'https://maps.google.com/?q=Sakai+Green+Museum+Harvest+Hill',
+      'd6': 'https://maps.google.com/?q=Tempozan+Ferris+Wheel+Osaka',
+      'd7': 'https://maps.google.com/?q=Universal+Studios+Japan',
+      'd8': 'https://maps.google.com/?q=Namba+Parks+to+Kansai+Airport'
+    };
+
+    function openFullDayMap(dayId) {
+      const link = dayMapLinks[dayId] || 'https://maps.google.com/?q=Osaka';
+      window.open(link, '_blank');
+    }
+
+    function openCurrentDayMap() {
+      openFullDayMap(currentDay);
+    }
+
+    // Modals
+    function openPublishModal() {
+      document.getElementById('publish-modal').classList.remove('hidden');
+    }
+    function closePublishModal() {
+      document.getElementById('publish-modal').classList.add('hidden');
+    }
+    function copyShareUrl() {
+      const urlInput = document.getElementById('share-url');
+      urlInput.select();
+      navigator.clipboard.writeText(urlInput.value).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.innerText = '已複製！';
+        setTimeout(() => { btn.innerText = '複製連結'; }, 2000);
+      });
+    }
+
+    function openSettingsModal() {
+      document.getElementById('settings-modal').classList.remove('hidden');
+    }
+    function closeSettingsModal() {
+      document.getElementById('settings-modal').classList.add('hidden');
+    }
+    function toggleElderFont() {
+      document.body.classList.toggle('elder-font');
+      const btn = document.getElementById('font-toggle-btn');
+      if (document.body.classList.contains('elder-font')) {
+        btn.innerText = '長輩大字體 (開啟中)';
+        btn.classList.add('bg-indigo-600', 'text-white');
+      } else {
+        btn.innerText = '標準';
+        btn.classList.remove('bg-indigo-600', 'text-white');
+      }
+    }
+
+    function openAddSpotModal() {
+      document.getElementById('add-spot-modal').classList.remove('hidden');
+    }
+    function closeAddSpotModal() {
+      document.getElementById('add-spot-modal').classList.add('hidden');
+    }
+    function saveCustomSpot() {
+      const title = document.getElementById('new-spot-title').value.trim();
+      if (!title) {
+        alert('請輸入景點或筆記名稱');
+        return;
+      }
+      alert('已成功新增筆記：「' + title + '」至當日備忘！');
+      closeAddSpotModal();
     }
 
     // Local Storage for packing checklist
