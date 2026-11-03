@@ -62,6 +62,13 @@ header.top .sub{font-size:.78rem;opacity:.9}
 .pill.ok{background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok)}
 .pill.tbd{background:var(--tbd-soft);color:var(--tbd);border:1px dashed var(--tbd)}
 .pill.info{background:var(--brand-soft);color:var(--brand)}
+.pill.no{background:var(--no-soft);color:var(--no);border:1px solid var(--no)}
+.altbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.altbar .seg{flex:1 1 auto;min-width:0;max-width:100%}
+.altbar .seg button{flex:1 1 auto;padding:7px 8px}
+.btn[aria-pressed="true"]{background:var(--q-soft);border-color:var(--q);color:var(--q)}
+.card.alt h3{margin:6px 0 4px}
+.card.alt.dim{opacity:.85}
 header .pill.ok{background:#e6f4ea;color:#1f6f32;border-color:#e6f4ea}
 header .pill.tbd{background:#fff5d6;color:#8a5a00;border-color:#ffd35c}
 
@@ -204,7 +211,7 @@ textarea{min-height:80px;resize:vertical}
 
 /* bottom nav */
 nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
-nav.tabs .wrap{display:grid;grid-template-columns:repeat(5,1fr);padding:0}
+nav.tabs .wrap{display:grid;grid-template-columns:repeat(6,1fr);padding:0}
 nav.tabs button{border:0;background:transparent;height:var(--nav);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:.72rem;font-weight:700;color:var(--muted);cursor:pointer;position:relative}
 nav.tabs button .i{font-size:1.35rem;line-height:1}
 nav.tabs button[aria-current="page"]{color:var(--brand)}
@@ -508,6 +515,56 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
     "usj": {"name":"日本環球影城 USJ","q":"ユニバーサル・スタジオ・ジャパン","elev":"園區平整柏油路，設施有無障礙斜坡與電梯；輪椅 ¥500／天","baby":"大門口與環球奇境各有一處家庭服務中心（育嬰室）","stroller":"ok","strollerNote":"設施外有推車停放區","rain":"室內劇院、環球奇境室內館"}
   },
 
+  "alternates": {
+    "note": "從 10-景點資料庫 整理、目前沒有排進每日行程的候選景點。想去的點 👍／❤️，會跟著「💬 意見」頁一起傳到 LINE。已排進行程的景點（鐵道博物館、北野天滿宮、大阪城、HARUKAS、Harvest Hill、樂高、USJ、奈良、神戶動物王國、Kids Plaza 等）不重複列。",
+    "linkNote": "影片與心得連結來自資料庫 md 檔，整理時無法逐一點開確認，若打不開請跟規劃者說。",
+    "regions": [
+      {"id":"kyoto","t":"京都"},
+      {"id":"osaka","t":"大阪市區"},
+      {"id":"near","t":"近郊"}
+    ],
+    "items": [
+      {"id":"kyoto-botanical","region":"kyoto","fit":"top","icon":"🌿","name":"京都府立植物園","q":"京都府立植物園","why":"關西最大的觀賞溫室（室內約 20～25°C，避寒），2 月下旬梅林盛開，人潮比北野天滿宮少很多；戶外有蘑菇造型兒童圖書館與滑梯。","tip":"成人入園 200 日圓、溫室另加 200 日圓；70 歲以上長者憑護照免費、中學生以下免費。","elev":"地鐵烏丸線北山站 3 號出口有電梯，出站右轉就是北山門，不用擠公車","baby":"待查","stroller":"ok","strollerNote":"全平坦柏油與磚道，長椅很多","rain":"溫室是室內，雨天可去（梅林與戶外遊具略過）","rainOk":true,"links":[{"t":"▶ YouTube 溫室實景","url":"https://www.youtube.com/watch?v=gDMJcxdwFKc&t=30s"},{"t":"PTT 日旅版遊記","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1493022589.A.9BE.html"},{"t":"PTT 媽寶版推車心得","url":"https://www.ptt.cc/bbs/BabyMother/M.1553352144.A.E24.html"}],"src":"10-景點資料庫/遺珠景點與真實心得深度評估庫.md"},
+      {"id":"kyoto-gyoen","region":"kyoto","fit":"top","icon":"🌸","name":"京都御苑（西側梅林）","q":"京都御苑","why":"全區免費的 65 公頃平坦庭園；西側梅林約 200 株，2 月下旬盛開，地方大不擁擠；有兒童遊具與沙坑。","elev":"地鐵烏丸線今出川站 3 號出口或丸太町站 1 號出口有電梯，步行約 3～5 分鐘","baby":"中立賣休憩所：暖氣休息區、多功能廁所、哺乳室","stroller":"ok","strollerNote":"碎石大道兩側有壓實細石的推車／輪椅引道","rain":"戶外為主，雨天不建議（可躲中立賣休憩所）","rainOk":false,"links":[{"t":"▶ YouTube 梅林實景","url":"https://www.youtube.com/watch?v=I_mcfEtktH4&t=40s"},{"t":"旅遊專欄評測","url":"https://japantravel.co/%E9%97%9C%E8%A5%BF/%E4%BA%AC%E9%83%BD/%E4%BA%AC%E9%83%BD%E5%BE%A1%E8%8B%91"}],"src":"10-景點資料庫/遺珠景點與真實心得深度評估庫.md"},
+      {"id":"umekoji","region":"kyoto","fit":"top","icon":"🚋","name":"梅小路公園 市電廣場","q":"梅小路公園 市電ひろば","why":"就在京都鐵道博物館東側，公園免費。退役路面電車改成咖啡館，小孩可以進駕駛台；約 140 株梅花和新幹線同框；朱雀夢之廣場有滾輪滑梯。","tip":"可以和鐵道博物館排同一天，走 2 分鐘就到，不用另外拉車。","elev":"JR 梅小路京都西站出站約 1 分鐘，全平路","baby":"待查（可回鐵道博物館的哺乳室）","stroller":"ok","rain":"戶外為主，雨天改去旁邊的京都水族館","rainOk":false,"links":[{"t":"▶ YouTube 梅林與電車","url":"https://www.youtube.com/watch?v=CulgytA64ww&t=150s"},{"t":"親子部落格","url":"https://gowithmarkhazyl.com/must-visit-places-for-family-in-kyoto"}],"src":"10-景點資料庫/遺珠景點與真實心得深度評估庫.md"},
+      {"id":"kyoto-aquarium","region":"kyoto","fit":"top","icon":"🐬","name":"京都水族館","q":"京都水族館","why":"（目前是 2/25 北野天滿宮的雨備）梅小路公園內，離鐵道博物館步行約 3 分鐘；大山椒魚、水母環形水槽、戶外海豚秀。","elev":"待查","baby":"待查","stroller":"ok","strollerNote":"館內推車動線寬","rain":"全室內","rainOk":true,"links":[{"t":"▶ YouTube 大山椒魚","url":"https://www.youtube.com/watch?v=EXHxpBwsXSZ&t=45s"}],"src":"10-景點資料庫/京都景點候選大庫_YouTube清單.md"},
+      {"id":"jonangu","region":"kyoto","fit":"top","icon":"🌺","name":"城南宮（垂枝梅與山茶花）","q":"城南宮","why":"2 月下旬～3 月初，神苑約 150 株垂枝梅像粉紅瀑布，紅色山茶花整朵落在苔蘚上。","elev":"神苑步道平整，沒有長階梯","baby":"待查","stroller":"ok","strollerNote":"迴遊式庭園無陡坡","rain":"戶外庭園，雨天不建議","rainOk":false,"todo":"在伏見區，從京都站怎麼去待查","links":[{"t":"▶ YouTube 垂枝梅","url":"https://www.youtube.com/watch?v=4Ym4Q11yV9o&t=30s"}],"src":"10-景點資料庫/京都景點候選大庫_YouTube清單.md"},
+      {"id":"toji","region":"kyoto","fit":"top","icon":"⛩️","name":"東寺（五重塔）","q":"東寺","why":"世界遺產，日本最高的木造五重塔（約 55 公尺）；講堂有 21 尊國寶佛像的立體曼荼羅；離京都站近。","elev":"境內全平地、沒有階梯","baby":"待查","stroller":"ok","rain":"戶外為主（講堂、金堂是室內）","rainOk":false,"links":[{"t":"▶ YouTube 境內步道","url":"https://www.youtube.com/watch?v=K3wBw8L7Zc0&t=70s"}],"src":"10-景點資料庫/京都景點候選大庫_YouTube清單.md"},
+      {"id":"kyoto-station-sky","region":"kyoto","fit":"top","icon":"🗼","name":"京都車站空中徑路＋大階梯＋京都塔","q":"京都駅ビル 空中径路","why":"住京都時出飯店就到：10F 玻璃空中徑路看夜景不吹風、大階梯 LED 燈光秀；京都塔展望台可用望遠鏡看東寺和清水寺。","tip":"適合 Day 1 傍晚或晚餐後散步。","elev":"電梯直上 10F 空中徑路，全程室內","baby":"京都伊勢丹 7F Baby Salon","stroller":"ok","rain":"全室內","rainOk":true,"links":[{"t":"▶ YouTube 大階梯燈光秀","url":"https://www.youtube.com/watch?v=c7P1Z5rT1g4&t=60s"},{"t":"▶ YouTube 京都塔夜景","url":"https://www.youtube.com/watch?v=3R-zVq7W8L4&t=40s"}],"src":"10-景點資料庫/京都景點候選大庫_YouTube清單.md"},
+      {"id":"kyoto-zoo","region":"kyoto","fit":"top","icon":"🦒","name":"京都市動物園＋平安神宮","q":"京都市動物園","why":"園區不大、全平路，適合 3 歲小孩自己走；長頸鹿高架步道、大象；出來就是平安神宮大鳥居前庭。","elev":"全平路，沒有階梯","baby":"待查","stroller":"ok","rain":"戶外為主，雨天不建議","rainOk":false,"links":[{"t":"▶ YouTube 動物園空中步道","url":"https://www.youtube.com/watch?v=gT-XwUv4kAQ&t=40s"}],"src":"10-景點資料庫/README.md"},
+      {"id":"nijo","region":"kyoto","fit":"ok","icon":"🏯","name":"元離宮二條城","q":"元離宮二条城","why":"世界遺產；二之丸御殿的「夜鶯地板」走起來會叫，小孩覺得好玩；西南梅林約 130 株，2 月底賞梅。","elev":"有輪椅與推車專用的無障礙路線","baby":"待查","stroller":"ok","rain":"戶外為主（御殿是室內）","rainOk":false,"links":[{"t":"▶ YouTube 唐門與步道","url":"https://www.youtube.com/watch?v=m7H0Q1oD-p4&t=90s"}],"src":"10-景點資料庫/README.md"},
+      {"id":"toei","region":"kyoto","fit":"ok","icon":"🥷","name":"東映太秦映畫村","q":"東映太秦映画村","why":"江戶老街主題樂園：小小忍者變裝、手裏劍、等身大初號機胸像、室內特攝英雄館。","elev":"平坦石板街","baby":"待查","stroller":"ok","rain":"部分室內（特攝英雄館），雨天只能玩室內","rainOk":false,"src":"10-景點資料庫/京都景點候選大庫_YouTube清單.md"},
+      {"id":"kinkaku","region":"kyoto","fit":"ok","icon":"✨","name":"金閣寺","q":"金閣寺","why":"鏡湖池上的金色舍利殿，小孩也看得懂；單向平緩碎石步道，約 40～50 分鐘看完。","tip":"京都站八條口出發的 KKday「金閣寺＋嵐山＋宇治」一日遊會到（就是 2/25 的備案 B）。","elev":"單向平緩碎石步道，沒有陡梯","baby":"待查","stroller":"ok","rain":"戶外，雨天不建議","rainOk":false,"src":"10-景點資料庫/旅行社與KKday景點全拆解表.md"},
+      {"id":"arashiyama","region":"kyoto","fit":"ok","icon":"🎋","name":"嵐山渡月橋","q":"渡月橋","why":"渡月橋與大街平坦，散步、吃抹茶點心就好。","warn":"2 月底桂川河邊風很冷；竹林小徑往野宮神社是緩坡碎石路，不建議深入。","elev":"渡月橋與大街平坦","baby":"待查","stroller":"part","strollerNote":"竹林小徑碎石路會顛","rain":"戶外，雨天不建議","rainOk":false,"src":"10-景點資料庫/旅行社與KKday景點全拆解表.md"},
+      {"id":"uji","region":"kyoto","fit":"ok","icon":"🍵","name":"宇治平等院＋抹茶街","q":"平等院","why":"萬圓日幣上的鳳凰堂，庭園平坦；表參道吃抹茶甜點，人潮比京都市區少，步調悠閒。","elev":"參道寬敞平坦","baby":"待查","stroller":"ok","rain":"戶外為主，雨天不建議","rainOk":false,"src":"10-景點資料庫/旅行社與KKday景點全拆解表.md"},
+      {"id":"nishiki","region":"kyoto","fit":"ok","icon":"🍡","name":"錦市場","q":"錦市場","why":"400 年歷史、約 390 公尺有雨棚的商店街：高湯玉子燒、草莓大福、豆乳甜甜圈。","tip":"上午 10:30～11:30 去，避開午後人潮。","elev":"全程平路","baby":"待查","stroller":"part","strollerNote":"人多時推車要慢行","rain":"有雨棚，雨天可去","rainOk":true,"src":"10-景點資料庫/京都景點候選大庫_YouTube清單.md"},
+      {"id":"kiyomizu","region":"kyoto","fit":"avoid","icon":"⛰️","name":"清水寺＋二年坂・三年坂","q":"清水寺","why":"長斜坡加上連續石階，推車要兩個人扛、長輩膝蓋負擔大，人潮也很擠。","tip":"如果長輩很想看清水舞台：搭計程車直接到本殿旁車道，不要推車走三年坂。","elev":"長斜坡＋連續石階","baby":"待查","stroller":"no","rain":"戶外，雨天石階更滑","rainOk":false,"src":"10-景點資料庫/旅行社與KKday景點全拆解表.md"},
+      {"id":"fushimi","region":"kyoto","fit":"avoid","icon":"⛩️","name":"伏見稻荷大社（千本鳥居）","q":"伏見稲荷大社","why":"本殿大門平坦，但千本鳥居是窄的登山石階，推車上不去。","tip":"如果去：只在正殿門口拍鳥居合照就折返，不要帶老小爬山。","elev":"本殿平坦；鳥居步道全是石階","baby":"待查","stroller":"no","strollerNote":"只能到本殿","rain":"戶外，雨天不建議","rainOk":false,"src":"10-景點資料庫/旅行社與KKday景點全拆解表.md"},
+
+      {"id":"osaka-history","region":"osaka","fit":"top","icon":"🏛️","name":"大阪歷史博物館","q":"大阪歴史博物館","why":"（目前是大阪城日的雨備）電梯直上 10F，落地窗平視大阪城天守閣與梅林，再一路往下參觀，免爬天守閣階梯；10F 有 1:1 重現的難波宮大極殿。成人 600 日圓，中學生以下免費。","elev":"地鐵谷町四丁目站 1-B 出口，或走 NHK 大樓連通電梯","baby":"待查","stroller":"ok","strollerNote":"全室內，由上往下參觀","rain":"全室內","rainOk":true,"links":[{"t":"▶ YouTube 館內與大阪城視角","url":"https://www.youtube.com/watch?v=_G1-Dh8CwkY&t=2440s"},{"t":"PTT 媽寶版心得","url":"https://www.ptt.cc/bbs/BabyMother/M.1373180059.A.6C5.html"}],"src":"10-景點資料庫/遺珠景點與真實心得深度評估庫.md"},
+      {"id":"ogimachi","region":"osaka","fit":"ok","icon":"🛝","name":"扇町公園","q":"扇町公園","why":"Kids Plaza 門口就是，免費；彩色管狀長滑梯、大草坪，長輩可以坐長椅曬太陽看孫女玩。","tip":"如果彈性日選 C（Kids Plaza），玩累了推門出來就到。","elev":"堺筋線扇町站 2 號出口有電梯","baby":"可回 Kids Plaza 館內","stroller":"ok","rain":"戶外，雨天不建議","rainOk":false,"links":[{"t":"▶ YouTube 親子 Vlog","url":"https://www.youtube.com/watch?v=BL4To-f0GSI&t=1232s"}],"src":"10-景點資料庫/遺珠景點與真實心得深度評估庫.md"},
+      {"id":"nagai","region":"osaka","fit":"ok","icon":"🥚","name":"長居植物園＋teamLab（夜間）","q":"長居植物園","why":"24 公頃環湖平坦步道；晚上 teamLab 的發光蛋輕推會變色、發出聲音。白天成人 200 日圓；teamLab 成人約 1,800 日圓、4～14 歲 500 日圓、3 歲以下免費。","warn":"晚上在戶外，2 月底很冷，要做好保暖。","elev":"御堂筋線長居站 3 號出口有電梯，步行約 8～10 分鐘","baby":"待查","stroller":"ok","strollerNote":"環湖步道全平","rain":"戶外，雨天不建議","rainOk":false,"src":"10-景點資料庫/遺珠景點與真實心得深度評估庫.md"},
+      {"id":"tennoji-zoo","region":"osaka","fit":"ok","icon":"🦁","name":"天王寺動物園＋てんしば草坪","q":"天王寺動物園","why":"就在阿倍野 HARUKAS 旁，園區平坦；旁邊てんしば草坪有咖啡座，可以排在 HARUKAS 那天。","warn":"冬天戶外要防風保暖。","elev":"園區平坦","baby":"待查（HARUKAS／Q's Mall 有設施）","stroller":"ok","rain":"戶外，雨天不建議","rainOk":false,"src":"10-景點資料庫/更多景點候選.md"},
+      {"id":"kaiyukan","region":"osaka","fit":"top","icon":"🦈","name":"海遊館（天保山）","q":"海遊館","why":"鯨鯊很震撼；電梯直上 8F，沿緩坡螺旋一路往下，沒有階梯，推車可全程通行。票價浮動制，2 歲以下免費。","tip":"和樂高探索中心、大摩天輪都在天保山，可以併在樂高那天：10:00 海遊館 → 12:00 Marketplace 午餐 → 13:00 摩天輪或樂高 → 13:40 回飯店午休。從心齋橋搭 2 台計程車約 15～20 分鐘。","warn":"指定時段預約制（每 15 分鐘一梯），入館前 30 天在官網買票，建議訂 10:00 首梯。館內坡道全長約 1.5 公里，長輩走久會累，沿途有長椅；海港區冬天風很冷，不搭戶外遊船。","elev":"地鐵大阪港站 1 號出口有地面電梯；館內電梯直上 8F（4F、8F 由館員引導搭工作電梯）","baby":"2F 哺乳室與熱水機；各主要廁所有尿布台","stroller":"ok","strollerNote":"全館緩坡可推；2F 入口可免費寄放推車，服務台可免費借輪椅","rain":"全室內，與天保山 Marketplace 相連","rainOk":true,"links":[{"t":"海遊館官網","url":"https://www.kaiyukan.com/language/chinese_traditional/"},{"t":"PTT 推輪椅帶阿嬤心得","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1461469489.A.453.html"},{"t":"PTT 幼兒推車心得","url":"https://www.ptt.cc/bbs/BabyMother/M.1493449873.A.BAC.html"},{"t":"PTT 推車便利性心得","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1543555147.A.26F.html"},{"t":"PTT 出站與育嬰室心得","url":"https://www.ptt.cc/bbs/BabyMother/M.1383108761.A.32C.html"}],"src":"10-景點資料庫/海遊館_老小友善與心得.md"},
+      {"id":"science","region":"osaka","fit":"ok","icon":"🔭","name":"大阪市立科學館","q":"大阪市立科学館","why":"天象儀與科學展，3 歲以上比較適合；3 歲以下免費。","elev":"待查","baby":"待查","stroller":"ok","rain":"全室內","rainOk":true,"todo":"天象儀場次要先確認","src":"10-景點資料庫/更多景點候選.md"},
+      {"id":"atc","region":"osaka","fit":"ok","icon":"⛄","name":"ATC あそびマーレ（南港）","q":"ATCあそびマーレ","why":"0～8 歲的室內遊樂設施，有室內玩雪區和嬰兒爬行專區。","elev":"商場內","baby":"待查","stroller":"ok","rain":"全室內","rainOk":true,"todo":"要脫鞋入場","src":"10-景點資料庫/更多景點候選.md"},
+      {"id":"dotonbori-cruise","region":"osaka","fit":"ok","icon":"🚤","name":"道頓堀水上觀光船","q":"とんぼりリバークルーズ","why":"坐著遊河約 20 分鐘，看固力果跑跑人招牌，不用走路。","warn":"上船有台階，推車要摺起來。","elev":"登船處有台階","baby":"—","stroller":"part","strollerNote":"推車要摺","rain":"戶外船，雨天不建議","rainOk":false,"src":"10-景點資料庫/更多景點候選.md"},
+      {"id":"shitennoji","region":"osaka","fit":"ok","icon":"🛕","name":"四天王寺","q":"四天王寺","why":"日本最古老的官寺（593 年），全區平坦、沒有階梯。","elev":"全平坦","baby":"待查","stroller":"ok","rain":"戶外為主，雨天不建議","rainOk":false,"src":"10-景點資料庫/景點候選清單.md"},
+      {"id":"sumiyoshi","region":"osaka","fit":"ok","icon":"🌉","name":"住吉大社","q":"住吉大社","why":"國寶本殿；可以搭阪堺路面電車去，小孩會喜歡。","elev":"待查","baby":"待查","stroller":"part","strollerNote":"太鼓橋很陡，推車走兩側","rain":"戶外，雨天不建議","rainOk":false,"src":"10-景點資料庫/景點候選清單.md"},
+      {"id":"namba-yasaka","region":"osaka","fit":"ok","icon":"🦁","name":"難波八阪神社","q":"難波八阪神社","why":"12 公尺高的巨大獅子頭殿，30～45 分鐘就能逛完，適合住難波時順遊。","elev":"待查","baby":"待查","stroller":"?","rain":"戶外，雨天不建議","rainOk":false,"src":"10-景點資料庫/景點候選清單.md"},
+
+      {"id":"nifrel","region":"near","fit":"top","icon":"🦫","name":"NIFREL 活生生博物館（EXPOCITY）","q":"NIFREL ニフレル","why":"海遊館團隊打造，全室內約 22°C；水豚、狐猴就在步道旁走動，還有光影大球。成人 2,200 日圓、3 歲以上 650 日圓、未滿 3 歲免費。","tip":"可以和萬博紀念公園排同一天；隔壁 LaLaport EXPOCITY 吃飯、補給都方便。","elev":"大阪單軌電車萬博紀念公園站步行約 2 分鐘，有大電梯與天橋","baby":"隔壁 LaLaport EXPOCITY 有大型哺乳室","stroller":"ok","strollerNote":"每個展間都可推入","rain":"全室內","rainOk":true,"links":[{"t":"▶ YouTube 館內實景","url":"https://www.youtube.com/watch?v=hi5kkHWijrw&t=110s"},{"t":"親子心得","url":"https://japanforkids.jp/zh-tw/nifrel-with-kids-expo-park"}],"src":"10-景點資料庫/遺珠景點與真實心得深度評估庫.md"},
+      {"id":"expo-park","region":"near","fit":"ok","icon":"🌞","name":"萬博紀念公園（太陽之塔）","q":"万博記念公園","why":"腹地很大、平坦好推，早春有梅林；就在 NIFREL 旁邊。","elev":"寬闊平坦","baby":"待查","stroller":"ok","rain":"戶外，雨天不建議","rainOk":false,"src":"10-景點資料庫/更多景點候選.md"},
+      {"id":"anpanman","region":"near","fit":"ok","icon":"🍞","name":"神戶麵包超人兒童博物館","q":"神戸アンパンマンこどもミュージアム","why":"在神戶港 Harborland，1～5 歲最愛；長輩可以在商場的海景咖啡座休息。","tip":"KKday 神戶一日遊（彈性日 B）會停神戶港 Mosaic 廣場。","elev":"商場內","baby":"待查","stroller":"ok","rain":"室內","rainOk":true,"src":"10-景點資料庫/更多景點候選.md"},
+      {"id":"grandberry","region":"near","fit":"ok","icon":"🍓","name":"八尾 GrandBerry 採草莓","q":"八尾 グランベリー いちご狩り","why":"章姬品種，30 分鐘吃到飽，離市區約 30 分鐘；只能採果、全預約制。","tip":"如果 Harvest Hill 訂不到，可以當替代。","elev":"待查","baby":"待查","stroller":"?","rain":"溫室採果","rainOk":true,"src":"10-景點資料庫/景點候選清單.md"},
+      {"id":"hirakata","region":"near","fit":"ok","icon":"🎠","name":"枚方公園","q":"ひらかたパーク","why":"冬天有 Snow Land 玩雪，40 多項幼兒設施，排隊短。","warn":"設施多在戶外，2 月底很冷。","elev":"待查","baby":"待查","stroller":"?","rain":"戶外為主，雨天不建議","rainOk":false,"src":"10-景點資料庫/景點候選清單.md"},
+      {"id":"kishiwada","region":"near","fit":"ok","icon":"🏯","name":"岸和田城","q":"岸和田城","why":"人少，有「八陣之庭」枯山水；要搭配大阪南部的包車行程。","elev":"待查","baby":"待查","stroller":"?","rain":"戶外為主","rainOk":false,"src":"10-景點資料庫/景點候選清單.md"},
+      {"id":"rinku","region":"near","fit":"ok","icon":"🛍️","name":"臨空城 Premium Outlets","q":"りんくうプレミアム・アウトレット","why":"離關西機場約 10 分鐘，適合最後一天去機場前順路逛。","elev":"待查","baby":"待查","stroller":"?","rain":"待查","rainOk":false,"src":"10-景點資料庫/景點候選清單.md"},
+      {"id":"amano","region":"near","fit":"no","icon":"🌊","name":"天橋立","q":"天橋立","why":"日本三景之一，在京都府最北邊的日本海側，單程約 2～2.5 小時。家族已決定這次不去，留作備選；Google Gemini 建議等孩子 6 歲以上、選春夏再安排。","points":["去法：包 14 人座車從京都出發最合適（單程約 1.8 小時、來回在車約 3.5 小時，有 3 張兒童座椅，約 NT$25,000）","JR 特急「はしだて」：來回在車約 4.5 小時，直達車每天只有 4～5 班，車廂難放推車","大阪出發一日遊巴士：07:15 集合、來回在車 5.5～6 小時、大巴沒有兒童座椅，不建議","雪況風險：2 月底日本海側常有大雪強風，JR 特急可能停駛；伊根遊覽船甲板體感接近 0°C","View Land 的單人吊椅沒有安全帶、不能抱嬰兒，全團要搭單軌電車（約 7 分鐘，推車摺疊上車）"],"elev":"View Land 搭單軌電車上山，推車摺疊上車","baby":"待查","stroller":"part","strollerNote":"智恩寺、迴旋橋與 View Land 山頂可推","rain":"戶外為主，2 月底雪況風險高","rainOk":false,"links":[{"t":"天橋立觀光協會","url":"https://www.amanohashidate.jp/"},{"t":"天橋立 View Land","url":"https://www.viewland.jp/"},{"t":"伊根灣遊覽船","url":"https://www.inewan.com/"},{"t":"JR 西日本（特急はしだて）","url":"https://www.westjr.co.jp/"},{"t":"京都丹後鐵道","url":"https://trains.willer.co.jp/"}],"src":"10-景點資料庫/天橋立_去法比較.md"},
+      {"id":"miyama","region":"near","fit":"avoid","icon":"🛖","name":"美山茅草屋之里","q":"美山かやぶきの里","why":"來回坐車將近 4 小時，山區氣溫接近 0°C，融雪泥濘推車很難推，老小容易著涼。","elev":"山坡地，冬季可能積雪泥濘","baby":"待查","stroller":"no","rain":"戶外山區","rainOk":false,"src":"10-景點資料庫/旅行社與KKday景點全拆解表.md"}
+    ]
+  },
+
   "hotels": {
     "kyoto": [
       {"id":"h-mimaru-kyoto","name":"MIMARU 京都 STATION","q":"MIMARU KYOTO STATION","tag":"首選","station":"八條東口步行約 2 分鐘","kitchen":"完整廚房＋洗脫烘","price":"2 晚約 ¥80,000～¥96,000","note":"兩房連通家庭套房，可全家坐客廳吃飯。"},
@@ -526,47 +583,15 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
     "src": "20-預算/前兩天京都住宿與交通方案預算規劃.md"
   },
 
-  "topics": [
-    {
-      "id": "amano",
-      "title": "🌊 天橋立去不去、怎麼去",
-      "status": "考慮中",
-      "summary": "天橋立在京都府最北邊的日本海側，單程約 2～2.5 小時。Google Gemini 的建議是「這次割愛」：會擠掉 2/25 梅花祭和鐵道博物館，一日來回對 1 歲男嬰和長輩很累。如果家人很想去，包 14 人座車從京都出發最合適。",
-      "options": [
-        {"id":"none","label":"不去（Google Gemini 建議）","cost":"省約 NT$23,000","hours":"不用長途拉車","note":"保留梅花祭、鐵道博物館，維持每天午休。"},
-        {"id":"car","label":"包 14 人座車從京都出發","cost":"約 NT$25,000","hours":"在車上約 3.5 小時","note":"只適合方案一 2/25（會取代梅花祭＋鐵道博物館）。門對門、有 3 張兒童座椅、隨時停休息站。"},
-        {"id":"jr","label":"京都搭 JR 特急「はしだて」","cost":"約 NT$14,800","hours":"在車上約 4.5 小時","note":"直達車每天只有 4～5 班；9 人要提早 1 個月搶連號座位；車廂難放推車；大雪時容易停駛。"},
-        {"id":"tour","label":"參加大阪出發的一日遊","cost":"約 NT$15,000～18,000","hours":"在車上約 5.5～6 小時","note":"Google Gemini 不建議：07:15 集合、每站只停 50～90 分鐘、大巴沒有兒童座椅。"},
-        {"id":"stay","label":"京都出發住一晚溫泉","cost":"另加約 NT$48,000～65,000","hours":"分兩天各約 2 小時","note":"多搬一次飯店（3 天搬 2 次），預算大增。"}
-      ],
-      "facts": [
-        "2 月底日本海側常有大雪、強風，JR 特急可能停駛或誤點；伊根遊覽船甲板體感接近 0°C",
-        "天橋立 View Land：單人吊椅沒有安全帶，不能抱嬰兒；全團搭單軌電車（約 7 分鐘，推車摺疊上車）",
-        "傘松公園要搭船再換纜車，景色跟 View Land 很像，老小同行建議略過",
-        "方案二若要去：2/27 要等第 9 位成員、3/01 Harvest Hill、3/02 USJ，只剩 2/28 可排，且從大阪來回更遠"
-      ],
-      "src": "10-景點資料庫/天橋立_去法比較.md",
-      "links": [
-        {"t":"天橋立觀光協會","url":"https://www.amanohashidate.jp/"},
-        {"t":"天橋立 View Land","url":"https://www.viewland.jp/"},
-        {"t":"伊根灣遊覽船","url":"https://www.inewan.com/"},
-        {"t":"JR 西日本（特急はしだて）","url":"https://www.westjr.co.jp/"},
-        {"t":"京都丹後鐵道","url":"https://trains.willer.co.jp/"}
-      ]
-    }
-  ],
+  "topics": [],
 
   "budget": {
-    "note": "住宿＋包車／交通＋門票的全團總額（機票已付不計；三餐約 NT$75,000～85,000，各方案差不多）。Google Gemini 估算，2026-11-03。",
+    "note": "住宿＋包車／交通＋門票的全團總額（天橋立已決定不去，不列入；機票已付不計；三餐約 NT$75,000～85,000，各方案差不多）。Google Gemini 估算，2026-11-03。",
     "rows": [
-      {"plan":"方案一","usj":false,"amano":false,"total":130382,"tag":"最悠閒","note":"深度玩京都梅花祭與大阪市區"},
-      {"plan":"方案一","usj":true,"amano":false,"total":167382,"tag":"Google Gemini 推薦","note":"京都文化＋USJ＋採草莓，沒有超長途拉車"},
-      {"plan":"方案一","usj":false,"amano":true,"total":158882,"tag":"拉車","note":"擠掉 2/25 梅花祭與鐵道博物館"},
-      {"plan":"方案一","usj":true,"amano":true,"total":195882,"tag":"太累","note":"USJ＋天橋立連續，老小體力極限"},
-      {"plan":"方案二","usj":false,"amano":false,"total":125207,"tag":"最省","note":"完全不搬行李，預算最低"},
-      {"plan":"方案二","usj":true,"amano":false,"total":162207,"tag":"Google Gemini 次選","note":"不換飯店，兼顧 USJ"},
-      {"plan":"方案二","usj":false,"amano":true,"total":153707,"tag":"拉車","note":"大阪出發來回在車約 5.5 小時"},
-      {"plan":"方案二","usj":true,"amano":true,"total":190707,"tag":"太累","note":"行程密度過高"}
+      {"plan":"方案一","usj":false,"total":130382,"tag":"最悠閒","note":"深度玩京都梅花祭與大阪市區"},
+      {"plan":"方案一","usj":true,"total":167382,"tag":"Google Gemini 推薦","note":"京都文化＋USJ＋採草莓，沒有超長途拉車"},
+      {"plan":"方案二","usj":false,"total":125207,"tag":"最省","note":"完全不搬行李，預算最低"},
+      {"plan":"方案二","usj":true,"total":162207,"tag":"Google Gemini 次選","note":"不換飯店，兼顧 USJ"}
     ],
     "src": "20-預算/總預算對照.md"
   },
@@ -663,6 +688,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
     <button data-tab="today"><span class="i">🧭</span>今天</button>
     <button data-tab="days"><span class="i">📅</span>行程</button>
     <button data-tab="compare"><span class="i">⚖️</span>比較</button>
+    <button data-tab="alt"><span class="i">🗺️</span>備選</button>
     <button data-tab="vote"><span class="i">💬</span>意見<span class="badge hide" id="voteBadge"></span></button>
     <button data-tab="info"><span class="i">ℹ️</span>資訊</button>
   </div>
@@ -700,6 +726,7 @@ const S = {
   tab: 'today', day: null,
   votes: LS.get('votes', {}), comments: LS.get('comments', {}),
   checks: LS.get('checks', {}),
+  altRegion: LS.get('altRegion', 'all'), altRain: LS.get('altRain', false),
   who: LS.get('who', {role:'', tag:''})
 };
 if (!T.plans[S.plan]) S.plan = 'p1';
@@ -750,8 +777,8 @@ function voteCount(){ return Object.keys(S.votes).length + Object.keys(S.comment
 function updBadge(){ const n = voteCount(), b = $('#voteBadge'); b.textContent = n; b.classList.toggle('hide', !n); }
 
 /* ---------- place chips ---------- */
-function placeBits(st){
-  const p = st.place && T.places[st.place];
+function placeBits(st){ return placeInfo(st.place && T.places[st.place]); }
+function placeInfo(p){
   if (!p) return '';
   const s = STROLLER[p.stroller] || STROLLER['?'];
   const isTodo = v => /待查|待確認/.test(v||'');
@@ -878,7 +905,7 @@ function todoCard(){
     <ol class="small" style="margin:0;padding-left:1.3em">
       <li>住宿方案一或方案二 → 到「⚖️ 比較」頁投票</li>
       <li>USJ 去不去、哪一天 → 同上</li>
-      <li>天橋立去不去、怎麼去 → 同上</li>
+      <li>備選景點想換哪些進行程 → 到「🗺️ 備選」頁點 👍／❤️（天橋立已決定不去）</li>
       <li>每天每個景點點 👍／❤️／👎／❓ → 到「💬 意見」頁傳到 LINE 群組</li>
     </ol></section>`;
 }
@@ -888,7 +915,16 @@ function viewDays(){
   let sel = S.day;
   if (sel == null){ const i = T.meta.dates.indexOf(now.date); sel = i >= 0 ? i : 0; }
   return `<div class="layout-days">${dayPills(sch, sel, now.date)}<div>${dayHtml(sch[sel], {now: sch[sel].date===now.date ? now.min : null})}
-    <div class="btns">${sel>0?`<button class="btn" data-act="day" data-i="${sel-1}">← D${sel}</button>`:''}${sel<7?`<button class="btn primary" data-act="day" data-i="${sel+1}">D${sel+2} →</button>`:''}</div></div></div>`;
+    <div class="btns">${sel>0?`<button class="btn" data-act="day" data-i="${sel-1}">← D${sel}</button>`:''}${sel<7?`<button class="btn primary" data-act="day" data-i="${sel+1}">D${sel+2} →</button>`:''}</div>
+    ${altEntry(sch[sel].d)}</div></div>`;
+}
+function altEntry(d){
+  const n = (T.alternates?.items||[]).length;
+  if (!n) return '';
+  const rainN = T.alternates.items.filter(x => x.rainOk).length;
+  return `<section class="card" style="margin-top:14px"><b>🗺️ ${d && d.choices ? '彈性日想換別的？' : '想換景點或找雨備？'}</b>
+    <p class="small" style="margin:4px 0 0">資料庫裡還有 ${n} 個沒排進行程的備選景點（其中 ${rainN} 個雨天可去），可以按京都／大阪／近郊篩選、投票。</p>
+    <div class="btns"><button class="btn primary" data-act="gotab" data-tab="alt">看備選景點清單</button></div></section>`;
 }
 
 function viewCompare(){
@@ -937,8 +973,8 @@ function viewCompare(){
   };
   const B = T.budget, yn = b => b ? '✅' : '—';
   const budgetHtml = `<h2 class="sec-title">💰 總預算對照 <span class="tiny muted">（新台幣，全團）</span></h2>
-    <div class="card" style="padding:6px;overflow-x:auto"><table class="cmp"><thead><tr><th>住宿</th><th>USJ</th><th>天橋立</th><th>總額</th><th>說明</th></tr></thead><tbody>
-    ${B.rows.map(r => `<tr class="${S.plan===(r.plan==='方案一'?'p1':'p2') && (S.usj!=='none')===r.usj ? 'cur' : ''}"><td>${esc(r.plan)}</td><td>${yn(r.usj)}</td><td>${yn(r.amano)}</td><td><b>${r.total.toLocaleString()}</b></td><td class="small"><span class="pill info">${esc(r.tag)}</span> ${esc(r.note)}</td></tr>`).join('')}
+    <div class="card" style="padding:6px;overflow-x:auto"><table class="cmp"><thead><tr><th>住宿</th><th>USJ</th><th>總額</th><th>說明</th></tr></thead><tbody>
+    ${B.rows.map(r => `<tr class="${S.plan===(r.plan==='方案一'?'p1':'p2') && (S.usj!=='none')===r.usj ? 'cur' : ''}"><td>${esc(r.plan)}</td><td>${yn(r.usj)}</td><td><b>${r.total.toLocaleString()}</b></td><td class="small"><span class="pill info">${esc(r.tag)}</span> ${esc(r.note)}</td></tr>`).join('')}
     </tbody></table><p class="tiny muted" style="padding:0 8px">${esc(B.note)} 粗體框＝目前上方選的方案與 USJ。詳細：${srcLink(B.src)}</p></div>`;
   const bookHtml = `<h2 class="sec-title">⏰ 預約時程 <span class="tiny muted">（要搶的先排前面）</span></h2>
     <div class="card"><table class="cmp"><tbody>${T.bookings.items.map(b => `<tr><td class="d">${esc(b.when)}</td><td><b>${esc(b.what)}</b><div class="tiny muted">${esc(b.how)}｜${esc(b.tip)}</div>${safeUrl(b.url)?`<a class="tiny" href="${esc(b.url)}" target="_blank" rel="noopener">🔗 官網</a>`:''}</td></tr>`).join('')}</tbody></table>
@@ -960,6 +996,48 @@ function viewCompare(){
     ${budgetHtml}${bookHtml}${srcHtml}`;
 }
 
+/* ---------- alternates（備選景點） ---------- */
+const FIT = {top:['ok','⭐ 老小首選'], ok:['info','👌 可以考慮'], avoid:['no','❌ 不建議'], no:['tbd','🚫 這次不去・留作備選']};
+const FIT_ORDER = {top:0, ok:1, no:2, avoid:3};
+function altCard(x, regT){
+  const f = FIT[x.fit] || FIT.ok;
+  return `<article class="card alt ${x.fit==='avoid'||x.fit==='no'?'dim':''}" id="alt-${esc(x.id)}">
+    <div class="chips"><span class="pill ${f[0]}">${f[1]}</span><span class="chip">📍 ${esc(regT[x.region]||'')}</span>${x.rainOk?'<span class="chip g">☔ 雨天可去</span>':''}</div>
+    <h3><span class="ic">${x.icon||'📍'}</span> ${esc(x.name)}</h3>
+    <div class="small">${esc(x.why)}</div>
+    ${(x.points&&x.points.length)?`<ul class="small" style="padding-left:1.2em;margin:6px 0">${x.points.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}
+    ${x.tip?`<div class="callout rest"><b>💡</b>${esc(x.tip)}</div>`:''}
+    ${x.warn?`<div class="callout warn"><b>⚠️</b>${esc(x.warn)}</div>`:''}
+    ${placeInfo(x)}
+    <div class="btns"><a class="btn" href="${mapUrl(x.q)}" target="_blank" rel="noopener">📍 地圖</a>${(x.links||[]).map(l => linkBtn(l.url, (/^▶/.test(l.t)?'':'🔗 ') + l.t)).join('')}</div>
+    <p class="tiny muted" style="margin:6px 0 0">出處：${srcLink(x.src)}</p>
+    ${voteRow('alt/' + x.id)}
+  </article>`;
+}
+function viewAlt(){
+  const A = T.alternates, regT = Object.fromEntries(A.regions.map(r => [r.id, r.t]));
+  const regs = [{id:'all', t:'全部'}, ...A.regions];
+  if (!regs.some(r => r.id === S.altRegion)) S.altRegion = 'all';
+  const list = A.items.filter(x => (S.altRegion==='all' || x.region===S.altRegion) && (!S.altRain || x.rainOk))
+    .sort((a,b) => (S.altRegion==='all' ? A.regions.findIndex(r=>r.id===a.region) - A.regions.findIndex(r=>r.id===b.region) : 0) || FIT_ORDER[a.fit] - FIT_ORDER[b.fit]);
+  const voted = A.items.filter(x => S.votes['alt/'+x.id]).length;
+  let body = '', lastReg = null;
+  list.forEach(x => {
+    if (S.altRegion === 'all' && x.region !== lastReg){ lastReg = x.region; body += `<h2 class="sec-title">${esc(regT[x.region])}</h2>`; }
+    body += altCard(x, regT);
+  });
+  return `<h2 class="sec-title">🗺️ 備選景點清單</h2>
+  <section class="card">
+    <p class="small" style="margin-top:0">${esc(A.note)}</p>
+    <div class="altbar">
+      <div class="seg" role="group" aria-label="地區">${regs.map(r => `<button data-act="altreg" data-id="${r.id}" aria-pressed="${S.altRegion===r.id}">${esc(r.t)}</button>`).join('')}</div>
+      <button class="btn" data-act="altrain" aria-pressed="${!!S.altRain}">☔ 只看雨天可去</button>
+    </div>
+    <p class="tiny muted" style="margin-bottom:0">顯示 ${list.length}／${A.items.length} 個・已表態 ${voted} 個。${esc(A.linkNote)}</p>
+  </section>
+  ${body || '<p class="small muted">這個條件下沒有景點。</p>'}`;
+}
+
 /* ---------- export / share ---------- */
 function labelIndex(){
   const m = {plan:'🏨 住宿方案', usj:'🎢 USJ'};
@@ -969,6 +1047,9 @@ function labelIndex(){
   }
   [...T.hotels.kyoto, ...T.hotels.osaka].forEach(h => m['hotel/'+h.id] = `🛏️ 住宿候選｜${h.name}`);
   (T.topics||[]).forEach(tp => { m['topic/'+tp.id] = tp.title; m['topic/'+tp.id+'/note'] = tp.title + '｜整體意見'; });
+  (T.alternates?.items||[]).forEach(x => m['alt/'+x.id] = `🗺️ 備選景點｜${x.name}`);
+  // 舊版「天橋立去不去」投票（已決定不去），留著讓舊意見還看得懂
+  m['topic/amano'] ??= '🌊 天橋立（舊投票，已決定不去）'; m['topic/amano/note'] ??= '🌊 天橋立（舊投票）｜整體意見';
   return m;
 }
 const valLabel = (k, v) => {
@@ -1009,7 +1090,7 @@ function viewVote(){
   <section class="card">
     <h3>已表態 ${n} 項</h3>
     ${n ? `<pre style="white-space:pre-wrap;font-family:inherit;font-size:.82rem;background:var(--bg);padding:10px;border-radius:12px;max-height:260px;overflow:auto">${esc(exportText())}</pre>`
-        : `<p class="small muted">還沒有。去「📅 行程」或「⚖️ 比較」頁，在景點下面點 👍／❤️／👎／❓。</p>`}
+        : `<p class="small muted">還沒有。去「📅 行程」、「🗺️ 備選」或「⚖️ 比較」頁，在景點下面點 👍／❤️／👎／❓。</p>`}
     <div class="btns">
       <button class="btn line" data-act="line" ${n?'':'disabled'}>💚 傳到 LINE</button>
       <button class="btn primary" data-act="copy" ${n?'':'disabled'}>📋 複製文字</button>
@@ -1105,7 +1186,7 @@ function loadWeather(){
 }
 
 /* ---------- render ---------- */
-const VIEWS = {today:viewToday, days:viewDays, compare:viewCompare, vote:viewVote, info:viewInfo};
+const VIEWS = {today:viewToday, days:viewDays, compare:viewCompare, alt:viewAlt, vote:viewVote, info:viewInfo};
 function render(keepScroll){
   const y = scrollY;
   $$('[data-act="plan"]', $('#combo')).forEach(b => b.setAttribute('aria-pressed', b.dataset.id === S.plan));
@@ -1139,6 +1220,9 @@ document.addEventListener('click', ev => {
   if (a === 'plan'){ S.plan = el.dataset.id; LS.set('plan', S.plan); if (el.dataset.go){ S.day = null; go(el.dataset.go); } else render(true); }
   else if (a === 'usj'){ S.usj = el.dataset.id; LS.set('usj', S.usj); render(true); toast('已套用：' + T.usj.options.find(o=>o.id===S.usj).label); }
   else if (a === 'day'){ S.day = +el.dataset.i; if (S.tab === 'days') go('days'); else { render(true); } }
+  else if (a === 'gotab') go(el.dataset.tab);
+  else if (a === 'altreg'){ S.altRegion = el.dataset.id; LS.set('altRegion', S.altRegion); render(true); }
+  else if (a === 'altrain'){ S.altRain = !S.altRain; LS.set('altRain', S.altRain); render(true); }
   else if (a === 'jump'){ ev.preventDefault(); S.plan = el.dataset.plan; LS.set('plan', S.plan); S.day = +el.dataset.i; go('days'); }
   else if (a === 'vote'){
     const box = el.closest('.votes'), k = box.dataset.key, v = el.dataset.v;
@@ -1187,7 +1271,7 @@ document.addEventListener('input', ev => {
 });
 addEventListener('hashchange', () => fromHash());
 function fromHash(){
-  const m = location.hash.match(/^#(today|days|compare|vote|info)(?:-(\d))?/);
+  const m = location.hash.match(/^#(today|days|compare|alt|vote|info)(?:-(\d))?/);
   if (m){ S.tab = m[1]; if (m[2]) S.day = Math.min(7, Math.max(0, +m[2]-1)); }
   render();
 }
