@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e1b4b">
+  <title>2027 京都・大阪 8天7夜 三代同堂家族行 🗺️ 隨身與電腦旗艦路書</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .nav-active {
+      background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+    }
+    .subtab-active {
+      background-color: #4f46e5 !important;
+      color: #ffffff !important;
+      border-color: #4f46e5 !important;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen pb-24 md:pb-12">
+
+  <!-- Responsive Top Header -->
+  <header class="bg-gradient-to-r from-slate-950 via-indigo-950 to-slate-900 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <!-- Title & Badges -->
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[11px] md:text-xs font-bold tracking-wider uppercase text-indigo-300">國泰直飛 CX564 / CX565</span>
+            <span class="bg-indigo-600/90 text-white text-[10px] md:text-xs px-2 py-0.5 rounded-md font-semibold">京都前2晚 ＋ 大阪後5晚</span>
+            <span class="bg-rose-500/90 text-white text-[10px] md:text-xs px-2 py-0.5 rounded-md font-semibold">D4變9人・USJ圓夢</span>
+          </div>
+          <h1 class="text-lg md:text-2xl font-bold text-white tracking-tight mt-1 flex items-center gap-2">
+            <span>2027 日本關西三代同堂家族旅行</span>
+            <span class="hidden sm:inline-block text-xs font-normal text-slate-300 px-2.5 py-0.5 bg-white/10 rounded-full">📱 手機・💻 電腦雙適配</span>
+          </h1>
+        </div>
+
+        <!-- Quick Emergency Button on Header -->
+        <div class="flex items-center gap-2">
+          <span class="hidden lg:inline-block text-xs text-slate-300">📅 2027/02/24（三）～ 03/03（三）</span>
+          <button onclick="switchMainTab('emergency')" class="bg-rose-600 hover:bg-rose-500 text-white text-xs md:text-sm font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-sm transition active:scale-95">
+            <span>🚑</span> <span>急診就醫卡</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar (Swipeable on mobile, Centered grid on desktop) -->
+    <div class="border-t border-indigo-900/40 bg-slate-950/50 backdrop-blur-md">
+      <div class="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-2">
+        <nav class="flex items-center gap-1.5 md:gap-2 overflow-x-auto no-scrollbar md:justify-center">
+          <button onclick="switchMainTab('overview')" id="main-tab-overview" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition nav-active flex items-center gap-1.5">
+            <span>📋</span><span>行程總覽</span>
+          </button>
+          <button onclick="switchMainTab('itinerary')" id="main-tab-itinerary" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
+            <span>📅</span><span>每日行程</span>
+          </button>
+          <button onclick="switchMainTab('usj')" id="main-tab-usj" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
+            <span>🍄</span><span>USJ環球攻略</span>
+          </button>
+          <button onclick="switchMainTab('kyoto-spots')" id="main-tab-kyoto-spots" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
+            <span>🏯</span><span>京都景點庫</span>
+          </button>
+          <button onclick="switchMainTab('osaka-spots')" id="main-tab-osaka-spots" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
+            <span>🏙️</span><span>大阪景點庫</span>
+          </button>
+          <button onclick="switchMainTab('hotels')" id="main-tab-hotels" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
+            <span>🏨</span><span>備選飯店</span>
+          </button>
+          <button onclick="switchMainTab('packing')" id="main-tab-packing" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
+            <span>🎒</span><span>行李清單</span>
+          </button>
+          <button onclick="switchMainTab('emergency')" id="main-tab-emergency" class="main-tab-btn px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-slate-800/80 text-slate-300 whitespace-nowrap transition flex items-center gap-1.5">
+            <span>🚑</span><span>緊急醫療</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Responsive Main Content Container -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 space-y-6">
+
+    <!-- ==================== TAB 1: OVERVIEW ==================== -->
+    <div id="page-overview" class="main-sec space-y-6">
+      <!-- Strategy Highlights Hero Card -->
+      <div class="bg-white rounded-3xl p-5 md:p-7 shadow-sm border border-slate-200/80">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between pb-4 border-b border-slate-100 gap-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 font-bold text-xs rounded-lg">國泰直飛已確認訂妥</span>
+              <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 font-bold text-xs rounded-lg">8 天 7 夜慢活</span>
+              <span class="px-2.5 py-1 bg-rose-50 text-rose-700 font-bold text-xs rounded-lg">8人出發 ➔ 9人全員到齊</span>
+            </div>
+            <h2 class="text-xl md:text-2xl font-bold text-slate-900 mt-2">2027 關西三代同堂慢活旅行總企劃</h2>
+            <p class="text-xs md:text-sm text-slate-500 mt-0.5">時間：2027年2月24日（三）～ 3月3日（三）｜ 5大1老2幼1嬰（D4變9人）</p>
+          </div>
+          <div class="flex gap-2">
+            <div class="bg-slate-50 px-3 py-2 rounded-xl border border-slate-200/70 text-xs">
+              <span class="text-slate-400 block text-[10px]">去程 02/24</span>
+              <strong class="text-slate-800 font-bold">CX564 11:15➔14:45</strong>
+            </div>
+            <div class="bg-slate-50 px-3 py-2 rounded-xl border border-slate-200/70 text-xs">
+              <span class="text-slate-400 block text-[10px]">回程 03/03</span>
+              <strong class="text-slate-800 font-bold">CX565 16:15➔18:30</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Key Strategic Pillars Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-5">
+          <div class="bg-indigo-50/70 p-4 rounded-2xl border border-indigo-100/80">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">🚆</span>
+              <h3 class="font-bold text-indigo-950 text-sm">Haruka 78分直達京都</h3>
+            </div>
+            <p class="text-xs text-indigo-900/80 mt-1.5 leading-relaxed">
+              出關直上空橋搭 JR Haruka 指定席直奔京都，免去拖著 8 咖大行李與推車在大阪地下街換線轉車之苦！
+            </p>
+          </div>
+
+          <div class="bg-rose-50/70 p-4 rounded-2xl border border-rose-100/80">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">🌸</span>
+              <h3 class="font-bold text-rose-950 text-sm">2/25 天滿宮梅花祭</h3>
+            </div>
+            <p class="text-xs text-rose-900/80 mt-1.5 leading-relaxed">
+              2/25 適逢年度最大盛典梅花祭 ＋ 每月天神市市集！2,000 株梅花見頃盛開，住京都清晨漫步賞梅免趕路。
+            </p>
+          </div>
+
+          <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100/80">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">🎉</span>
+              <h3 class="font-bold text-emerald-950 text-sm">D4 新成員無縫會合</h3>
+            </div>
+            <p class="text-xs text-emerald-900/80 mt-1.5 leading-relaxed">
+              週六新成員飛抵關西機場，大部隊已在大阪！新成員搭南海 Rapi:t 38分直達難波，飯店大廳順暢相聚。
+            </p>
+          </div>
+
+          <div class="bg-purple-50/70 p-4 rounded-2xl border border-purple-100/80">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">🍄</span>
+              <h3 class="font-bold text-purple-950 text-sm">USJ 三代全員圓夢</h3>
+            </div>
+            <p class="text-xs text-purple-900/80 mt-1.5 leading-relaxed">
+              選在客流最少週二（3/2），靠 Child Switch 官方免排隊輪流乘車，租借長輩輪椅，老小暖氣房不吹風！
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Cards (4 Columns on Desktop) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+        <button onclick="switchMainTab('itinerary')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 flex flex-col items-center gap-2 active:scale-95 transition hover:shadow-md">
+          <span class="text-2xl">📅</span>
+          <div>
+            <span class="font-bold text-slate-800 text-sm block">每日詳細行程</span>
+            <span class="text-[11px] text-slate-400">D1～D8 時間軸</span>
+          </div>
+        </button>
+        <button onclick="switchMainTab('usj')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 flex flex-col items-center gap-2 active:scale-95 transition hover:shadow-md">
+          <span class="text-2xl">🍄</span>
+          <div>
+            <span class="font-bold text-purple-600 text-sm block">USJ 官方神技</span>
+            <span class="text-[11px] text-slate-400">輪流乘坐與輪椅</span>
+          </div>
+        </button>
+        <button onclick="switchMainTab('hotels')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 flex flex-col items-center gap-2 active:scale-95 transition hover:shadow-md">
+          <span class="text-2xl">🏨</span>
+          <div>
+            <span class="font-bold text-indigo-600 text-sm block">備選住宿評比</span>
+            <span class="text-[11px] text-slate-400">京都2晚＋大阪5晚</span>
+          </div>
+        </button>
+        <button onclick="switchMainTab('packing')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 flex flex-col items-center gap-2 active:scale-95 transition hover:shadow-md">
+          <span class="text-2xl">🎒</span>
+          <div>
+            <span class="font-bold text-amber-600 text-sm block">隨行打包檢核</span>
+            <span class="text-[11px] text-slate-400">2推車+長袖短袖外套</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- 8-Day Roadmap Fast Jump (Grid on Desktop, 2x4 layout) -->
+      <div class="space-y-3">
+        <h2 class="text-sm font-bold text-slate-600 uppercase tracking-wider px-1">📅 8 天行程骨幹速查（點擊進入該日時間表）</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div onclick="jumpToDay('d1')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 hover:border-indigo-300 hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 font-bold text-xs flex items-center justify-center">D1</span>
+                <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">2/24 週三</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm mt-2">抵達關西 ➔ Haruka 直達京都</h4>
+              <p class="text-xs text-slate-500 mt-1">宿京都 MIMARU ｜ 伊勢丹 11F 美食街</p>
+            </div>
+            <span class="text-indigo-600 text-xs font-bold mt-3 block">查看 D1 時間表 ›</span>
+          </div>
+
+          <div onclick="jumpToDay('d2')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 hover:border-rose-300 hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 font-bold text-xs flex items-center justify-center">D2</span>
+                <span class="text-[10px] bg-rose-50 text-rose-700 font-bold px-2 py-0.5 rounded">2/25 週四</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm mt-2">🌸 北野天滿宮梅花祭 ＋ 鐵道館</h4>
+              <p class="text-xs text-slate-500 mt-1">宿京都 ｜ 天神市市集 ｜ 蒸汽火車扇形車庫</p>
+            </div>
+            <span class="text-rose-600 text-xs font-bold mt-3 block">查看 D2 時間表 ›</span>
+          </div>
+
+          <div onclick="jumpToDay('d3')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 hover:border-blue-300 hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 font-bold text-xs flex items-center justify-center">D3</span>
+                <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">2/26 週五</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm mt-2">移防大阪 ➔ 大阪城梅林滿開</h4>
+              <p class="text-xs text-slate-500 mt-1">宿大阪心齋橋 ｜ JR新快速29分 ｜ 御座船</p>
+            </div>
+            <span class="text-blue-600 text-xs font-bold mt-3 block">查看 D3 時間表 ›</span>
+          </div>
+
+          <div onclick="jumpToDay('d4')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 hover:border-emerald-300 hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 font-bold text-xs flex items-center justify-center">D4</span>
+                <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded">2/27 週六</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm mt-2">🎉 新成員會合 ➔ HARUKAS 夕陽</h4>
+              <p class="text-xs text-slate-500 mt-1">9人到齊 ｜ 阿卡將大採購 ｜ 全員團聚晚宴</p>
+            </div>
+            <span class="text-emerald-600 text-xs font-bold mt-3 block">查看 D4 時間表 ›</span>
+          </div>
+
+          <div onclick="jumpToDay('d5')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 hover:border-rose-300 hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 font-bold text-xs flex items-center justify-center">D5</span>
+                <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">2/28 週日</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm mt-2">🍓 Harvest Hill 採草莓包車日</h4>
+              <p class="text-xs text-slate-500 mt-1">9人包車 ｜ 溫室吃到飽極甜巔峰 ｜ 水豚羊駝</p>
+            </div>
+            <span class="text-rose-600 text-xs font-bold mt-3 block">查看 D5 時間表 ›</span>
+          </div>
+
+          <div onclick="jumpToDay('d6')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 hover:border-amber-300 hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 font-bold text-xs flex items-center justify-center">D6</span>
+                <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">3/01 週一</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm mt-2">🧱 天保山樂高避寒 ＋ 摩天輪</h4>
+              <p class="text-xs text-slate-500 mt-1">室內暖氣積木池 ｜ 午後休整為 USJ 充電</p>
+            </div>
+            <span class="text-amber-600 text-xs font-bold mt-3 block">查看 D6 時間表 ›</span>
+          </div>
+
+          <div onclick="jumpToDay('d7')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 hover:border-purple-300 hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 font-bold text-xs flex items-center justify-center">D7</span>
+                <span class="text-[10px] bg-purple-50 text-purple-700 font-bold px-2 py-0.5 rounded">3/02 週二</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm mt-2">🍄 環球影城 USJ 全員圓夢日！</h4>
+              <p class="text-xs text-slate-500 mt-1">週二客流最低 ｜ Child Switch ｜ 長輩輪椅</p>
+            </div>
+            <span class="text-purple-600 text-xs font-bold mt-3 block">查看 D7 時間表 ›</span>
+          </div>
+
+          <div onclick="jumpToDay('d8')" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70 hover:border-teal-300 hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="w-8 h-8 rounded-xl bg-teal-50 text-teal-600 font-bold text-xs flex items-center justify-center">D8</span>
+                <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">3/03 週三</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm mt-2">🛫 難波空中花園 ➔ 送機返台</h4>
+              <p class="text-xs text-slate-500 mt-1">CX565 16:15 飛 ｜ 8 咖行李 184kg 順暢托運</p>
+            </div>
+            <span class="text-teal-600 text-xs font-bold mt-3 block">查看 D8 時間表 ›</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 2: ITINERARY ==================== -->
+    <div id="page-itinerary" class="main-sec hidden space-y-5">
+      <!-- Sub-day switcher tabs -->
+      <div class="bg-white p-2.5 rounded-2xl shadow-sm border border-slate-200/70">
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar md:justify-center">
+          <button onclick="switchDaySub('d1')" id="sub-tab-d1" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 subtab-active transition whitespace-nowrap">D1 2/24 週三</button>
+          <button onclick="switchDaySub('d2')" id="sub-tab-d2" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D2 2/25 週四</button>
+          <button onclick="switchDaySub('d3')" id="sub-tab-d3" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D3 2/26 週五</button>
+          <button onclick="switchDaySub('d4')" id="sub-tab-d4" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D4 2/27 週六</button>
+          <button onclick="switchDaySub('d5')" id="sub-tab-d5" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D5 2/28 週日</button>
+          <button onclick="switchDaySub('d6')" id="sub-tab-d6" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D6 3/01 週一</button>
+          <button onclick="switchDaySub('d7')" id="sub-tab-d7" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D7 3/02 週二</button>
+          <button onclick="switchDaySub('d8')" id="sub-tab-d8" class="day-sub-btn px-3 py-1.5 text-xs md:text-sm font-bold rounded-xl border border-slate-200 text-slate-600 transition whitespace-nowrap">D8 3/03 週三</button>
+        </div>
+      </div>
+
+      <!-- D1 Content -->
+      <div id="sub-page-d1" class="day-sub-content space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <!-- Left Column (Desktop 4 cols): Overview & Advice -->
+          <div class="lg:col-span-4 space-y-4">
+            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+              <span class="text-xs font-bold text-indigo-600">Day 1 ｜ 2027/02/24 (週三)</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-1">抵達關西 ➔ Haruka 直達京都</h3>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">當日氣溫</span>
+                  <strong class="text-slate-800">約 3°C ～ 11°C</strong>
+                </div>
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">當晚住宿</span>
+                  <strong class="text-indigo-600 font-bold">宿京都 MIMARU 站前</strong>
+                </div>
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">出行成員</span>
+                  <strong class="text-slate-800">8 人出發（5大2幼1嬰）</strong>
+                </div>
+                <div class="flex items-center justify-between py-1">
+                  <span class="text-slate-400">交通工具</span>
+                  <strong class="text-slate-800">JR 關空特急 Haruka 直達</strong>
+                </div>
+              </div>
+              <div class="mt-4 bg-indigo-50 p-3 rounded-xl text-xs text-indigo-950 leading-relaxed">
+                💡 <strong>首日亮點</strong>：出關直接在機場車站上車，78分鐘免換車直達京都車站，不需在大阪地鐵拉行李！
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (Desktop 8 cols): Timeline Cards -->
+          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <div class="flex justify-between items-center text-slate-400 font-semibold text-xs">
+                <span>11:15 - 14:45</span>
+                <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded">航程 2h 30m</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🛫 國泰 CX564 台北桃園直飛大阪關西 T1</h4>
+              <p class="text-slate-600 mt-1">預選第一排嬰兒搖籃座與幼童餐。抵達後推車直接在機艙門口提領。</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <div class="flex justify-between items-center text-slate-400 font-semibold text-xs">
+                <span>15:45 - 17:15</span>
+                <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded font-bold">直達指定席</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🚆 搭乘 JR 關空特急 Haruka 直達京都車站</h4>
+              <p class="text-slate-600 mt-1">出關直上空橋至 JR 車站，行車 78 分鐘直達京都車站！大件行李放置於車廂行李架，Hello Kitty 彩繪幼童超喜歡。</p>
+              <a href="https://maps.google.com/?q=Kyoto+Station" target="_blank" class="mt-2 inline-block px-3 py-1 bg-indigo-50 text-indigo-700 font-bold rounded-lg text-xs">📍 京都車站 Google Maps</a>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <div class="flex justify-between items-center text-slate-400 font-semibold text-xs">
+                <span>17:30 入住</span>
+                <span class="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-bold">步行 3 分鐘</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🏨 入住 MIMARU 京都站前（連住 2 晚）</h4>
+              <p class="text-slate-600 mt-1">公寓式大房型有小廚房、客廳沙發與洗脫烘衣機。長輩泡茶休息、幼童安置補充水份。</p>
+              <a href="https://maps.google.com/?q=MIMARU+KYOTO+STATION" target="_blank" class="mt-2 inline-block px-3 py-1 bg-emerald-50 text-emerald-700 font-bold rounded-lg text-xs">📍 飯店位置導航</a>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <div class="flex justify-between items-center text-slate-400 font-semibold text-xs">
+                <span>18:30 晚餐</span>
+                <span class="bg-amber-50 text-amber-700 px-2 py-0.5 rounded font-bold">推車直達</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🍲 京都車站伊勢丹百貨 11F 美食街</h4>
+              <p class="text-slate-600 mt-1">無障礙電梯直通，品嚐三嶋亭壽喜燒或炸豬排定食。地下超市採買當晚水果、日本鮮乳與早餐麵包。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D2 Content -->
+      <div id="sub-page-d2" class="day-sub-content hidden space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <div class="lg:col-span-4 space-y-4">
+            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+              <span class="text-xs font-bold text-rose-600">Day 2 ｜ 2027/02/25 (週四)</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-1">🌸 北野天滿宮梅花祭 ＋ 鐵道館</h3>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">當日特色</span>
+                  <strong class="text-rose-600 font-bold">2/25 一年一度梅花祭 ＋ 天神市</strong>
+                </div>
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">當晚住宿</span>
+                  <strong class="text-slate-800">宿京都 MIMARU 站前</strong>
+                </div>
+                <div class="flex items-center justify-between py-1">
+                  <span class="text-slate-400">交通建議</span>
+                  <strong class="text-slate-800">短程計程車（免等公車受凍）</strong>
+                </div>
+              </div>
+              <div class="mt-4 bg-rose-50 p-3 rounded-xl text-xs text-rose-950 leading-relaxed">
+                💡 <strong>推車動線</strong>：北野天滿宮主參道為平整石板路；鐵道博物館 100% 全館平坦無障礙電梯。
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">09:30 - 12:30 上午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🚂 京都鐵道博物館（全室內暖氣避寒）</h4>
+              <p class="text-slate-600 mt-1">收藏 53 輛真火車、新幹線實車近距離接觸、蒸汽火車扇形車庫。2 樓景觀餐廳邊吃火車造型便當邊看東海道新幹線疾駛奔馳！</p>
+              <div class="flex gap-2 mt-2">
+                <a href="https://maps.google.com/?q=Kyoto+Railway+Museum" target="_blank" class="px-3 py-1 bg-blue-50 text-blue-700 font-bold rounded-lg text-xs">📍 鐵道館 Google Maps</a>
+                <a href="https://www.youtube.com/watch?v=F_fV171xOqQ" target="_blank" class="px-3 py-1 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">▶️ YouTube 介紹</a>
+              </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">13:30 - 16:00 下午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🌸 北野天滿宮（2/25 年度盛事「梅花祭」滿開）</h4>
+              <p class="text-slate-600 mt-1">搭計程車直接抵達！2,000 株梅花此時正值滿開盛放花海，走平坦石板參道賞梅聞香、摸撫神牛祈福，順逛每月 25 日著名的「天神市」市集。</p>
+              <a href="https://maps.google.com/?q=Kitano+Tenmangu" target="_blank" class="mt-2 inline-block px-3 py-1 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">📍 天滿宮 Google Maps</a>
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl text-emerald-950">
+              <h4 class="font-bold text-base">🛌 16:30 - 18:30 飯店全員充電休整</h4>
+              <p class="mt-1 text-xs md:text-sm text-emerald-800">住京都不必匆忙趕回大阪！長輩與小孩在房間舒適午休洗澡，晚間於京都車站品嚐清爽湯豆腐或日式和牛火鍋。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D3 Content -->
+      <div id="sub-page-d3" class="day-sub-content hidden space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <div class="lg:col-span-4 space-y-4">
+            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+              <span class="text-xs font-bold text-blue-600">Day 3 ｜ 2027/02/26 (週五)</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-1">移防大阪 ➔ 大阪城梅林滿開</h3>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">跨城移動</span>
+                  <strong class="text-blue-600 font-bold">JR 新快速 29 分鐘直達</strong>
+                </div>
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">當晚住宿</span>
+                  <strong class="text-slate-800 font-bold">宿大阪心齋橋（連住5晚）</strong>
+                </div>
+              </div>
+              <div class="mt-4 bg-blue-50 p-3 rounded-xl text-xs text-blue-950 leading-relaxed">
+                💡 <strong>電梯出口</strong>：大阪城走「森之宮站 3-B 號電梯出口」直達地面公園，完全沒有任何階梯！
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">10:00 - 11:30 上午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🧳 退房移動至大阪心齋橋</h4>
+              <p class="text-slate-600 mt-1">JR新快速 29分鐘抵達大阪梅田，轉計程車至 MIMARU 大阪 心齋橋先放行李。</p>
+              <a href="https://maps.google.com/?q=MIMARU+Osaka+Shinsaibashi" target="_blank" class="mt-2 inline-block px-3 py-1 bg-indigo-50 text-indigo-700 font-bold rounded-lg text-xs">📍 MIMARU 心齋橋導航</a>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">13:00 - 16:00 下午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🌸 大阪城梅林滿開（1,270 株見頃花海） ＋ 御座船</h4>
+              <p class="text-slate-600 mt-1">此時正是大阪城梅林全年最壯麗花期！粉白花海香氣撲鼻，平坦柏油路推車好推。搭乘金色御座船巡航護城河 20 分鐘，JO-TERRACE 景觀午茶。</p>
+              <a href="https://maps.google.com/?q=Osaka+Castle+Plum+Grove" target="_blank" class="mt-2 inline-block px-3 py-1 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">📍 大阪城梅林 Google Maps</a>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">17:30 傍晚</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🛒 心齋橋筋雨棚街散步 ＋ 暖胃晚餐</h4>
+              <p class="text-slate-600 mt-1">雨棚避風防寒，晚餐安排道頓堀暖心烏龍麵或日式壽喜燒定食。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D4 Content -->
+      <div id="sub-page-d4" class="day-sub-content hidden space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <div class="lg:col-span-4 space-y-4">
+            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+              <span class="text-xs font-bold text-emerald-600">Day 4 ｜ 2027/02/27 (週六)</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-1">🎉 9人全員到齊！HARUKAS 夕陽</h3>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">成員變化</span>
+                  <strong class="text-emerald-600 font-bold">8 人 ➔ 9 人全員會合！</strong>
+                </div>
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">當日晚餐</span>
+                  <strong class="text-slate-800">全員團聚慶祝大餐</strong>
+                </div>
+              </div>
+              <div class="mt-4 bg-emerald-50 p-3 rounded-xl text-xs text-emerald-950 leading-relaxed">
+                💡 <strong>新成員動線</strong>：南海特急 Rapi:t 直達難波站（38分鐘），轉計程車 5 分鐘抵達飯店！
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">09:30 - 11:30 上午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🍢 主部隊慢步黑門市場</h4>
+              <p class="text-slate-600 mt-1">步行或 1 站地鐵！品嚐烤海鮮、草莓大福、豆乳甜點與玉子燒。</p>
+            </div>
+
+            <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-2xl text-indigo-950">
+              <h4 class="font-bold text-base">🛬 11:30 - 13:30 第九名成員抵達與飯店客廳大會合！</h4>
+              <p class="mt-1 text-xs md:text-sm text-slate-700">新成員飛抵關西機場 T1，搭乘南海特急 Rapi:t 直達難波轉計程車至飯店。<strong>9 人全員在客廳大團聚、拍全家福！</strong> 小孩與長輩午休充電。</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">15:30 - 18:00 下午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🏙️ HARUKAS 300 展望台 ＋ Q's Mall 阿卡將本舖</h4>
+              <p class="text-slate-600 mt-1">天王寺站無障礙直達！直上 60 樓玻璃景觀台看大阪灣夕陽轉百萬夜景；媽媽們在阿卡將大採購婦嬰用品，長輩商場咖啡座悠閒歇腳。</p>
+              <a href="https://maps.google.com/?q=Harukas+300" target="_blank" class="mt-2 inline-block px-3 py-1 bg-indigo-50 text-indigo-700 font-bold rounded-lg text-xs">📍 HARUKAS 300 導航</a>
+            </div>
+
+            <div class="bg-rose-50 border border-rose-200 p-4 rounded-2xl text-rose-950 font-bold">
+              🥩 18:30 【9人全員團聚晚宴】預約近鐵百貨頂樓景觀和牛餐廳或心齋橋和牛包廂
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D5 Content -->
+      <div id="sub-page-d5" class="day-sub-content hidden space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <div class="lg:col-span-4 space-y-4">
+            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+              <span class="text-xs font-bold text-rose-600">Day 5 ｜ 2027/02/28 (週日)</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-1">🍓 Harvest Hill 採草莓吃到飽</h3>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">交通方式</span>
+                  <strong class="text-rose-600 font-bold">全日 9 人座包車 Hiace</strong>
+                </div>
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">當日亮點</span>
+                  <strong class="text-slate-800">溫室極甜草莓 ＋ 水豚羊駝</strong>
+                </div>
+              </div>
+              <div class="mt-4 bg-rose-50 p-3 rounded-xl text-xs text-rose-950 leading-relaxed">
+                💡 <strong>長輩推車友善</strong>：高架式草莓園讓長輩站著採不腰痠，溫室內無風溫暖（約 18°C~20°C）。
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">09:30 - 10:15 出發</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🚐 飯店門口上車直達堺市 Harvest Hill</h4>
+              <p class="text-slate-600 mt-1">車程約 40 分鐘，直達農場入口免走路。</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">10:30 - 11:30 上午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🍓 溫室高架草莓現採吃到飽（30分鐘）</h4>
+              <p class="text-slate-600 mt-1">2月下旬寒冬糖度累積巔峰！日本頂級鮮甜草莓，溫室防風溫暖，幼童與長輩吃得開心又保暖。</p>
+              <a href="https://maps.google.com/?q=Harvest+Hill+Sakai" target="_blank" class="mt-2 inline-block px-3 py-1 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">📍 農場 Google Maps</a>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">11:30 - 14:30 下午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🦙 石窯披薩午餐 ＋ 餵食水豚 ＋ 森林小火車</h4>
+              <p class="text-slate-600 mt-1">園區自產香腸披薩、近距離餵水豚羊駝小羊、森林家族造景村合影。</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">15:30 傍晚</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🚐 包車舒適返回大阪飯店休息</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D6 Content -->
+      <div id="sub-page-d6" class="day-sub-content hidden space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <div class="lg:col-span-4 space-y-4">
+            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+              <span class="text-xs font-bold text-amber-600">Day 6 ｜ 2027/03/01 (週一)</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-1">🧱 天保山樂高避寒 ＋ 摩天輪</h3>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">當日定位</span>
+                  <strong class="text-amber-600 font-bold">全室內避寒 ＋ 充電休整</strong>
+                </div>
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">戰略意義</span>
+                  <strong class="text-slate-800">為次日 USJ 儲備 100% 體力</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">10:00 - 12:30 上午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🧱 天保山樂高樂園探索中心（全室內暖氣）</h4>
+              <p class="text-slate-600 mt-1">大阪港站 1 號出口直梯！室內 4D 動感劇院、樂高迷你大阪城、積木池，幼童盡情放電。</p>
+              <a href="https://maps.google.com/?q=Legoland+Discovery+Center+Osaka" target="_blank" class="mt-2 inline-block px-3 py-1 bg-amber-50 text-amber-700 font-bold rounded-lg text-xs">📍 樂高樂園 Google Maps</a>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">13:40 - 14:30 下午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🎡 天保山大摩天輪</h4>
+              <p class="text-slate-600 mt-1">密閉防風保暖車廂，眺望大阪灣跨海大橋海景，長幼同享 15 分鐘平穩旋轉。</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">15:30 傍晚</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🛍️ 飯店充分午休 ＋ 心齋橋電器藥妝補貨</h4>
+              <p class="text-slate-600 mt-1">早早吃晚餐回房休息，全家為隔天環球影城儲備體能！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D7 Content: USJ -->
+      <div id="sub-page-d7" class="day-sub-content hidden space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <div class="lg:col-span-4 space-y-4">
+            <div class="bg-gradient-to-br from-purple-900 via-indigo-950 to-purple-900 text-white p-5 rounded-3xl shadow-sm">
+              <span class="text-xs font-bold text-purple-200">Day 7 ｜ 2027/03/02 (週二)</span>
+              <h3 class="text-lg font-bold mt-1">🍄 日本環球影城 USJ 全員圓夢日！</h3>
+              <div class="mt-3 space-y-2 text-xs text-purple-100">
+                <div class="flex items-center justify-between py-1 border-b border-purple-800">
+                  <span class="text-purple-300">客流評等</span>
+                  <strong class="text-amber-300 font-bold">全週最少人黃金日！</strong>
+                </div>
+                <div class="flex items-center justify-between py-1 border-b border-purple-800">
+                  <span class="text-purple-300">接駁方式</span>
+                  <strong class="text-white">2台計程車門對門直達</strong>
+                </div>
+              </div>
+              <div class="mt-4 bg-white/10 p-3 rounded-xl text-xs text-purple-100 leading-relaxed">
+                💡 <strong>三大保證</strong>：長輩租輪椅不走路、幼童室內暖氣球池不吹風、大人 Child Switch 刷設施！
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">08:30 - 09:00</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🚕 飯店門口搭 2 台計程車直達 USJ（25分鐘）</h4>
+              <p class="text-slate-600 mt-1">免擠地鐵換線，在門口下車直達驗票閘門。</p>
+            </div>
+
+            <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-amber-950">
+              <h4 class="font-bold text-base">💡 入門第一步：¥500 租借長輩輪椅 ＋ App よやくのり</h4>
+              <p class="mt-1 text-xs md:text-sm text-slate-700">驗票口右側租輪椅給長輩，平坦柏油路推行尊榮免走萬步；手機 App 預約「環球奇境」親子設施（史努比/小小兵）。</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">09:30 - 12:00 上午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🍄 超級任天堂世界：耀西冒險 ＋ 瑪利歐賽車</h4>
+              <p class="text-slate-600 mt-1">全家搭乘平穩可愛的「耀西冒險（滿92cm）」；年輕人使用 **Child Switch（輪流乘坐）** 挑戰瑪利歐賽車，長輩在專屬休息室陪小童喝熱可可！</p>
+              <a href="https://maps.google.com/?q=Universal+Studios+Japan" target="_blank" class="mt-2 inline-block px-3 py-1 bg-purple-50 text-purple-700 font-bold rounded-lg text-xs">📍 USJ Google Maps</a>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">12:30 - 14:00 午餐與表演</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🍲 日式餐廳「彩道」溫暖午餐 ＋ Sing 室內大劇院</h4>
+              <p class="text-slate-600 mt-1">長輩最愛的熟食御膳定食；午後至「歡樂好聲音（Sing）」室內大劇院吹暖氣看歌舞秀放鬆。</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">14:30 - 16:30 下午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🏰 哈利波特城堡拍照 ＋ 史努比室內球池</h4>
+              <p class="text-slate-600 mt-1">霍格華茲全家合影，傍晚 16:30 見好就收搭計程車返回飯店，吃溫暖大餐！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D8 Content -->
+      <div id="sub-page-d8" class="day-sub-content hidden space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <div class="lg:col-span-4 space-y-4">
+            <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80">
+              <span class="text-xs font-bold text-teal-600">Day 8 ｜ 2027/03/03 (週三)</span>
+              <h3 class="text-lg font-bold text-slate-900 mt-1">🛫 難波空中花園 ➔ 送機返台</h3>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex items-center justify-between py-1 border-b">
+                  <span class="text-slate-400">返台航班</span>
+                  <strong class="text-teal-700 font-bold">國泰 CX565 16:15➔18:30</strong>
+                </div>
+                <div class="flex items-center justify-between py-1">
+                  <span class="text-slate-400">行李配額</span>
+                  <strong class="text-slate-800">8 件行李 184kg 托運</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-3 text-xs md:text-sm">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">09:30 - 10:30 上午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🏨 退房 ＋ 8 咖行李上包車</h4>
+              <p class="text-slate-600 mt-1">包車直接載運全家大行李，免拖推車走大街。</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">10:30 - 12:30 上午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🌳 難波 Parks 階梯空中花園散步與最後採買</h4>
+              <p class="text-slate-600 mt-1">綠化階梯商場散步，採買精緻日本點心伴手禮。</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200/70">
+              <span class="text-slate-400 font-semibold text-xs">12:30 - 13:30 下午</span>
+              <h4 class="font-bold text-slate-900 text-base mt-1">🚐 包車直達關西機場 T1（45分鐘）</h4>
+              <p class="text-slate-600 mt-1">13:30 抵達櫃檯提早托運通關，免稅店採買生巧克力。</p>
+            </div>
+
+            <div class="bg-teal-50 border border-teal-200 p-4 rounded-2xl text-teal-950 font-bold">
+              ✈️ 16:15 國泰 CX565 起飛 ➔ 18:30 平安降落台北桃園 T1，圓滿結束 8 天之旅！
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 3: USJ ==================== -->
+    <div id="page-usj" class="main-sec hidden space-y-5">
+      <div class="bg-gradient-to-r from-purple-950 via-indigo-950 to-purple-900 text-white p-5 md:p-7 rounded-3xl shadow-sm">
+        <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">USJ 三代同堂全員圓夢攻略</span>
+        <h2 class="text-xl md:text-2xl font-bold mt-1">🍄 6大障礙官方破解神技</h2>
+        <p class="text-xs md:text-sm text-purple-200 mt-1">長輩坐輪椅看遊行第一排、小孩室內暖氣放電、年輕人刷刺激設施！</p>
+      </div>
+
+      <!-- 4 Secret Hacks Responsive Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Hack 1 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 space-y-2.5">
+          <div class="flex items-center justify-between border-b pb-2">
+            <span class="font-bold text-purple-700 text-base">👶 神技 1：Child Switch（輪流乘坐）</span>
+            <span class="bg-purple-50 text-purple-700 px-2.5 py-0.5 rounded-lg text-xs font-bold">官方免費</span>
+          </div>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+            <strong>同行大人只需排一次隊，兩批接力玩！</strong> 入口對工作人員說「Child Switch」。第一組大人先去搭乘，第二組大人帶著小孩進入<strong>設施內專屬空調休息室</strong>等候；第一組玩完接力，第二組大人<strong>走內部通道直接上車，完全免重排！</strong>
+          </p>
+          <div class="bg-slate-50 p-2.5 rounded-xl text-xs text-slate-500">
+            適用：瑪利歐賽車、咚奇剛礦車、哈利波特、飛天翼龍、小小兵等全部熱門設施。
+          </div>
+        </div>
+
+        <!-- Hack 2 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 space-y-2.5">
+          <div class="flex items-center justify-between border-b pb-2">
+            <span class="font-bold text-indigo-700 text-base">📱 神技 2：よやくのり（預約乘坐 App）</span>
+            <span class="bg-indigo-50 text-indigo-700 px-2.5 py-0.5 rounded-lg text-xs font-bold">¥0 零元快速通關</span>
+          </div>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+            USJ 官方 App 親子專屬免排隊功能！入園後綁定門票即可預約「環球奇境」設施。只要「預約時段開始」的瞬間（如預約 10:30，時間一到 10:30），App 立即解鎖抽下一張！
+          </p>
+          <div class="bg-indigo-50 p-2.5 rounded-xl text-xs text-indigo-900">
+            推薦順序：先抽小小兵冰凍雷射 ➔ 再抽飛天史努比 ➔ Hello Kitty 夢幻蛋糕杯。
+          </div>
+        </div>
+
+        <!-- Hack 3 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 space-y-2.5">
+          <div class="flex items-center justify-between border-b pb-2">
+            <span class="font-bold text-emerald-700 text-base">🦽 神技 3：入口租借輪椅（長輩 VIP 神器）</span>
+            <span class="bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-lg text-xs font-bold">每日僅 ¥500（約 110 台幣）</span>
+          </div>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+            入園驗票閘門右側租借！USJ 全區皆為平整無障礙柏油路與電梯。68 歲長輩不用走 15,000 步傷膝蓋，坐著輪椅由晚輩推行；<strong>看 NO LIMIT 大遊行時工作人員還會引導至無障礙專屬第一排觀賞區！</strong>
+          </p>
+        </div>
+
+        <!-- Hack 4 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 space-y-2.5">
+          <div class="flex items-center justify-between border-b pb-2">
+            <span class="font-bold text-rose-700 text-base">💨 神技 4：40/30 室內外冷熱交替律</span>
+            <span class="bg-rose-50 text-rose-700 px-2.5 py-0.5 rounded-lg text-xs font-bold">防海風受凍</span>
+          </div>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+            嚴禁戶外連續吹風超過 45 分鐘！走動拍照 40 分鐘後，立刻切入**室內避風基地**：
+          </p>
+          <div class="grid grid-cols-2 gap-2 pt-1 text-xs">
+            <div class="bg-slate-50 p-2.5 rounded-xl">
+              <strong class="text-slate-800">🏠 艾蒙室內樂園</strong><br>全室內暖氣球池軟墊爬行區
+            </div>
+            <div class="bg-slate-50 p-2.5 rounded-xl">
+              <strong class="text-slate-800">🎭 歡樂好聲音劇院</strong><br>25分鐘坐大沙發椅看百老匯
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 4: KYOTO SPOTS ==================== -->
+    <div id="page-kyoto-spots" class="main-sec hidden space-y-5">
+      <div class="bg-white p-5 md:p-6 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-bold text-rose-600">京都前兩天候選大庫</span>
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900 mt-1">🏯 京都景點深度評比 ＆ YouTube 導覽</h2>
+        <p class="text-xs md:text-sm text-slate-500 mt-0.5">針對老小同行、推車動線與防寒全維度審核</p>
+      </div>
+
+      <!-- Spots Grid (3 Columns on Desktop) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs md:text-sm">
+        <!-- Spot 1 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900">1. 🚂 京都鐵道博物館</h3>
+              <span class="px-2.5 py-0.5 bg-emerald-50 text-emerald-700 font-bold rounded-lg text-xs">推車 ⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              全日本三大鐵道館之一！53 輛真火車展出、蒸汽火車扇形車庫。全館平坦無障礙、室內全暖氣。2 樓景觀餐廳直面新幹線奔馳，老少皆大歡喜！
+            </p>
+          </div>
+          <div class="flex gap-2 pt-2 border-t">
+            <a href="https://maps.google.com/?q=Kyoto+Railway+Museum" target="_blank" class="px-3 py-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200">📍 地圖導航</a>
+            <a href="https://www.youtube.com/watch?v=F_fV171xOqQ" target="_blank" class="px-3 py-1.5 bg-rose-50 text-rose-700 font-bold rounded-xl text-xs hover:bg-rose-100">▶️ YouTube 介紹</a>
+          </div>
+        </div>
+
+        <!-- Spot 2 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900">2. 🌸 北野天滿宮（2/25梅花祭）</h3>
+              <span class="px-2.5 py-0.5 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">限定 ⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              2/25 正值年度梅花祭 ＋ 天神市市集！2,000 株梅花見頃花海，主參道平坦石板路推車極順暢，摸撫神牛祈求全家健康智慧。
+            </p>
+          </div>
+          <div class="flex gap-2 pt-2 border-t">
+            <a href="https://maps.google.com/?q=Kitano+Tenmangu" target="_blank" class="px-3 py-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200">📍 地圖導航</a>
+          </div>
+        </div>
+
+        <!-- Spot 3 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900">3. 🐬 京都水族館</h3>
+              <span class="px-2.5 py-0.5 bg-blue-50 text-blue-700 font-bold rounded-lg text-xs">避寒 ⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              就在鐵道館旁（梅小路公園內）！日本國寶大山椒魚、360 度夢幻水母環形水槽、海豚表演秀。全室內溫暖無風，推車通道寬敞。
+            </p>
+          </div>
+          <div class="flex gap-2 pt-2 border-t">
+            <a href="https://maps.google.com/?q=Kyoto+Aquarium" target="_blank" class="px-3 py-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200">📍 地圖導航</a>
+            <a href="https://www.youtube.com/watch?v=EXHxpBwsXSZ" target="_blank" class="px-3 py-1.5 bg-rose-50 text-rose-700 font-bold rounded-xl text-xs hover:bg-rose-100">▶️ YouTube 介紹</a>
+          </div>
+        </div>
+
+        <!-- Spot 4 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900">4. 🏯 二條城（世界文化遺產）</h3>
+              <span class="px-2.5 py-0.5 bg-indigo-50 text-indigo-700 font-bold rounded-lg text-xs">平坦 ⭐⭐⭐⭐☆</span>
+            </div>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              德川家康將軍寓所！無障礙木棧道，二之丸御殿外圍完全平坦，二條城梅林此時也是盛開期，長輩極愛歷史底蘊。
+            </p>
+          </div>
+          <div class="flex gap-2 pt-2 border-t">
+            <a href="https://maps.google.com/?q=Nijo+Castle" target="_blank" class="px-3 py-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200">📍 地圖導航</a>
+          </div>
+        </div>
+
+        <!-- Spot 5 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900">5. 🥷 東映太秦映畫村</h3>
+              <span class="px-2.5 py-0.5 bg-amber-50 text-amber-700 font-bold rounded-lg text-xs">男童天堂 ⭐⭐⭐⭐☆</span>
+            </div>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              江戶老街忍者變裝體驗、手裏劍投擲、等身大初號機、室內假面騎士特攝館。適合 3-5 歲幼童放電。
+            </p>
+          </div>
+          <div class="flex gap-2 pt-2 border-t">
+            <a href="https://maps.google.com/?q=Toei+Kyoto+Studio+Park" target="_blank" class="px-3 py-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200">📍 地圖導航</a>
+          </div>
+        </div>
+
+        <!-- Spot 6 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900">6. 🦒 京都市動物園 ＆ 平安神宮</h3>
+              <span class="px-2.5 py-0.5 bg-emerald-50 text-emerald-700 font-bold rounded-lg text-xs">平路 ⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              全平路無階梯，近年全面翻新推車友善！長頸鹿空中步道平行對視，平安神宮紅色巨型大鳥居壯麗開闊。
+            </p>
+          </div>
+          <div class="flex gap-2 pt-2 border-t">
+            <a href="https://maps.google.com/?q=Kyoto+City+Zoo" target="_blank" class="px-3 py-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200">📍 地圖導航</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 5: OSAKA SPOTS ==================== -->
+    <div id="page-osaka-spots" class="main-sec hidden space-y-5">
+      <div class="bg-white p-5 md:p-6 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-bold text-indigo-600">大阪與近郊備選大庫</span>
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900 mt-1">🏙️ 大阪精選景點與雨備備案</h2>
+        <p class="text-xs md:text-sm text-slate-500 mt-0.5">天候驟變或體力調整時的隨機替換首選</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs md:text-sm">
+        <!-- Spot 1 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900">1. 🤹 Kids Plaza Osaka</h3>
+              <span class="px-2.5 py-0.5 bg-emerald-50 text-emerald-700 font-bold rounded-lg text-xs">神級雨備 ⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              扇町站直達！全日本首座兒童探索博物館。室內巨型百水城堡溜滑梯、角色扮演超市、水科學互動。全室內溫暖無風，長輩休息區極舒適。
+            </p>
+          </div>
+          <a href="https://maps.google.com/?q=Kids+Plaza+Osaka" target="_blank" class="inline-block px-3 py-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200 w-fit">📍 地圖導航</a>
+        </div>
+
+        <!-- Spot 2 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900">2. 🦥 神戶動物王國</h3>
+              <span class="px-2.5 py-0.5 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">室內溫室 ⭐⭐⭐⭐⭐</span>
+            </div>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              全室內大溫室花卉植物園，不受海風或低溫影響！水豚、巨嘴鳥、企鵝在身邊自由穿梭零距離接觸。推車無障礙極致順暢。
+            </p>
+          </div>
+          <a href="https://maps.google.com/?q=Kobe+Animal+Kingdom" target="_blank" class="inline-block px-3 py-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200 w-fit">📍 地圖導航</a>
+        </div>
+
+        <!-- Spot 3 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900">3. 🦈 大阪海遊館</h3>
+              <span class="px-2.5 py-0.5 bg-blue-50 text-blue-700 font-bold rounded-lg text-xs">環形坡道 ⭐⭐⭐⭐☆</span>
+            </div>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              天保山樂高旁！世界最大級水族館之一，巨大鯨鯊悠游，環形無障礙緩坡推車好推，唯假日人潮較多需預約時段。
+            </p>
+          </div>
+          <a href="https://maps.google.com/?q=Osaka+Aquarium+Kaiyukan" target="_blank" class="inline-block px-3 py-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200 w-fit">📍 地圖導航</a>
+        </div>
+
+        <!-- Spot 4 -->
+        <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-base text-slate-900">4. 🦌 奈良公園 ＋ 東大寺</h3>
+              <span class="px-2.5 py-0.5 bg-amber-50 text-amber-700 font-bold rounded-lg text-xs">經典餵鹿 ⭐⭐⭐⭐☆</span>
+            </div>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              難波搭近鐵 40 分鐘直達「近鐵奈良站」。出站即平坦林蔭大道，餵溫和梅花鹿、參拜東大寺世界最大木造佛殿。
+            </p>
+          </div>
+          <a href="https://maps.google.com/?q=Nara+Park" target="_blank" class="inline-block px-3 py-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200 w-fit">📍 地圖導航</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 6: HOTELS ==================== -->
+    <div id="page-hotels" class="main-sec hidden space-y-5">
+      <div class="bg-white p-5 md:p-6 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-bold text-indigo-600">京都 2 晚 ＋ 大阪 5 晚</span>
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900 mt-1">🏨 備選住宿深度評比</h2>
+        <p class="text-xs md:text-sm text-slate-500 mt-0.5">針對家庭大房型、洗脫烘、客廳與地鐵電梯實測篩選</p>
+      </div>
+
+      <!-- Kyoto Hotels Grid -->
+      <div class="space-y-3">
+        <h3 class="font-bold text-slate-600 uppercase tracking-wider text-xs px-1">【京都前 2 晚備選】</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+          <div class="bg-white p-5 rounded-3xl shadow-sm border-2 border-indigo-200 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-indigo-700 text-base">首選：MIMARU 京都站前</h4>
+              <span class="bg-indigo-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-lg">強烈推薦</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              京都站烏丸口步行 3 分鐘！下 Haruka 直達，家庭大房型有小廚房、微波爐、餐桌客廳與洗脫烘衣機。老小下車立刻入住，完全不累。
+            </p>
+            <a href="https://maps.google.com/?q=MIMARU+KYOTO+STATION" target="_blank" class="inline-block px-3 py-1 bg-indigo-50 text-indigo-700 font-bold rounded-lg text-xs">📍 地圖位置</a>
+          </div>
+
+          <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 space-y-2.5">
+            <h4 class="font-bold text-slate-900 text-base">備選：都 Hotel 京都八條（Miyako Hotel）</h4>
+            <p class="text-slate-600 leading-relaxed">
+              京都站八條口對面過馬路即達！老牌四星大飯店，電梯多部、連通房型齊全，生活機能極佳，下樓即是近鐵與地下街。
+            </p>
+            <a href="https://maps.google.com/?q=Miyako+Hotel+Kyoto+Hachijo" target="_blank" class="inline-block px-3 py-1 bg-slate-100 text-slate-700 font-bold rounded-lg text-xs">📍 地圖位置</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Osaka Hotels Grid -->
+      <div class="space-y-3 pt-3">
+        <h3 class="font-bold text-slate-600 uppercase tracking-wider text-xs px-1">【大阪後 5 晚備選】</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs md:text-sm">
+          <div class="bg-white p-5 rounded-3xl shadow-sm border-2 border-rose-200 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-rose-700 text-base">首選：MIMARU 大阪 心齋橋</h4>
+              <span class="bg-rose-600 text-white font-bold text-xs px-2.5 py-0.5 rounded-lg">連住5晚首選</span>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+              長堀橋站電梯出口步行 2 分鐘！2 間家庭房或連通房，有客廳供全家聊天吃消夜，洗脫烘每天洗衣不用扛髒衣服。步行至心齋橋筋超近。
+            </p>
+            <a href="https://maps.google.com/?q=MIMARU+Osaka+Shinsaibashi" target="_blank" class="inline-block px-3 py-1 bg-rose-50 text-rose-700 font-bold rounded-lg text-xs">📍 地圖位置</a>
+          </div>
+
+          <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 space-y-2.5">
+            <h4 class="font-bold text-slate-900 text-base">備選：南海輝盛庭國際公寓</h4>
+            <p class="text-slate-600 leading-relaxed">
+              難波站正對面！頂級服務式公寓，第 4 天新成員搭南海 Rapi:t 出站直接進飯店！大客廳大廚房，空間寬敞高檔。
+            </p>
+            <a href="https://maps.google.com/?q=Fraser+Residence+Nankai+Osaka" target="_blank" class="inline-block px-3 py-1 bg-slate-100 text-slate-700 font-bold rounded-lg text-xs">📍 地圖位置</a>
+          </div>
+
+          <div class="bg-white p-5 rounded-3xl shadow-sm border border-slate-200/80 space-y-2.5">
+            <h4 class="font-bold text-slate-900 text-base">備選：大阪南海瑞士酒店</h4>
+            <p class="text-slate-600 leading-relaxed">
+              南海難波站正上方！下電車電梯直上大廳，完全不出站不淋雨。五星級服務與無障礙設施，連通高樓層景觀房。
+            </p>
+            <a href="https://maps.google.com/?q=Swissotel+Nankai+Osaka" target="_blank" class="inline-block px-3 py-1 bg-slate-100 text-slate-700 font-bold rounded-lg text-xs">📍 地圖位置</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 7: PACKING ==================== -->
+    <div id="page-packing" class="main-sec hidden space-y-5">
+      <div class="bg-white p-5 md:p-6 rounded-3xl shadow-sm border border-slate-200/80">
+        <span class="text-xs font-bold text-indigo-600">隨行裝備與打包全攻略</span>
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900 mt-1">🎒 8天7夜 行李裝備詳細檢核表</h2>
+        <p class="text-xs md:text-sm text-slate-500 mt-0.5">勾選狀態將自動儲存在手機/電腦瀏覽器中 ｜ 依長幼、衣物、推車完整分類</p>
+      </div>
+
+      <!-- Packing Categories Grid (3 Columns on Desktop) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs md:text-sm">
+        <!-- Section 1 -->
+        <div class="bg-white p-5 rounded-3xl border-2 border-indigo-100 space-y-2.5">
+          <div class="flex items-center justify-between border-b pb-2">
+            <span class="font-bold text-indigo-700 text-base">🚼 推車配置【2 車 ＋ 1 背巾】</span>
+            <span class="text-[10px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded font-bold">切忌雙人車</span>
+          </div>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-indigo-600">
+            <span><strong>2 台輕便摺疊推車</strong>（可登機款 Libelle/YOYO）</span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-indigo-600">
+            <span><strong>1 條人體工學背巾</strong>（走累輪替神物，USJ保暖必用）</span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-indigo-600">
+            <span><strong>2 個全罩透明防風雨罩</strong>（冬末保暖第一神器）</span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-indigo-600">
+            <span><strong>2 件推車夾式羽絨毯</strong>（附防掉夾）</span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-indigo-600">
+            <span><strong>推車承重掛鉤 ＋ 收納防塵袋</strong></span>
+          </label>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/70 space-y-2.5">
+          <div class="flex items-center justify-between border-b pb-2">
+            <span class="font-bold text-amber-700 text-base">🧥 衣物：長袖・短袖・外套</span>
+            <span class="text-[10px] bg-amber-50 text-amber-700 px-2 py-0.5 rounded font-bold">溫差 15°C</span>
+          </div>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-amber-600">
+            <span><strong>短袖/薄睡衣（每人 1～2 件）</strong>：房間暖氣睡覺用</span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-amber-600">
+            <span><strong>透氣/純棉薄長袖上衣（每人 3～4 件）</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-amber-600">
+            <span><strong>輕羽絨背心 / 針織開襟衫（每人 1～2 件）</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-amber-600">
+            <span><strong>防風防水連帽長羽絨大衣（每人 1 件核心）</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-amber-600">
+            <span><strong>保暖長褲 2～3 件 ＋ 發熱衣 2～3 件</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-amber-600">
+            <span><strong>遮耳毛帽、圍巾、手套、純棉厚襪</strong></span>
+          </label>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/70 space-y-2.5">
+          <div class="font-bold text-indigo-700 text-base border-b pb-2">👵 68 歲長輩專屬護理</div>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-indigo-600">
+            <span><strong>慢性病常備處方藥（多帶 3 天放隨身包）</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-indigo-600">
+            <span><strong>慢箋處方影本 / 英文用藥病歷卡</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-indigo-600">
+            <span><strong>輕量高彈性護膝</strong>（防膝蓋疲勞）</span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-indigo-600">
+            <span><strong>長輩專用保溫隨行水壺</strong>（喝溫水暖胃）</span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-indigo-600">
+            <span><strong>正露丸 / 欣表飛諾 / 肌肉痠痛貼布</strong></span>
+          </label>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/70 space-y-2.5">
+          <div class="flex items-center justify-between border-b pb-2">
+            <span class="font-bold text-rose-700 text-base">🍼 嬰幼兒副食品與奶粉</span>
+            <span class="text-[10px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold">前3天自備</span>
+          </div>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
+            <span><strong>配方奶粉（帶足 8 天份量）</strong>：防換奶腸胃不適</span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
+            <span><strong>奶瓶 3～4 支 ＋ 奶粉分裝盒</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
+            <span><strong>保溫熱水瓶（500～750ml）2 支</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
+            <span><strong>常溫副食品鋁箔包（自備前 3 天約 6 包）</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
+            <span><strong>紙尿布（前 3 天約 20 片）</strong>：D4 阿卡將補貨</span>
+          </label>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/70 space-y-2.5">
+          <div class="font-bold text-rose-700 text-base border-b pb-2">💊 小兒科常備備用藥包</div>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
+            <span><strong>退燒藥水雙雄</strong>：安佳熱 ＋ 依普芬</span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
+            <span><strong>止咳化痰藥水 ＋ 鼻塞抗組織胺藥水</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
+            <span><strong>口服補水電解質粉 ＋ 整腸益生菌</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
+            <span><strong>耳溫槍 ＋ 吸鼻器 ＋ 退熱貼</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-rose-600">
+            <span><strong>嬰兒凡士林 / 保濕乳霜</strong>（防蘋果臉乾裂）</span>
+          </label>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="bg-white p-5 rounded-3xl border border-slate-200/70 space-y-2.5">
+          <div class="flex items-center justify-between border-b pb-2">
+            <span class="font-bold text-emerald-700 text-base">🧳 行李箱配置與證件金融</span>
+            <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-bold">184kg 配額</span>
+          </div>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-emerald-600">
+            <span><strong>打包戰術：去程 4～5 大箱套小箱</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-emerald-600">
+            <span><strong>行動電源務必隨身登機，絕對不能托運！</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-emerald-600">
+            <span><strong>9 人護照（效期均在 2027/9/3 以後）</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-emerald-600">
+            <span><strong>Visit Japan Web (VJW) 截圖備份</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-emerald-600">
+            <span><strong>海外突發疾病醫療保險單條款與電話</strong></span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded text-emerald-600">
+            <span><strong>日圓現鈔 15～20 萬備用</strong></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 8: EMERGENCY ==================== -->
+    <div id="page-emergency" class="main-sec hidden space-y-5">
+      <div class="bg-rose-600 text-white p-5 md:p-6 rounded-3xl shadow-md">
+        <span class="text-xs uppercase font-bold tracking-wider text-rose-200">緊急應變專線</span>
+        <h2 class="text-xl md:text-2xl font-bold mt-1">🚑 京都・大阪急診與就醫指南</h2>
+        <p class="text-xs md:text-sm text-rose-100 mt-0.5">遇突發狀況請保持冷靜，出示下方日文對話卡</p>
+      </div>
+
+      <!-- Quick Call Box -->
+      <div class="grid grid-cols-2 gap-3 text-center">
+        <a href="tel:119" class="bg-white p-4 rounded-2xl shadow-sm border border-rose-200 flex flex-col items-center hover:shadow-md transition">
+          <span class="text-3xl">📞</span>
+          <span class="font-bold text-rose-600 text-base md:text-lg mt-1">119 救護車</span>
+          <span class="text-slate-400 text-xs">火警/急救專線</span>
+        </a>
+        <a href="tel:#7119" class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 flex flex-col items-center hover:shadow-md transition">
+          <span class="text-3xl">🩺</span>
+          <span class="font-bold text-slate-800 text-base md:text-lg mt-1">#7119 救急諮詢</span>
+          <span class="text-slate-400 text-xs">關西急救諮詢處</span>
+        </a>
+      </div>
+
+      <!-- Recommended Hospitals (3 Columns on Desktop) -->
+      <div class="bg-white p-5 md:p-6 rounded-3xl shadow-sm border border-slate-200/80 space-y-4 text-xs md:text-sm">
+        <div class="font-bold text-slate-900 border-b pb-2.5 flex items-center justify-between">
+          <span class="text-base">🏥 具備小兒科急診之大型綜合急救醫院</span>
+          <span class="text-indigo-600 font-normal text-xs">外語/多語言窗口支援</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">1. 京都第一赤十字病院</h4>
+              <p class="text-slate-500 text-xs mt-1">近京都車站（東山區）！京都核心急救中心，設有小兒科急診。</p>
+            </div>
+            <div class="mt-3 flex gap-2 pt-2 border-t border-slate-200">
+              <a href="tel:075-561-1121" class="text-indigo-600 font-bold underline text-xs">075-561-1121</a>
+              <a href="https://maps.google.com/?q=Kyoto+First+Red+Cross+Hospital" target="_blank" class="text-indigo-600 underline text-xs">地圖導航</a>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">2. 大阪赤十字病院</h4>
+              <p class="text-slate-500 text-xs mt-1">大阪天王寺區！大型救急救命中心，設有小兒科急診與外國人專屬看診服務窗口。</p>
+            </div>
+            <div class="mt-3 flex gap-2 pt-2 border-t border-slate-200">
+              <a href="tel:06-6774-5111" class="text-indigo-600 font-bold underline text-xs">06-6774-5111</a>
+              <a href="https://maps.google.com/?q=Osaka+Red+Cross+Hospital" target="_blank" class="text-indigo-600 underline text-xs">地圖導航</a>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 flex flex-col justify-between">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">3. 北野病院</h4>
+              <p class="text-slate-500 text-xs mt-1">大阪北區梅田周邊！全天候急救門診，小兒重症與急救設備極為完善。</p>
+            </div>
+            <div class="mt-3 flex gap-2 pt-2 border-t border-slate-200">
+              <a href="tel:06-6312-1221" class="text-indigo-600 font-bold underline text-xs">06-6312-1221</a>
+              <a href="https://maps.google.com/?q=Kitano+Hospital" target="_blank" class="text-indigo-600 underline text-xs">地圖導航</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Useful Japanese Card (2 Columns on Desktop) -->
+      <div class="bg-amber-50 border border-amber-200 p-5 rounded-3xl text-amber-950 text-xs md:text-sm space-y-3">
+        <div class="font-bold text-base">🇯🇵 就醫展示字卡（直接出示給司機或醫護人員）</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="bg-white p-3.5 rounded-2xl border border-amber-200">
+            <span class="text-xs text-slate-500 block">向計程車司機指引：</span>
+            <div class="font-bold text-sm md:text-base text-slate-900 mt-1">「救急病院へ連れて行ってください。」</div>
+            <span class="text-xs text-slate-500 mt-0.5 block">（請帶我們去急診醫院。）</span>
+          </div>
+          <div class="bg-white p-3.5 rounded-2xl border border-amber-200">
+            <span class="text-xs text-slate-500 block">向醫護說明幼兒狀況：</span>
+            <div class="font-bold text-sm md:text-base text-slate-900 mt-1">「子供が急に熱を出しました。小児科の診察をお願いします。」</div>
+            <span class="text-xs text-slate-500 mt-0.5 block">（小孩突然發高燒，請幫忙看小兒科。）</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Sticky Bottom Navigation Bar (Mobile Only: hidden on md screens) -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 py-2 z-50 shadow-lg">
+    <div class="max-w-md mx-auto px-4 flex justify-around items-center text-[10px] font-semibold text-slate-500">
+      <button onclick="switchMainTab('overview')" class="flex flex-col items-center gap-1 active:scale-95 transition">
+        <span class="text-base">📋</span>
+        <span>總覽</span>
+      </button>
+      <button onclick="switchMainTab('itinerary')" class="flex flex-col items-center gap-1 active:scale-95 transition">
+        <span class="text-base">📅</span>
+        <span>日程</span>
+      </button>
+      <button onclick="switchMainTab('usj')" class="flex flex-col items-center gap-1 active:scale-95 transition">
+        <span class="text-base">🍄</span>
+        <span>USJ</span>
+      </button>
+      <button onclick="switchMainTab('hotels')" class="flex flex-col items-center gap-1 active:scale-95 transition">
+        <span class="text-base">🏨</span>
+        <span>住宿</span>
+      </button>
+      <button onclick="switchMainTab('packing')" class="flex flex-col items-center gap-1 active:scale-95 transition">
+        <span class="text-base">🎒</span>
+        <span>清單</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Interactive Scripts -->
+  <script>
+    function switchMainTab(tabId) {
+      // Hide all main pages
+      document.querySelectorAll('.main-sec').forEach(el => el.classList.add('hidden'));
+      
+      // Show targeted main page
+      const target = document.getElementById('page-' + tabId);
+      if (target) {
+        target.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update Top Nav Button styles
+      document.querySelectorAll('.main-tab-btn').forEach(tab => {
+        tab.classList.remove('nav-active');
+        tab.classList.add('bg-slate-800/80', 'text-slate-300');
+      });
+      const activeBtn = document.getElementById('main-tab-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.add('nav-active');
+        activeBtn.classList.remove('bg-slate-800/80', 'text-slate-300');
+        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+
+    function switchDaySub(dayId) {
+      // Hide all day sub-pages
+      document.querySelectorAll('.day-sub-content').forEach(el => el.classList.add('hidden'));
+      
+      // Show targeted day sub-page
+      const target = document.getElementById('sub-page-' + dayId);
+      if (target) {
+        target.classList.remove('hidden');
+      }
+
+      // Update Sub-tab Button styles
+      document.querySelectorAll('.day-sub-btn').forEach(btn => {
+        btn.classList.remove('subtab-active');
+        btn.classList.add('text-slate-600', 'border-slate-200');
+      });
+      const activeBtn = document.getElementById('sub-tab-' + dayId);
+      if (activeBtn) {
+        activeBtn.classList.add('subtab-active');
+        activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+
+    function jumpToDay(dayId) {
+      switchMainTab('itinerary');
+      switchDaySub(dayId);
+    }
+
+    // Local Storage for packing checklist
+    document.addEventListener('DOMContentLoaded', () => {
+      const checkboxes = document.querySelectorAll('#page-packing input[type="checkbox"]');
+      checkboxes.forEach((cb, index) => {
+        const saved = localStorage.getItem('osaka2027_pack_' + index);
+        if (saved === 'true') cb.checked = true;
+        cb.addEventListener('change', () => {
+          localStorage.setItem('osaka2027_pack_' + index, cb.checked);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2027 日本關西（京都2晚＋大阪5晚）8天7夜三代同堂家族旅行企劃書</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+
+  <!-- Header Banner -->
+  <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="bg-rose-500/90 text-white text-xs px-2.5 py-0.5 rounded-full font-medium tracking-wide">機票已確認訂妥</span>
+            <span class="bg-amber-400 text-slate-900 text-xs px-2.5 py-0.5 rounded-full font-bold">京都2晚 ＋ 大阪5晚</span>
+            <span class="bg-emerald-500/90 text-white text-xs px-2.5 py-0.5 rounded-full font-medium">8人出發 ➔ D4大阪9人大會合</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white mt-1.5">
+            2027 日本關西（京都・大阪・堺市）三代同堂家族旅行提案
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-300">
+            📅 2027/02/24（三）～ 2027/03/03（三） ｜ 國泰航空 CX564 / CX565 直飛
+          </p>
+        </div>
+        
+        <!-- Navigation Tabs -->
+        <nav class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 custom-scroll text-xs font-medium">
+          <button onclick="switchTab('overview')" id="tab-overview" class="tab-btn px-3 py-1.5 rounded-lg bg-indigo-600 text-white transition">方案總覽</button>
+          <button onclick="switchTab('kyoto-videos')" id="tab-kyoto-videos" class="tab-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition">🎬 京都景點&YouTube秒數</button>
+          <button onclick="switchTab('matrix')" id="tab-matrix" class="tab-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition">景點全拆解評估</button>
+          <button onclick="switchTab('kkday')" id="tab-kkday" class="tab-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition">KKday一日遊推薦</button>
+          <button onclick="switchTab('kyoto-stay')" id="tab-kyoto-stay" class="tab-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition">京都住2天動線</button>
+          <button onclick="switchTab('day4')" id="tab-day4" class="tab-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition">D4新成員接應</button>
+          <button onclick="switchTab('itinerary')" id="tab-itinerary" class="tab-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition">每日詳細行程</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+
+    <!-- TAB 1: OVERVIEW -->
+    <section id="content-overview" class="tab-content space-y-6">
+      <div class="bg-gradient-to-br from-indigo-900 to-slate-900 text-white p-6 rounded-2xl shadow-md border border-indigo-700/50">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-2">
+            <span class="px-2.5 py-1 bg-amber-400 text-slate-900 font-bold text-xs rounded-md uppercase tracking-wider">全新住宿動線升級</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">前 2 晚住京都 ＋ 後 5 晚住大阪</h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
+              抵達關西機場後，搭乘 <strong>JR 關空特急 Haruka 直達京都車站（僅 78 分鐘）</strong>，省去往返拉車！在京都住 2 晚慢活深度體驗世界遺產與梅花盛宴。第 3 天輕鬆移防大阪，第 4 天上午新成員抵達關西機場時，大部隊已在大阪飯店等候，<strong>雙方無縫大會合！</strong>
+            </p>
+          </div>
+          <div class="flex sm:flex-col gap-2 shrink-0">
+            <div class="bg-white/10 p-3 rounded-xl border border-white/10 text-center">
+              <div class="text-[11px] text-indigo-300">前 2 晚（2/24-2/26）</div>
+              <div class="text-lg font-bold">宿京都</div>
+              <div class="text-[11px] text-slate-300">鐵道館＋北野天滿宮</div>
+            </div>
+            <div class="bg-white/10 p-3 rounded-xl border border-white/10 text-center">
+              <div class="text-[11px] text-emerald-300">後 5 晚（2/26-3/03）</div>
+              <div class="text-lg font-bold">宿大阪</div>
+              <div class="text-[11px] text-slate-300">D4會合＋採草莓＋樂高</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick 4 Highlights -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-start gap-4">
+          <div class="p-3 bg-rose-50 text-rose-600 rounded-xl text-2xl">🍓</div>
+          <div>
+            <div class="text-xs font-semibold text-rose-500 uppercase tracking-wider">年度極甜巔峰</div>
+            <div class="text-lg font-bold text-slate-900 mt-0.5">Harvest Hill 採草莓</div>
+            <p class="text-xs text-slate-500 mt-1">2月底糖分累積最飽滿，溫室無風防寒吃到飽</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-start gap-4">
+          <div class="p-3 bg-pink-50 text-pink-600 rounded-xl text-2xl">🌸</div>
+          <div>
+            <div class="text-xs font-semibold text-pink-500 uppercase tracking-wider">滿開見頃花海</div>
+            <div class="text-lg font-bold text-slate-900 mt-0.5">京都天滿宮＋城南宮</div>
+            <p class="text-xs text-slate-500 mt-1">2/25梅花祭＋垂枝梅落椿花瀑，平坦好推車</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-start gap-4">
+          <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl text-2xl">🚂</div>
+          <div>
+            <div class="text-xs font-semibold text-indigo-600 uppercase tracking-wider">五星級親子設施</div>
+            <div class="text-lg font-bold text-slate-900 mt-0.5">京都鐵道博物館＋水族館</div>
+            <p class="text-xs text-slate-500 mt-1">全室內暖氣電梯，53輛實體火車，新幹線餐廳</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-start gap-4">
+          <div class="p-3 bg-amber-50 text-amber-600 rounded-xl text-2xl">🏙️</div>
+          <div>
+            <div class="text-xs font-semibold text-amber-600 uppercase tracking-wider">D4全員大團聚</div>
+            <div class="text-lg font-bold text-slate-900 mt-0.5">HARUKAS 300 夕陽</div>
+            <p class="text-xs text-slate-500 mt-1">新成員大阪無縫會合，60樓夕陽夜景＋和牛大餐</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: KYOTO VIDEOS & TIMESTAMP DIRECTORY (NEW!) -->
+    <section id="content-kyoto-videos" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <div>
+            <span class="px-2.5 py-1 bg-indigo-100 text-indigo-800 text-xs font-bold rounded-lg uppercase tracking-wide">前兩天京都精選</span>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 mt-1 flex items-center gap-2">
+              🎬 京都 11 大候選景點全庫 ＆ YouTube 介紹（含大綱與直達秒數）
+            </h2>
+            <p class="text-xs text-slate-500 mt-1">為您嚴格篩選推車無障礙、室內避寒、季節限定梅花與長輩友善景點，點擊秒數按鈕即可直接在 YouTube 觀看實景！</p>
+          </div>
+          <div class="text-xs bg-amber-50 border border-amber-200 text-amber-900 p-2.5 rounded-xl shrink-0">
+            <strong>🌟 2027/2/25（週四）特別盛典：</strong><br>
+            剛好遇到一年一度北野天滿宮<strong>「梅花祭」＋ 每月 25 日「天神市」市集</strong>！
+          </div>
+        </div>
+
+        <!-- 4 Thematic Groups -->
+        <div class="space-y-6">
+          <!-- Group 1 -->
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-3 pb-1 border-b border-slate-200 flex items-center gap-2">
+              <span class="text-indigo-600">【主題一】</span> 親子神級・室內避寒・動植物互動（幼童與長輩極致友善）
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Spot 1 -->
+              <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">🚂 1. 京都鐵道博物館</span>
+                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">適配度 ★★★★★</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    全日本最大火車博物館，全室內暖氣電梯。展示 53 輛實體列車、模擬駕駛室，2 樓餐廳可邊吃鐵道便當邊看真實新幹線疾駛。
+                  </p>
+                  <div class="text-[11px] text-slate-500 mb-3 space-y-0.5">
+                    <div>• <strong>影片標題</strong>：【京都鐵道博物館】SL蒸汽火車搭乘體驗|54部經典列車</div>
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/watch?v=F_fV171xOqQ&t=80s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 01:20 實車展示與新幹線
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=F_fV171xOqQ&t=255s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 04:15 扇形車庫與調度台
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=F_fV171xOqQ&t=340s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 05:40 SL蒸汽火車出發
+                  </a>
+                </div>
+              </div>
+
+              <!-- Spot 2 -->
+              <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">🐬 2. 京都水族館（梅小路公園內）</span>
+                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">適配度 ★★★★★</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    緊鄰鐵道館步行 3 分鐘！日本最大內陸水族館，全室內溫暖無風。擁有巨大活化石大山椒魚、夢幻水母環槽與海豚互動秀。
+                  </p>
+                  <div class="text-[11px] text-slate-500 mb-3 space-y-0.5">
+                    <div>• <strong>影片標題</strong>：京都水族館 イルカショー＆オオサンショウウオ見学</div>
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/watch?v=EXHxpBwsXSZ&t=45s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 00:45 鎮館明星大山椒魚
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=EXHxpBwsXSZ&t=150s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 02:30 水母奇幻環形水槽
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=EXHxpBwsXSZ&t=250s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 04:10 戶外海豚劇場表演秀
+                  </a>
+                </div>
+              </div>
+
+              <!-- Spot 3 -->
+              <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">🥷 3. 東映太秦映畫村（忍者與動漫）</span>
+                    <span class="px-2 py-0.5 bg-indigo-100 text-indigo-800 text-xs font-bold rounded">適配度 ★★★★☆</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    江戶時代時代劇影視城，小朋友變裝小忍者丟手裏劍、闖機關屋，還有福音戰士京都基地等身大初號機與假面騎士展覽。
+                  </p>
+                  <div class="text-[11px] text-slate-500 mb-3 space-y-0.5">
+                    <div>• <strong>影片標題</strong>：京都必玩男寶天堂『東映太秦映畫村』【理想Vlog】</div>
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/watch?v=AUZIYQHa3dGzBkmu53qjwPeLffsLuFT26hqS7dVBDbAMj8LjspDJxDCTW_isPTRHSBvySJyOdOsrbMdoU79ngGjN7zbH-_sPWoVpMJ19u8SUjGLhK0t8G9gckYwC5l8CA-LMYwHF&t=75s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 01:15 租借小小忍者服裝
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=AUZIYQHa3dGzBkmu53qjwPeLffsLuFT26hqS7dVBDbAMj8LjspDJxDCTW_isPTRHSBvySJyOdOsrbMdoU79ngGjN7zbH-_sPWoVpMJ19u8SUjGLhK0t8G9gckYwC5l8CA-LMYwHF&t=190s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 03:10 忍者機關屋與手裏劍
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=AUZIYQHa3dGzBkmu53qjwPeLffsLuFT26hqS7dVBDbAMj8LjspDJxDCTW_isPTRHSBvySJyOdOsrbMdoU79ngGjN7zbH-_sPWoVpMJ19u8SUjGLhK0t8G9gckYwC5l8CA-LMYwHF&t=320s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 05:20 福音戰士初號機手掌
+                  </a>
+                </div>
+              </div>
+
+              <!-- Spot 4 -->
+              <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">🦒 4. 京都市動物園 ＆ 平安神宮</span>
+                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">適配度 ★★★★★</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    岡崎文化區，日本第二古老但全面現代化翻新的推車友善動物園。平地近距離看長頸鹿、大象；順遊平安神宮平坦紅色大鳥居。
+                  </p>
+                  <div class="text-[11px] text-slate-500 mb-3 space-y-0.5">
+                    <div>• <strong>影片標題</strong>：京都市動物園＆平安神宮 岡崎散策</div>
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/watch?v=AUZIYQH6UJLJ10L3QQX9b3rekL3InP67HAiILgiYJD8cv3LGB4aqLYOeqnDwMbdAyKuICIZSnW78-Azxs1ZHISh5IJZN-aqHkDZOYJBuaHrHnw-Cye-xT4BMN9S-kAgslvg8yDahXfA-MzQfZaIZcqvBqeD8dU-IrzzXQmoEe1_Oeg==&t=60s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 01:00 平安神宮平坦大廣場
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=AUZIYQH6UJLJ10L3QQX9b3rekL3InP67HAiILgiYJD8cv3LGB4aqLYOeqnDwMbdAyKuICIZSnW78-Azxs1ZHISh5IJZN-aqHkDZOYJBuaHrHnw-Cye-xT4BMN9S-kAgslvg8yDahXfA-MzQfZaIZcqvBqeD8dU-IrzzXQmoEe1_Oeg==&t=195s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 hover:border-indigo-400 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 03:15 動物園推車平路展區
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group 2 -->
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-3 pb-1 border-b border-slate-200 flex items-center gap-2">
+              <span class="text-pink-600">【主題二】</span> 2月下旬季節限定・滿開花瀑絕景（平坦好推車）
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Spot 5 -->
+              <div class="border border-pink-200 rounded-xl p-4 bg-pink-50/20 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">🌸 5. 北野天滿宮（2/25 梅花祭＋天神市）</span>
+                    <span class="px-2 py-0.5 bg-pink-100 text-pink-800 text-xs font-bold rounded">年度盛典 ★★★★★</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    2/25 每年僅此一天的「梅花祭」藝妓野點茶道，剛好碰上每個月 25 日「天神市」市集！寬敞平坦石板參道，長輩摸神牛祈福健康。
+                  </p>
+                  <div class="text-[11px] text-slate-500 mb-3 space-y-0.5">
+                    <div>• <strong>影片標題</strong>：京都 北野天滿宮 梅花祭與藝妓舞妓野點茶席</div>
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/watch?v=Hf-AVJ4_dSH&t=45s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-pink-50 border border-slate-300 hover:border-pink-400 text-pink-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 00:45 平坦石板參道與摸神牛
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=Hf-AVJ4_dSH&t=135s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-pink-50 border border-slate-300 hover:border-pink-400 text-pink-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 02:15 2/25限定野點茶道
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=Hf-AVJ4_dSH&t=240s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-pink-50 border border-slate-300 hover:border-pink-400 text-pink-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 04:00 天神市古董熱鬧市集
+                  </a>
+                </div>
+              </div>
+
+              <!-- Spot 6 -->
+              <div class="border border-pink-200 rounded-xl p-4 bg-pink-50/20 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">🌺 6. 城南宮（しだれ梅と椿まつり・垂枝梅花瀑）</span>
+                    <span class="px-2 py-0.5 bg-pink-100 text-pink-800 text-xs font-bold rounded">花瀑絕景 ★★★★★</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    伏見區名所，2月下旬全日本最夢幻的「垂枝梅花瀑」！150 株粉紅流蘇垂枝梅盛開，地上碧綠苔蘚鋪滿鮮紅落椿，平緩木棧道極好走。
+                  </p>
+                  <div class="text-[11px] text-slate-500 mb-3 space-y-0.5">
+                    <div>• <strong>影片標題</strong>：京都 城南宮 枝垂れ梅と椿まつり 4K 散策</div>
+                  </div>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/watch?v=GRtLBkek_s7&t=65s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-pink-50 border border-slate-300 hover:border-pink-400 text-pink-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 01:05 春之山垂枝梅粉紅花瀑
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=GRtLBkek_s7&t=165s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-pink-50 border border-slate-300 hover:border-pink-400 text-pink-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 02:45 鮮紅落椿在綠苔上的奇景
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=GRtLBkek_s7&t=260s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-pink-50 border border-slate-300 hover:border-pink-400 text-pink-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 04:20 平緩木棧道漫步動線
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group 3 -->
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-3 pb-1 border-b border-slate-200 flex items-center gap-2">
+              <span class="text-amber-600">【主題三】</span> 世界遺產・平坦開闊・古都震撼（無陡坡長階梯）
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- Spot 7 -->
+              <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">🏯 7. 金閣寺（鹿苑寺）</span>
+                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">適配度 ★★★★☆</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    鏡湖池金箔舍利殿經典倒影，單向平緩碎石路無長階梯，全家散步 40 分鐘即走完，老小不累。
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/watch?v=AUZIYQEi-lTFvlSg6aVfPBJ24v4RSzNJbwT-i8a-1AY-HICqvxntQmkrEs2BatJR8KmA_chIHCf6Kj3_yXbu2QXi-RuBBm6_RIKTNQm7VgpvmMWT6ZKIGokS_CwPG9m2c2ZI5CM=&t=50s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-amber-50 border border-slate-300 text-amber-800 text-[11px] font-medium rounded-lg transition">
+                    ▶ 00:50 鏡湖池畔金色倒影
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=AUZIYQEi-lTFvlSg6aVfPBJ24v4RSzNJbwT-i8a-1AY-HICqvxntQmkrEs2BatJR8KmA_chIHCf6Kj3_yXbu2QXi-RuBBm6_RIKTNQm7VgpvmMWT6ZKIGokS_CwPG9m2c2ZI5CM=&t=130s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-amber-50 border border-slate-300 text-amber-800 text-[11px] font-medium rounded-lg transition">
+                    ▶ 02:10 平緩迴遊步道實況
+                  </a>
+                </div>
+              </div>
+
+              <!-- Spot 8 -->
+              <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">⛩️ 8. 東寺（日本最高五重塔）</span>
+                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">適配度 ★★★★★</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    <strong>就在京都車站旁！</strong>全日本最高 54.8 米木造五重塔，講堂立體曼荼羅國寶佛像群，境內 100% 全平地。
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/watch?v=AUZIYQEWqf7-JNSmmu2bMlenIL-0twWJRpLiBqVEdxxxcSb_hdMJbk7mJW-Tge2KqxhnEMd2uPodGpOXMFl939lYxbDdgLyEtrutM2j0L0F2OEGvujmsy1SqWdZWmnm8nf9_DDOT&t=35s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-amber-50 border border-slate-300 text-amber-800 text-[11px] font-medium rounded-lg transition">
+                    ▶ 00:35 五重塔雄偉外觀
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=AUZIYQEWqf7-JNSmmu2bMlenIL-0twWJRpLiBqVEdxxxcSb_hdMJbk7mJW-Tge2KqxhnEMd2uPodGpOXMFl939lYxbDdgLyEtrutM2j0L0F2OEGvujmsy1SqWdZWmnm8nf9_DDOT&t=110s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-amber-50 border border-slate-300 text-amber-800 text-[11px] font-medium rounded-lg transition">
+                    ▶ 01:50 講堂國寶佛像群
+                  </a>
+                </div>
+              </div>
+
+              <!-- Spot 9 -->
+              <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">🏯 9. 元離宮二條城（夜鶯地板）</span>
+                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">適配度 ★★★★☆</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    德川家康居城，國寶二之丸御殿走廊會發出防刺客「夜鶯鳴叫聲」極有趣，西南梅林盛開，設有無障礙專用動線。
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/watch?v=AUZIYQFDYpeRM5AOG9yg1GIzUEU8_DOFIH9FVJ7vkiY3WVQ6idX7GqaTRAjYTPYSqtFgRgbWgYBo5HqVYv5gnHed2g3iPQxjNN5p3D591GL9-OcBXAR11Acakz_mOSkji1W__Jk=&t=70s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-amber-50 border border-slate-300 text-amber-800 text-[11px] font-medium rounded-lg transition">
+                    ▶ 01:10 二之丸御殿夜鶯地板
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=AUZIYQFDYpeRM5AOG9yg1GIzUEU8_DOFIH9FVJ7vkiY3WVQ6idX7GqaTRAjYTPYSqtFgRgbWgYBo5HqVYv5gnHed2g3iPQxjNN5p3D591GL9-OcBXAR11Acakz_mOSkji1W__Jk=&t=210s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-amber-50 border border-slate-300 text-amber-800 text-[11px] font-medium rounded-lg transition">
+                    ▶ 03:30 平坦庭園步道實況
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group 4 -->
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 mb-3 pb-1 border-b border-slate-200 flex items-center gap-2">
+              <span class="text-indigo-600">【主題四】</span> 京都車站周邊・步行即達・夜景與美食（Day 1 傍晚首選）
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Spot 10 -->
+              <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">🗼 10. 京都車站空中徑路 ＆ 大階梯 ＆ 京都塔</span>
+                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">適配度 ★★★★★</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    飯店門口直通！10F 空中徑路（Skyway）45米高空玻璃天橋看夜景且完全不吹冷風，大階梯夜間 15,000 顆 LED 動畫秀，對街京都塔 360 度俯瞰京都。
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2">
+                  <a href="https://www.youtube.com/watch?v=AUZIYQG8h-p8zLiOyiOize98HPLZqJUreyMcGxk6x-9RGi7KZwC9meXZPPvivgby8np8O152BUMam5n-w1QUAcPheBvgaGHNms9eA8mdWn5IB1SgOgOLNEQmXXDk9g7l74rRYOq3&t=70s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 01:10 10F 空中天橋夜景
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=AUZIYQG8h-p8zLiOyiOize98HPLZqJUreyMcGxk6x-9RGi7KZwC9meXZPPvivgby8np8O152BUMam5n-w1QUAcPheBvgaGHNms9eA8mdWn5IB1SgOgOLNEQmXXDk9g7l74rRYOq3&t=160s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 02:40 大階梯 LED 動畫秀
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=AUZIYQG8h-p8zLiOyiOize98HPLZqJUreyMcGxk6x-9RGi7KZwC9meXZPPvivgby8np8O152BUMam5n-w1QUAcPheBvgaGHNms9eA8mdWn5IB1SgOgOLNEQmXXDk9g7l74rRYOq3&t=240s" target="_blank" class="px-2.5 py-1 bg-white hover:bg-indigo-50 border border-slate-300 text-indigo-700 text-[11px] font-medium rounded-lg transition">
+                    ▶ 04:00 京都塔 360度展望台
+                  </a>
+                </div>
+              </div>
+
+              <!-- Spot 11 -->
+              <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-slate-900 text-sm">🍡 11. 錦市場（京都的廚房）</span>
+                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded">適配度 ★★★★☆</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mb-2 leading-relaxed">
+                    全長 390 公尺平坦有雨棚商店街，高湯玉子燒、草莓大福、豆乳甜甜圈。建議上午 10:30-11:30 造訪避開午後擁擠人潮。
+                  </p>
+                </div>
+                <div class="pt-3 border-t border-slate-200 flex flex-wrap gap-2 text-xs text-slate-500">
+                  <span>特色：遮雨棚避寒 ｜ 推車可通行 ｜ 隨吃隨逛</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: ATTRACTION DECONSTRUCTION MATRIX -->
+    <section id="content-matrix" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
+        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-2">
+          <span class="w-2.5 h-6 bg-indigo-600 rounded-full inline-block"></span>
+          雄獅旅遊 ＆ KKday 熱門一日遊景點全拆解評估
+        </h2>
+        <p class="text-xs text-slate-500 mb-6">逐一審查景點觀光價值、階梯坡度、推車無障礙與防寒指數，篩選出真正適合三代同堂的精華名單</p>
+
+        <div class="overflow-x-auto custom-scroll">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                <th class="p-3 font-semibold">景點名稱（區域）</th>
+                <th class="p-3 font-semibold">觀光地位</th>
+                <th class="p-3 font-semibold text-center">必去指數</th>
+                <th class="p-3 font-semibold text-center">老小適配度</th>
+                <th class="p-3 font-semibold">階梯坡度與動線實測</th>
+                <th class="p-3 font-semibold">本團專屬建議</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50/80">
+                <td class="p-3 font-bold text-slate-800">清水寺 ＆ 二三年坂<br><span class="text-[11px] font-normal text-slate-500">（京都）</span></td>
+                <td class="p-3 text-slate-600">世界文化遺產、懸空舞台</td>
+                <td class="p-3 text-center"><span class="text-amber-500 font-bold">★★★★★</span></td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 bg-red-100 text-red-700 rounded font-bold">★☆☆☆☆</span></td>
+                <td class="p-3 text-rose-600 leading-relaxed">
+                  <strong>長坡道＋石階地獄</strong>：清水坂極陡、三年坂全是石階，推車需兩人硬扛，長輩膝蓋受損嚴重，人潮推擠。
+                </td>
+                <td class="p-3 text-slate-700 font-medium">❌ <strong>強烈建議避開！</strong>若長輩想看，僅搭計程車抵達正門，切勿走二三年坂。</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="p-3 font-bold text-slate-800">伏見稻荷大社<br><span class="text-[11px] font-normal text-slate-500">（京都）</span></td>
+                <td class="p-3 text-slate-600">千本鳥居、狐狸神社</td>
+                <td class="p-3 text-center"><span class="text-amber-500 font-bold">★★★★★</span></td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 bg-amber-100 text-amber-700 rounded font-bold">★★☆☆☆</span></td>
+                <td class="p-3 text-rose-600 leading-relaxed">
+                  大殿前平坦，但<strong>千本鳥居沿山勢皆為狹窄登山石階</strong>，推車完全進不去，且山區冬季陰冷。
+                </td>
+                <td class="p-3 text-slate-700 font-medium">⚠️ <strong>僅限門口！</strong>只在鳥居起點拍照即可，嚴禁帶長輩小孩爬山。</td>
+              </tr>
+              <tr class="bg-indigo-50/30 hover:bg-indigo-50/50">
+                <td class="p-3 font-bold text-indigo-950">京都鐵道博物館<br><span class="text-[11px] font-normal text-slate-500">（京都）</span></td>
+                <td class="p-3 text-slate-600">日本最大鐵道館、53輛實車</td>
+                <td class="p-3 text-center"><span class="text-amber-500 font-bold">★★★★★</span></td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-bold">★★★★★</span></td>
+                <td class="p-3 text-emerald-700 leading-relaxed">
+                  <strong>全室內暖氣、無障礙電梯貫通</strong>：平整地坪，推車無障礙五星級，2樓餐廳直接看新幹線疾駛。
+                </td>
+                <td class="p-3 text-emerald-800 font-bold">⭐️ <strong>本團京都第一首選！</strong>老小皆大歡喜，完全不怕冷風。</td>
+              </tr>
+              <tr class="bg-pink-50/30 hover:bg-pink-50/50">
+                <td class="p-3 font-bold text-pink-950">北野天滿宮（梅花祭）<br><span class="text-[11px] font-normal text-slate-500">（京都）</span></td>
+                <td class="p-3 text-slate-600">2月下旬關西第一賞梅名所</td>
+                <td class="p-3 text-center"><span class="text-amber-500 font-bold">★★★★★</span></td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-bold">★★★★★</span></td>
+                <td class="p-3 text-emerald-700 leading-relaxed">
+                  <strong>平坦石板參道</strong>：從大門至本殿全為寬闊平路，推車極好推。滿開 2,000 株梅花香氣撲鼻。
+                </td>
+                <td class="p-3 text-pink-800 font-bold">🌸 <strong>當季限定必去！</strong>長輩摸神牛祈福健康，拍照極美。</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="p-3 font-bold text-slate-800">金閣寺（鹿苑寺）<br><span class="text-[11px] font-normal text-slate-500">（京都）</span></td>
+                <td class="p-3 text-slate-600">金色舍利殿倒映湖光</td>
+                <td class="p-3 text-center"><span class="text-amber-500 font-bold">★★★★★</span></td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-bold">★★★★☆</span></td>
+                <td class="p-3 text-slate-600 leading-relaxed">
+                  園區為平緩單向碎石步道，無長階梯，推車可順利推行。參觀時間約 45 分鐘，不耗體力。
+                </td>
+                <td class="p-3 text-slate-700 font-medium">✅ <strong>推薦排入！</strong>視覺感強烈，長輩小孩都會驚艷。</td>
+              </tr>
+              <tr class="bg-rose-50/30 hover:bg-rose-50/50">
+                <td class="p-3 font-bold text-rose-950">堺市 Harvest Hill<br><span class="text-[11px] font-normal text-slate-500">（郊區）</span></td>
+                <td class="p-3 text-slate-600">溫室草莓吃到飽、萌寵</td>
+                <td class="p-3 text-center"><span class="text-amber-500 font-bold">★★★★★</span></td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded font-bold">★★★★★</span></td>
+                <td class="p-3 text-emerald-700 leading-relaxed">
+                  <strong>高架溫室採摘（約20°C）</strong>，免彎腰，推車好推進去。園內有水豚、小羊、小火車。
+                </td>
+                <td class="p-3 text-rose-800 font-bold">🍓 <strong>包車必去核心！</strong>2月底草莓最甜，老小皆陶醉。</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="p-3 font-bold text-slate-800">日本環球影城（USJ）<br><span class="text-[11px] font-normal text-slate-500">（大阪）</span></td>
+                <td class="p-3 text-slate-600">瑪利歐、哈利波特樂園</td>
+                <td class="p-3 text-center"><span class="text-amber-500 font-bold">★★★★★</span></td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 bg-red-100 text-red-700 rounded font-bold">★☆☆☆☆</span></td>
+                <td class="p-3 text-rose-600 leading-relaxed">
+                  3歲、0歲多數項目受限無法玩。寒冬戶外排隊 90～120 分鐘，長輩受凍站立過久，極度疲憊。
+                </td>
+                <td class="p-3 text-slate-700 font-medium">❌ <strong>堅決不去！</strong>留待孩子 7 歲後再去。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: KKDAY DAY TOUR SELECTION -->
+    <section id="content-kkday" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
+        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-2">
+          <span class="w-2.5 h-6 bg-indigo-600 rounded-full inline-block"></span>
+          當地參加 KKday 一日遊：精選三大人氣友善路線評析
+        </h2>
+        <p class="text-xs text-slate-500 mb-6">如果要在當地參加 KKday 一日遊，推薦以下三條「無長梯、拉車時間適中、長輩推車友善」之方案</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2 py-0.5 bg-indigo-100 text-indigo-800 font-bold text-xs rounded">京都站出發</span>
+                <span class="text-xs text-slate-400">Day 2 適用</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-2">【京都精華】金閣寺 ＋ 嵐山渡月橋 ＋ 宇治平等院</h3>
+              <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                集合點就在京都車站八條口（京都飯店旁）！避開清水寺與伏見稻荷山路，三個點全是平路與平緩碎石路。
+              </p>
+              <ul class="text-[11px] text-slate-500 space-y-1 mb-4">
+                <li>• <strong>金閣寺</strong>：金色倒影拍照，步行 40 分鐘。</li>
+                <li>• <strong>嵐山渡月橋</strong>：停留約 2 小時，自由活動散步吃抹茶。</li>
+                <li>• <strong>宇治平等院</strong>：世界遺產鳳凰堂，平坦庭園好推車。</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-indigo-700 font-semibold flex items-center justify-between">
+              <span>老小適配度：★★★★☆</span>
+              <span>推車可放行李艙</span>
+            </div>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-emerald-50/30 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold text-xs rounded">大阪難波出發</span>
+                <span class="text-xs text-slate-400">Day 7 適用</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-2">【神戶親子】神戶動物王國 ＋ 有馬溫泉足湯 ＋ 神戶港</h3>
+              <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                <strong>神戶動物王國為全室內巨型恆溫溫室</strong>！冬末最溫暖如春的避寒景點，水豚羊駝自由走動，老小推車極致享受。
+              </p>
+              <ul class="text-[11px] text-slate-500 space-y-1 mb-4">
+                <li>• <strong>動物王國</strong>：近距離觸摸餵食，無障礙五星。</li>
+                <li>• <strong>有馬溫泉</strong>：長輩可在老街免費公共足湯泡腳暖身。</li>
+                <li>• <strong>神戶港馬賽克</strong>：欣賞神戶港灣與麵包超人商場。</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-emerald-700 font-semibold flex items-center justify-between">
+              <span>老小適配度：★★★★★</span>
+              <span>室內溫暖第一名</span>
+            </div>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-5 bg-amber-50/30 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2 py-0.5 bg-amber-100 text-amber-800 font-bold text-xs rounded">大阪/京都出發</span>
+                <span class="text-xs text-slate-400">Day 7 適用</span>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm mb-2">【古都萌鹿】奈良公園東大寺 ＋ 宇治抹茶一日遊</h3>
+              <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                大巴直達奈良公園，免去搭地鐵轉乘。參拜世界最大木造建築東大寺大佛殿，與可愛小鹿互動。
+              </p>
+              <ul class="text-[11px] text-slate-500 space-y-1 mb-4">
+                <li>• <strong>東大寺</strong>：有斜坡電梯直通大佛殿，平坦開闊。</li>
+                <li>• <strong>奈良公園</strong>：買鹿餅餵鹿，需成人陪同防鹿頂撞。</li>
+                <li>• <strong>宇治</strong>：品嚐中村藤吉宇治抹茶聖代。</li>
+              </ul>
+            </div>
+            <div class="pt-3 border-t border-slate-200 text-xs text-amber-700 font-semibold flex items-center justify-between">
+              <span>老小適配度：★★★★☆</span>
+              <span>經典文化雙景點</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: KYOTO 2-NIGHTS LOGISTICS -->
+    <section id="content-kyoto-stay" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
+        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-2">
+          <span class="w-2.5 h-6 bg-indigo-600 rounded-full inline-block"></span>
+          京都住前兩天：下機直達、住宿選擇與 Day 3 移防大阪動線
+        </h2>
+        <p class="text-xs text-slate-500 mb-6">解析「KIX ➔ 京都 ➔ 大阪」的無縫交通策略，省時、省力且完全不拖行李換地鐵</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
+            <span class="px-2.5 py-1 bg-slate-900 text-white text-xs font-bold rounded-lg">Step 1</span>
+            <h3 class="font-bold text-slate-900 text-sm mt-3 mb-1.5">Day 1：關西機場 ➔ Haruka 直達京都</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              14:45 國泰 CX564 抵達關西機場 T1。出關後步行至 2F 車站，搭乘 <strong>JR 關空特急 Haruka（對號座）直達京都車站，僅需 78 分鐘！</strong> 車內有專屬大型行李鎖架，Hello Kitty 彩繪車廂小童超愛，中途完全不用換車。
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-4 bg-indigo-50/40">
+            <span class="px-2.5 py-1 bg-indigo-600 text-white text-xs font-bold rounded-lg">Step 2</span>
+            <h3 class="font-bold text-indigo-950 text-sm mt-3 mb-1.5">住宿推薦：京都車站周邊（首推 MIMARU）</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              強烈建議入住 <strong>MIMARU 京都站前</strong>（或京都站八條口大和 Roynet 飯店）。出站步行 5 分鐘即達，擁有家庭連通房、附設廚房方便加熱嬰兒食品。Day 2 參加一日遊大巴集合點就在八條口門口！
+            </p>
+          </div>
+
+          <div class="border border-slate-200 rounded-xl p-4 bg-emerald-50/40">
+            <span class="px-2.5 py-1 bg-emerald-600 text-white text-xs font-bold rounded-lg">Step 3</span>
+            <h3 class="font-bold text-emerald-950 text-sm mt-3 mb-1.5">Day 3：京都 ➔ 大阪（車程僅 29 分鐘！）</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              京都飯店退房後，搭乘 <strong>JR 新快速直達大阪站僅需 29 分鐘（車資 570 日圓）</strong>；或預約一輛專車直接門對門將 8 人與大行李送至大阪心齋橋 MIMARU 飯店，輕鬆入住無負擔！
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: DAY 4 REUNION -->
+    <section id="content-day4" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
+        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-2">
+          <span class="w-2.5 h-6 bg-rose-600 rounded-full inline-block"></span>
+          第四天（2/27 週六）新成員搭機抵達與大阪大會合全攻略
+        </h2>
+        <p class="text-xs text-slate-500 mb-6">全團正式升級為 9 人！因為前兩天住京都、第三天已移防大阪，新成員抵達大阪會合極為順暢</p>
+
+        <div class="space-y-4 relative before:absolute before:inset-0 before:left-5 before:w-0.5 before:bg-slate-200">
+          <div class="relative flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs z-10 shrink-0">09:30</div>
+            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl flex-1 text-xs">
+              <div class="font-bold text-slate-800 text-sm mb-1">主部隊（8人）：黑門市場小吃散步</div>
+              <p class="text-slate-600">從心齋橋飯店漫步至黑門市場，品嚐烤扇貝、草莓大福、豆乳甜點。主部隊留在市區，隨時保持彈性。</p>
+            </div>
+          </div>
+
+          <div class="relative flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-xs z-10 shrink-0">11:30</div>
+            <div class="bg-indigo-50/60 border border-indigo-200 p-4 rounded-xl flex-1 text-xs">
+              <div class="font-bold text-indigo-950 text-sm mb-1">新成員（第9人）：抵達關西機場 ➔ 搭乘南海特急 Rapi:t 直達難波</div>
+              <p class="text-indigo-900">早班機出關後，搭乘 <strong>南海特急 Rapi:t（38分鐘，全車對號座）</strong> 直達難波站。出站搭排班計程車 5 分鐘（約 800 日圓）直達心齋橋飯店大門！</p>
+            </div>
+          </div>
+
+          <div class="relative flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold text-xs z-10 shrink-0">13:30</div>
+            <div class="bg-rose-50/70 border border-rose-200 p-4 rounded-xl flex-1 text-xs">
+              <div class="font-bold text-rose-950 text-sm mb-1">🎉 全員 9 人在大阪飯店大廳／客房大會合！</div>
+              <p class="text-rose-900">新成員辦理入住、放置行李，全家在客房客廳喝茶聊天。長輩歇腳、嬰幼兒完成午睡與換尿布，拍下第一張 9 人全家福！</p>
+            </div>
+          </div>
+
+          <div class="relative flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs z-10 shrink-0">15:30</div>
+            <div class="bg-amber-50/60 border border-amber-200 p-4 rounded-xl flex-1 text-xs">
+              <div class="font-bold text-amber-950 text-sm mb-1">全員出動：阿倍野 HARUKAS 300 夕陽夜景 ＋ Q's Mall</div>
+              <p class="text-amber-900">搭乘地鐵御堂筋線（電梯直通天王寺站），登上地上 300 公尺觀景台看夕陽落入大阪灣。媽媽們逛 Q's Mall 阿卡將本舖補貨。</p>
+            </div>
+          </div>
+
+          <div class="relative flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs z-10 shrink-0">18:30</div>
+            <div class="bg-emerald-50/60 border border-emerald-200 p-4 rounded-xl flex-1 text-xs">
+              <div class="font-bold text-emerald-950 text-sm mb-1">🍲 9人全員團聚晚宴（包廂個室）</div>
+              <p class="text-emerald-900">預約近鐵百貨頂樓景觀和牛壽喜燒／相撲鍋包廂，圍爐慶祝全員到齊！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 7: FULL ITINERARY -->
+    <section id="content-itinerary" class="tab-content hidden space-y-4">
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 bg-slate-900 text-white text-xs font-bold rounded-lg">Day 1</span>
+            <span class="font-bold text-slate-900 text-sm sm:text-base">2/24（三）台北出發 ➔ Haruka 直達京都入住</span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-medium">8人</span>
+          </div>
+          <span class="text-xs text-indigo-700 font-bold">宿：京都站周邊（MIMARU 京都）</span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-4 gap-3 text-xs text-slate-600">
+          <div class="p-2.5 bg-slate-50 rounded-lg"><strong class="text-slate-800 block">11:15 - 14:45</strong> 國泰 CX564 桃園直飛關西機場 T1。</div>
+          <div class="p-2.5 bg-slate-50 rounded-lg"><strong class="text-slate-800 block">15:45 - 17:15</strong> 搭乘 JR 關空特急 Haruka 直達京都車站（78分鐘，免換車）。</div>
+          <div class="p-2.5 bg-slate-50 rounded-lg"><strong class="text-slate-800 block">17:30 - 18:30</strong> 入住京都車站旁飯店，放置行李休息。</div>
+          <div class="p-2.5 bg-slate-50 rounded-lg"><strong class="text-slate-800 block">18:30 - 20:00</strong> 京都車站伊勢丹 11F 美食街晚餐，超市買水果宵夜。</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-indigo-200 shadow-sm p-5 bg-gradient-to-r from-indigo-50/20 to-white">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 bg-indigo-600 text-white text-xs font-bold rounded-lg">Day 2</span>
+            <span class="font-bold text-slate-900 text-sm sm:text-base">2/25（四）京都世界文化與梅花盛宴（自由行或KKday）</span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-medium">8人</span>
+          </div>
+          <span class="text-xs text-indigo-700 font-bold">宿：京都站周邊（MIMARU 京都）</span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-4 gap-3 text-xs text-slate-600">
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">09:30 - 12:30</strong> 【首選】京都鐵道博物館：室內暖氣電梯，53輛實體火車。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">12:30 - 13:30</strong> 2F 景觀餐廳享用午餐，窗外新幹線奔馳。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">14:00 - 16:30</strong> 北野天滿宮：梅花祭滿開見頃，平坦石板參道摸神牛祈福。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">備選方案</strong> 可選京都車站出發 KKday 一日遊（金閣寺＋嵐山渡月橋＋宇治）。</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-pink-200 shadow-sm p-5 bg-gradient-to-r from-pink-50/20 to-white">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 bg-pink-600 text-white text-xs font-bold rounded-lg">Day 3</span>
+            <span class="font-bold text-slate-900 text-sm sm:text-base">2/26（五）京都退房 ➔ 移防大阪 ➔ 大阪城梅林滿開</span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-medium">8人</span>
+          </div>
+          <span class="text-xs text-rose-700 font-bold">宿：MIMARU 大阪心齋橋</span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-4 gap-3 text-xs text-slate-600">
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">10:30 - 11:30</strong> 京都退房，搭乘 JR 新快速（29分鐘）直達大阪。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">12:00 - 13:00</strong> 入住心齋橋飯店放行李，附近午餐。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">13:30 - 16:30</strong> 大阪城公園：1,270 株梅林盛開見頃，搭御座船遊河。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">17:30 - 20:00</strong> 心齋橋筋雨棚商店街慢逛，道頓堀晚餐。</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-rose-300 shadow-sm p-5 bg-gradient-to-r from-rose-50/40 to-white">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 bg-rose-600 text-white text-xs font-bold rounded-lg">Day 4</span>
+            <span class="font-bold text-slate-900 text-sm sm:text-base">2/27（六）新成員抵達大阪！HARUKAS 夕陽與 9 人團聚大餐</span>
+            <span class="text-xs bg-rose-100 text-rose-800 px-2 py-0.5 rounded font-bold">8人 ➔ 9人</span>
+          </div>
+          <span class="text-xs text-rose-700 font-bold">宿：MIMARU 大阪心齋橋</span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-4 gap-3 text-xs text-slate-600">
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">09:30 - 12:00</strong> 主部隊逛黑門市場吃草莓大福烤海鮮。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">13:30</strong> 新成員搭南海 Rapi:t 抵達飯店，🎉 9 人大會合！</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">15:30 - 18:00</strong> HARUKAS 300 展望台看夕陽夜景 ＋ Q's Mall 阿卡將。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">18:30 - 20:30</strong> 【9人全員到齊晚宴】和牛包廂慶祝團聚。</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-emerald-200 shadow-sm p-5 bg-gradient-to-r from-emerald-50/20 to-white">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 bg-emerald-600 text-white text-xs font-bold rounded-lg">Day 5</span>
+            <span class="font-bold text-slate-900 text-sm sm:text-base">2/28（日）全家包車日：Harvest Hill 溫室採草莓吃到飽</span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">9人全員</span>
+          </div>
+          <span class="text-xs text-rose-700 font-bold">包車一日 ｜ 宿：MIMARU 大阪心齋橋</span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-4 gap-3 text-xs text-slate-600">
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">09:30 - 10:30</strong> 包車前往堺市南區 Harvest Hill 農場。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">10:30 - 11:30</strong> 溫室高架草莓吃到飽（2月底全年度最甜，溫暖無風）。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">11:30 - 14:30</strong> 石窯披薩午餐 ＋ 餵食水豚、羊駝 ＋ 森林小火車。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">15:30</strong> 包車返回飯店，傍晚心齋橋燒肉晚餐。</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-amber-200 shadow-sm p-5 bg-gradient-to-r from-amber-50/20 to-white">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 bg-amber-600 text-white text-xs font-bold rounded-lg">Day 6</span>
+            <span class="font-bold text-slate-900 text-sm sm:text-base">3/01（一）天保山港灣・樂高室內避寒歡樂日</span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">9人全員</span>
+          </div>
+          <span class="text-xs text-rose-700 font-bold">地鐵直達 ｜ 宿：MIMARU 大阪心齋橋</span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-4 gap-3 text-xs text-slate-600">
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">10:00 - 12:30</strong> 樂高探索中心（全室內暖氣，3-5歲積木池與騎乘射擊）。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">12:30 - 13:30</strong> 天保山 Marketplace 美食街享用午餐。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">13:40 - 14:30</strong> 天保山大摩天輪（密閉溫暖車廂看大阪灣）。</div>
+          <div class="p-2.5 bg-white border border-slate-200 rounded-lg"><strong class="text-slate-800 block">15:00 - 18:00</strong> 返飯店休息，傍晚心齋橋電器與藥妝採買。</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 bg-slate-800 text-white text-xs font-bold rounded-lg">Day 7</span>
+            <span class="font-bold text-slate-900 text-sm sm:text-base">3/02（二）彈性深度日（三選一，可參加 KKday）</span>
+            <span class="text-xs bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-bold">9人全員</span>
+          </div>
+          <span class="text-xs text-rose-700 font-bold">宿：MIMARU 大阪心齋橋</span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-600">
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+            <strong class="text-slate-800 block mb-1">選項 A：KKday 神戶一日遊</strong>
+            神戶動物王國（全室內溫室水豚）＋有馬足湯＋神戶港夜景。
+          </div>
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+            <strong class="text-slate-800 block mb-1">選項 B：近鐵直達奈良公園</strong>
+            近鐵40分鐘，平坦步道餵鹿，參拜東大寺世界最大木造佛殿。
+          </div>
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+            <strong class="text-slate-800 block mb-1">選項 C：Kids Plaza 兒童樂園</strong>
+            扇町兒童探索館放電，下午心齋橋/難波大國藥妝最後大打包。
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 bg-slate-900 text-white text-xs font-bold rounded-lg">Day 8</span>
+            <span class="font-bold text-slate-900 text-sm sm:text-base">3/03（三）難波空中花園・包車送機悠然返台</span>
+            <span class="text-xs bg-slate-100 text-slate-800 px-2 py-0.5 rounded font-bold">9人全員</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium">包車送機 ｜ 平安賦歸</span>
+        </div>
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-4 gap-3 text-xs text-slate-600">
+          <div class="p-2.5 bg-slate-50 rounded-lg"><strong class="text-slate-800 block">09:30 - 11:00</strong> 悠閒退房，8 咖大行李由包車裝載。</div>
+          <div class="p-2.5 bg-slate-50 rounded-lg"><strong class="text-slate-800 block">11:00 - 12:30</strong> 難波 Parks 空中花園散步，採買最後伴手禮。</div>
+          <div class="p-2.5 bg-slate-50 rounded-lg"><strong class="text-slate-800 block">12:30 - 13:30</strong> 包車前往關西機場 T1（行車約 45 分鐘）。</div>
+          <div class="p-2.5 bg-slate-50 rounded-lg"><strong class="text-slate-800 block">16:15 - 18:30</strong> 國泰 CX565 起飛，18:30 平安抵達台北桃園 T1。</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-xs text-slate-400 border-t border-slate-200 mt-12">
+    <p>2027 日本關西（京都2晚＋大阪5晚）8天7夜三代同堂家族旅行企劃 ｜ 生成時間：2026-11-02 ｜ Antigravity AI Pair Programmer</p>
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.add('hidden'));
+
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white');
+        btn.classList.add('bg-slate-800', 'text-slate-300');
+      });
+
+      const targetContent = document.getElementById('content-' + tabId);
+      if (targetContent) {
+        targetContent.classList.remove('hidden');
+      }
+
+      const targetBtn = document.getElementById('tab-' + tabId);
+      if (targetBtn) {
+        targetBtn.classList.remove('bg-slate-800', 'text-slate-300');
+        targetBtn.classList.add('bg-indigo-600', 'text-white');
+      }
+    }
+  </script>
+</body>
+</html>
