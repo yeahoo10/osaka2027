@@ -67,7 +67,7 @@ header.top .sub{font-size:.78rem;opacity:.9}
 .altbar .seg{flex:1 1 auto;min-width:0;max-width:100%}
 .altbar .seg button{flex:1 1 auto;padding:7px 8px}
 .btn[aria-pressed="true"]{background:var(--q-soft);border-color:var(--q);color:var(--q)}
-.card.alt h3{margin:6px 0 4px}
+.card.alt .ph{margin:8px 0 6px}
 .card.alt.dim{opacity:.85}
 header .pill.ok{background:#e6f4ea;color:#1f6f32;border-color:#e6f4ea}
 header .pill.tbd{background:#fff5d6;color:#8a5a00;border-color:#ffd35c}
@@ -121,20 +121,42 @@ main{padding-top:14px}
 .callout.warn{background:var(--tbd-soft)}
 .callout b{margin-right:4px}
 
-/* timeline */
+/* timeline（行程卡：縮圖＋序號旗＋虛線連接交通） */
+:root{--soft:#f1f2f4;--time:#d6336c;--flag:#e03131}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--soft:#272d38;--time:#f783ac;--flag:#e03131}}
+:root[data-theme="dark"]{--soft:#272d38;--time:#f783ac;--flag:#e03131}
+:root[data-theme="light"]{--soft:#f1f2f4;--time:#d6336c}
 .tl{list-style:none;margin:14px 0 0;padding:0}
-.stop{position:relative;display:grid;grid-template-columns:56px 1fr;gap:10px;padding-bottom:14px}
-.stop:before{content:"";position:absolute;left:27px;top:34px;bottom:0;width:2px;background:var(--line)}
-.stop:last-child:before{display:none}
-.stop .time{position:relative;z-index:1;background:var(--card);align-self:start;border-radius:8px;font-weight:800;font-size:.9rem;text-align:center;padding:6px 0 4px}
-.stop .time small{display:block;font-weight:600;color:var(--muted);font-size:.7rem}
-.stop .body{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
-.stop.fixed .body{border:1.5px solid var(--ok);background:linear-gradient(0deg,var(--card),var(--card)),var(--ok-soft)}
-.stop.restblk .body{background:var(--brand-soft);border-style:dashed}
+.stop{position:relative}
+.stop .body{background:var(--soft);border:1.5px solid transparent;border-radius:16px;padding:10px}
+.stop.fixed .body{border-color:var(--ok)}
+.stop.restblk .body{background:var(--brand-soft);border:1.5px dashed var(--line)}
 .stop.now .body{box-shadow:0 0 0 3px var(--accent)}
 .stop.past{opacity:.6}
-.stop h3{font-size:1rem;font-weight:800;display:flex;gap:6px;align-items:flex-start}
-.stop h3 .ic{flex:0 0 auto}
+.leg{margin-left:57px;border-left:2px dashed var(--muted);padding:6px 0 6px 14px;min-height:20px;font-size:.8rem;color:var(--muted);opacity:.9}
+.tl > .stop:first-child > .leg{padding-top:0}
+.ph{position:relative;display:flex;gap:10px;align-items:flex-start;min-height:46px}
+.ph.has-nav .pm{padding-right:52px}
+.th{position:relative;flex:0 0 96px;width:96px;height:96px;border-radius:12px;overflow:hidden;background:var(--line)}
+.th img{display:block;width:100%;height:100%;object-fit:cover}
+.flag{position:absolute;top:0;left:0;z-index:1;background:var(--flag);color:#fff;font-weight:900;font-size:.8rem;line-height:24px;height:24px;min-width:28px;padding:0 11px 0 7px;clip-path:polygon(0 0,100% 0,78% 50%,100% 100%,0 100%)}
+.th.noimg{flex:0 0 auto;width:auto;height:auto;background:none;overflow:visible;padding-top:2px}
+.th.noimg .flag{position:static;display:block;border-radius:6px 0 0 6px}
+@media (min-width:560px){.th:not(.noimg){flex-basis:110px;width:110px;height:110px}}
+.pm{flex:1 1 auto;min-width:0}
+.pm .meta{display:flex;align-items:center;gap:6px;color:var(--time);font-weight:800;font-size:.86rem;line-height:1.2}
+.ci{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--soft);font-size:.95rem}
+.stop .ci{background:var(--card)}
+.pm h3{font-size:1rem;font-weight:800;margin:4px 0 0}
+.pm .sub{font-size:.8rem;color:var(--muted);margin-top:2px}
+.rnav{position:absolute;right:0;bottom:0;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;font-size:1.25rem;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.credit{margin:6px 0 0}
+.credit a{color:inherit}
+/* 備選頁搜尋 */
+.sbox{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.sbox input{flex:1 1 auto;min-width:0;font:inherit;font-size:1rem;border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-height:44px;background:var(--card);color:var(--ink)}
+.sbox .btn{flex:0 0 auto;padding:8px 12px}
+.altbar + .altbar{margin-top:8px}
 .move{font-size:.82rem;color:var(--muted);margin-top:4px}
 .note{font-size:.88rem;margin-top:6px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
@@ -523,6 +545,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       {"id":"osaka","t":"大阪市區"},
       {"id":"near","t":"近郊"}
     ],
+    "cats": [{"id": "spot", "t": "📍 景點"}, {"id": "food", "t": "🍽️ 餐廳"}, {"id": "shop", "t": "🛍️ 購物"}],
     "items": [
       {"id":"kyoto-botanical","region":"kyoto","fit":"top","icon":"🌿","name":"京都府立植物園","q":"京都府立植物園","why":"關西最大的觀賞溫室（室內約 20～25°C，避寒），2 月下旬梅林盛開，人潮比北野天滿宮少很多；戶外有蘑菇造型兒童圖書館與滑梯。","tip":"成人入園 200 日圓、溫室另加 200 日圓；70 歲以上長者憑護照免費、中學生以下免費。","elev":"地鐵烏丸線北山站 3 號出口有電梯，出站右轉就是北山門，不用擠公車","baby":"待查","stroller":"ok","strollerNote":"全平坦柏油與磚道，長椅很多","rain":"溫室是室內，雨天可去（梅林與戶外遊具略過）","rainOk":true,"links":[{"t":"▶ YouTube 溫室實景","url":"https://www.youtube.com/watch?v=gDMJcxdwFKc&t=30s"},{"t":"PTT 日旅版遊記","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1493022589.A.9BE.html"},{"t":"PTT 媽寶版推車心得","url":"https://www.ptt.cc/bbs/BabyMother/M.1553352144.A.E24.html"}],"src":"10-景點資料庫/遺珠景點與真實心得深度評估庫.md"},
       {"id":"kyoto-gyoen","region":"kyoto","fit":"top","icon":"🌸","name":"京都御苑（西側梅林）","q":"京都御苑","why":"全區免費的 65 公頃平坦庭園；西側梅林約 200 株，2 月下旬盛開，地方大不擁擠；有兒童遊具與沙坑。","elev":"地鐵烏丸線今出川站 3 號出口或丸太町站 1 號出口有電梯，步行約 3～5 分鐘","baby":"中立賣休憩所：暖氣休息區、多功能廁所、哺乳室","stroller":"ok","strollerNote":"碎石大道兩側有壓實細石的推車／輪椅引道","rain":"戶外為主，雨天不建議（可躲中立賣休憩所）","rainOk":false,"links":[{"t":"▶ YouTube 梅林實景","url":"https://www.youtube.com/watch?v=I_mcfEtktH4&t=40s"},{"t":"旅遊專欄評測","url":"https://japantravel.co/%E9%97%9C%E8%A5%BF/%E4%BA%AC%E9%83%BD/%E4%BA%AC%E9%83%BD%E5%BE%A1%E8%8B%91"}],"src":"10-景點資料庫/遺珠景點與真實心得深度評估庫.md"},
@@ -731,7 +754,7 @@ const S = {
   tab: 'today', day: null,
   votes: LS.get('votes', {}), comments: LS.get('comments', {}),
   checks: LS.get('checks', {}),
-  altRegion: LS.get('altRegion', 'all'), altRain: LS.get('altRain', false),
+  altRegion: LS.get('altRegion', 'all'), altRain: LS.get('altRain', false), altCat: LS.get('altCat', 'spot'), altQ: '',
   who: LS.get('who', {role:'', tag:''})
 };
 if (!T.plans[S.plan]) S.plan = 'p1';
@@ -798,22 +821,44 @@ function placeInfo(p){
   <details class="kid"><summary>老小資訊：${esc(p.name)}</summary><dl class="kv">
     ${row('🛗 動線', p.elev)}${row('🍼 哺乳尿布', p.baby)}${row('👶 推車', (s[1].replace('👶 ',''))+(p.strollerNote?'｜'+p.strollerNote:''))}
     ${row('☔ 雨天', p.rain)}${row('📝 待辦', p.todo)}
-  </dl></details>`;
+  </dl>${credit(p)}</details>`;
+}
+function thumbHtml(p, name, n){
+  const u = p && safeUrl(p.img), flag = n != null ? `<span class="flag">${esc(n)}</span>` : '';
+  if (!u) return flag ? `<div class="th noimg">${flag}</div>` : '';
+  const onErr = flag ? "this.parentNode.classList.add('noimg');this.remove()" : "this.parentNode.remove()";
+  return `<div class="th"><img src="${esc(u)}" alt="${esc(name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="${onErr}">${flag}</div>`;
+}
+function credit(p){
+  if (!p || !safeUrl(p.img) || !p.imgCredit) return '';
+  const t = '📷 ' + esc(p.imgCredit);
+  return `<p class="tiny muted credit">${safeUrl(p.imgPage) ? `<a href="${esc(p.imgPage)}" target="_blank" rel="noopener">${t}</a>` : t}</p>`;
+}
+const rnav = (q, name, mode) => q ? `<a class="rnav" href="${navUrl(q, mode||'transit')}" target="_blank" rel="noopener" aria-label="Google 導航到 ${esc(name)}" title="Google 導航">🧭</a>` : '';
+function stayText(st){
+  if (!st.time || !st.end || !/^\d/.test(st.time)) return '';
+  const m = toMin(st.end) - toMin(st.time); if (!(m > 0)) return '';
+  return '停留約 ' + (m < 60 ? `${m} 分鐘` : `${Math.floor(m/60)} 小時` + (m%60 ? ` ${m%60} 分` : ''));
 }
 function stopBtns(st){
   const p = st.place && T.places[st.place];
   if (!p) return '';
-  return `<div class="btns"><a class="btn nav" href="${navUrl(p.q, st.mode||'transit')}" target="_blank" rel="noopener">🧭 Google 導航</a><a class="btn" href="${mapUrl(p.q)}" target="_blank" rel="noopener">📍 地圖</a>${linkBtn(p.link, '🔗 官網')}</div>`;
+  const extra = linkBtn(p.link, '🔗 官網');
+  return `<div class="btns"><a class="btn" href="${mapUrl(p.q)}" target="_blank" rel="noopener">📍 地圖</a>${extra}</div>`;
 }
-function stopHtml(dayId, st, cls="", same=false){
-  const key = `${dayId}/${st.id}`;
+function stopHtml(dayId, st, cls="", same=false, n=null, leg=false){
+  const key = `${dayId}/${st.id}`, p = st.place && T.places[st.place];
   const c = ['stop', st.fixed?'fixed':'', st.rest?'restblk':'', cls].join(' ');
+  const nav = (!same && p) ? rnav(p.q, p.name, st.mode) : '';
+  const time = esc(st.time||'') + (st.end ? `–${esc(st.end)}` : '');
+  const sub = stayText(st);
   return `<li class="${c}" id="st-${esc(dayId)}-${esc(st.id)}">
-    <div class="time">${esc(st.time||'')}${st.end?`<small>～${esc(st.end)}</small>`:''}</div>
+    ${leg || st.move ? `<div class="leg">${st.move ? '🚏 ' + esc(st.move) : ''}</div>` : ''}
     <div class="body">
-      <h3><span class="ic">${st.icon||'📍'}</span><span>${esc(st.title)}</span></h3>
+      <div class="ph ${nav?'has-nav':''}">${thumbHtml(same ? null : p, st.title, n)}
+        <div class="pm"><div class="meta"><span class="ci">${st.icon||'📍'}</span><span>${time}</span></div>
+          <h3>${esc(st.title)}</h3>${sub?`<div class="sub">${sub}</div>`:''}</div>${nav}</div>
       ${st.fixed?'<div class="chips"><span class="pill ok">✅ 已確定</span></div>':''}
-      ${st.move?`<div class="move">🚏 ${esc(st.move)}</div>`:''}
       ${st.note?`<div class="note">${esc(st.note)}</div>`:''}
       ${st.rest||same?'':placeBits(st)}
       ${same?'':stopBtns(st)}
@@ -825,14 +870,8 @@ function dayHtml(row, opts={}){
   const stops = [...(d.stops||[])].sort((a,b) => toMin(a.time)-toMin(b.time));
   let cur = -1;
   if (now != null) stops.forEach((s,i) => { if (toMin(s.time) <= now) cur = i; });
-  const li = stops.map((s,i) => stopHtml(row.id, s, now==null?'':(i===cur?'now':(i<cur?'past':'')), i>0 && s.place && stops[i-1].place===s.place)).join('');
-  const choices = (d.choices||[]).map(c => {
-    const p = T.places[c.place];
-    return `<li class="stop"><div class="time">三選一</div><div class="body">
-      <h3><span class="ic">${c.icon}</span><span>${esc(c.title)}</span></h3>
-      <div class="note">${esc(c.note)}</div>
-      ${placeBits(c)}${stopBtns(c)}${voteRow(`${row.id}/${c.id}`)}</div></li>`;
-  }).join('');
+  const li = stops.map((s,i) => stopHtml(row.id, s, now==null?'':(i===cur?'now':(i<cur?'past':'')), i>0 && s.place && stops[i-1].place===s.place, i+1, i>0)).join('');
+  const choices = (d.choices||[]).map((c,i) => stopHtml(row.id, {...c, time:'三選一', end:''}, '', false, 'ABC'[i] || i+1, i>0 || stops.length>0)).join('');
   return `<article class="card tbd">
     <div class="dayhead">
       <div class="k">DAY ${row.n}・${fmtDate(row.date)}・${esc(d.city)}</div>
@@ -924,12 +963,12 @@ function viewDays(){
     ${altEntry(sch[sel].d)}</div></div>`;
 }
 function altEntry(d){
-  const n = (T.alternates?.items||[]).length;
+  const spots = (T.alternates?.items||[]).filter(x => (x.cat||'spot') === 'spot'), n = spots.length;
   if (!n) return '';
-  const rainN = T.alternates.items.filter(x => x.rainOk).length;
+  const rainN = spots.filter(x => x.rainOk).length;
   return `<section class="card" style="margin-top:14px"><b>🗺️ ${d && d.choices ? '彈性日想換別的？' : '想換景點或找雨備？'}</b>
     <p class="small" style="margin:4px 0 0">資料庫裡還有 ${n} 個沒排進行程的備選景點（其中 ${rainN} 個雨天可去），可以按京都／大阪／近郊篩選、投票。</p>
-    <div class="btns"><button class="btn primary" data-act="gotab" data-tab="alt">看備選景點清單</button></div></section>`;
+    <div class="btns"><button class="btn primary" data-act="altgo" data-id="spot">看備選景點清單</button></div></section>`;
 }
 
 function viewCompare(){
@@ -1004,43 +1043,75 @@ function viewCompare(){
 /* ---------- alternates（備選景點） ---------- */
 const FIT = {top:['ok','⭐ 老小首選'], ok:['info','👌 可以考慮'], avoid:['no','❌ 不建議'], no:['tbd','🚫 這次不去・留作備選']};
 const FIT_ORDER = {top:0, ok:1, no:2, avoid:3};
+const ALT_CATS = () => (T.alternates.cats && T.alternates.cats.length) ? T.alternates.cats : [{id:'spot', t:'📍 景點'}];
+const catOf = x => x.cat || 'spot';
 function altCard(x, regT){
   const f = FIT[x.fit] || FIT.ok;
   return `<article class="card alt ${x.fit==='avoid'||x.fit==='no'?'dim':''}" id="alt-${esc(x.id)}">
-    <div class="chips"><span class="pill ${f[0]}">${f[1]}</span><span class="chip">📍 ${esc(regT[x.region]||'')}</span>${x.rainOk?'<span class="chip g">☔ 雨天可去</span>':''}</div>
-    <h3><span class="ic">${x.icon||'📍'}</span> ${esc(x.name)}</h3>
+    <div class="chips"><span class="pill ${f[0]}">${f[1]}</span>${x.rainOk?'<span class="chip g">☔ 雨天可去</span>':''}</div>
+    <div class="ph has-nav">${thumbHtml(x, x.name, null)}
+      <div class="pm"><div class="meta"><span class="ci">${x.icon||'📍'}</span><span>${esc(regT[x.region]||'')}</span></div>
+        <h3>${esc(x.name)}</h3>${x.q && x.q !== x.name ? `<div class="sub" lang="ja">${esc(x.q)}</div>` : ''}</div>
+      ${rnav(x.q, x.name)}</div>
     <div class="small">${esc(x.why)}</div>
     ${(x.points&&x.points.length)?`<ul class="small" style="padding-left:1.2em;margin:6px 0">${x.points.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}
     ${x.tip?`<div class="callout rest"><b>💡</b>${esc(x.tip)}</div>`:''}
     ${x.warn?`<div class="callout warn"><b>⚠️</b>${esc(x.warn)}</div>`:''}
-    ${placeInfo(x)}
+    ${x.elev || x.baby || x.stroller ? placeInfo(x) : credit(x)}
     <div class="btns"><a class="btn" href="${mapUrl(x.q)}" target="_blank" rel="noopener">📍 地圖</a>${(x.links||[]).map(l => linkBtn(l.url, (/^▶/.test(l.t)?'':'🔗 ') + l.t)).join('')}</div>
-    <p class="tiny muted" style="margin:6px 0 0">出處：${srcLink(x.src)}</p>
+    ${x.src?`<p class="tiny muted" style="margin:6px 0 0">出處：${srcLink(x.src)}</p>`:''}
     ${voteRow('alt/' + x.id)}
   </article>`;
 }
-function viewAlt(){
+/* 搜尋：不分大小寫、全半形，平假名當片假名比對；空白分隔的每個詞都要符合 */
+const norm = t => String(t ?? '').normalize('NFKC').toLowerCase()
+  .replace(/[ぁ-ゖ]/g, c => String.fromCharCode(c.charCodeAt(0) + 0x60)).replace(/\s+/g, '');
+function altFiltered(){
   const A = T.alternates, regT = Object.fromEntries(A.regions.map(r => [r.id, r.t]));
-  const regs = [{id:'all', t:'全部'}, ...A.regions];
-  if (!regs.some(r => r.id === S.altRegion)) S.altRegion = 'all';
-  const list = A.items.filter(x => (S.altRegion==='all' || x.region===S.altRegion) && (!S.altRain || x.rainOk))
+  const words = String(S.altQ||'').split(/\s+/).map(norm).filter(Boolean);
+  const inCat = A.items.filter(x => catOf(x) === S.altCat);
+  const list = inCat.filter(x => (S.altRegion==='all' || x.region===S.altRegion) && (!S.altRain || x.rainOk) &&
+      (!words.length || (h => words.every(w => h.includes(w)))(norm([x.name, x.q, x.why, x.tip, regT[x.region], x.warn, ...(x.points||[])].join(' ')))))
     .sort((a,b) => (S.altRegion==='all' ? A.regions.findIndex(r=>r.id===a.region) - A.regions.findIndex(r=>r.id===b.region) : 0) || FIT_ORDER[a.fit] - FIT_ORDER[b.fit]);
-  const voted = A.items.filter(x => S.votes['alt/'+x.id]).length;
+  return {list, inCat, regT};
+}
+function altListHtml(){
+  const {list, inCat, regT} = altFiltered(), cat = ALT_CATS().find(c => c.id === S.altCat);
   let body = '', lastReg = null;
   list.forEach(x => {
     if (S.altRegion === 'all' && x.region !== lastReg){ lastReg = x.region; body += `<h2 class="sec-title">${esc(regT[x.region])}</h2>`; }
     body += altCard(x, regT);
   });
-  return `<h2 class="sec-title">🗺️ 備選景點清單</h2>
+  if (!inCat.length) body = `<section class="card"><p class="small muted" style="margin:0">${esc(cat ? cat.t : '')}清單整理中，之後會補上。</p></section>`;
+  else if (!list.length) body = `<section class="card"><p class="small" style="margin:0">${S.altQ.trim() ? `找不到符合「${esc(S.altQ.trim())}」的項目。可以試試日文名、換個關鍵字，或按「清除」。` : '這個條件下沒有項目。'}</p>${S.altQ.trim()?'<div class="btns"><button class="btn" data-act="altclear">✕ 清除搜尋</button></div>':''}</section>`;
+  const voted = inCat.filter(x => S.votes['alt/'+x.id]).length;
+  return {body, count: `顯示 ${list.length}／${inCat.length} 個・已表態 ${voted} 個。`};
+}
+function viewAlt(){
+  const A = T.alternates, cats = ALT_CATS();
+  const regs = [{id:'all', t:'全部'}, ...A.regions];
+  if (!regs.some(r => r.id === S.altRegion)) S.altRegion = 'all';
+  if (!cats.some(c => c.id === S.altCat)) S.altCat = cats[0].id;
+  const n = id => A.items.filter(x => catOf(x) === id).length;
+  const r = altListHtml();
+  return `<h2 class="sec-title">🗺️ 備選清單</h2>
   <section class="card">
     <p class="small" style="margin-top:0">${esc(A.note)}</p>
+    <div class="sbox" role="search"><input type="search" id="altQ" value="${esc(S.altQ)}" placeholder="🔍 搜尋名稱、日文名、特色…" aria-label="搜尋備選" autocomplete="off" enterkeyhint="search">
+      <button class="btn ${S.altQ?'':'hide'}" id="altClr" data-act="altclear">✕ 清除</button></div>
+    ${cats.length > 1 ? `<div class="altbar"><div class="seg" role="group" aria-label="分類">${cats.map(c => `<button data-act="altcat" data-id="${c.id}" aria-pressed="${S.altCat===c.id}">${esc(c.t)} <span class="tiny">${n(c.id)}</span></button>`).join('')}</div></div>` : ''}
     <div class="altbar">
       <div class="seg" role="group" aria-label="地區">${regs.map(r => `<button data-act="altreg" data-id="${r.id}" aria-pressed="${S.altRegion===r.id}">${esc(r.t)}</button>`).join('')}</div>
       <button class="btn" data-act="altrain" aria-pressed="${!!S.altRain}">☔ 只看雨天可去</button>
     </div>
-    <p class="tiny muted" style="margin-bottom:0">顯示 ${list.length}／${A.items.length} 個・已表態 ${voted} 個。${esc(A.linkNote)}</p>
+    <p class="tiny muted" style="margin-bottom:0"><span id="altCount">${r.count}</span>${esc(A.linkNote)}</p>
   </section>
-  ${body || '<p class="small muted">這個條件下沒有景點。</p>'}`;
+  <div id="altList">${r.body}</div>`;
+}
+function altRefresh(){
+  const r = altListHtml();
+  $('#altList').innerHTML = r.body; $('#altCount').textContent = r.count;
+  $('#altClr').classList.toggle('hide', !S.altQ);
 }
 
 /* ---------- export / share ---------- */
@@ -1052,7 +1123,8 @@ function labelIndex(){
   }
   [...T.hotels.kyoto, ...T.hotels.osaka].forEach(h => m['hotel/'+h.id] = `🛏️ 住宿候選｜${h.name}`);
   (T.topics||[]).forEach(tp => { m['topic/'+tp.id] = tp.title; m['topic/'+tp.id+'/note'] = tp.title + '｜整體意見'; });
-  (T.alternates?.items||[]).forEach(x => m['alt/'+x.id] = `🗺️ 備選景點｜${x.name}`);
+  const catT = {spot:'🗺️ 備選景點', food:'🍽️ 備選餐廳', shop:'🛍️ 備選購物'};
+  (T.alternates?.items||[]).forEach(x => m['alt/'+x.id] = `${catT[x.cat||'spot'] || '🗺️ 備選'}｜${x.name}`);
   // 舊版「天橋立去不去」投票（已決定不去），留著讓舊意見還看得懂
   m['topic/amano'] ??= '🌊 天橋立（舊投票，已決定不去）'; m['topic/amano/note'] ??= '🌊 天橋立（舊投票）｜整體意見';
   return m;
@@ -1227,6 +1299,9 @@ document.addEventListener('click', ev => {
   else if (a === 'day'){ S.day = +el.dataset.i; if (S.tab === 'days') go('days'); else { render(true); } }
   else if (a === 'gotab') go(el.dataset.tab);
   else if (a === 'altreg'){ S.altRegion = el.dataset.id; LS.set('altRegion', S.altRegion); render(true); }
+  else if (a === 'altcat'){ S.altCat = el.dataset.id; LS.set('altCat', S.altCat); render(true); }
+  else if (a === 'altgo'){ S.altCat = el.dataset.id; LS.set('altCat', S.altCat); go('alt'); }
+  else if (a === 'altclear'){ S.altQ = ''; const i = $('#altQ'); if (i){ i.value = ''; altRefresh(); i.focus(); } }
   else if (a === 'altrain'){ S.altRain = !S.altRain; LS.set('altRain', S.altRain); render(true); }
   else if (a === 'jump'){ ev.preventDefault(); S.plan = el.dataset.plan; LS.set('plan', S.plan); S.day = +el.dataset.i; go('days'); }
   else if (a === 'vote'){
@@ -1266,6 +1341,7 @@ document.addEventListener('change', ev => {
 });
 document.addEventListener('input', ev => {
   const t = ev.target;
+  if (t.id === 'altQ'){ S.altQ = t.value; altRefresh(); return; }
   if (t.dataset.act === 'cmtext'){
     const k = t.closest('.votes').dataset.key, v = t.value.slice(0, 300);
     if (v.trim()) S.comments[k] = v; else delete S.comments[k];
@@ -1274,6 +1350,7 @@ document.addEventListener('input', ev => {
     updBadge();
   }
 });
+document.addEventListener('keydown', ev => { if (ev.target.id === 'altQ' && ev.key === 'Enter') ev.target.blur(); });
 addEventListener('hashchange', () => fromHash());
 function fromHash(){
   const m = location.hash.match(/^#(today|days|compare|alt|vote|info)(?:-(\d))?/);
