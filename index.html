@@ -120,6 +120,7 @@ main{padding-top:14px}
 .callout.rain{background:var(--q-soft)}
 .callout.warn{background:var(--tbd-soft)}
 .callout b{margin-right:4px}
+.callout.alert{background:var(--no-soft);border:1.5px solid var(--no);font-weight:700}
 
 /* timeline（行程卡：縮圖＋序號旗＋虛線連接交通） */
 :root{--soft:#f1f2f4;--time:#d6336c;--flag:#e03131}
@@ -152,6 +153,37 @@ main{padding-top:14px}
 .rnav{position:absolute;right:0;bottom:0;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;font-size:1.25rem;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.18)}
 .btns.mini{gap:6px;margin-top:8px}
 .btns.mini .btn{min-height:40px;padding:6px 10px;font-size:.82rem}
+.stop.travel .body{background:transparent;border:1.5px dashed var(--line);padding:8px 10px}
+.stop.travel .pm h3{font-size:.92rem;font-weight:700;color:var(--muted)}
+.stop.travel .pm .meta{color:var(--muted)}
+/* 交通比較 */
+details.tcmp{margin-top:8px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:0 10px}
+details.tcmp > summary{cursor:pointer;list-style:none;font-weight:800;font-size:.88rem;color:var(--brand);padding:10px 0;min-height:44px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+details.tcmp > summary::-webkit-details-marker{display:none}
+details.tcmp > summary:before{content:"▸"}
+details.tcmp[open] > summary:before{content:"▾"}
+.topts{display:grid;gap:8px;padding-bottom:6px}
+@media (min-width:560px){.topts{grid-template-columns:1fr 1fr}}
+.topt{border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--bg);min-width:0}
+.topt.rec{border:2px solid var(--ok)}
+.topt.mine{box-shadow:0 0 0 3px var(--q)}
+.topt h4{font-size:.95rem;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.topt .kv{font-size:.82rem}
+.topt .kv dd{min-width:0;overflow-wrap:anywhere}
+.mvote{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.mvote button{flex:1 1 140px}
+.ttips{margin:6px 0;padding-left:1.2em;font-size:.82rem}
+details.brow{border:1px solid var(--line);border-radius:12px;padding:0 10px;margin-bottom:8px}
+details.brow.cur{border:2px solid var(--brand)}
+details.brow > summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px;align-items:center;min-height:44px;padding:8px 0;font-size:.9rem}
+details.brow > summary::-webkit-details-marker{display:none}
+details.brow > summary:before{content:"▸";color:var(--brand)}
+details.brow[open] > summary:before{content:"▾"}
+details.brow > summary > span{flex:1 1 auto}
+details.brow .kv{padding-bottom:8px;grid-template-columns:minmax(0,1fr) auto}
+details.brow .kv dt{white-space:normal}
+details.brow .kv dd{white-space:nowrap;text-align:right}
+.bamt{color:var(--brand)}
 .why{margin-top:8px}
 .why b{color:var(--time)}
 .credit{margin:6px 0 0}
@@ -279,6 +311,10 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
   - 備選分類：alternates.items 的 cat 可填 spot（景點，預設）／food（餐廳）／shop（購物），
     分類名稱在 alternates.cats；投票鍵一律是 alt/<id>，id 不可重複。
     出處是 repo 裡的檔案就填 src（路徑），不是檔案就填 srcT（純文字）。
+  - 交通比較：transport 以路段 id 為 key，{from,to,options:[{id,label,route,time,cost,yen,
+    stroller,pros,cons}],pick（pt／car／mix，mix 時顯示 pickNote）,tips:[{t,url}],links,note}；yen＝全團日圓數字（加總用，
+    沒填會從 cost 的「全團約 ¥X」讀）。大眾運輸選項 id 用 pt。stop 加 "leg":"<路段 id>"
+    就會出現比較與投票（投票鍵 move/<路段 id>）。
   - 尚未查證的資訊請寫「待查（T5-1）」之類，對應 agy待查任務清單.md 的任務編號。
   - 個資規則：只寫角色代稱，嚴禁真實姓名、證件、電話、Email、訂位代號、座位號碼。
   - 改了 JSON 後，請把 sw.js 的 CACHE 版本號 +1，讓家人手機抓到新版。
@@ -316,7 +352,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "stays": ["2/24–2/26 京都站周邊 2 晚","2/26–3/03 心齋橋／難波 5 晚"],
       "pros": ["下機搭 JR Haruka 直達京都，不用轉車","2/25 正好是北野天滿宮梅花祭，住在京都可從容玩","京都不用一天來回趕車"],
       "cons": ["2/26 要搬大行李換飯店：建議包 14 人座 Hiace 門對門（約 NT$4,800），跟宅配＋電車費用差不多","京都段要另找飯店、多一次入住退房"],
-      "budget": "住宿（MIMARU 2 間）約 NT$104,178；交通包車約 NT$32,800。若改住 VISCHIO 京都＋難波日和，住宿約降到 NT$65,483（2026-11-03 Google Hotels 含稅價，會浮動）",
+      "budget": "住宿（MIMARU 2 間）約 NT$104,178；若改住 VISCHIO 京都＋難波日和，住宿約降到 NT$65,483（2026-11-03 Google Hotels 含稅價，會浮動）",
       "src": "00-行程規劃_2月24日-3月3日/方案一_京都2晚+大阪5晚_每日行程.md",
       "days": ["p1-d1","p1-d2","p1-d3","d4-meet","d-harvest","d-lego","d-flex","d8-home"]
     },
@@ -326,7 +362,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "stays": ["2/24–3/03 心齋橋／難波連住 7 晚"],
       "pros": ["7 晚不換飯店、不用搬兩次行李","每天都從同一個基地出發，長輩小孩作息穩定"],
       "cons": ["京都只玩 2/28 一天，包車來回各約 1 小時","2/25 梅花祭正日不在京都（2/28 仍可賞梅）"],
-      "budget": "住宿（MIMARU 2 間 7 晚）約 NT$103,903，只比方案一少 NT$275；若改住難波日和 7 晚約 NT$69,681。交通包車約 NT$27,900（不用換飯店，省約 NT$4,900）（2026-11-03 Google Hotels 含稅價，會浮動）",
+      "budget": "住宿（MIMARU 2 間 7 晚）約 NT$103,903，只比方案一少 NT$275；若改住難波日和 7 晚約 NT$69,681（2026-11-03 Google Hotels 含稅價，會浮動）",
       "src": "00-行程規劃_2月24日-3月3日/方案二_全住大阪7晚_每日行程.md",
       "days": ["p2-d1","p2-d2","d-lego","d4-meet","p2-d5","d-harvest","d-flex","d8-home"]
     }
@@ -348,7 +384,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "飯店門口叫 2 台計程車直達約 18～22 分鐘，每台約 ¥3,500～¥4,200",
       "Express Pass 只買給 3～4 位想玩刺激設施的大人即可",
       "5 歲女兒以 105～110cm 評估、3 歲女兒以 92～95cm 評估（瑪利歐賽車需 107cm）",
-      "費用：門票 7 張約 NT$14,200＋Express Pass 3～4 張約 NT$21,000＋園內餐飲約 NT$9,000，合計約 NT$44,200；不去改市區親子景點約 NT$7,200（Google Gemini 估算）",
+      "費用（3/02 當天，全團，2026 同期價）：USJ 約 NT$17,679～22,343；加 Express 約 NT$32,771～49,755；不去改彈性日約 NT$2,702～16,038（詳見下方總預算）",
       "⚠️ 門票與 Express Pass 售出後不能退款、不能改期：入園 2 個月前開賣（3/02 入園 → 2027/01/02）"
     ],
     "links": [{"t":"USJ 官網（中文）","url":"https://www.usj.co.jp/web/zh/tw"}],
@@ -364,7 +400,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "stops": [
         {"id":"fl","time":"11:15","end":"14:45","icon":"✈️","title":"CX564 桃園 T1 → 關西 T1","fixed":true,"vote":false,"note":"推車可推到登機門口託運，抵達時在空橋或轉盤取回。"},
         {"id":"arr","time":"14:45","icon":"🛬","title":"入境、領行李與推車","place":"kix","note":"入境＋領行李約 45～60 分鐘。"},
-        {"id":"haruka","time":"15:45","end":"17:15","icon":"🚆","title":"JR Haruka 直達京都站（約 78 分鐘）","place":"kyoto-st","mode":"transit","move":"關西機場站搭 JR 關空特急 Haruka（對號座）"},
+        {"id":"haruka","leg":"kix-kyoto","travel":true,"time":"15:45","end":"17:15","icon":"🚆","title":"JR Haruka 直達京都站（約 78 分鐘）","place":"kyoto-st","mode":"transit","move":"關西機場站搭 JR 關空特急 Haruka（對號座）"},
         {"id":"hotel","time":"17:30","icon":"🏨","title":"入住京都飯店","place":"hotel-kyoto","mode":"walking","move":"京都站步行約 3～5 分鐘","note":"飯店尚未決定，見「比較」頁住宿候選。"},
         {"id":"dinner","time":"18:30","icon":"🍱","title":"晚餐：京都站伊勢丹 11F 美食街／Porta 地下街","place":"kyoto-isetan","mode":"walking","note":"順便採買水果、牛奶。"}
       ]
@@ -378,8 +414,8 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "stops": [
         {"id":"rail","time":"09:30","end":"12:30","icon":"🚂","title":"京都鐵道博物館","place":"rail-museum","mode":"driving","move":"京都站叫計程車約 10 分鐘","note":"全館室內暖氣，53 輛實體火車、幼童模擬駕駛、2 樓看新幹線。"},
         {"id":"lunch","time":"12:30","end":"13:30","icon":"🍙","title":"館內餐廳午餐","place":"rail-museum"},
-        {"id":"kitano","time":"14:00","end":"16:00","icon":"🌸","title":"北野天滿宮（2/25 梅花祭）","place":"kitano","mode":"driving","move":"計程車直達（2 台）","note":"梅花祭正日，走平坦主參道賞梅、摸神牛。人潮可能很多，推車注意。"},
-        {"id":"dinner","time":"17:00","icon":"🍲","title":"晚餐：京都車站周邊湯豆腐或和牛","place":"kyoto-st","mode":"driving"}
+        {"id":"kitano","leg":"rail-kitano","time":"14:00","end":"16:00","icon":"🌸","title":"北野天滿宮（2/25 梅花祭）","place":"kitano","mode":"driving","move":"計程車直達（2 台）","note":"梅花祭正日，走平坦主參道賞梅、摸神牛。人潮可能很多，推車注意。"},
+        {"id":"dinner","leg":"kitano-kyotost","time":"17:00","icon":"🍲","title":"晚餐：京都車站周邊湯豆腐或和牛","place":"kyoto-st","mode":"driving"}
       ]
     },
     "p1-d3": {
@@ -390,10 +426,10 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "warn": "大行李建議包 14 人座 Hiace 門對門直送（約 NT$4,800～5,000）；當日宅配＋全家電車約 NT$4,700，費用差不多但要多轉乘。10 人座坐滿 9 人只放得下 2～3 箱。",
       "stops": [
         {"id":"out","time":"09:30","icon":"🧳","title":"悠閒早餐、京都飯店退房","place":"hotel-kyoto"},
-        {"id":"move","time":"10:45","end":"11:30","icon":"🚆","title":"移動到大阪","place":"hotel-osaka","mode":"transit","move":"JR 新快速京都→大阪約 29 分鐘，或包車門對門連行李一起載"},
+        {"id":"move","leg":"kyoto-osaka-move","travel":true,"time":"10:45","end":"11:30","icon":"🚆","title":"移動到大阪","place":"hotel-osaka","mode":"transit","move":"JR 新快速京都→大阪約 29 分鐘，或包車門對門連行李一起載"},
         {"id":"in","time":"12:00","icon":"🏨","title":"大阪飯店寄放行李／入住","place":"hotel-osaka"},
-        {"id":"castle","time":"13:00","end":"16:00","icon":"🏯","title":"大阪城梅林 ＋ 御座船 ＋ JO-TERRACE","place":"osaka-castle","mode":"transit","move":"地鐵到森之宮站（電梯）","note":"梅林約 1,270 株，2 月下旬見頃；御座船遊護城河約 20 分鐘。"},
-        {"id":"eve","time":"17:00","icon":"🍜","title":"回飯店，傍晚心齋橋筋（有頂棚）、道頓堀晚餐","place":"shinsaibashi","mode":"walking"}
+        {"id":"castle","leg":"castle-go","time":"13:00","end":"16:00","icon":"🏯","title":"大阪城梅林 ＋ 御座船 ＋ JO-TERRACE","place":"osaka-castle","mode":"transit","move":"地鐵到森之宮站（電梯）","note":"梅林約 1,270 株，2 月下旬見頃；御座船遊護城河約 20 分鐘。"},
+        {"id":"eve","leg":"castle-back","time":"17:00","icon":"🍜","title":"回飯店，傍晚心齋橋筋（有頂棚）、道頓堀晚餐","place":"shinsaibashi","mode":"walking"}
       ]
     },
     "p2-d1": {
@@ -404,7 +440,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "stops": [
         {"id":"fl","time":"11:15","end":"14:45","icon":"✈️","title":"CX564 桃園 T1 → 關西 T1","fixed":true,"vote":false,"note":"推車可推到登機門口託運。"},
         {"id":"arr","time":"14:45","icon":"🛬","title":"入境、領行李與推車","place":"kix"},
-        {"id":"car","time":"16:00","end":"16:50","icon":"🚐","title":"包車到市區（約 50 分鐘）","place":"hotel-osaka","mode":"driving","note":"帶 8 箱行李要用 14 人座 Hiace（10 人座放不下）；需備 3 張兒童安全座椅（日本 6 歲以下強制）。業者比較見「比較」頁。"},
+        {"id":"car","leg":"kix-osaka","travel":true,"time":"16:00","end":"16:50","icon":"🚐","title":"包車到市區（約 50 分鐘）","place":"hotel-osaka","mode":"driving","note":"帶 8 箱行李要用 14 人座 Hiace（10 人座放不下）；需備 3 張兒童安全座椅（日本 6 歲以下強制）。業者比較見「比較」頁。"},
         {"id":"in","time":"17:00","icon":"🏨","title":"入住大阪飯店","place":"hotel-osaka"},
         {"id":"mart","time":"17:30","icon":"🛒","title":"附近超市採買：牛奶、水果、副食品、早餐","place":"hotel-osaka","mode":"walking"},
         {"id":"dinner","time":"18:30","icon":"🍜","title":"心齋橋筋散步＋晚餐（烏龍麵／壽喜燒）","place":"shinsaibashi","mode":"walking"}
@@ -416,11 +452,11 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "rest": "13:30 回飯店午休（長輩、幼兒、嬰兒一起睡）。",
       "rain": "梅林改去大阪歷史博物館（電梯直上 10F 落地窗看大阪城，全室內）。",
       "stops": [
-        {"id":"metro","time":"09:30","icon":"🚇","title":"地鐵 心齋橋 → 森之宮（約 10 分鐘）","place":"osaka-castle","mode":"transit","move":"長堀鶴見綠地線，兩站都有無障礙電梯"},
+        {"id":"metro","leg":"castle-go","travel":true,"time":"09:30","icon":"🚇","title":"地鐵 心齋橋 → 森之宮（約 10 分鐘）","place":"osaka-castle","mode":"transit","move":"長堀鶴見綠地線，兩站都有無障礙電梯"},
         {"id":"plum","time":"10:00","icon":"🌸","title":"大阪城梅林","place":"osaka-castle","note":"約 1,270 株梅花見頃，地面平坦推車好走。"},
         {"id":"boat","time":"11:15","icon":"🚤","title":"御座船（約 20 分鐘）","place":"osaka-castle"},
         {"id":"lunch","time":"12:00","icon":"🍽️","title":"JO-TERRACE OSAKA 午餐","place":"jo-terrace","mode":"walking"},
-        {"id":"nap","time":"13:30","end":"16:30","icon":"😴","title":"回飯店午休","place":"hotel-osaka","mode":"transit","rest":true,"vote":false},
+        {"id":"nap","leg":"castle-back","time":"13:30","end":"16:30","icon":"😴","title":"回飯店午休","place":"hotel-osaka","mode":"transit","rest":true,"vote":false},
         {"id":"eve","time":"16:30","icon":"🍲","title":"心齋橋／難波慢逛，晚餐日式火鍋","place":"shinsaibashi","mode":"walking"}
       ]
     },
@@ -431,11 +467,11 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "rain": "北野天滿宮改去京都水族館（梅小路公園內，全室內）。",
       "warn": "當日在車上約 2.5～3 小時（京都↔難波單程約 55～65 分鐘）。梅花祭正日（2/25）已過，2/28 仍在花期。",
       "stops": [
-        {"id":"car","time":"09:00","icon":"🚐","title":"包車出發到京都（約 50～60 分鐘）","place":"rail-museum","mode":"driving"},
+        {"id":"car","leg":"kyoto-daytrip","travel":true,"time":"09:00","icon":"🚐","title":"包車出發到京都（約 50～60 分鐘）","place":"rail-museum","mode":"driving"},
         {"id":"rail","time":"10:00","end":"12:30","icon":"🚂","title":"京都鐵道博物館","place":"rail-museum","note":"全館室內暖氣，53 輛實體火車、扇形車庫、2 樓看新幹線。"},
         {"id":"lunch","time":"12:30","icon":"🍙","title":"館內餐廳或京都車站周邊午餐","place":"rail-museum"},
         {"id":"kitano","time":"14:00","icon":"🌸","title":"北野天滿宮賞梅","place":"kitano","mode":"driving","move":"包車直達","note":"走平坦主參道賞梅、摸神牛。"},
-        {"id":"back","time":"16:00","icon":"🚐","title":"祇園白川或京都車站散步後包車回大阪","place":"hotel-osaka","mode":"driving"}
+        {"id":"back","travel":true,"time":"16:00","icon":"🚐","title":"祇園白川或京都車站散步後包車回大阪","place":"hotel-osaka","mode":"driving"}
       ]
     },
     "d4-meet": {
@@ -446,25 +482,28 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "stops": [
         {"id":"kuromon","time":"09:30","end":"11:30","icon":"🦀","title":"黑門市場（烤海鮮、草莓大福）","place":"kuromon","mode":"walking","move":"步行或地鐵 1 站"},
         {"id":"lunch","time":"11:30","icon":"🍜","title":"難波／心齋橋午餐，買水果點心回飯店","place":"shinsaibashi","mode":"walking"},
-        {"id":"fl9","time":"11:15","end":"14:45","icon":"✈️","title":"第 9 位成員 CX564 桃園 → 關西","fixed":true,"vote":false,"note":"抵達後搭南海 Rapi:t（約 38 分）到難波，再搭計程車 5～7 分鐘到飯店。用 LINE 回報班次。"},
+        {"id":"fl9","leg":"member9","time":"11:15","end":"14:45","icon":"✈️","title":"第 9 位成員 CX564 桃園 → 關西","fixed":true,"vote":false,"note":"抵達後搭南海 Rapi:t（約 38 分）到難波，再搭計程車 5～7 分鐘到飯店。用 LINE 回報班次。"},
         {"id":"nap","time":"13:00","end":"16:30","icon":"😴","title":"主部隊回飯店午休","place":"hotel-osaka","rest":true,"vote":false},
         {"id":"meet","time":"16:45","icon":"🎉","title":"9 人在飯店會合、拍全家福","place":"hotel-osaka"},
-        {"id":"harukas","time":"17:30","end":"18:30","icon":"🌇","title":"HARUKAS 300 展望台夕陽 ＋ Q's Mall 阿卡將","place":"harukas","mode":"transit","move":"地鐵御堂筋線 心齋橋 → 天王寺約 10 分鐘（電梯）"},
+        {"id":"harukas","leg":"harukas-go","time":"17:30","end":"18:30","icon":"🌇","title":"HARUKAS 300 展望台夕陽 ＋ Q's Mall 阿卡將","place":"harukas","mode":"transit","move":"地鐵御堂筋線 心齋橋 → 天王寺約 10 分鐘（電梯）"},
         {"id":"dinner","time":"18:30","end":"20:30","icon":"🍲","title":"9 人團聚晚餐（建議預約包廂）","place":"harukas","note":"候選：難波「炙屋」燒肉（連通沙發大桌）、阿倍野 HARUKAS 餐廳樓層、心齋橋しゃぶ亭。用餐前約 30 天在 TableCheck／官網預約。"}
       ]
     },
     "d-harvest": {
-      "title": "Harvest Hill 溫室採草莓 ＋ 農場小動物",
+      "title": "Harvest Hill 溫室採草莓 ＋ 小動物 ＋ 森林家族",
       "city": "大阪近郊（堺市）", "sleep": "心齋橋／難波", "transport": "包車一日遊（9 人＋兒童座椅）", "people": "9 人",
-      "rest": "15:30 包車回飯店休息；車程約 40 分鐘可補眠。",
-      "rain": "溫室採草莓不受雨影響；戶外動物區、小火車視雨勢縮短，提早回市區。",
+      "rest": "15:30 包車回飯店（約 60～75 分鐘），車上補眠；晚上在心齋橋附近吃。",
+      "rain": "草莓溫室、羊舍（Sheep House）有屋頂，小火車雨天照開；下雨時森林家族與戶外遊具可能受影響，改在食之 Hall 多待。",
       "warn": "草莓採果完全預約制（依往年：前月 1～7 日在官網抽選登記，10 日公布結果，有空位再開放先搶先贏；2027 年詳情官網預計 11 月上旬公布），每場次名額很少；取消需 3 天前通知。12～2 月每週三休園，3 月起每天營業。",
+      "dateWarn": {"2027-03-01": "方案二這天是 3/1（週一）：依往年採草莓只在週四、六、日舉辦，週一可能沒有採草莓。2027 年規則官網預計 11 月上旬公布，公布後要確認，必要時改日。"},
       "stops": [
-        {"id":"car","time":"09:30","icon":"🚐","title":"包車出發（約 40 分鐘）","place":"harvest","mode":"driving"},
-        {"id":"berry","time":"10:30","end":"11:30","icon":"🍓","title":"溫室採草莓吃到飽（最長 120 分鐘）","place":"harvest","note":"高架栽培免彎腰，溫室約 18～20°C；老小大約玩 1 小時就夠，不必吃滿。"},
-        {"id":"lunch","time":"11:30","icon":"🍕","title":"園區午餐（石窯披薩／咖哩）","place":"harvest"},
-        {"id":"animal","time":"13:00","icon":"🐑","title":"餵水豚、羊駝、小羊＋森林小火車","place":"harvest"},
-        {"id":"back","time":"15:30","icon":"🚐","title":"包車回飯店，傍晚心齋橋燒肉包廂","place":"hotel-osaka","mode":"driving"}
+        {"id":"go","leg":"harvest-trip","time":"09:15","icon":"🚐","title":"包車出發（心齋橋 → 堺，約 50～60 分鐘）","place":"harvest","mode":"driving","travel":true,"note":"週日上午車流較多，預留時間；上車前裝好 3 張兒童安全座椅。"},
+        {"id":"meet","time":"10:20","icon":"🎟️","title":"抵達、入園、上廁所，前往草莓集合處","place":"harvest","note":"依往年 10:30 集合、工作人員帶隊進溫室；推車停溫室入口。"},
+        {"id":"berry","time":"11:00","end":"12:30","icon":"🍓","title":"溫室採草莓吃到飽","place":"harvest","note":"高架栽培免彎腰；先脫外套、圍上圍兜，帶食物剪給 1 歲、3 歲剪小塊。吃飽就可以出來，不必待滿 120 分鐘。"},
+        {"id":"lunch","time":"12:45","end":"13:45","icon":"🍕","title":"食之 Hall 午餐","place":"harvest","note":"「みのりの丘」60 分鐘吃到飽最方便 9 人同桌（只收當日現場）；或石窯披薩、ヒルズダイニング（自家製香腸夏威夷漢堡飯 Loco Moco）。剛吃完草莓可以少點一些。","links":[{"t":"園區餐廳（官網）","url":"https://farm.or.jp/restaurant"}]},
+        {"id":"animals","time":"13:50","end":"14:40","icon":"🦫","title":"搭小火車到村區：摸水豚、餵綿羊","place":"harvest","note":"飼料一杯 ¥200（現金）；1 歲可在推車上睡午覺，長輩坐長椅休息。","links":[{"t":"動物互動（官網）","url":"https://farm.or.jp/animals"}]},
+        {"id":"sylvanian","time":"14:40","end":"15:20","icon":"🏡","title":"森林家族村（シルバニアパーク）","place":"harvest","note":"4 歲以上 ¥800（現金）；闖關全對可換寶寶娃娃。村內坡多，推車留外面、長輩可在外面休息。","links":[{"t":"森林家族村（官網）","url":"https://farm.or.jp/sylvanian"}]},
+        {"id":"back","time":"15:30","icon":"🚐","title":"包車回飯店（約 60～75 分鐘），車上補眠","place":"hotel-osaka","mode":"driving","travel":true,"rest":true,"vote":false,"note":"週日傍晚進市區會塞車；晚上在心齋橋附近吃晚餐。"}
       ]
     },
     "d-lego": {
@@ -474,13 +513,13 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "rain": "樂高、海遊館、Marketplace 全室內；摩天輪強風會停駛。",
       "backup": "大摩天輪改為備案：還有體力時，晚餐後 18:45～19:15 搭一圈看大阪灣夜景（約 15 分鐘，3 歲以上 ¥900；強風停駛）。",
       "stops": [
-        {"id":"metro","time":"09:30","icon":"🚇","title":"地鐵中央線到大阪港站","place":"lego","mode":"transit"},
+        {"id":"metro","leg":"tempozan-trip","travel":true,"time":"09:30","icon":"🚇","title":"地鐵中央線到大阪港站","place":"lego","mode":"transit"},
         {"id":"lego","time":"10:00","end":"12:15","icon":"🧱","title":"天保山樂高樂園探索中心","place":"lego","note":"1 歲、3 歲玩 Duplo 區，5 歲玩攀爬與騎乘；4D 劇院小小孩可能會怕。"},
         {"id":"lunch","time":"12:15","end":"13:30","icon":"🍛","title":"天保山 Marketplace 午餐","place":"tempozan","note":"食いしんぼ横丁座位小，9 人建議分桌或選一般餐廳。"},
         {"id":"kaiyukan","time":"13:30","end":"15:30","icon":"🦈","title":"海遊館","place":"kaiyukan","note":"和樂高同在天保山，步行 1～2 分鐘。指定時段票選 13:30 左右，入館前 30 天官網買。長輩可在主水槽旁長椅坐著看鯨鯊。"},
         {"id":"mp-rest","time":"15:30","end":"17:30","icon":"🛍️","title":"天保山 Marketplace 逛街＋休息","place":"tempozan","note":"16:00 前後海遊館散場人較多，18:00 後變少。小孩可去 3F 天保山アニパ摸小動物、3F 扭蛋區；長輩坐 2F マザームーンカフェ休息；館內有育嬰室。"},
         {"id":"dinner","time":"17:30","end":"19:00","icon":"🍽️","title":"Marketplace 晚餐","place":"tempozan","note":"晚餐候選（都在 Marketplace 內）：3F がんこ（壽司和食，大店有包廂，長輩最穩）、2F COCO'S（家庭餐廳，兒童餐多、座位寬）、3F 自家製麺 杵屋（烏龍麵好消化）、3F 鶴橋風月（大阪燒，店員代煎，注意鐵板燙）。9 人建議 17:30 前入座；餐廳營業到 21:00。","links":[{"t":"がんこ","url":"https://www.kaiyukan.com/thv/marketplace/shop/004/"},{"t":"COCO'S","url":"https://www.kaiyukan.com/thv/marketplace/shop/001/"},{"t":"自家製麺 杵屋","url":"https://www.kaiyukan.com/thv/marketplace/shop/005/"},{"t":"鶴橋風月","url":"https://www.kaiyukan.com/thv/marketplace/shop/006/"}]},
-        {"id":"back","time":"19:30","icon":"🚇","title":"搭地鐵中央線回飯店","place":"hotel-osaka","mode":"transit","rest":true,"vote":false,"note":"地鐵：大阪港站中央線→本町轉御堂筋線→心齋橋，約 20～25 分鐘，兩站都有電梯，本町轉乘推車約走 5～8 分鐘。累了或小孩睡著就叫 2 台計程車，約 20～25 分鐘、每台約 ¥3,000～3,500。"}
+        {"id":"back","leg":"tempozan-trip","travel":true,"time":"19:30","icon":"🚇","title":"搭地鐵中央線回飯店","place":"hotel-osaka","mode":"transit","rest":true,"vote":false,"note":"地鐵：大阪港站中央線→本町轉御堂筋線→心齋橋，約 20～25 分鐘，兩站都有電梯，本町轉乘推車約走 5～8 分鐘。累了或小孩睡著就叫 2 台計程車，約 20～25 分鐘、每台約 ¥3,000～3,500。"}
       ]
     },
     "d-flex": {
@@ -490,9 +529,9 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "rain": "下雨優先選 B（神戶動物王國，全室內）或 C（Kids Plaza，室內）。",
       "stops": [],
       "choices": [
-        {"id":"nara","icon":"🦌","title":"A｜奈良公園餵鹿＋東大寺","place":"nara","note":"近鐵直達約 40 分鐘，平坦步道；大佛殿有斜坡；餵鹿時大人要護著 3 歲女兒。"},
-        {"id":"kobe","icon":"🦥","title":"B｜神戶動物王國（可參加 KKday 神戶一日遊）","place":"kobe-animal","note":"全室內溫室，水豚、羊駝在身邊，推車很寬敞。"},
-        {"id":"kids","icon":"🤹","title":"C｜Kids Plaza Osaka＋下午採買打包","place":"kids-plaza","note":"室內兒童探索館，長輩休息區多；門口扇町公園有大型滑梯。"}
+        {"id":"nara","leg":"nara-trip","icon":"🦌","title":"A｜奈良公園餵鹿＋東大寺","place":"nara","note":"近鐵直達約 40 分鐘，平坦步道；大佛殿有斜坡；餵鹿時大人要護著 3 歲女兒。"},
+        {"id":"kobe","leg":"kobe-trip","icon":"🦥","title":"B｜神戶動物王國（可參加 KKday 神戶一日遊）","place":"kobe-animal","note":"全室內溫室，水豚、羊駝在身邊，推車很寬敞。"},
+        {"id":"kids","leg":"kidsplaza-trip","icon":"🤹","title":"C｜Kids Plaza Osaka＋下午採買打包","place":"kids-plaza","note":"室內兒童探索館，長輩休息區多；門口扇町公園有大型滑梯。"}
       ]
     },
     "d8-home": {
@@ -503,7 +542,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "stops": [
         {"id":"out","time":"09:30","icon":"🧳","title":"退房，行李裝上包車","place":"hotel-osaka"},
         {"id":"parks","time":"10:30","end":"12:00","icon":"🌿","title":"難波 Parks 空中花園＋最後採買","place":"namba-parks","mode":"walking","note":"3/03 是日本女兒節（雛祭），百貨地下街會賣三色菱餅、雛散壽司，可以順手買來當午餐或伴手禮。"},
-        {"id":"car","time":"12:30","end":"13:30","icon":"🚐","title":"包車到關西機場 T1（約 45～50 分鐘）","place":"kix","mode":"driving"},
+        {"id":"car","leg":"osaka-kix","travel":true,"time":"12:30","end":"13:30","icon":"🚐","title":"包車到關西機場 T1（約 45～50 分鐘）","place":"kix","mode":"driving"},
         {"id":"chk","time":"13:45","icon":"🧾","title":"國泰櫃台 9 人一起報到託運","place":"kix","fixed":true,"vote":false},
         {"id":"fl","time":"16:15","end":"18:30","icon":"✈️","title":"CX565 關西 T1 → 桃園 T1","fixed":true,"vote":false}
       ]
@@ -515,12 +554,12 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
       "rain": "改以室內為主：劇院表演、環球奇境室內館；推車裝透明防風雨罩。",
       "warn": "是否去、哪一天仍在考慮。門票與 Express Pass 售出後不能退，決定了再買。出發前一週再確認設施維修（T6-2）。",
       "stops": [
-        {"id":"taxi","time":"07:45","icon":"🚕","title":"飯店門口叫 2 台計程車（約 20 分鐘）","place":"usj","mode":"driving","note":"每台約 ¥3,500～¥4,200。"},
+        {"id":"taxi","leg":"usj-trip","travel":true,"time":"07:45","icon":"🚕","title":"飯店門口叫 2 台計程車（約 20 分鐘）","place":"usj","mode":"driving","note":"每台約 ¥3,500～¥4,200。"},
         {"id":"gate","time":"08:15","icon":"♿","title":"入園，右側服務處租長輩輪椅（¥500）","place":"usj"},
         {"id":"snw","time":"09:30","end":"12:30","icon":"🍄","title":"超級任天堂世界：耀西冒險＋瑪利歐賽車（Child Switch）","place":"usj","note":"耀西冒險 92cm 以上可搭；瑪利歐賽車 107cm 以上，大人用 Child Switch 輪流。"},
         {"id":"lunch","time":"12:30","end":"14:00","icon":"🍣","title":"彩道 SAIDO 日式午餐＋室內劇院看秀","place":"usj","note":"餐廳優先入席：用餐日 1 個月前上午 11:00（日本時間）開放預約。"},
         {"id":"wonder","time":"14:30","end":"16:30","icon":"🐶","title":"環球奇境（史努比、Hello Kitty、芝麻街）＋哈利波特城堡合影","place":"usj","note":"よやくのり（免費預約）先抽親子設施；1 歲男嬰由大人輪流陪在室內。"},
-        {"id":"back","time":"16:30","icon":"🚕","title":"搭計程車回飯店休息","place":"hotel-osaka","mode":"driving"}
+        {"id":"back","travel":true,"time":"16:30","icon":"🚕","title":"搭計程車回飯店休息","place":"hotel-osaka","mode":"driving"}
       ]
     }
   },
@@ -532,14 +571,14 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
     "hotel-kyoto": {"name":"京都住宿（未定）","q":"MIMARU KYOTO STATION","elev":"候選飯店都在京都站步行 1～3 分鐘；電梯待確認","baby":"可借嬰兒床（依飯店）","stroller":"ok","rain":"—","tbd":true},
     "hotel-osaka": {"name":"大阪住宿（未定）","q":"MIMARU Osaka Shinsaibashi","elev":"首選候選：長堀橋站電梯出口步行約 2 分鐘","baby":"房內客廳可餵奶換尿布","stroller":"ok","rain":"—","tbd":true},
     "rail-museum": {"name":"京都鐵道博物館","q":"京都鉄道博物館","elev":"全館無障礙，4 部大電梯","baby":"1F／2F 都有獨立哺乳室（附調乳熱水）","stroller":"ok","strollerNote":"1F 入口有免費推車停放區","rain":"全室內暖氣","link":"https://www.kyotorailwaymuseum.jp/","todo":"每週三休館（方案一 2/25 週四、方案二 2/28 週日都有開）","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/%E4%BA%AC%E9%83%BD%E9%89%84%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg/500px-%E4%BA%AC%E9%83%BD%E9%89%84%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"小父 / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:%E4%BA%AC%E9%83%BD%E9%89%84%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg","why":"全室內有暖氣，53 輛真火車與新幹線，小孩看火車、長輩可以坐著看窗外真的列車經過。","tip":"停留 2.5～3 小時。大人 ¥1,500、3 歲以上幼兒 ¥200；蒸汽火車 Steam 號另收大人 ¥300／小孩 ¥100。駕駛模擬器要先上網預約。（票價依 2025～2026 年資料，出發前再看官網）","warn":"每週三休館（2/24、3/3 都是週三；目前排 2/25 或 2/28 沒問題）；扇形車庫有煤炭機油味。","links":[{"t":"官網","url":"https://www.kyotorailwaymuseum.jp/"},{"t":"Mimi韓 親子心得","url":"https://mimihan.tw/kyoto-railway-museum"},{"t":"PTT 帶兩寶遊京都推車討論","url":"https://www.ptt.cc/bbs/BabyMother/M.1492014194.A.53B.html"}]},
-    "kitano": {"name":"北野天滿宮","q":"北野天満宮","elev":"一之鳥居到本殿為平坦石板路","baby":"境內無固定育嬰室，建議先在京都站或車上餵奶換尿布","link":"https://kitanotenmangu.or.jp/","stroller":"part","strollerNote":"主參道可推；梅苑內與祭典人潮待確認","rain":"改去京都水族館（全室內）","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Kitano-tenmangu.jpg/500px-Kitano-tenmangu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"ja:利用者:Stanislaus / Public domain","imgPage":"https://commons.wikimedia.org/wiki/File:Kitano-tenmangu.jpg","why":"2/25 梅花祭正日，梅苑盛開，上七軒藝妓舞妓在境內辦野點大茶湯，長輩會很喜歡；當天也是每月 25 日的天神市。","tip":"人潮很多，建議 9:00 前到。境內參拜免費，梅苑要門票（附茶點）；野點大茶湯茶券數量有限。","warn":"參道多碎石，推車推起來吃力；本殿有門檻階梯。境內沒有哺乳室，熱水自備保溫瓶。","links":[{"t":"北野天滿宮官網","url":"https://kitanotenmangu.or.jp/"},{"t":"PTT 帶爸媽遊京都","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1454067923.A.939.html"}]},
+    "kitano": {"name":"北野天滿宮","q":"北野天満宮","elev":"一之鳥居到本殿為平坦石板路","baby":"境內無固定育嬰室，建議先在京都站或車上餵奶換尿布","link":"https://kitanotenmangu.or.jp/","stroller":"part","strollerNote":"主參道可推；梅苑內與祭典人潮待確認","rain":"改去京都水族館（全室內）","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Kitano-tenmangu.jpg/500px-Kitano-tenmangu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"ja:利用者:Stanislaus / Public domain","imgPage":"https://commons.wikimedia.org/wiki/File:Kitano-tenmangu.jpg","why":"2/25 梅花祭正日，梅苑盛開，上七軒藝妓舞妓在境內辦野點大茶湯，長輩會很喜歡；當天也是每月 25 日的天神市。","tip":"人潮很多，建議 9:00 前到。境內參拜免費，梅苑要門票（附茶點，官網：大人 前売 ¥2,800／當日 ¥3,000，小人 ¥1,400～1,500）；野點大茶湯茶券數量有限。","warn":"參道多碎石，推車推起來吃力；本殿有門檻階梯。境內沒有哺乳室，熱水自備保溫瓶。","links":[{"t":"北野天滿宮官網","url":"https://kitanotenmangu.or.jp/"},{"t":"PTT 帶爸媽遊京都","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1454067923.A.939.html"}]},
     "kyoto-aquarium": {"name":"京都水族館","q":"京都水族館","elev":"待查","baby":"待查","stroller":"ok","rain":"全室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/KYOTO_AQUARIUM.JPG/500px-KYOTO_AQUARIUM.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Own work / CC BY-SA 3.0","imgPage":"https://commons.wikimedia.org/wiki/File:KYOTO_AQUARIUM.JPG"},
     "osaka-castle": {"name":"大阪城公園・梅林","q":"大阪城梅林","elev":"地鐵森之宮站有無障礙電梯；梅林地面平坦","baby":"旁邊 JO-TERRACE 1F 有育嬰室","stroller":"ok","strollerNote":"從 JO-TERRACE 搭 Road Train 到天守閣，免爬坡","rain":"改去大阪歷史博物館（電梯直上 10F）","link":"https://www.osakacastlepark.jp/","todo":"御座船推車能否上船待查","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/OsakaCastle-PlumGarden01.jpg/500px-OsakaCastle-PlumGarden01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Inoue-hiro / CC BY-SA 3.0","imgPage":"https://commons.wikimedia.org/wiki/File:OsakaCastle-PlumGarden01.jpg","why":"梅林約 1,270 株 2 月下旬盛開；坐御座船從護城河看天守閣，Road Train 小火車代步，長輩不用爬坡。","tip":"停留半天。御座船約 20 分鐘，到售票亭先劃位；Road Train 單程大人約 ¥400、小孩約 ¥200，省很多腳程。（票價依 2025～2026 年資料，出發前再看官網）","warn":"公園很大有坡，水邊風冷；天候不佳時御座船可能停航。","links":[{"t":"大阪城天守閣官網","url":"https://www.osakacastle.net/"},{"t":"PTT 2025 冬大阪城御座船心得","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1764725562.A.06D.html"}]},
     "jo-terrace": {"name":"JO-TERRACE OSAKA","q":"JO-TERRACE OSAKA","elev":"商場平面，與大阪城公園入口相連","baby":"1F 育嬰室與尿布台","link":"https://jo-terrace.jp/","stroller":"ok","rain":"商場室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/JO-TERRACE_OSAKA_201909_001.jpg/500px-JO-TERRACE_OSAKA_201909_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Mc681 / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:JO-TERRACE_OSAKA_201909_001.jpg","why":"JR 大阪城公園站一出來就是，餐廳咖啡店集中，逛大阪城前後吃飯、休息的補給站。","tip":"中午 12:00～13:00 人多，提早或晚一點用餐；多數店 11:00 後營業。","warn":"半開放式走廊冬天有風，戶外座位偏冷。","strollerNote":"全區平坦、有電梯，推車好推好停。","links":[{"t":"官網","url":"https://jo-terrace.jp/"}]},
     "shinsaibashi": {"name":"心齋橋筋商店街","q":"心斎橋筋商店街","elev":"商店街平面；心齋橋站走大丸 B1 直達電梯，或 Crysta 南 3／南 10 出口電梯","baby":"大丸心齋橋 7F Baby Salon","stroller":"ok","rain":"有頂棚","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Shinsaibashi-suji_Shopping_Street_20190201.jpg/500px-Shinsaibashi-suji_Shopping_Street_20190201.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"そらみみ / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:Shinsaibashi-suji_Shopping_Street_20190201.jpg","why":"有頂棚不怕雨，藥妝、伴手禮最集中，大人可以輪流去買。","tip":"以大丸心齋橋店當基地：長輩小孩在百貨休息（7F 育嬰室），大人輪流逛主街；白天早點去，傍晚後人很多。","warn":"傍晚到晚上人潮很擠，2 台推車很難並排；小藥妝店走道窄推車進不去。","strollerNote":"主街平坦，但人多時寸步難行，嬰兒建議備背巾。","links":[{"t":"商店街官網","url":"https://www.shinsaibashi.or.jp/"},{"t":"PTT 帶推車遊京阪奈","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1386768945.A.DB3.html"}]},
     "kuromon": {"name":"黑門市場","q":"黒門市場","elev":"平面街道","baby":"待查","stroller":"part","strollerNote":"週六人潮多，推車要慢行","rain":"有屋頂","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Kuromon-ichiba_in_201408.JPG/500px-Kuromon-ichiba_in_201408.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Mc681 / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:Kuromon-ichiba_in_201408.JPG","why":"大阪的廚房，草莓、和牛串、玉子燒、關東煮一路吃，長輩愛逛市場、小孩吃水果。","tip":"上午 9:30～11:00 最好，東西新鮮人也少；多數攤位沒座位，找有內用的店或市場休息區。","warn":"走道不寬、地面偶爾濕滑；海鮮多為觀光價，先比價再買。","links":[{"t":"PTT 黑門市場吃到撐","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1445004531.A.FEC.html"},{"t":"PTT 帶寶寶遊大阪（含黑門）","url":"https://www.ptt.cc/bbs/BabyMother/M.1405866051.A.481.html"}]},
     "harukas": {"name":"阿倍野 HARUKAS 300","q":"あべのハルカス 展望台 ハルカス300","elev":"天王寺站搭電梯直上 60F 展望台","baby":"樓下 Q's Mall 阿卡將本舖可補貨；哺乳室位置出發前再確認","stroller":"ok","rain":"全室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Abeno_Harukas_Osaka_Japan01-r.jpg/500px-Abeno_Harukas_Osaka_Japan01-r.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Oilstreet / CC BY 2.5","imgPage":"https://commons.wikimedia.org/wiki/File:Abeno_Harukas_Osaka_Japan01-r.jpg","why":"300m 高的展望台，360 度玻璃看大阪夕陽與夜景；58F 空中庭園有木椅可坐。","tip":"2 月下旬日落約 17:45～17:50，17:15 左右上去可以一次看夕陽、藍調時刻和夜景。營業 9:00～22:00（最後入場 21:30）。當日券在 16F 櫃台買：大人 ¥2,200、小學生～國中 ¥900、5 歲以下免費。心齋橋搭御堂筋線到天王寺約 9 分鐘，地下直通。","warn":"EDGE THE HARUKAS（大樓外緣綁繩走）身高 145cm 以下不能參加，這團不適合。傍晚電梯排隊可能較久；離場後不能再入場。","strollerNote":"推車能否直接上 60F 官網沒寫清楚，待確認（Google Gemini 查到的心得說可以）；近鐵百貨本館有育嬰室。","links":[{"t":"HARUKAS 300 官網","url":"https://www.abenoharukas-300.jp/observatory/"},{"t":"HARUKAS 300 票價","url":"https://www.abenoharukas-300.jp/observatory/ticket/"}]},
-    "harvest": {"name":"Harvest Hill（ハーベストの丘）","q":"堺・緑のミュージアム ハーベストの丘","elev":"包車門對門","baby":"園區內有育嬰設施（出發前再確認位置）","stroller":"ok","strollerNote":"高架溫室推車可進","rain":"溫室採果不受影響","link":"https://farm.or.jp/","todo":"採果完全預約制；12～2 月週三休園","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Harvest_Hill_%28Agriculture_park_in_Sakai%29.jpg/500px-Harvest_Hill_%28Agriculture_park_in_Sakai%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"聖石大戦ぶぅぶぅ / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:Harvest_Hill_(Agriculture_park_in_Sakai).jpg","why":"有水豚、綿羊等小動物可以餵，草莓溫室高架栽培免彎腰，長輩散步也舒服。","tip":"停留 3～4 小時，10:00 開門先去動物區。（票價依 2025～2026 年資料，出發前再看官網）","warn":"冬季通常週三休園（2/24 是週三；目前排 2/28 或 3/1 沒問題，確切休園日看官網）；園區是丘陵有坡。","links":[{"t":"官網","url":"https://farm.or.jp/"},{"t":"大阪觀光局介紹","url":"https://osaka-info.jp/spot/harvest-hill/"}]},
+    "harvest": {"name":"Harvest Hill（ハーベストの丘）","q":"堺・緑のミュージアム ハーベストの丘","elev":"包車門對門","baby":"哺乳室 2 處（入園大門、村區小火車站前，依 Google Gemini 查詢）；各多功能廁所有尿布台；熱水可向餐廳索取。","stroller":"ok","strollerNote":"園區柏油路但起伏明顯，街區和村區之間有長吊橋；長輩與推車建議搭小火車移動。溫室走道窄，推車停入口、大人抱小孩採。入口可租推車與輪椅。","rain":"溫室採果不受影響","link":"https://farm.or.jp/","todo":"採果完全預約制；12～2 月週三休園","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Harvest_Hill_%28Agriculture_park_in_Sakai%29.jpg/500px-Harvest_Hill_%28Agriculture_park_in_Sakai%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"聖石大戦ぶぅぶぅ / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:Harvest_Hill_(Agriculture_park_in_Sakai).jpg","why":"一天玩到底的農場公園：溫室高架草莓免彎腰（さがほのか、紅ほっぺ、とちおとめ 3 種，最長 120 分鐘吃到飽）、摸水豚和餵綿羊、森林家族（シルバニアパーク）實景村，小孩超愛；長輩可搭園內小火車看風景、在食之 Hall 坐著休息。","tip":"入園費：大人（國中以上）¥1,500、4 歲以上 ¥1,000、3 歲以下免費（官網）。營業 10:00～17:00。採草莓 2027：官網目前只公布「1～5 月、最長 120 分鐘、完全預約制」，詳細規則 11 月上旬公布。2026 年官網規則：只在週四、六、日，每天 1 場 11:00 開始（10:30 前到入園門口報到）、前月抽選；採草莓費大人 ¥2,700、小學生 ¥2,100、4 歲～未就學 ¥1,300、1～3 歲 ¥500（入園費另計）。森林家族村：4 歲以上 ¥800（現金），完成闖關可換森林家族寶寶娃娃。餵食：水豚、綿羊飼料一杯 ¥200（現金）。園區用「ハーベストトレイン」小火車往返街區與村區，雨天也開。","warn":"⚠️ 依 2026 年官網規則，採草莓只在週四、六、日舉辦：方案一排 2/28（週日）OK；方案二排 3/1（週一）可能沒有採草莓，2027 規則公布後要再確認，必要時改日。溫室約 20～25°C、戶外約 8～12°C，進溫室先脫外套；草莓汁很難洗，帶圍兜、濕紙巾、替換衣物；不能外帶。依往年冬季週三休園。森林家族村坡多，官網提醒推車要小心；村內不能飲食。","links":[{"t":"Harvest Hill 官網","url":"https://farm.or.jp/"},{"t":"採草莓 2027（官網）","url":"https://farm.or.jp/event/14430"},{"t":"入園費","url":"https://farm.or.jp/price"},{"t":"動物互動","url":"https://farm.or.jp/animals"},{"t":"森林家族村","url":"https://farm.or.jp/sylvanian"},{"t":"園區餐廳","url":"https://farm.or.jp/restaurant"},{"t":"交通（含停車）","url":"https://farm.or.jp/access"},{"t":"大阪觀光局介紹","url":"https://osaka-info.jp/spot/harvest-hill/"},{"t":"2026 年採草莓官網頁（網頁存檔）","url":"https://web.archive.org/web/20260217042121/https://farm.or.jp/event/14430"}]},
     "lego": {"name":"樂高樂園探索中心 大阪","q":"レゴランド・ディスカバリー・センター大阪","elev":"地鐵大阪港站 1 號出口有地面電梯","baby":"有哺乳室","stroller":"ok","rain":"全室內暖氣","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/LEGOLAND_Discovery_Center_Osaka.jpg/500px-LEGOLAND_Discovery_Center_Osaka.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Dale Cruse / CC BY 2.0","imgPage":"https://commons.wikimedia.org/wiki/File:LEGOLAND_Discovery_Center_Osaka.jpg","why":"全室內暖氣、單層約 3,000 m²，專為 3～10 歲設計；1 歲和 3 歲有 Duplo 得寶軟積木區，5 歲可玩攀爬區與騎乘設施。","tip":"平日 10:00 開館第一場人最少，玩 2～2.5 小時剛好。官網前一天前買指定時段票最多便宜 ¥900；2 歲以下免費。（票價依 2025～2026 年資料，出發前再看官網） 怎麼玩：Kingdom Quest 古堡射擊車（要能自己坐、未滿 130cm 需大人陪，1 歲不行）；Merlin 魔法飛車（90cm 以上，3 歲剛好夠、5 歲 OK）；Duplo 區（1 歲、3 歲最適合）；攀爬區（要脫鞋）；4D 劇院有噴風水霧和震動，1 歲、3 歲可能會怕。","warn":"大人（16 歲以上）不能單獨入場，一定要帶小孩；館內禁止外食（嬰兒食品、水可以）；館內咖啡廳偏貴，午餐建議出館吃。","strollerNote":"推車可推入，走道不寬；入口與後方有推車停放處。哺乳室在天保山 Marketplace 2F，館內廁所有尿布台。","links":[{"t":"樂高探索中心官網","url":"https://www.legolanddiscoverycenter.com/osaka/"},{"t":"PTT 阪神京親子遊記（含天保山）","url":"https://www.ptt.cc/man/Japan_Travel/D536/D521/D6B8/M.1515423423.A.5F2.html"}]},
     "tempozan": {"name":"天保山 Marketplace","q":"天保山マーケットプレース","elev":"待查","baby":"待查","stroller":"ok","rain":"室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/%E5%A4%A9%E4%BF%9D%E5%B1%B1%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%83%E3%83%88%E3%83%97%E3%83%AC%E3%83%BC%E3%82%B9_2013_%289869541875%29.jpg/500px-%E5%A4%A9%E4%BF%9D%E5%B1%B1%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%83%E3%83%88%E3%83%97%E3%83%AC%E3%83%BC%E3%82%B9_2013_%289869541875%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Hector Martin / CC BY-SA 2.0","imgPage":"https://commons.wikimedia.org/wiki/File:%E5%A4%A9%E4%BF%9D%E5%B1%B1%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%83%E3%83%88%E3%83%97%E3%83%AC%E3%83%BC%E3%82%B9_2013_(9869541875).jpg","why":"室內商場，和海遊館、樂高、摩天輪都在一起，冷天躲風、吃飯、上廁所的基地。","tip":"商店 11:00～20:00、餐廳 11:00～21:00、なにわ食いしんぼ横丁 11:00～20:00（大阪觀光局資料）。傍晚好去處：3F 天保山アニパ（室內小動物園，可摸水豚、陸龜）、3F ガチャガチャの森（大型扭蛋區）、2F MECHA 天保山（遊樂機台）；累了可坐 2F マザームーンカフェ（咖啡、鬆餅）。館內有ベビーケアルーム（哺乳、換尿布）。","warn":"進出商場外圍時海風很強，記得加外套。","strollerNote":"商場內走道寬、有大電梯，推車好推。","links":[{"t":"天保山 Marketplace 官網","url":"https://www.kaiyukan.com/thv/marketplace/"},{"t":"官方樓層導覽（含育嬰室位置）","url":"https://www.kaiyukan.com/thv/marketplace/floor.html"},{"t":"大阪觀光局介紹","url":"https://osaka-info.jp/spot/tempozan-marketplace/"},{"t":"PTT 天保山海遊館遊記","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1249758798.A.715.html"}]},
     "kaiyukan": {"name":"海遊館","q":"海遊館","why":"鯨鯊很震撼；電梯直上 8F，沿緩坡螺旋一路往下，沒有階梯，推車可全程通行。票價浮動制，2 歲以下免費。","tip":"和樂高探索中心同在天保山，步行 1～2 分鐘。從心齋橋搭 2 台計程車約 15～20 分鐘。","warn":"指定時段預約制（每 15 分鐘一梯），入館前 30 天在官網買票。館內坡道全長約 1.5 公里，長輩走久會累，沿途有長椅；海港區冬天風很冷，不搭戶外遊船。","elev":"地鐵大阪港站 1 號出口有地面電梯；館內電梯直上 8F（4F、8F 由館員引導搭工作電梯）","baby":"2F 哺乳室與熱水機；各主要廁所有尿布台","stroller":"ok","strollerNote":"全館緩坡可推；2F 入口可免費寄放推車，服務台可免費借輪椅","rain":"全室內，與天保山 Marketplace 相連","links":[{"t":"海遊館官網","url":"https://www.kaiyukan.com/language/chinese_traditional/"},{"t":"PTT 推輪椅帶阿嬤心得","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1461469489.A.453.html"},{"t":"PTT 幼兒推車心得","url":"https://www.ptt.cc/bbs/BabyMother/M.1493449873.A.BAC.html"},{"t":"PTT 推車便利性心得","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1543555147.A.26F.html"},{"t":"PTT 出站與育嬰室心得","url":"https://www.ptt.cc/bbs/BabyMother/M.1383108761.A.32C.html"}],"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Kaiy%C5%ABkan.jpg/500px-Kaiy%C5%ABkan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Sakai Yayoi / CC0","imgPage":"https://commons.wikimedia.org/wiki/File:Kaiy%C5%ABkan.jpg"},
@@ -651,14 +690,41 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
   "topics": [],
 
   "budget": {
-    "note": "住宿＋包車／交通＋門票的全團總額（天橋立已決定不去，不列入；機票已付不計；三餐約 NT$75,000～85,000，各方案差不多）。Google Gemini 估算，2026-11-03；住宿用 MIMARU 2 間的 Google Hotels 即時含稅價。",
+    "note": "全團總額（NT$），匯率 1 日圓＝0.22 台幣。2027 年價格還沒公布的用往年價（註明年份），接近出發時再查；機票已付不計、天橋立不去不列。Google Gemini 用 MCP 查詢、規劃者 2026-11-04 核對重算。",
+    "fx": 0.22,
+    "labels": {"hotel":"🏨 住宿","transport":"🚐 交通（依建議）","tickets":"🎟️ 門票","berry":"🍓 採草莓（2026 官網價）","meals":"🍱 三餐（往年行情粗估）","seats":"💺 兒童座椅加價","city":"🚇 其他市區電車","day32":"🎢 3/02"},
     "rows": [
-      {"plan":"方案一","usj":false,"total":146178,"tag":"最悠閒","note":"深度玩京都梅花祭與大阪市區"},
-      {"plan":"方案一","usj":true,"total":183178,"tag":"Google Gemini 推薦","note":"京都文化＋USJ＋採草莓，沒有超長途拉車"},
-      {"plan":"方案二","usj":false,"total":141003,"tag":"最省","note":"完全不搬行李，預算最低"},
-      {"plan":"方案二","usj":true,"total":178003,"tag":"Google Gemini 次選","note":"不換飯店，兼顧 USJ"}
+      {"plan":"方案一","usj":false,"min":204047,"max":243926,"parts":{"hotel":104178,"transport":42090,"tickets":[20856,23958],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[2702,16038]},"note":"3/02 彈性日三選一（Kids Plaza 最省、神戶動物王國最貴）"},
+      {"plan":"方案一","usj":true,"min":219024,"max":250231,"parts":{"hotel":104178,"transport":42090,"tickets":[20856,23958],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[17679,22343]},"note":"USJ 不含 Express（2026 同期價）"},
+      {"plan":"方案一","usj":true,"express":true,"min":234116,"max":277643,"parts":{"hotel":104178,"transport":42090,"tickets":[20856,23958],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[32771,49755]},"note":"USJ＋Express 4 七張（2026 同期 ¥9,800～17,800／張）"},
+      {"plan":"方案二","usj":false,"min":209778,"max":249349,"parts":{"hotel":103903,"transport":48294,"tickets":[20658,23452],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[2702,16038]},"note":"3/02 彈性日三選一（Kids Plaza 最省、神戶動物王國最貴）"},
+      {"plan":"方案二","usj":true,"min":224755,"max":255654,"parts":{"hotel":103903,"transport":48294,"tickets":[20658,23452],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[17679,22343]},"note":"USJ 不含 Express（2026 同期價）"},
+      {"plan":"方案二","usj":true,"express":true,"min":239847,"max":283066,"parts":{"hotel":103903,"transport":48294,"tickets":[20658,23452],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[32771,49755]},"note":"USJ＋Express 4 七張（2026 同期 ¥9,800～17,800／張）"}
     ],
+    "recheck": [{"t":"住宿 2027 實價","when":"訂房系統開放後"},{"t":"採草莓 2027 規則與價格","when":"2026 年 11 月上旬官網公布"},{"t":"USJ 3/02 票價與 Express","when":"入園前約 2 個月"},{"t":"海遊館、樂高浮動票價","when":"出發前 1 個月"},{"t":"包車報價與兒童座椅","when":"確定方案後詢價"},{"t":"北野梅苑 2027 入苑料","when":"2027 年 2 月初"}],
+    "pending": ["北野梅苑未就學幼兒費", "伴手禮與個人購物"],
+    "changes": "和舊版比：加入三餐與採草莓（往年價）、包車費依新查行情調高、北野梅苑改官網價 ¥2,800～3,000、USJ 改用 2026 同期價；方案二因京都日包車全日，比方案一多約 NT$5,000～6,000；依 2026 規則採草莓只在週四、六、日，方案二 3/1（週一）可能沒有。",
     "src": "20-預算/總預算對照.md"
+  },
+
+  "transport": {
+    "kix-kyoto": {"from":"關西機場 T1","to":"京都車站","pick":"car","options":[{"id":"pt","label":"🚇 JR Haruka","route":"JR 關空特急 Haruka 直達京都站","time":"約 80 分鐘","cost":"外國旅客優惠票成人約 ¥2,200／人，5 位成人約 ¥11,000","stroller":"兩站有電梯，但旺季行李架常滿、推車要收折","pros":"最便宜、不塞車","cons":"取票排隊可能 30 分鐘以上；8 箱行李不好放","yen":11000},{"id":"car","label":"🚐 14 人座包車","route":"機場門口直送京都飯店","time":"約 90～100 分鐘","cost":"單程約 ¥35,000～42,000（含高速費）","stroller":"8 人＋8 箱＋2 推車一車載完；需預約 3 張兒童座椅","pros":"出關就上車，免搬行李換車","cons":"貴 3～4 倍","yen":38500}],"tips":[{"t":"PTT：Haruka 取票機常大排長龍、行李架一位難求，老小長途容易累","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1709176619.A.C17.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "kix-osaka": {"from":"關西機場 T1","to":"心齋橋飯店","pick":"car","options":[{"id":"pt","label":"🚇 南海 Rapi:t＋計程車","route":"Rapi:t 到難波約 38 分，再搭 2 台計程車到飯店","time":"約 60 分鐘","cost":"Rapi:t 成人 ¥1,490／人＋計程車約 ¥2,000，全團約 ¥9,500","stroller":"難波站很大、電梯要繞；一般計程車後廂塞不下 4 箱＋推車","pros":"省錢","cons":"難波轉乘帶 8 箱行李很辛苦","yen":9500},{"id":"car","label":"🚐 14 人座包車","route":"機場門口直送飯店","time":"約 50～60 分鐘","cost":"單程約 ¥27,000～33,000（含高速費）","stroller":"全團＋行李＋3 張兒童座椅一車","pros":"零轉乘最安全","cons":"較貴","yen":30000}],"tips":[{"t":"PTT：難波站人潮多、電梯動線繞，帶多件大行李轉計程車容易被拒載或要多叫一台","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1680972500.A.84D.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "kyoto-osaka-move": {"from":"京都車站飯店","to":"心齋橋飯店（帶行李換飯店）","pick":"car","options":[{"id":"pt","label":"🚇 JR 新快速＋計程車","route":"JR 新快速到大阪站約 30 分，再搭 2～3 台計程車","time":"約 60～75 分鐘","cost":"JR ¥580／人＋計程車約 ¥4,000～6,000，全團約 ¥7,000～9,000","stroller":"新快速是通勤電車沒有行李區；大阪站人多","pros":"便宜","cons":"帶 8 箱行李擠電車很累","yen":8000},{"id":"car","label":"🚐 14 人座包車","route":"京都飯店門口直送大阪飯店","time":"約 60～80 分鐘","cost":"單程約 ¥28,000～35,000（含高速費）","stroller":"門對門，行李不用搬","pros":"最省力","cons":"較貴","yen":31500}],"tips":[{"t":"PTT：老小換飯店別推大行李搭新快速；想省錢可「行李宅急便＋空手搭車」（約 ¥2,000／箱，多為隔日到）","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1715578935.A.8EF.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "osaka-kix": {"from":"心齋橋飯店","to":"關西機場 T1（返台）","pick":"car","options":[{"id":"pt","label":"🚇 計程車＋南海 Rapi:t","route":"3 台計程車到難波站，再搭 Rapi:t 約 38 分","time":"約 60～70 分鐘","cost":"Rapi:t ¥1,490 × 6 位成人＋計程車約 ¥3,000，全團約 ¥12,000","stroller":"南海難波有電梯、車廂有行李架","pros":"省錢","cons":"回程行李變多，分批移動容易走散","yen":12000},{"id":"car","label":"🚐 14 人座包車","route":"飯店門口直送航廈","time":"約 50～60 分鐘","cost":"單程約 ¥28,000～35,000（含高速費）","stroller":"9 人＋行李＋推車剛好一車","pros":"最穩，不怕錯過班次","cons":"較貴","yen":31500}],"tips":[{"t":"PTT：回程戰利品多，分批搭計程車轉電車容易走散或趕不上","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1482804315.A.A40.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "member9": {"from":"關西機場 T1（第 9 位成員一人）","to":"難波","pick":"pt","options":[{"id":"pt","label":"🚇 南海 Rapi:t","route":"Rapi:t 直達難波","time":"約 38 分鐘","cost":"¥1,490","stroller":"對號座、有行李架","pros":"快又便宜","cons":"—","yen":1490},{"id":"car","label":"🚕 計程車","route":"機場直達","time":"約 50 分鐘","cost":"約 ¥18,000～22,000","stroller":"門對門","pros":"不用提行李","cons":"一個人很不划算","yen":20000}],"tips":[{"t":"PTT：一個人去難波，直接搭 Rapi:t 或利木津巴士最省時","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1709176619.A.C17.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "rail-kitano": {"from":"京都鐵道博物館","to":"北野天滿宮","pick":"car","options":[{"id":"pt","label":"🚌 市巴士 205 號","route":"直達，不用轉車","time":"約 35 分鐘","cost":"¥230／人，5 位成人約 ¥1,150","stroller":"2/25 梅花祭公車很擠，推車要收折","pros":"便宜","cons":"可能客滿過站不停","yen":1150},{"id":"car","label":"🚕 2 台計程車","route":"博物館門口直達","time":"約 15～20 分鐘","cost":"2 台合計約 ¥4,400～5,600","stroller":"推車放後車廂；日本計程車不強制兒童座椅","pros":"快、不用擠","cons":"較貴","yen":5000}],"tips":[{"t":"PTT：25 日梅花祭加天神市人潮爆滿，公車常客滿","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1456496395.A.D3F.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "kitano-kyotost": {"from":"北野天滿宮","to":"京都車站","pick":"car","options":[{"id":"pt","label":"🚌 市巴士 50／205 號","route":"直達京都站","time":"約 35～50 分鐘","cost":"¥230／人，約 ¥1,150","stroller":"傍晚尖峰排隊、塞車，長輩要久站","pros":"便宜","cons":"傍晚很擠","yen":1150},{"id":"car","label":"🚕 2 台計程車","route":"直達京都站","time":"約 25～30 分鐘","cost":"2 台合計約 ¥6,000～7,600","stroller":"推車放後車廂","pros":"不用在寒風中排隊","cons":"較貴","yen":6800}],"tips":[],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "kyoto-daytrip": {"from":"心齋橋","to":"京都鐵道博物館 → 北野天滿宮 → 回心齋橋（一日）","pick":"car","options":[{"id":"pt","label":"🚇 地鐵＋JR＋巴士／計程車","route":"御堂筋線 → JR 新快速 → 嵯峨野線梅小路京都西，市區再轉車","time":"單程約 70 分鐘","cost":"成人來回約 ¥2,000～2,500／人，5 位成人約 ¥10,000～12,500（另加市區計程車）","stroller":"轉乘多次、找電梯、步行距離長","pros":"便宜很多","cons":"轉乘多、老小容易累","yen":11000},{"id":"car","label":"🚐 14 人座包車全日","route":"飯店門口出發，兩景點直送","time":"單程約 50～60 分鐘","cost":"全日 10 小時約 ¥65,000～85,000，高速費停車費另約 ¥5,000～8,000","stroller":"推車、戰利品放車上，小孩可在車上睡","pros":"最省力","cons":"最貴","yen":80000}],"tips":[],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "harvest-trip": {"from":"心齋橋","to":"Harvest Hill（堺）來回","pick":"car","options":[{"id":"pt","label":"🚇 地鐵＋泉北線＋路線巴士","route":"難波 → 泉ヶ丘站（約 22 分）→ 6 號站牌南海巴士約 20 分（非直達）","time":"單程約 75 分鐘","cost":"成人來回約 ¥2,180／人，6 位成人約 ¥13,000","stroller":"轉乘 2 次，巴士班次少，推車上下巴士不方便","pros":"便宜","cons":"錯過巴士要在戶外等","yen":13000},{"id":"car","label":"🚐 14 人座包車全日","route":"飯店門口直送","time":"單程約 45～60 分鐘","cost":"全日約 ¥52,000～70,000，高速費停車另約 ¥3,000","stroller":"可配兒童座椅，推車直接放車上","pros":"準時趕上草莓集合","cons":"較貴","yen":60000}],"tips":[],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "usj-trip": {"from":"心齋橋","to":"USJ 來回","pick":"mix","pickNote":"去程電車、回程 2 台計程車","options":[{"id":"pt","label":"🚇 地鐵＋JR 夢咲線","route":"長堀鶴見綠地線到大正轉 JR，或難波轉西九條","time":"單程約 35 分鐘","cost":"成人單程約 ¥410，6 位成人來回約 ¥4,920","stroller":"各站有電梯，但開園前、閉園後車廂很擠","pros":"便宜、不塞車","cons":"散場時推車擠電車很累","yen":4920},{"id":"car","label":"🚕 2 台計程車","route":"飯店門口直達","time":"單程約 20～25 分鐘","cost":"單程每台約 ¥4,000～5,000，2 台來回約 ¥16,000～20,000","stroller":"推車放後車廂","pros":"回程直接送到飯店","cons":"較貴","yen":18000}],"tips":[{"t":"親子部落格：玩完 USJ 全家體力透支，回程搭計程車直接回飯店最輕鬆","url":"https://bobby.tw/2024-02-12-2918"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "castle-go": {"from":"心齋橋","to":"大阪城公園（森之宮）","pick":"pt","options":[{"id":"pt","label":"🚇 地鐵長堀鶴見綠地線","route":"心齋橋直達森之宮，不用轉車","time":"約 20～25 分鐘","cost":"¥240／人，5 位成人約 ¥1,200","stroller":"兩站都有電梯、免轉乘","pros":"快又便宜","cons":"—","yen":1200},{"id":"car","label":"🚕 2 台計程車","route":"直達公園","time":"約 12～18 分鐘","cost":"2 台合計約 ¥3,600～4,400","stroller":"推車放後車廂","pros":"門對門","cons":"較貴","yen":4000}],"tips":[{"t":"PTT：森之宮出站到天守閣是長上坡，搭公園的 Road Train 小火車省很多腳力","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1695015116.A.95F.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "castle-back": {"from":"大阪城（JO-TERRACE）","to":"心齋橋飯店","pick":"car","options":[{"id":"pt","label":"🚇 地鐵","route":"走回森之宮站約 8～10 分鐘再搭車","time":"約 30～35 分鐘","cost":"¥240／人，約 ¥1,200","stroller":"逛完很累還要走回車站","pros":"便宜","cons":"傍晚較擠","yen":1200},{"id":"car","label":"🚕 2 台計程車","route":"JO-TERRACE 旁叫車直達","time":"約 15～20 分鐘","cost":"2 台合計約 ¥4,000～4,800","stroller":"推車放後車廂","pros":"門對門、保護長輩膝蓋","cons":"多花約 ¥3,000","yen":4400}],"tips":[{"t":"PTT：逛完大阪城老小都累了，直接叫計程車回飯店","url":"https://www.ptt.cc/man/Japan_Travel/D325/M.1521557413.A.AA3.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "harukas-go": {"from":"心齋橋","to":"天王寺／阿倍野 HARUKAS","pick":"pt","options":[{"id":"pt","label":"🚇 地鐵御堂筋線","route":"直達天王寺 3 站，地下道直通 HARUKAS","time":"約 15～20 分鐘","cost":"¥240／人，6 位成人約 ¥1,440","stroller":"地下街有電梯與斜坡，不吹風","pros":"最快最省","cons":"避開上班尖峰","yen":1440},{"id":"car","label":"🚕 2 台計程車","route":"直達","time":"約 12～18 分鐘","cost":"2 台合計約 ¥3,600～4,400","stroller":"阿倍野上下車點不好找","pros":"門對門","cons":"市區紅燈多不一定快","yen":4000}],"tips":[{"t":"PTT：天王寺站地下道有電梯直通阿倍野與近鐵百貨，推車不受風雨","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1531533870.A.572.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "tempozan-trip": {"from":"心齋橋","to":"天保山（樂高、海遊館）來回","pick":"mix","pickNote":"去程地鐵、回程看體力叫 2 台計程車","options":[{"id":"pt","label":"🚇 地鐵（本町轉中央線）","route":"御堂筋線到本町轉中央線到大阪港站，出站走 7～10 分鐘","time":"單程約 35～40 分鐘","cost":"¥290／人，6 位成人來回約 ¥3,480","stroller":"本町轉乘通道長；大阪港站出站海風大","pros":"便宜","cons":"轉乘要走一段","yen":3480},{"id":"car","label":"🚕 2 台計程車","route":"直達海遊館廣場","time":"單程約 18～22 分鐘","cost":"單程 2 台約 ¥7,000～8,400，來回約 ¥14,000～17,000","stroller":"推車放後車廂","pros":"晚上累了直接回飯店","cons":"較貴","yen":15500}],"tips":[{"t":"PTT：本町轉乘電梯難找要走很久，大阪港站冬天海風大，推車帶防風罩","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1702212068.A.A5D.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "nara-trip": {"from":"心齋橋","to":"奈良公園 來回（彈性日選項）","pick":"car","options":[{"id":"pt","label":"🚇 近鐵","route":"難波／日本橋搭近鐵奈良線約 40 分，出站走 15 分鐘到公園","time":"單程約 60～75 分鐘","cost":"成人來回約 ¥1,740／人，6 位成人約 ¥10,440","stroller":"近鐵奈良站有電梯；公園碎石路、坡道推車吃力","pros":"便宜","cons":"公園內走很多路","yen":10440},{"id":"car","label":"🚐 14 人座包車全日","route":"直達東大寺附近停車場","time":"單程約 45～55 分鐘","cost":"全日約 ¥45,000～55,000，過路費停車另約 ¥5,000","stroller":"推車放車上","pros":"長輩不用在外面等車","cons":"較貴","yen":55000}],"tips":[{"t":"PTT：鹿會圍咬推車上的食物袋，東大寺周邊碎石坡推車吃力，建議備背巾","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1772436313.A.7A9.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "kobe-trip": {"from":"心齋橋","to":"神戶動物王國 來回（彈性日選項）","pick":"car","options":[{"id":"pt","label":"🚇 地鐵＋JR／阪神＋Port Liner","route":"到三宮轉 Port Liner 到計算科學中心站","time":"單程約 75～90 分鐘","cost":"成人來回約 ¥1,400／人，6 位成人約 ¥8,400～9,600","stroller":"三宮轉 Port Liner 走廊長、人多","pros":"便宜","cons":"轉乘兩次","yen":9000},{"id":"car","label":"🚐 14 人座包車全日","route":"直達園區門口","time":"單程約 50～60 分鐘","cost":"全日約 ¥48,000～58,000，過路費停車另約 ¥5,000","stroller":"推車不用收","pros":"去回都能在車上休息","cons":"較貴","yen":58000}],"tips":[{"t":"PTT：神戶動物王國全室內很好推，但三宮轉 Port Liner 走廊長，多代同行容易走散","url":"https://www.ptt.cc/man/Japan_Travel/D536/D151/DBF0/DC53/M.1510497391.A.C51.html"},{"t":"PTT BabyMother：帶 3 歲大阪十日遊心得（含神戶動物王國）","url":"https://www.ptt.cc/bbs/BabyMother/M.1701939091.A.A05.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"},
+    "kidsplaza-trip": {"from":"心齋橋","to":"Kids Plaza Osaka（彈性日選項）","pick":"pt","options":[{"id":"pt","label":"🚇 地鐵堺筋線","route":"長堀橋搭堺筋線到扇町，2 號出口電梯直通館內","time":"約 20～25 分鐘","cost":"¥240／人，6 位成人來回約 ¥2,880","stroller":"出站直通館內，不淋雨不吹風","pros":"經濟又方便","cons":"—","yen":2880},{"id":"car","label":"🚕 2 台計程車","route":"直達","time":"約 12～15 分鐘","cost":"來回 2 台約 ¥7,200～8,800","stroller":"推車放後車廂","pros":"門對門","cons":"較貴","yen":8000}],"tips":[{"t":"PTT：Kids Plaza 是大阪雨天放電好去處，扇町站出口直達館內","url":"https://www.ptt.cc/man/Japan_Travel/D325/M.1437826352.A.987.html"}],"note":"（票價依 2025～2026 年資料；日本未就學幼兒免費，每位大人最多帶 2 位）"}
   },
 
   "bookings": {
@@ -884,6 +950,30 @@ function placeGuide(p){
     (p.tip?`<div class="callout rest"><b>💡 建議</b>${esc(p.tip)}</div>`:'') +
     (p.warn?`<div class="callout warn"><b>⚠️ 注意</b>${esc(p.warn)}</div>`:'');
 }
+/* ---------- 交通比較（transport／leg） ---------- */
+const TR = () => T.transport || {};
+const yenOf = o => { if (typeof o.yen === 'number') return o.yen; const m = String(o.cost||'').match(/全團[^¥]*¥\s*([\d,]+)/); return m ? +m[1].replace(/,/g,'') : null; };
+const legName = g => `${g.from||''} → ${g.to||''}`;
+const legChoice = id => { const g = TR()[id]; if (!g) return null; const v = S.votes['move/'+id]; return g.options.find(o => o.id === v) || null; };
+function mvoteBtns(id){
+  const g = TR()[id], k = 'move/' + id;
+  return `<div class="mvote" data-mkey="${esc(k)}">${g.options.map(o => `<button class="btn" data-act="mvote" data-key="${esc(k)}" data-v="${esc(o.id)}" aria-pressed="${S.votes[k]===o.id}">${esc(o.label)}</button>`).join('')}</div>`;
+}
+function legHtml(id){
+  const g = TR()[id]; if (!g || !(g.options||[]).length) return '';
+  const k = 'move/' + id, mine = S.votes[k], rec = g.options.find(o => o.id === g.pick);
+  const recT = rec ? rec.label : (g.pick === 'mix' && g.pickNote ? g.pickNote : '');
+  const row = (t, v) => v ? `<dt>${t}</dt><dd>${esc(v)}</dd>` : '';
+  const opts = g.options.map(o => `<div class="topt ${o.id===g.pick?'rec':''} ${o.id===mine?'mine':''}" data-oid="${esc(o.id)}">
+      <h4>${esc(o.label)}${o.id===g.pick?'<span class="pill ok">👍 建議</span>':''}</h4>
+      <dl class="kv">${row('🗺️ 路線', o.route)}${row('⏱️ 時間', o.time)}${row('💴 費用', o.cost)}${row('👶 推車', o.stroller)}${row('👍 優點', o.pros)}${row('👎 缺點', o.cons)}</dl></div>`).join('');
+  const tips = (g.tips||[]).length ? `<div class="small" style="font-weight:800;margin-top:6px">💬 社群建議</div><ul class="ttips">${g.tips.map(t => `<li>${extUrl(t.url) ? `<a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.t)}</a>` : esc(t.t)}</li>`).join('')}</ul>` : '';
+  return `<details class="tcmp" data-leg="${esc(id)}"><summary>🚦 交通方式比較 ${recT?`<span class="chip g">建議：${esc(recT)}</span>`:''}<span class="chip mysel ${mine?'':'hide'}">我選：${esc(g.options.find(o=>o.id===mine)?.label||'')}</span></summary>
+    <div class="tiny muted" style="margin-bottom:6px">${esc(legName(g))}</div>
+    <div class="topts">${opts}</div>
+    <div class="small" style="font-weight:800">我想要：</div>${mvoteBtns(id)}
+    ${tips}${linksRow(g.links)}${g.note?`<p class="tiny muted">${esc(g.note)}</p>`:''}</details>`;
+}
 function stopBtns(st){
   const p = st.place && T.places[st.place];
   if (!p) return '';
@@ -892,25 +982,29 @@ function stopBtns(st){
   (p.links||[]).forEach(l => { if (!seen.has(l.url)){ seen.add(l.url); links.push(linkBtn(l.url, (/^▶/.test(l.t)?'':'🔗 ') + l.t)); } });
   return `<div class="btns"><a class="btn" href="${mapUrl(p.q)}" target="_blank" rel="noopener">📍 地圖</a>${links.join('')}</div>`;
 }
-function stopHtml(dayId, st, cls="", same=false, n=null, leg=false){
+/* mode：full＝這個 place 當天第一次出現，顯示完整資料；repeat＝同一天再出現，只顯示 note；
+   travel＝交通站（只是「怎麼去」），不顯示目的地的資料，只留導航 */
+function stopHtml(dayId, st, cls="", mode="full", n=null, leg=false, showNav=true){
   const key = `${dayId}/${st.id}`, p = st.place && T.places[st.place];
-  const c = ['stop', st.fixed?'fixed':'', st.rest?'restblk':'', cls].join(' ');
-  const nav = (!same && p) ? rnav(p.q, p.name, st.mode) : '';
+  const full = mode === 'full';
+  const c = ['stop', st.fixed?'fixed':'', st.rest?'restblk':'', mode==='travel'?'travel':'', cls].join(' ');
+  const nav = (showNav && p) ? rnav(p.q, p.name, st.mode) : '';
   const time = esc(st.time||'') + (st.end ? `–${esc(st.end)}` : '');
-  const sub = stayText(st);
+  const sub = mode === 'travel' ? '' : stayText(st);
   return `<li class="${c}" id="st-${esc(dayId)}-${esc(st.id)}">
     ${leg || st.move ? `<div class="leg">${st.move ? '🚏 ' + esc(st.move) : ''}</div>` : ''}
     <div class="body">
-      <div class="ph ${nav?'has-nav':''}">${thumbHtml(same ? null : p, st.title, n)}
+      <div class="ph ${nav?'has-nav':''}">${thumbHtml(full ? p : null, st.title, n)}
         <div class="pm"><div class="meta"><span class="ci">${st.icon||'📍'}</span><span>${time}</span></div>
           <h3>${esc(st.title)}</h3>${sub?`<div class="sub">${sub}</div>`:''}</div>${nav}</div>
       ${st.fixed?'<div class="chips"><span class="pill ok">✅ 已確定</span></div>':''}
       ${st.note?`<div class="note">${esc(st.note)}</div>`:''}
-      ${st.rest||same?'':placeGuide(p)}
-      ${st.rest||same?'':placeBits(st)}
-      ${same?'':stopBtns(st)}
+      ${st.leg?legHtml(st.leg):''}
+      ${st.rest||!full?'':placeGuide(p)}
+      ${st.rest||!full?'':placeBits(st)}
+      ${full?stopBtns(st):''}
       ${(st.links&&st.links.length)?`<div class="btns mini">${st.links.map(l => linkBtn(l.url, '🔗 ' + l.t)).join('')}</div>`:''}
-      ${st.vote===false?'':voteRow(key)}
+      ${st.vote===false||mode==='travel'?'':voteRow(key)}
     </div></li>`;
 }
 function dayHtml(row, opts={}){
@@ -918,8 +1012,16 @@ function dayHtml(row, opts={}){
   const stops = [...(d.stops||[])].sort((a,b) => toMin(a.time)-toMin(b.time));
   let cur = -1;
   if (now != null) stops.forEach((s,i) => { if (toMin(s.time) <= now) cur = i; });
-  const li = stops.map((s,i) => stopHtml(row.id, s, now==null?'':(i===cur?'now':(i<cur?'past':'')), i>0 && s.place && stops[i-1].place===s.place, i+1, i>0)).join('');
-  const choices = (d.choices||[]).map((c,i) => stopHtml(row.id, {...c, time:'三選一', end:''}, '', false, 'ABC'[i] || i+1, i>0 || stops.length>0)).join('');
+  // 每個 place 的完整資料只在當天第一個「非交通、非休息」站顯示一次
+  const seen = new Set(); let num = 0;
+  const li = stops.map((s,i) => {
+    let mode = 'full';
+    if (s.travel) mode = 'travel';
+    else if (s.place && !s.rest){ if (seen.has(s.place)) mode = 'repeat'; else seen.add(s.place); }
+    const showNav = mode !== 'repeat' || !(i>0 && stops[i-1].place === s.place);
+    return stopHtml(row.id, s, now==null?'':(i===cur?'now':(i<cur?'past':'')), mode, s.travel ? null : ++num, i>0, showNav);
+  }).join('');
+  const choices = (d.choices||[]).map((c,i) => stopHtml(row.id, {...c, time:'三選一', end:''}, '', 'full', 'ABC'[i] || i+1, i>0 || stops.length>0)).join('');
   return `<article class="card tbd">
     <div class="dayhead">
       <div class="k">DAY ${row.n}・${fmtDate(row.date)}・${esc(d.city)}</div>
@@ -934,6 +1036,7 @@ function dayHtml(row, opts={}){
     </div>
     <div class="callout rest"><b>😴 午休</b>${esc(d.rest)}</div>
     <div class="callout rain"><b>☔ 雨備</b>${esc(d.rain)}</div>
+    ${d.dateWarn && d.dateWarn[row.date]?`<div class="callout alert"><b>🚨 注意日期</b>${esc(d.dateWarn[row.date])}</div>`:''}
     ${d.warn?`<div class="callout warn"><b>⚠️ 待查</b>${esc(d.warn)}</div>`:''}
     ${d.alt?`<div class="callout warn"><b>🔀</b>${esc(d.alt)}</div>`:''}
     ${d.backup?`<div class="callout rest"><b>🔀 備案</b>${esc(d.backup)}</div>`:''}
@@ -943,7 +1046,7 @@ function dayHtml(row, opts={}){
 function countMain(d){
   if (d.choices) return '1（三選一）';
   const skip = /hotel|kix|kyoto-st|shinsaibashi|kyoto-isetan|jo-terrace|tempozan$/;
-  const set = new Set((d.stops||[]).filter(s => s.place && !s.rest && !s.fixed && !skip.test(s.place)).map(s => s.place));
+  const set = new Set((d.stops||[]).filter(s => s.place && !s.rest && !s.fixed && !s.travel && !skip.test(s.place)).map(s => s.place));
   return set.size;
 }
 
@@ -1020,6 +1123,61 @@ function altEntry(d){
     <div class="btns"><button class="btn primary" data-act="altgo" data-id="spot">看備選景點清單</button></div></section>`;
 }
 
+function legRows(planId){
+  const out = [], seen = new Set();
+  schedule(planId, 'none').forEach(r => [...(r.d.stops||[])].sort((a,b) => toMin(a.time)-toMin(b.time)).forEach(st => {
+    const k = r.i + '/' + st.leg; // 同一天去回程共用路段只算一次
+    if (st.leg && TR()[st.leg] && !seen.has(k)){ seen.add(k); out.push({r, st, id: st.leg, g: TR()[st.leg]}); }
+  }));
+  return out;
+}
+function transportBudget(){
+  if (!Object.keys(TR()).length) return '';
+  const isPt = o => o.id === 'pt', yen = o => o && yenOf(o) != null ? '¥' + yenOf(o).toLocaleString() : '待查';
+  const cell = o => o ? `${esc(o.label)}<br><span class="tiny muted">${esc(o.time||'')}・${yen(o)}</span>` : '—';
+  const useCell = (id, g) => {
+    const mine = legChoice(id), rec = g.options.find(o => o.id === g.pick);
+    if (mine) return `${esc(mine.label)}<br><span class="tiny muted">（我選）</span>`;
+    if (rec) return `${esc(rec.label)}<br><span class="tiny muted">（建議）</span>`;
+    if (g.pick === 'mix' && g.pickNote) return `${esc(g.pickNote)}<br><span class="tiny muted">（建議）</span>`;
+    return '—';
+  };
+  const table = rows => `<div style="overflow-x:auto"><table class="cmp"><thead><tr><th>日</th><th>路段</th><th>大眾運輸</th><th>包車／計程車</th><th>建議／我選</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  const planBlock = pid => {
+    const rows = legRows(pid); if (!rows.length) return '';
+    const tot = {pt:0, car:0, rec:0}, miss = {pt:0, car:0, rec:0};
+    const add = (k, o) => { const y = o ? yenOf(o) : null; if (y == null) miss[k]++; else tot[k] += y; };
+    const body = rows.map(({r, st, id, g}) => {
+      const pt = g.options.find(isPt), car = g.options.find(o => !isPt(o));
+      add('pt', pt); add('car', car);
+      const ro = g.options.find(o => o.id === g.pick);
+      if (ro) add('rec', ro); else if (g.pick === 'mix' && yenOf(pt) != null && yenOf(car) != null) tot.rec += (yenOf(pt) + yenOf(car)) / 2; else miss.rec++;
+      return `<tr><td class="d">D${r.n}<br><span class="tiny muted">${esc(st.time)}</span></td><td class="small">${esc(legName(g))}</td><td class="small">${cell(pt)}</td><td class="small">${cell(car)}</td><td class="small">${useCell(id, g)}</td></tr>`;
+    }).join('');
+    const fx = T.budget?.fx || 0.22;
+    const sum = k => `約 ¥${Math.round(tot[k]).toLocaleString()}<span class="tiny muted">（≈NT$${Math.round(tot[k]*fx).toLocaleString()}）</span>${miss[k]?`<span class="tiny muted">（另 ${miss[k]} 段待查）</span>`:''}`;
+    return `<div class="card ${S.plan===pid?'plan-card sel':''}" style="padding:6px">
+      <h3 style="padding:6px 8px 0">${esc(T.plans[pid].name)}：${esc(T.plans[pid].label)}</h3>
+      ${table(body)}
+      <div class="facts" style="padding:0 6px 6px">
+        <div class="fact"><div class="t">🚇 全選大眾運輸（估算）</div><div class="v">${sum('pt')}</div></div>
+        <div class="fact"><div class="t">🚐 全選包車／計程車（估算）</div><div class="v">${sum('car')}</div></div>
+        <div class="fact"><div class="t">✅ 依建議（＝總預算的交通）</div><div class="v">${sum('rec')}</div></div>
+      </div></div>`;
+  };
+  const flex = [];
+  (T.days[T.usj.day]?.stops||[]).forEach(st => { if (st.leg && TR()[st.leg] && !flex.some(x => x.id === st.leg)) flex.push({c:{icon:'🎢'}, id: st.leg, g: TR()[st.leg]}); });
+  Object.values(T.days).forEach(d => (d.choices||[]).forEach(c => { if (c.leg && TR()[c.leg]) flex.push({c, id: c.leg, g: TR()[c.leg]}); }));
+  const flexHtml = flex.length ? `<div class="card" style="padding:6px"><h3 style="padding:6px 8px 0">3/02 選項：USJ 或彈性日三選一 <span class="tiny muted">（不加總，計在總預算的 3/02 欄）</span></h3>
+    ${table(flex.map(({c, id, g}) => { const pt = g.options.find(isPt), car = g.options.find(o => !isPt(o));
+      return `<tr><td class="d">${esc(c.icon||'')}</td><td class="small">${esc(legName(g))}</td><td class="small">${cell(pt)}</td><td class="small">${cell(car)}</td><td class="small">${useCell(id, g)}</td></tr>`; }).join(''))}</div>` : '';
+  const notes = [...new Set(Object.values(TR()).map(g => g.note).filter(Boolean))];
+  const usjT = T.usj.options.find(o => o.id === S.usj)?.label || '';
+  return `<h2 class="sec-title">🚦 交通預算 <span class="tiny muted">（日圓，全團，估算）</span></h2>
+    <p class="tiny muted" style="margin-top:-4px">兩個方案各自只算固定行程用到的路段（3/02 的 USJ／彈性日另列）；去回程合在同一段的只算一次；建議是「去程／回程各一種」的路段，以兩種方式的平均計。匯率 1 日圓＝${T.budget?.fx || 0.22} 台幣。到「📅 行程」交通站展開「🚦 交通方式比較」可以投票。</p>
+    ${planBlock('p1')}${planBlock('p2')}${flexHtml}
+    ${notes.length ? `<p class="tiny muted">${notes.map(esc).join('<br>')}</p>` : ''}`;
+}
 function viewCompare(){
   const a = schedule('p1'), b = schedule('p2');
   const planCard = id => {
@@ -1030,7 +1188,7 @@ function viewCompare(){
       <div class="pc-label">🏨 住宿</div><ul class="small">${p.stays.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
       <div class="pc-label">👍 優點</div><ul class="small">${p.pros.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
       <div class="pc-label">👎 缺點</div><ul class="small">${p.cons.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
-      <div class="pc-label">💰 預算</div><div class="small">${esc(p.budget)}</div>
+      <div class="pc-label">💰 預算</div><div class="small">${(() => { const rs = (T.budget.rows||[]).filter(r => r.plan === p.name); return rs.length ? `<b>全團約 NT$${Math.min(...rs.map(r=>r.min)).toLocaleString()}～${Math.max(...rs.map(r=>r.max)).toLocaleString()}</b>（依 3/02 選彈性日／USJ／USJ＋Express，見下方總預算）<br>` : ""; })()}${esc(p.budget)}</div>
       <div class="btns"><button class="btn ${v?'primary':''}" data-act="pick" data-key="plan" data-v="${id}">${v?'✅ 我偏好這個':'我偏好這個'}</button>
         <button class="btn" data-act="plan" data-id="${id}" data-go="days">看每日行程</button></div>
     </article>`;
@@ -1064,11 +1222,19 @@ function viewCompare(){
       ${linksRow(tp.links)}<p class="tiny muted">詳細：${srcLink(tp.src)}</p>
       ${voteRow('topic/' + tp.id + '/note')}</div>`;
   };
-  const B = T.budget, yn = b => b ? '✅' : '—';
-  const budgetHtml = `<h2 class="sec-title">💰 總預算對照 <span class="tiny muted">（新台幣，全團）</span></h2>
-    <div class="card" style="padding:6px;overflow-x:auto"><table class="cmp"><thead><tr><th>住宿</th><th>USJ</th><th>總額</th><th>說明</th></tr></thead><tbody>
-    ${B.rows.map(r => `<tr class="${S.plan===(r.plan==='方案一'?'p1':'p2') && (S.usj!=='none')===r.usj ? 'cur' : ''}"><td>${esc(r.plan)}</td><td>${yn(r.usj)}</td><td><b>${r.total.toLocaleString()}</b></td><td class="small"><span class="pill info">${esc(r.tag)}</span> ${esc(r.note)}</td></tr>`).join('')}
-    </tbody></table><p class="tiny muted" style="padding:0 8px">${esc(B.note)} 粗體框＝目前上方選的方案與 USJ。詳細：${srcLink(B.src)}</p></div>`;
+  const B = T.budget, nt = v => 'NT$' + Math.round(v).toLocaleString(), rng = a => Array.isArray(a) ? (a[0]===a[1] ? nt(a[0]) : `${nt(a[0])}～${nt(a[1]).replace('NT$','')}`) : nt(a);
+  const curRow = r => S.plan===(r.plan==='方案一'?'p1':'p2') && (S.usj!=='none')===!!r.usj;
+  const rowName = r => !r.usj ? '不去 USJ（彈性日）' : r.express ? '🎢 USJ＋Express' : '🎢 USJ';
+  const L = B.labels || {};
+  const budgetHtml = `<h2 class="sec-title">💰 總預算對照 <span class="tiny muted">（新台幣，全團，區間）</span></h2>
+    <div class="card">
+    ${B.rows.map(r => `<details class="brow ${curRow(r)?'cur':''}"><summary><span><b>${esc(r.plan)}</b>・${rowName(r)}</span><b class="bamt">${rng([r.min, r.max])}</b></summary>
+      <dl class="kv small">${Object.entries(r.parts||{}).map(([k,v]) => `<dt>${esc(L[k]||k)}</dt><dd>${rng(v)}</dd>`).join('')}</dl>
+      ${r.note?`<p class="tiny muted" style="margin:0 0 8px">${esc(r.note)}</p>`:''}</details>`).join('')}
+    ${(B.recheck||[]).length?`<div class="callout rest"><b>⏰ 接近出發要再查</b><ul class="small" style="margin:4px 0 0;padding-left:1.2em">${B.recheck.map(x=>`<li>${esc(x.t)}<span class="muted">｜${esc(x.when)}</span></li>`).join('')}</ul></div>`:''}
+    ${(B.pending||[]).length?`<div class="callout warn"><b>⚠️ 待查，未計入總額</b><ul class="small" style="margin:4px 0 0;padding-left:1.2em">${B.pending.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></div>`:''}
+    ${B.changes?`<p class="small" style="margin:10px 0 0">🔁 ${esc(B.changes)}</p>`:''}
+    <p class="tiny muted" style="margin-bottom:0">${esc(B.note)} 點每一列可看分項；粗框＝目前上方選的方案與 USJ。詳細：${srcLink(B.src)}</p></div>`;
   const bookHtml = `<h2 class="sec-title">⏰ 預約時程 <span class="tiny muted">（要搶的先排前面）</span></h2>
     <div class="card"><table class="cmp"><tbody>${T.bookings.items.map(b => `<tr><td class="d">${esc(b.when)}</td><td><b>${esc(b.what)}</b><div class="tiny muted">${esc(b.how)}｜${esc(b.tip)}</div>${safeUrl(b.url)?`<a class="tiny" href="${esc(b.url)}" target="_blank" rel="noopener">🔗 官網</a>`:''}</td></tr>`).join('')}</tbody></table>
     <p class="tiny muted">${esc(T.bookings.note)} 詳細：${srcLink(T.bookings.src)}</p></div>`;
@@ -1086,7 +1252,7 @@ function viewCompare(){
     <div class="card tbd"><h3>大阪（方案一 5 晚／方案二 7 晚）</h3>${hotelList(T.hotels.osaka)}</div></div>
     <p class="tiny muted">${esc(T.hotels.priceNote)} 詳細：${srcLink('20-預算/住宿比價_2027-02.md')}</p>
     ${T.topics.map(topicHtml).join('')}
-    ${budgetHtml}${bookHtml}${srcHtml}`;
+    ${budgetHtml}${transportBudget()}${bookHtml}${srcHtml}`;
 }
 
 /* ---------- alternates（備選景點） ---------- */
@@ -1175,6 +1341,8 @@ function labelIndex(){
   const catT = {spot:'🗺️ 備選景點', food:'🍽️ 備選餐廳', shop:'🛍️ 備選購物'};
   (T.alternates?.items||[]).forEach(x => m['alt/'+x.id] = `${catT[x.cat||'spot'] || '🗺️ 備選'}｜${x.name}`);
   // 舊版「天橋立去不去」投票（已決定不去），留著讓舊意見還看得懂
+  Object.entries(T.transport||{}).forEach(([id, g]) => m['move/'+id] = `🚦 交通｜${legName(g)}`);
+  m['d-harvest/animal'] ??= '草莓日｜餵水豚、羊駝、小羊＋森林小火車（舊投票）';
   m['d-lego/wheel'] ??= '天保山大摩天輪（舊投票，已改為備案）'; m['alt/kaiyukan'] ??= '🗺️ 備選景點｜海遊館（已排入天保山日）';
   m['topic/amano'] ??= '🌊 天橋立（舊投票，已決定不去）'; m['topic/amano/note'] ??= '🌊 天橋立（舊投票）｜整體意見';
   return m;
@@ -1182,6 +1350,8 @@ function labelIndex(){
 const valLabel = (k, v) => {
   if (k === 'plan') return T.plans[v]?.name + ' ' + T.plans[v]?.label;
   if (k === 'usj') return T.usj.options.find(o=>o.id===v)?.label || v;
+  const mv = k.match(/^move\/(.+)$/);
+  if (mv) return (T.transport||{})[mv[1]]?.options.find(o=>o.id===v)?.label || v;
   const tm = k.match(/^topic\/([^/]+)$/);
   if (tm) return (T.topics||[]).find(t=>t.id===tm[1])?.options.find(o=>o.id===v)?.label || v;
   return VLABEL[v] || v;
@@ -1203,6 +1373,12 @@ function exportText(){
   t += `\n\n（規劃者彙整用，請整段保留）\nOSK27:${code}`;
   return t;
 }
+function moveSummary(){
+  const ids = Object.keys(TR()); if (!ids.length) return '';
+  const picked = ids.filter(id => S.votes['move/'+id]);
+  return `<div class="small" style="margin:6px 0"><b>🚦 我的交通選擇</b>（${picked.length}／${ids.length} 段）` +
+    (picked.length ? `<ul class="ttips">${picked.map(id => `<li>${esc(legName(TR()[id]))}：${esc(legChoice(id)?.label||'')}</li>`).join('')}</ul>` : `<span class="muted">：還沒選，到「📅 行程」交通站展開「🚦 交通方式比較」選擇。</span>`) + `</div>`;
+}
 function viewVote(){
   const n = voteCount();
   return `<h2 class="sec-title">💬 我的意見</h2>
@@ -1216,6 +1392,7 @@ function viewVote(){
   </section>
   <section class="card">
     <h3>已表態 ${n} 項</h3>
+    ${moveSummary()}
     ${n ? `<pre style="white-space:pre-wrap;font-family:inherit;font-size:.82rem;background:var(--bg);padding:10px;border-radius:12px;max-height:260px;overflow:auto">${esc(exportText())}</pre>`
         : `<p class="small muted">還沒有。去「📅 行程」、「🗺️ 備選」或「⚖️ 比較」頁，在景點下面點 👍／❤️／👎／❓。</p>`}
     <div class="btns">
@@ -1366,6 +1543,16 @@ document.addEventListener('click', ev => {
     updBadge();
   }
   else if (a === 'cm'){ const c = $('.cbox', el.closest('.votes')); c.classList.toggle('hide'); if (!c.classList.contains('hide')) $('textarea', c).focus(); }
+  else if (a === 'mvote'){
+    const k = el.dataset.key, v = el.dataset.v, id = k.slice(5);
+    if (S.votes[k] === v) delete S.votes[k]; else S.votes[k] = v;
+    LS.set('votes', S.votes); updBadge();
+    $$(`.mvote[data-mkey="${CSS.escape(k)}"] button`).forEach(b => b.setAttribute('aria-pressed', S.votes[k] === b.dataset.v));
+    $$(`details.tcmp[data-leg="${CSS.escape(id)}"]`).forEach(d => {
+      $$('.topt', d).forEach(t => t.classList.toggle('mine', t.dataset.oid === S.votes[k]));
+      const c = $('.mysel', d), o = legChoice(id); c.classList.toggle('hide', !o); c.textContent = o ? '我選：' + o.label : '';
+    });
+  }
   else if (a === 'pick'){ const k = el.dataset.key; if (S.votes[k] === el.dataset.v) delete S.votes[k]; else S.votes[k] = el.dataset.v; LS.set('votes', S.votes); render(true); }
   else if (a === 'copy') copy(exportText());
   else if (a === 'line') window.open('https://line.me/R/share?text=' + encodeURIComponent(exportText()), '_blank', 'noopener');
