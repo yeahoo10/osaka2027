@@ -1,5 +1,5 @@
 {
- "_說明": "本機 Claude 整理。places：補進 trip-data.places[id]，只填目前空的欄位（why/tip/warn/strollerNote/links），已有的 elev/baby 等保留。links 皆已實際開啟並確認內容相關（2026-11-04）；關西機場、JR 京都伊勢丹官網擋自動檢查，但為官方網域。d-lego：D6 天保山日新版，請據此改 days[\"d-lego\"]（保留原有 transport/sleep/people 等欄位；title、stops、rain 換新；backup 顯示在當天備案處；optional 的 stop 要有「可選」樣式）。海遊館：places 目前沒有 kaiyukan，請從 alternates.items 的 kaiyukan 複製一份進 places（含縮圖），備選頁的海遊館卡片標示「已排入 D6」或移除。",
+ "_說明": "本機 Claude 整理。places：補進 trip-data.places[id]，只填目前空的欄位（why/tip/warn/strollerNote/links），已有的 elev/baby 等保留。links 皆已實際開啟並確認內容相關（2026-11-04）；關西機場、JR 京都伊勢丹官網擋自動檢查，但為官方網域。d-lego：D6 天保山日新版，請據此改 days[\"d-lego\"]（保留原有 transport/sleep/people 等欄位；title、stops、rain 換新；backup 顯示在當天備案處；（已取消 D6 晚上 HARUKAS，D4 的 HARUKAS 夕陽維持不變））。海遊館：places 目前沒有 kaiyukan，請從 alternates.items 的 kaiyukan 複製一份進 places（含縮圖），備選頁的海遊館卡片標示「已排入 D6」或移除。",
  "places": {
   "lego": {
    "why": "全室內暖氣、單層約 3,000 m²，專為 3～10 歲設計；1 歲和 3 歲有 Duplo 得寶軟積木區，5 歲可玩攀爬區與騎乘設施。",
@@ -269,7 +269,7 @@
   }
  },
  "d-lego": {
-  "title": "天保山日：樂高探索中心 ＋ 海遊館（晚上可選 HARUKAS 夜景）",
+  "title": "天保山日：樂高探索中心 ＋ 海遊館 ＋ 晚上逛 Marketplace",
   "stops": [
    {
     "id": "metro",
@@ -307,27 +307,35 @@
     "note": "和樂高同在天保山，步行 1～2 分鐘。指定時段票選 13:30 左右，入館前 30 天官網買。長輩可在主水槽旁長椅坐著看鯨鯊。"
    },
    {
-    "id": "nap",
-    "time": "16:00",
-    "icon": "😴",
-    "title": "回飯店休息",
+    "id": "mp-rest",
+    "time": "15:30",
+    "end": "17:30",
+    "icon": "🛍️",
+    "title": "天保山 Marketplace 逛街＋休息",
+    "place": "tempozan",
+    "note": "室內有暖氣，長輩可找椅子或咖啡店坐著休息、小孩換尿布補眠，大人輪流逛；不用趕回飯店。"
+   },
+   {
+    "id": "dinner",
+    "time": "17:30",
+    "end": "19:00",
+    "icon": "🍽️",
+    "title": "Marketplace 晚餐",
+    "place": "tempozan",
+    "note": "中午若吃了食いしんぼ横丁，晚上可換商場內一般餐廳（座位較寬、好放推車）。9 人建議 17:30 前入座避開人潮。"
+   },
+   {
+    "id": "back",
+    "time": "19:30",
+    "icon": "🚇",
+    "title": "搭地鐵中央線回飯店",
     "place": "hotel-osaka",
     "mode": "transit",
     "rest": true,
     "vote": false
-   },
-   {
-    "id": "harukas-night",
-    "time": "17:30",
-    "end": "19:00",
-    "icon": "🌃",
-    "title": "（可選）阿倍野 HARUKAS 300 夕陽＋夜景",
-    "place": "harukas",
-    "optional": true,
-    "note": "D4 已排 HARUKAS 夕陽，兩天擇一就好，請投票。心齋橋到天王寺 9 分鐘。下午海遊館走完若長輩或小孩累了就取消，在飯店附近吃晚餐。"
    }
   ],
-  "backup": "摩天輪改為備案：天氣好、還有體力時，海遊館後可搭天保山大摩天輪（約 15 分鐘）再回飯店。",
+  "backup": "大摩天輪改為備案：天氣好、還有體力時，晚餐前後搭一圈看大阪灣夜景（約 15 分鐘，強風停駛）。",
   "rain": "樂高、海遊館、Marketplace 全室內；摩天輪強風會停駛。"
  }
 }
