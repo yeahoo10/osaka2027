@@ -1,0 +1,333 @@
+{
+ "_說明": "本機 Claude 整理。places：補進 trip-data.places[id]，只填目前空的欄位（why/tip/warn/strollerNote/links），已有的 elev/baby 等保留。links 皆已實際開啟並確認內容相關（2026-11-04）；關西機場、JR 京都伊勢丹官網擋自動檢查，但為官方網域。d-lego：D6 天保山日新版，請據此改 days[\"d-lego\"]（保留原有 transport/sleep/people 等欄位；title、stops、rain 換新；backup 顯示在當天備案處；optional 的 stop 要有「可選」樣式）。海遊館：places 目前沒有 kaiyukan，請從 alternates.items 的 kaiyukan 複製一份進 places（含縮圖），備選頁的海遊館卡片標示「已排入 D6」或移除。",
+ "places": {
+  "lego": {
+   "why": "全室內暖氣、單層約 3,000 m²，專為 3～10 歲設計；1 歲和 3 歲有 Duplo 得寶軟積木區，5 歲可玩攀爬區與騎乘設施。",
+   "tip": "平日 10:00 開館第一場人最少，玩 2～2.5 小時剛好。官網前一天前買指定時段票最多便宜 ¥900；2 歲以下免費。（票價依 2025～2026 年資料，出發前再看官網） 怎麼玩：Kingdom Quest 古堡射擊車（要能自己坐、未滿 130cm 需大人陪，1 歲不行）；Merlin 魔法飛車（90cm 以上，3 歲剛好夠、5 歲 OK）；Duplo 區（1 歲、3 歲最適合）；攀爬區（要脫鞋）；4D 劇院有噴風水霧和震動，1 歲、3 歲可能會怕。",
+   "warn": "大人（16 歲以上）不能單獨入場，一定要帶小孩；館內禁止外食（嬰兒食品、水可以）；館內咖啡廳偏貴，午餐建議出館吃。",
+   "strollerNote": "推車可推入，走道不寬；入口與後方有推車停放處。哺乳室在天保山 Marketplace 2F，館內廁所有尿布台。",
+   "links": [
+    {
+     "t": "樂高探索中心官網",
+     "url": "https://www.legolanddiscoverycenter.com/osaka/"
+    },
+    {
+     "t": "PTT 阪神京親子遊記（含天保山）",
+     "url": "https://www.ptt.cc/man/Japan_Travel/D536/D521/D6B8/M.1515423423.A.5F2.html"
+    }
+   ]
+  },
+  "harukas": {
+   "why": "300m 高的展望台，360 度玻璃看大阪夕陽與夜景；58F 空中庭園有木椅可坐。",
+   "tip": "2 月下旬日落約 17:45～17:50，17:15 左右上去可以一次看夕陽、藍調時刻和夜景。營業 9:00～22:00（最後入場 21:30）。當日券在 16F 櫃台買：大人 ¥2,200、小學生～國中 ¥900、5 歲以下免費。心齋橋搭御堂筋線到天王寺約 9 分鐘，地下直通。",
+   "warn": "EDGE THE HARUKAS（大樓外緣綁繩走）身高 145cm 以下不能參加，這團不適合。傍晚電梯排隊可能較久；離場後不能再入場。",
+   "strollerNote": "推車能否直接上 60F 官網沒寫清楚，待確認（Google Gemini 查到的心得說可以）；近鐵百貨本館有育嬰室。",
+   "links": [
+    {
+     "t": "HARUKAS 300 官網",
+     "url": "https://www.abenoharukas-300.jp/observatory/"
+    },
+    {
+     "t": "HARUKAS 300 票價",
+     "url": "https://www.abenoharukas-300.jp/observatory/ticket/"
+    }
+   ]
+  },
+  "tempozan-wheel": {
+   "why": "直徑 100m，一圈約 15 分鐘，密閉車廂看大阪灣與海遊館。",
+   "tip": "約 ¥1,000（3 歲以上），8 台全透明車廂不用加價但要另外排隊。（票價依 2025～2026 年資料，出發前再看官網）",
+   "warn": "海邊強風或雷雨會暫停；推車不能推進車廂。",
+   "strollerNote": "推車需在乘車口收折或寄放。"
+  },
+  "tempozan": {
+   "why": "室內商場，和海遊館、樂高、摩天輪都在一起，冷天躲風、吃飯、上廁所的基地。",
+   "tip": "2F「なにわ食いしんぼ横丁」有北極星蛋包飯、自由軒咖哩等老店，但走道窄、座位小，9 人加 2 台推車不好坐，建議分桌或選商場內一般餐廳。",
+   "warn": "進出商場外圍時海風很強，記得加外套。",
+   "strollerNote": "商場內走道寬、有大電梯，推車好推。",
+   "links": [
+    {
+     "t": "天保山 Marketplace 官網",
+     "url": "https://www.kaiyukan.com/thv/marketplace/"
+    },
+    {
+     "t": "PTT 天保山海遊館遊記",
+     "url": "https://www.ptt.cc/bbs/Japan_Travel/M.1249758798.A.715.html"
+    }
+   ]
+  },
+  "rail-museum": {
+   "why": "全室內有暖氣，53 輛真火車與新幹線，小孩看火車、長輩可以坐著看窗外真的列車經過。",
+   "tip": "停留 2.5～3 小時。大人 ¥1,500、3 歲以上幼兒 ¥200；蒸汽火車 Steam 號另收大人 ¥300／小孩 ¥100。駕駛模擬器要先上網預約。（票價依 2025～2026 年資料，出發前再看官網）",
+   "warn": "每週三休館（2/24、3/3 都是週三；目前排 2/25 或 2/28 沒問題）；扇形車庫有煤炭機油味。",
+   "strollerNote": "館內寬敞有電梯，推車好推；JR 梅小路京都西站有電梯，步行約 2 分鐘。",
+   "links": [
+    {
+     "t": "官網",
+     "url": "https://www.kyotorailwaymuseum.jp/"
+    },
+    {
+     "t": "Mimi韓 親子心得",
+     "url": "https://mimihan.tw/kyoto-railway-museum"
+    },
+    {
+     "t": "PTT 帶兩寶遊京都推車討論",
+     "url": "https://www.ptt.cc/bbs/BabyMother/M.1492014194.A.53B.html"
+    }
+   ]
+  },
+  "kitano": {
+   "why": "2/25 梅花祭正日，梅苑盛開，上七軒藝妓舞妓在境內辦野點大茶湯，長輩會很喜歡；當天也是每月 25 日的天神市。",
+   "tip": "人潮很多，建議 9:00 前到。境內參拜免費，梅苑要門票（附茶點）；野點大茶湯茶券數量有限。",
+   "warn": "參道多碎石，推車推起來吃力；本殿有門檻階梯。境內沒有哺乳室，熱水自備保溫瓶。",
+   "strollerNote": "推車可進但碎石路費力，建議推車停殿外、嬰兒用背巾。",
+   "links": [
+    {
+     "t": "北野天滿宮官網",
+     "url": "https://kitanotenmangu.or.jp/"
+    },
+    {
+     "t": "PTT 帶爸媽遊京都",
+     "url": "https://www.ptt.cc/bbs/Japan_Travel/M.1454067923.A.939.html"
+    }
+   ]
+  },
+  "osaka-castle": {
+   "why": "梅林約 1,270 株 2 月下旬盛開；坐御座船從護城河看天守閣，Road Train 小火車代步，長輩不用爬坡。",
+   "tip": "停留半天。御座船約 20 分鐘，到售票亭先劃位；Road Train 單程大人約 ¥400、小孩約 ¥200，省很多腳程。（票價依 2025～2026 年資料，出發前再看官網）",
+   "warn": "公園很大有坡，水邊風冷；天候不佳時御座船可能停航。",
+   "strollerNote": "主要道路平坦好推；坐御座船、小火車時推車要收折。",
+   "links": [
+    {
+     "t": "大阪城天守閣官網",
+     "url": "https://www.osakacastle.net/"
+    },
+    {
+     "t": "PTT 2025 冬大阪城御座船心得",
+     "url": "https://www.ptt.cc/bbs/Japan_Travel/M.1764725562.A.06D.html"
+    }
+   ]
+  },
+  "jo-terrace": {
+   "why": "JR 大阪城公園站一出來就是，餐廳咖啡店集中，逛大阪城前後吃飯、休息的補給站。",
+   "tip": "中午 12:00～13:00 人多，提早或晚一點用餐；多數店 11:00 後營業。",
+   "warn": "半開放式走廊冬天有風，戶外座位偏冷。",
+   "strollerNote": "全區平坦、有電梯，推車好推好停。",
+   "links": [
+    {
+     "t": "官網",
+     "url": "https://jo-terrace.jp/"
+    }
+   ]
+  },
+  "shinsaibashi": {
+   "why": "有頂棚不怕雨，藥妝、伴手禮最集中，大人可以輪流去買。",
+   "tip": "以大丸心齋橋店當基地：長輩小孩在百貨休息（7F 育嬰室），大人輪流逛主街；白天早點去，傍晚後人很多。",
+   "warn": "傍晚到晚上人潮很擠，2 台推車很難並排；小藥妝店走道窄推車進不去。",
+   "strollerNote": "主街平坦，但人多時寸步難行，嬰兒建議備背巾。",
+   "links": [
+    {
+     "t": "商店街官網",
+     "url": "https://www.shinsaibashi.or.jp/"
+    },
+    {
+     "t": "PTT 帶推車遊京阪奈",
+     "url": "https://www.ptt.cc/bbs/Japan_Travel/M.1386768945.A.DB3.html"
+    }
+   ]
+  },
+  "kuromon": {
+   "why": "大阪的廚房，草莓、和牛串、玉子燒、關東煮一路吃，長輩愛逛市場、小孩吃水果。",
+   "tip": "上午 9:30～11:00 最好，東西新鮮人也少；多數攤位沒座位，找有內用的店或市場休息區。",
+   "warn": "走道不寬、地面偶爾濕滑；海鮮多為觀光價，先比價再買。",
+   "strollerNote": "平路無階梯，但小店進不去，吃東西時推車靠邊收好；地鐵日本橋站 10 號出口有電梯。",
+   "links": [
+    {
+     "t": "PTT 黑門市場吃到撐",
+     "url": "https://www.ptt.cc/bbs/Japan_Travel/M.1445004531.A.FEC.html"
+    },
+    {
+     "t": "PTT 帶寶寶遊大阪（含黑門）",
+     "url": "https://www.ptt.cc/bbs/BabyMother/M.1405866051.A.481.html"
+    }
+   ]
+  },
+  "harvest": {
+   "why": "有水豚、綿羊等小動物可以餵，草莓溫室高架栽培免彎腰，長輩散步也舒服。",
+   "tip": "停留 3～4 小時，10:00 開門先去動物區。（票價依 2025～2026 年資料，出發前再看官網）",
+   "warn": "冬季通常週三休園（2/24 是週三；目前排 2/28 或 3/1 沒問題，確切休園日看官網）；園區是丘陵有坡。",
+   "strollerNote": "推車可通行（部分草地和吊橋要繞平整步道）；入口可租推車。",
+   "links": [
+    {
+     "t": "官網",
+     "url": "https://farm.or.jp/"
+    },
+    {
+     "t": "大阪觀光局介紹",
+     "url": "https://osaka-info.jp/spot/harvest-hill/"
+    }
+   ]
+  },
+  "namba-parks": {
+   "why": "有屋頂空中花園的商場，長輩可以坐咖啡廳休息，小孩在花園散步。",
+   "tip": "商店 11:00～21:00；高樓層餐廳多，大多推車可進。",
+   "warn": "屋頂花園入夜後風大偏冷；尖峰電梯要等。",
+   "strollerNote": "館內寬敞平整；南海難波站 2F 直通。",
+   "links": [
+    {
+     "t": "官網",
+     "url": "https://nambaparks.com/"
+    }
+   ]
+  },
+  "nara": {
+   "why": "看大佛、近距離看鹿，草地開闊好散步。",
+   "tip": "9:00～11:30 人最少。東大寺大佛殿大人 ¥800、小學生 ¥400，學齡前免費。（票價依 2025～2026 年資料，出發前再看官網）",
+   "warn": "鹿會搶推車籃裡的紙袋、塑膠袋和食物，食物一定收進背包、推車不要掛袋子；二月堂方向有陡坡石階。",
+   "strollerNote": "南大門到大佛殿參道平整好推；大佛殿旁有無障礙坡道。",
+   "links": [
+    {
+     "t": "東大寺官網",
+     "url": "https://www.todaiji.or.jp/"
+    }
+   ]
+  },
+  "kobe-animal": {
+   "why": "大部分在室內溫室，不怕冷不怕雨；水豚、象龜、紅鶴可以近距離看，老小滿意度很高。",
+   "tip": "玩大半天（10:00～15:30）。三宮站可買 Port Liner 來回＋門票套票比較省。（票價依 2025～2026 年資料，出發前再看官網）",
+   "warn": "每週四休園（彈性日 3/2 是週二沒問題，不要改到週四）。熱門觸摸體驗要早點排。",
+   "strollerNote": "全館平坦無障礙，入口可租推車；Port Liner 站有電梯直達大門。",
+   "links": [
+    {
+     "t": "官網",
+     "url": "https://www.kobe-oukoku.com/"
+    },
+    {
+     "t": "PTT 神戶動物王國親子心得",
+     "url": "https://www.ptt.cc/bbs/BabyMother/M.1533818619.A.EB1.html"
+    },
+    {
+     "t": "PTT 神戶動物王國遊記",
+     "url": "https://www.ptt.cc/bbs/Japan_Travel/M.1554989721.A.421.html"
+    }
+   ]
+  },
+  "kids-plaza": {
+   "why": "全室內兒童博物館，有百水先生設計的城堡溜滑梯、小超市結帳扮家家酒，3 歲 5 歲玩到不想走，大人坐著顧就好。",
+   "tip": "玩 3～4 小時；當天可蓋章再入館，中午可去旁邊天神橋筋商店街吃飯再回來。",
+   "warn": "休館日為每月第 2、3 個週一（彈性日 3/2 週二正常開館）；城堡人多時要看緊 3 歲。",
+   "strollerNote": "各樓層電梯直通，推車可全程推；地鐵扇町站 2 號出口直通。4F 嬰幼兒區有哺乳室與熱水。",
+   "links": [
+    {
+     "t": "官網",
+     "url": "https://www.kidsplaza.or.jp/"
+    },
+    {
+     "t": "PTT Kids Plaza 遊記",
+     "url": "https://www.ptt.cc/bbs/BabyMother/M.1387473981.A.DAC.html"
+    },
+    {
+     "t": "Mimi韓 大阪親子景點",
+     "url": "https://mimihan.tw/osaka-trips-family"
+    }
+   ]
+  },
+  "usj": {
+   "why": "環球奇境有史努比、Hello Kitty、芝麻街幼兒設施；大人用 Child Switch 輪流玩刺激設施。",
+   "tip": "Child Switch：在設施入口跟工作人員說，一組大人先玩、另一組顧小孩，下車後換手不用重排。",
+   "warn": "人多、戶外冷，排隊時幫長輩小孩加衣。",
+   "strollerNote": "入口有推車租借（約 1 個月～未滿 4 歲），各設施門口有推車停放區；園內有家庭服務中心（哺乳室、熱水、微波爐）。",
+   "links": [
+    {
+     "t": "USJ 家庭服務官網",
+     "url": "https://www.usj.co.jp/web/ja/jp/service-guide/family-services"
+    }
+   ]
+  },
+  "kyoto-isetan": {
+   "why": "京都車站直通的百貨，育嬰室設備完整，吃飯、買伴手禮、補給一次搞定。",
+   "tip": "美食街和餐廳 11:30 前去比較不用等。",
+   "warn": "車站南北通道人多，推車不要搭中央大手扶梯，走電梯。",
+   "strollerNote": "館內有大型電梯；可在店內借推車。",
+   "links": [
+    {
+     "t": "JR 京都伊勢丹官網",
+     "url": "https://kyoto.wjr-isetan.co.jp/"
+    }
+   ]
+  },
+  "kix": {
+   "why": "返台前讓小孩在兒童遊戲區放電，上飛機比較好睡。",
+   "tip": "帶幼兒和長輩可走家庭／優先安檢通道；建議起飛前 3 小時以上到，留時間退稅和託運。",
+   "warn": "安檢時推車要收折過 X 光，小孩抱著過。",
+   "strollerNote": "自己的推車可以在櫃台申請推到登機門再託運；機場也有免費推車可借。",
+   "links": [
+    {
+     "t": "關西機場官網",
+     "url": "https://www.kansai-airport.or.jp/"
+    }
+   ]
+  }
+ },
+ "d-lego": {
+  "title": "天保山日：樂高探索中心 ＋ 海遊館（晚上可選 HARUKAS 夜景）",
+  "stops": [
+   {
+    "id": "metro",
+    "time": "09:30",
+    "icon": "🚇",
+    "title": "地鐵中央線到大阪港站",
+    "place": "lego",
+    "mode": "transit"
+   },
+   {
+    "id": "lego",
+    "time": "10:00",
+    "end": "12:15",
+    "icon": "🧱",
+    "title": "天保山樂高樂園探索中心",
+    "place": "lego",
+    "note": "1 歲、3 歲玩 Duplo 區，5 歲玩攀爬與騎乘；4D 劇院小小孩可能會怕。"
+   },
+   {
+    "id": "lunch",
+    "time": "12:15",
+    "end": "13:30",
+    "icon": "🍛",
+    "title": "天保山 Marketplace 午餐",
+    "place": "tempozan",
+    "note": "食いしんぼ横丁座位小，9 人建議分桌或選一般餐廳。"
+   },
+   {
+    "id": "kaiyukan",
+    "time": "13:30",
+    "end": "15:30",
+    "icon": "🦈",
+    "title": "海遊館",
+    "place": "kaiyukan",
+    "note": "和樂高同在天保山，步行 1～2 分鐘。指定時段票選 13:30 左右，入館前 30 天官網買。長輩可在主水槽旁長椅坐著看鯨鯊。"
+   },
+   {
+    "id": "nap",
+    "time": "16:00",
+    "icon": "😴",
+    "title": "回飯店休息",
+    "place": "hotel-osaka",
+    "mode": "transit",
+    "rest": true,
+    "vote": false
+   },
+   {
+    "id": "harukas-night",
+    "time": "17:30",
+    "end": "19:00",
+    "icon": "🌃",
+    "title": "（可選）阿倍野 HARUKAS 300 夕陽＋夜景",
+    "place": "harukas",
+    "optional": true,
+    "note": "D4 已排 HARUKAS 夕陽，兩天擇一就好，請投票。心齋橋到天王寺 9 分鐘。下午海遊館走完若長輩或小孩累了就取消，在飯店附近吃晚餐。"
+   }
+  ],
+  "backup": "摩天輪改為備案：天氣好、還有體力時，海遊館後可搭天保山大摩天輪（約 15 分鐘）再回飯店。",
+  "rain": "樂高、海遊館、Marketplace 全室內；摩天輪強風會停駛。"
+ }
+}
