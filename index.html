@@ -173,6 +173,15 @@ details.tcmp[open] > summary:before{content:"▾"}
 .mvote{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
 .mvote button{flex:1 1 140px}
 .ttips{margin:6px 0;padding-left:1.2em;font-size:.82rem}
+details.brow{border:1px solid var(--line);border-radius:12px;padding:0 10px;margin-bottom:8px}
+details.brow.cur{border:2px solid var(--brand)}
+details.brow > summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 10px;align-items:center;min-height:44px;padding:8px 0;font-size:.9rem}
+details.brow > summary::-webkit-details-marker{display:none}
+details.brow > summary:before{content:"▸";color:var(--brand)}
+details.brow[open] > summary:before{content:"▾"}
+details.brow > summary > span{flex:1 1 auto}
+details.brow .kv{padding-bottom:8px}
+.bamt{color:var(--brand)}
 .why{margin-top:8px}
 .why b{color:var(--time)}
 .credit{margin:6px 0 0}
@@ -418,7 +427,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
         {"id":"move","leg":"kyoto-osaka-move","travel":true,"time":"10:45","end":"11:30","icon":"🚆","title":"移動到大阪","place":"hotel-osaka","mode":"transit","move":"JR 新快速京都→大阪約 29 分鐘，或包車門對門連行李一起載"},
         {"id":"in","time":"12:00","icon":"🏨","title":"大阪飯店寄放行李／入住","place":"hotel-osaka"},
         {"id":"castle","leg":"castle-go","time":"13:00","end":"16:00","icon":"🏯","title":"大阪城梅林 ＋ 御座船 ＋ JO-TERRACE","place":"osaka-castle","mode":"transit","move":"地鐵到森之宮站（電梯）","note":"梅林約 1,270 株，2 月下旬見頃；御座船遊護城河約 20 分鐘。"},
-        {"id":"eve","time":"17:00","icon":"🍜","title":"回飯店，傍晚心齋橋筋（有頂棚）、道頓堀晚餐","place":"shinsaibashi","mode":"walking"}
+        {"id":"eve","leg":"castle-back","time":"17:00","icon":"🍜","title":"回飯店，傍晚心齋橋筋（有頂棚）、道頓堀晚餐","place":"shinsaibashi","mode":"walking"}
       ]
     },
     "p2-d1": {
@@ -560,14 +569,14 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
     "hotel-kyoto": {"name":"京都住宿（未定）","q":"MIMARU KYOTO STATION","elev":"候選飯店都在京都站步行 1～3 分鐘；電梯待確認","baby":"可借嬰兒床（依飯店）","stroller":"ok","rain":"—","tbd":true},
     "hotel-osaka": {"name":"大阪住宿（未定）","q":"MIMARU Osaka Shinsaibashi","elev":"首選候選：長堀橋站電梯出口步行約 2 分鐘","baby":"房內客廳可餵奶換尿布","stroller":"ok","rain":"—","tbd":true},
     "rail-museum": {"name":"京都鐵道博物館","q":"京都鉄道博物館","elev":"全館無障礙，4 部大電梯","baby":"1F／2F 都有獨立哺乳室（附調乳熱水）","stroller":"ok","strollerNote":"1F 入口有免費推車停放區","rain":"全室內暖氣","link":"https://www.kyotorailwaymuseum.jp/","todo":"每週三休館（方案一 2/25 週四、方案二 2/28 週日都有開）","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/%E4%BA%AC%E9%83%BD%E9%89%84%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg/500px-%E4%BA%AC%E9%83%BD%E9%89%84%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"小父 / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:%E4%BA%AC%E9%83%BD%E9%89%84%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg","why":"全室內有暖氣，53 輛真火車與新幹線，小孩看火車、長輩可以坐著看窗外真的列車經過。","tip":"停留 2.5～3 小時。大人 ¥1,500、3 歲以上幼兒 ¥200；蒸汽火車 Steam 號另收大人 ¥300／小孩 ¥100。駕駛模擬器要先上網預約。（票價依 2025～2026 年資料，出發前再看官網）","warn":"每週三休館（2/24、3/3 都是週三；目前排 2/25 或 2/28 沒問題）；扇形車庫有煤炭機油味。","links":[{"t":"官網","url":"https://www.kyotorailwaymuseum.jp/"},{"t":"Mimi韓 親子心得","url":"https://mimihan.tw/kyoto-railway-museum"},{"t":"PTT 帶兩寶遊京都推車討論","url":"https://www.ptt.cc/bbs/BabyMother/M.1492014194.A.53B.html"}]},
-    "kitano": {"name":"北野天滿宮","q":"北野天満宮","elev":"一之鳥居到本殿為平坦石板路","baby":"境內無固定育嬰室，建議先在京都站或車上餵奶換尿布","link":"https://kitanotenmangu.or.jp/","stroller":"part","strollerNote":"主參道可推；梅苑內與祭典人潮待確認","rain":"改去京都水族館（全室內）","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Kitano-tenmangu.jpg/500px-Kitano-tenmangu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"ja:利用者:Stanislaus / Public domain","imgPage":"https://commons.wikimedia.org/wiki/File:Kitano-tenmangu.jpg","why":"2/25 梅花祭正日，梅苑盛開，上七軒藝妓舞妓在境內辦野點大茶湯，長輩會很喜歡；當天也是每月 25 日的天神市。","tip":"人潮很多，建議 9:00 前到。境內參拜免費，梅苑要門票（附茶點）；野點大茶湯茶券數量有限。","warn":"參道多碎石，推車推起來吃力；本殿有門檻階梯。境內沒有哺乳室，熱水自備保溫瓶。","links":[{"t":"北野天滿宮官網","url":"https://kitanotenmangu.or.jp/"},{"t":"PTT 帶爸媽遊京都","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1454067923.A.939.html"}]},
+    "kitano": {"name":"北野天滿宮","q":"北野天満宮","elev":"一之鳥居到本殿為平坦石板路","baby":"境內無固定育嬰室，建議先在京都站或車上餵奶換尿布","link":"https://kitanotenmangu.or.jp/","stroller":"part","strollerNote":"主參道可推；梅苑內與祭典人潮待確認","rain":"改去京都水族館（全室內）","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Kitano-tenmangu.jpg/500px-Kitano-tenmangu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"ja:利用者:Stanislaus / Public domain","imgPage":"https://commons.wikimedia.org/wiki/File:Kitano-tenmangu.jpg","why":"2/25 梅花祭正日，梅苑盛開，上七軒藝妓舞妓在境內辦野點大茶湯，長輩會很喜歡；當天也是每月 25 日的天神市。","tip":"人潮很多，建議 9:00 前到。境內參拜免費，梅苑要門票（附茶點，官網：大人 前売 ¥2,800／當日 ¥3,000，小人 ¥1,400～1,500）；野點大茶湯茶券數量有限。","warn":"參道多碎石，推車推起來吃力；本殿有門檻階梯。境內沒有哺乳室，熱水自備保溫瓶。","links":[{"t":"北野天滿宮官網","url":"https://kitanotenmangu.or.jp/"},{"t":"PTT 帶爸媽遊京都","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1454067923.A.939.html"}]},
     "kyoto-aquarium": {"name":"京都水族館","q":"京都水族館","elev":"待查","baby":"待查","stroller":"ok","rain":"全室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/KYOTO_AQUARIUM.JPG/500px-KYOTO_AQUARIUM.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Own work / CC BY-SA 3.0","imgPage":"https://commons.wikimedia.org/wiki/File:KYOTO_AQUARIUM.JPG"},
     "osaka-castle": {"name":"大阪城公園・梅林","q":"大阪城梅林","elev":"地鐵森之宮站有無障礙電梯；梅林地面平坦","baby":"旁邊 JO-TERRACE 1F 有育嬰室","stroller":"ok","strollerNote":"從 JO-TERRACE 搭 Road Train 到天守閣，免爬坡","rain":"改去大阪歷史博物館（電梯直上 10F）","link":"https://www.osakacastlepark.jp/","todo":"御座船推車能否上船待查","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/OsakaCastle-PlumGarden01.jpg/500px-OsakaCastle-PlumGarden01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Inoue-hiro / CC BY-SA 3.0","imgPage":"https://commons.wikimedia.org/wiki/File:OsakaCastle-PlumGarden01.jpg","why":"梅林約 1,270 株 2 月下旬盛開；坐御座船從護城河看天守閣，Road Train 小火車代步，長輩不用爬坡。","tip":"停留半天。御座船約 20 分鐘，到售票亭先劃位；Road Train 單程大人約 ¥400、小孩約 ¥200，省很多腳程。（票價依 2025～2026 年資料，出發前再看官網）","warn":"公園很大有坡，水邊風冷；天候不佳時御座船可能停航。","links":[{"t":"大阪城天守閣官網","url":"https://www.osakacastle.net/"},{"t":"PTT 2025 冬大阪城御座船心得","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1764725562.A.06D.html"}]},
     "jo-terrace": {"name":"JO-TERRACE OSAKA","q":"JO-TERRACE OSAKA","elev":"商場平面，與大阪城公園入口相連","baby":"1F 育嬰室與尿布台","link":"https://jo-terrace.jp/","stroller":"ok","rain":"商場室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/JO-TERRACE_OSAKA_201909_001.jpg/500px-JO-TERRACE_OSAKA_201909_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Mc681 / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:JO-TERRACE_OSAKA_201909_001.jpg","why":"JR 大阪城公園站一出來就是，餐廳咖啡店集中，逛大阪城前後吃飯、休息的補給站。","tip":"中午 12:00～13:00 人多，提早或晚一點用餐；多數店 11:00 後營業。","warn":"半開放式走廊冬天有風，戶外座位偏冷。","strollerNote":"全區平坦、有電梯，推車好推好停。","links":[{"t":"官網","url":"https://jo-terrace.jp/"}]},
     "shinsaibashi": {"name":"心齋橋筋商店街","q":"心斎橋筋商店街","elev":"商店街平面；心齋橋站走大丸 B1 直達電梯，或 Crysta 南 3／南 10 出口電梯","baby":"大丸心齋橋 7F Baby Salon","stroller":"ok","rain":"有頂棚","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Shinsaibashi-suji_Shopping_Street_20190201.jpg/500px-Shinsaibashi-suji_Shopping_Street_20190201.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"そらみみ / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:Shinsaibashi-suji_Shopping_Street_20190201.jpg","why":"有頂棚不怕雨，藥妝、伴手禮最集中，大人可以輪流去買。","tip":"以大丸心齋橋店當基地：長輩小孩在百貨休息（7F 育嬰室），大人輪流逛主街；白天早點去，傍晚後人很多。","warn":"傍晚到晚上人潮很擠，2 台推車很難並排；小藥妝店走道窄推車進不去。","strollerNote":"主街平坦，但人多時寸步難行，嬰兒建議備背巾。","links":[{"t":"商店街官網","url":"https://www.shinsaibashi.or.jp/"},{"t":"PTT 帶推車遊京阪奈","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1386768945.A.DB3.html"}]},
     "kuromon": {"name":"黑門市場","q":"黒門市場","elev":"平面街道","baby":"待查","stroller":"part","strollerNote":"週六人潮多，推車要慢行","rain":"有屋頂","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Kuromon-ichiba_in_201408.JPG/500px-Kuromon-ichiba_in_201408.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Mc681 / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:Kuromon-ichiba_in_201408.JPG","why":"大阪的廚房，草莓、和牛串、玉子燒、關東煮一路吃，長輩愛逛市場、小孩吃水果。","tip":"上午 9:30～11:00 最好，東西新鮮人也少；多數攤位沒座位，找有內用的店或市場休息區。","warn":"走道不寬、地面偶爾濕滑；海鮮多為觀光價，先比價再買。","links":[{"t":"PTT 黑門市場吃到撐","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1445004531.A.FEC.html"},{"t":"PTT 帶寶寶遊大阪（含黑門）","url":"https://www.ptt.cc/bbs/BabyMother/M.1405866051.A.481.html"}]},
     "harukas": {"name":"阿倍野 HARUKAS 300","q":"あべのハルカス 展望台 ハルカス300","elev":"天王寺站搭電梯直上 60F 展望台","baby":"樓下 Q's Mall 阿卡將本舖可補貨；哺乳室位置出發前再確認","stroller":"ok","rain":"全室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Abeno_Harukas_Osaka_Japan01-r.jpg/500px-Abeno_Harukas_Osaka_Japan01-r.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Oilstreet / CC BY 2.5","imgPage":"https://commons.wikimedia.org/wiki/File:Abeno_Harukas_Osaka_Japan01-r.jpg","why":"300m 高的展望台，360 度玻璃看大阪夕陽與夜景；58F 空中庭園有木椅可坐。","tip":"2 月下旬日落約 17:45～17:50，17:15 左右上去可以一次看夕陽、藍調時刻和夜景。營業 9:00～22:00（最後入場 21:30）。當日券在 16F 櫃台買：大人 ¥2,200、小學生～國中 ¥900、5 歲以下免費。心齋橋搭御堂筋線到天王寺約 9 分鐘，地下直通。","warn":"EDGE THE HARUKAS（大樓外緣綁繩走）身高 145cm 以下不能參加，這團不適合。傍晚電梯排隊可能較久；離場後不能再入場。","strollerNote":"推車能否直接上 60F 官網沒寫清楚，待確認（Google Gemini 查到的心得說可以）；近鐵百貨本館有育嬰室。","links":[{"t":"HARUKAS 300 官網","url":"https://www.abenoharukas-300.jp/observatory/"},{"t":"HARUKAS 300 票價","url":"https://www.abenoharukas-300.jp/observatory/ticket/"}]},
-    "harvest": {"name":"Harvest Hill（ハーベストの丘）","q":"堺・緑のミュージアム ハーベストの丘","elev":"包車門對門","baby":"哺乳室 2 處（入園大門、村區小火車站前，依 Google Gemini 查詢）；各多功能廁所有尿布台；熱水可向餐廳索取。","stroller":"ok","strollerNote":"園區柏油路但起伏明顯，街區和村區之間有長吊橋；長輩與推車建議搭小火車移動。溫室走道窄，推車停入口、大人抱小孩採。入口可租推車與輪椅。","rain":"溫室採果不受影響","link":"https://farm.or.jp/","todo":"採果完全預約制；12～2 月週三休園","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Harvest_Hill_%28Agriculture_park_in_Sakai%29.jpg/500px-Harvest_Hill_%28Agriculture_park_in_Sakai%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"聖石大戦ぶぅぶぅ / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:Harvest_Hill_(Agriculture_park_in_Sakai).jpg","why":"一天玩到底的農場公園：溫室高架草莓免彎腰（さがほのか、紅ほっぺ、とちおとめ 3 種，最長 120 分鐘吃到飽）、摸水豚和餵綿羊、森林家族（シルバニアパーク）實景村，小孩超愛；長輩可搭園內小火車看風景、在食之 Hall 坐著休息。","tip":"入園費：大人（國中以上）¥1,500、4 歲以上 ¥1,000、3 歲以下免費（官網）。營業 10:00～17:00。採草莓 2027：官網目前只公布「1～5 月、最長 120 分鐘、完全預約制」，詳細規則 11 月上旬公布。依往年：每天 1 場、10:30 集合 11:00 開採，前月 1～7 日上網抽選；採草莓費另計（往年國中以上約 ¥2,700、4 歲～學齡前約 ¥1,300、1～3 歲約 ¥500）。森林家族村：4 歲以上 ¥800（現金），完成闖關可換森林家族寶寶娃娃。餵食：水豚、綿羊飼料一杯 ¥200（現金）。園區用「ハーベストトレイン」小火車往返街區與村區，雨天也開。","warn":"⚠️ 依往年採草莓只在週四、六、日舉辦：方案一排 2/28（週日）OK；方案二排 3/1（週一）可能沒有採草莓，2027 規則公布後要再確認，必要時改日。溫室約 20～25°C、戶外約 8～12°C，進溫室先脫外套；草莓汁很難洗，帶圍兜、濕紙巾、替換衣物；不能外帶。依往年冬季週三休園。森林家族村坡多，官網提醒推車要小心；村內不能飲食。","links":[{"t":"Harvest Hill 官網","url":"https://farm.or.jp/"},{"t":"採草莓 2027（官網）","url":"https://farm.or.jp/event/14430"},{"t":"入園費","url":"https://farm.or.jp/price"},{"t":"動物互動","url":"https://farm.or.jp/animals"},{"t":"森林家族村","url":"https://farm.or.jp/sylvanian"},{"t":"園區餐廳","url":"https://farm.or.jp/restaurant"},{"t":"交通（含停車）","url":"https://farm.or.jp/access"},{"t":"大阪觀光局介紹","url":"https://osaka-info.jp/spot/harvest-hill/"}]},
+    "harvest": {"name":"Harvest Hill（ハーベストの丘）","q":"堺・緑のミュージアム ハーベストの丘","elev":"包車門對門","baby":"哺乳室 2 處（入園大門、村區小火車站前，依 Google Gemini 查詢）；各多功能廁所有尿布台；熱水可向餐廳索取。","stroller":"ok","strollerNote":"園區柏油路但起伏明顯，街區和村區之間有長吊橋；長輩與推車建議搭小火車移動。溫室走道窄，推車停入口、大人抱小孩採。入口可租推車與輪椅。","rain":"溫室採果不受影響","link":"https://farm.or.jp/","todo":"採果完全預約制；12～2 月週三休園","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Harvest_Hill_%28Agriculture_park_in_Sakai%29.jpg/500px-Harvest_Hill_%28Agriculture_park_in_Sakai%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"聖石大戦ぶぅぶぅ / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:Harvest_Hill_(Agriculture_park_in_Sakai).jpg","why":"一天玩到底的農場公園：溫室高架草莓免彎腰（さがほのか、紅ほっぺ、とちおとめ 3 種，最長 120 分鐘吃到飽）、摸水豚和餵綿羊、森林家族（シルバニアパーク）實景村，小孩超愛；長輩可搭園內小火車看風景、在食之 Hall 坐著休息。","tip":"入園費：大人（國中以上）¥1,500、4 歲以上 ¥1,000、3 歲以下免費（官網）。營業 10:00～17:00。採草莓 2027：官網目前只公布「1～5 月、最長 120 分鐘、完全預約制」，詳細規則 11 月上旬公布。依往年：每天 1 場、10:30 集合 11:00 開採，前月 1～7 日上網抽選；採草莓費另計，金額待查（2027 規則公布後更新）。森林家族村：4 歲以上 ¥800（現金），完成闖關可換森林家族寶寶娃娃。餵食：水豚、綿羊飼料一杯 ¥200（現金）。園區用「ハーベストトレイン」小火車往返街區與村區，雨天也開。","warn":"⚠️ 依往年採草莓只在週四、六、日舉辦：方案一排 2/28（週日）OK；方案二排 3/1（週一）可能沒有採草莓，2027 規則公布後要再確認，必要時改日。溫室約 20～25°C、戶外約 8～12°C，進溫室先脫外套；草莓汁很難洗，帶圍兜、濕紙巾、替換衣物；不能外帶。依往年冬季週三休園。森林家族村坡多，官網提醒推車要小心；村內不能飲食。","links":[{"t":"Harvest Hill 官網","url":"https://farm.or.jp/"},{"t":"採草莓 2027（官網）","url":"https://farm.or.jp/event/14430"},{"t":"入園費","url":"https://farm.or.jp/price"},{"t":"動物互動","url":"https://farm.or.jp/animals"},{"t":"森林家族村","url":"https://farm.or.jp/sylvanian"},{"t":"園區餐廳","url":"https://farm.or.jp/restaurant"},{"t":"交通（含停車）","url":"https://farm.or.jp/access"},{"t":"大阪觀光局介紹","url":"https://osaka-info.jp/spot/harvest-hill/"}]},
     "lego": {"name":"樂高樂園探索中心 大阪","q":"レゴランド・ディスカバリー・センター大阪","elev":"地鐵大阪港站 1 號出口有地面電梯","baby":"有哺乳室","stroller":"ok","rain":"全室內暖氣","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/LEGOLAND_Discovery_Center_Osaka.jpg/500px-LEGOLAND_Discovery_Center_Osaka.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Dale Cruse / CC BY 2.0","imgPage":"https://commons.wikimedia.org/wiki/File:LEGOLAND_Discovery_Center_Osaka.jpg","why":"全室內暖氣、單層約 3,000 m²，專為 3～10 歲設計；1 歲和 3 歲有 Duplo 得寶軟積木區，5 歲可玩攀爬區與騎乘設施。","tip":"平日 10:00 開館第一場人最少，玩 2～2.5 小時剛好。官網前一天前買指定時段票最多便宜 ¥900；2 歲以下免費。（票價依 2025～2026 年資料，出發前再看官網） 怎麼玩：Kingdom Quest 古堡射擊車（要能自己坐、未滿 130cm 需大人陪，1 歲不行）；Merlin 魔法飛車（90cm 以上，3 歲剛好夠、5 歲 OK）；Duplo 區（1 歲、3 歲最適合）；攀爬區（要脫鞋）；4D 劇院有噴風水霧和震動，1 歲、3 歲可能會怕。","warn":"大人（16 歲以上）不能單獨入場，一定要帶小孩；館內禁止外食（嬰兒食品、水可以）；館內咖啡廳偏貴，午餐建議出館吃。","strollerNote":"推車可推入，走道不寬；入口與後方有推車停放處。哺乳室在天保山 Marketplace 2F，館內廁所有尿布台。","links":[{"t":"樂高探索中心官網","url":"https://www.legolanddiscoverycenter.com/osaka/"},{"t":"PTT 阪神京親子遊記（含天保山）","url":"https://www.ptt.cc/man/Japan_Travel/D536/D521/D6B8/M.1515423423.A.5F2.html"}]},
     "tempozan": {"name":"天保山 Marketplace","q":"天保山マーケットプレース","elev":"待查","baby":"待查","stroller":"ok","rain":"室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/%E5%A4%A9%E4%BF%9D%E5%B1%B1%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%83%E3%83%88%E3%83%97%E3%83%AC%E3%83%BC%E3%82%B9_2013_%289869541875%29.jpg/500px-%E5%A4%A9%E4%BF%9D%E5%B1%B1%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%83%E3%83%88%E3%83%97%E3%83%AC%E3%83%BC%E3%82%B9_2013_%289869541875%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Hector Martin / CC BY-SA 2.0","imgPage":"https://commons.wikimedia.org/wiki/File:%E5%A4%A9%E4%BF%9D%E5%B1%B1%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%83%E3%83%88%E3%83%97%E3%83%AC%E3%83%BC%E3%82%B9_2013_(9869541875).jpg","why":"室內商場，和海遊館、樂高、摩天輪都在一起，冷天躲風、吃飯、上廁所的基地。","tip":"商店 11:00～20:00、餐廳 11:00～21:00、なにわ食いしんぼ横丁 11:00～20:00（大阪觀光局資料）。傍晚好去處：3F 天保山アニパ（室內小動物園，可摸水豚、陸龜）、3F ガチャガチャの森（大型扭蛋區）、2F MECHA 天保山（遊樂機台）；累了可坐 2F マザームーンカフェ（咖啡、鬆餅）。館內有ベビーケアルーム（哺乳、換尿布）。","warn":"進出商場外圍時海風很強，記得加外套。","strollerNote":"商場內走道寬、有大電梯，推車好推。","links":[{"t":"天保山 Marketplace 官網","url":"https://www.kaiyukan.com/thv/marketplace/"},{"t":"官方樓層導覽（含育嬰室位置）","url":"https://www.kaiyukan.com/thv/marketplace/floor.html"},{"t":"大阪觀光局介紹","url":"https://osaka-info.jp/spot/tempozan-marketplace/"},{"t":"PTT 天保山海遊館遊記","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1249758798.A.715.html"}]},
     "kaiyukan": {"name":"海遊館","q":"海遊館","why":"鯨鯊很震撼；電梯直上 8F，沿緩坡螺旋一路往下，沒有階梯，推車可全程通行。票價浮動制，2 歲以下免費。","tip":"和樂高探索中心同在天保山，步行 1～2 分鐘。從心齋橋搭 2 台計程車約 15～20 分鐘。","warn":"指定時段預約制（每 15 分鐘一梯），入館前 30 天在官網買票。館內坡道全長約 1.5 公里，長輩走久會累，沿途有長椅；海港區冬天風很冷，不搭戶外遊船。","elev":"地鐵大阪港站 1 號出口有地面電梯；館內電梯直上 8F（4F、8F 由館員引導搭工作電梯）","baby":"2F 哺乳室與熱水機；各主要廁所有尿布台","stroller":"ok","strollerNote":"全館緩坡可推；2F 入口可免費寄放推車，服務台可免費借輪椅","rain":"全室內，與天保山 Marketplace 相連","links":[{"t":"海遊館官網","url":"https://www.kaiyukan.com/language/chinese_traditional/"},{"t":"PTT 推輪椅帶阿嬤心得","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1461469489.A.453.html"},{"t":"PTT 幼兒推車心得","url":"https://www.ptt.cc/bbs/BabyMother/M.1493449873.A.BAC.html"},{"t":"PTT 推車便利性心得","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1543555147.A.26F.html"},{"t":"PTT 出站與育嬰室心得","url":"https://www.ptt.cc/bbs/BabyMother/M.1383108761.A.32C.html"}],"img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Kaiy%C5%ABkan.jpg/500px-Kaiy%C5%ABkan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Sakai Yayoi / CC0","imgPage":"https://commons.wikimedia.org/wiki/File:Kaiy%C5%ABkan.jpg"},
@@ -679,13 +688,16 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
   "topics": [],
 
   "budget": {
-    "note": "住宿＋包車／交通＋門票的全團總額（天橋立已決定不去，不列入；機票已付不計；三餐約 NT$75,000～85,000，各方案差不多）。Google Gemini 估算，2026-11-03；住宿用 MIMARU 2 間的 Google Hotels 即時含稅價。",
+    "note": "住宿＋交通（依各路段建議方式）＋門票的全團總額，只計有來源的數字；匯率 1 日圓＝0.22 台幣。天橋立不去不列；機票已付不計。Google Gemini 用 MCP 查詢、規劃者 2026-11-04 重算。",
+    "fx": 0.22,
     "rows": [
-      {"plan":"方案一","usj":false,"total":146178,"tag":"最悠閒","note":"深度玩京都梅花祭與大阪市區"},
-      {"plan":"方案一","usj":true,"total":183178,"tag":"Google Gemini 推薦","note":"京都文化＋USJ＋採草莓，沒有超長途拉車"},
-      {"plan":"方案二","usj":false,"total":141003,"tag":"最省","note":"完全不搬行李，預算最低"},
-      {"plan":"方案二","usj":true,"total":178003,"tag":"Google Gemini 次選","note":"不換飯店，兼顧 USJ"}
+      {"plan":"方案一","usj":false,"min":169826,"max":186264,"hotel":104178,"transport":42090,"tickets":[20856,23958],"day32":[2702,16038],"note":"3/02 彈性日三選一（Kids Plaza 最省、神戶動物王國最貴）"},
+      {"plan":"方案一","usj":true,"min":192415,"max":198817,"hotel":104178,"transport":42090,"tickets":[20856,23958],"day32":[25291,28591],"note":"USJ 票價用 2026 浮動價；Express 以 7 人 ¥6,800 起計"},
+      {"plan":"方案二","usj":false,"min":175557,"max":191687,"hotel":103903,"transport":48294,"tickets":[20658,23452],"day32":[2702,16038],"note":"3/02 彈性日三選一（Kids Plaza 最省、神戶動物王國最貴）"},
+      {"plan":"方案二","usj":true,"min":198146,"max":204240,"hotel":103903,"transport":48294,"tickets":[20658,23452],"day32":[25291,28591],"note":"USJ 票價用 2026 浮動價；Express 以 7 人 ¥6,800 起計"}
     ],
+    "pending": ["三餐", "Harvest Hill 採草莓費（2027 規則 11 月上旬公布）", "北野梅苑兒童／幼兒費", "USJ 2027 年 3 月實際票價與 Express 張數（約入園前 2 個月開賣）", "USJ 園內餐飲", "兒童安全座椅加價（第 2、3 張）", "其他市區短程交通", "2027 年實際房價（訂房系統尚未開放）"],
+    "changes": "和舊版比：包車費依新查行情調高、北野梅苑門票改為官網 ¥2,800～3,000、USJ 餐飲與 Express 舊估算無來源已移到待查；方案二因京都日包車全日，現在比方案一多約 NT$5,000～6,000。",
     "src": "20-預算/總預算對照.md"
   },
 
@@ -1107,7 +1119,7 @@ function altEntry(d){
 
 function legRows(planId){
   const out = [], seen = new Set();
-  schedule(planId, S.usj).forEach(r => [...(r.d.stops||[])].sort((a,b) => toMin(a.time)-toMin(b.time)).forEach(st => {
+  schedule(planId, 'none').forEach(r => [...(r.d.stops||[])].sort((a,b) => toMin(a.time)-toMin(b.time)).forEach(st => {
     const k = r.i + '/' + st.leg; // 同一天去回程共用路段只算一次
     if (st.leg && TR()[st.leg] && !seen.has(k)){ seen.add(k); out.push({r, st, id: st.leg, g: TR()[st.leg]}); }
   }));
@@ -1127,31 +1139,36 @@ function transportBudget(){
   const table = rows => `<div style="overflow-x:auto"><table class="cmp"><thead><tr><th>日</th><th>路段</th><th>大眾運輸</th><th>包車／計程車</th><th>建議／我選</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   const planBlock = pid => {
     const rows = legRows(pid); if (!rows.length) return '';
-    const tot = {pt:0, car:0}, miss = {pt:0, car:0};
+    const tot = {pt:0, car:0, rec:0}, miss = {pt:0, car:0, rec:0};
     const add = (k, o) => { const y = o ? yenOf(o) : null; if (y == null) miss[k]++; else tot[k] += y; };
     const body = rows.map(({r, st, id, g}) => {
       const pt = g.options.find(isPt), car = g.options.find(o => !isPt(o));
       add('pt', pt); add('car', car);
+      const ro = g.options.find(o => o.id === g.pick);
+      if (ro) add('rec', ro); else if (g.pick === 'mix' && yenOf(pt) != null && yenOf(car) != null) tot.rec += (yenOf(pt) + yenOf(car)) / 2; else miss.rec++;
       return `<tr><td class="d">D${r.n}<br><span class="tiny muted">${esc(st.time)}</span></td><td class="small">${esc(legName(g))}</td><td class="small">${cell(pt)}</td><td class="small">${cell(car)}</td><td class="small">${useCell(id, g)}</td></tr>`;
     }).join('');
-    const sum = k => `約 ¥${tot[k].toLocaleString()}${miss[k]?`<span class="tiny muted">（另 ${miss[k]} 段待查）</span>`:''}`;
+    const fx = T.budget?.fx || 0.22;
+    const sum = k => `約 ¥${Math.round(tot[k]).toLocaleString()}<span class="tiny muted">（≈NT$${Math.round(tot[k]*fx).toLocaleString()}）</span>${miss[k]?`<span class="tiny muted">（另 ${miss[k]} 段待查）</span>`:''}`;
     return `<div class="card ${S.plan===pid?'plan-card sel':''}" style="padding:6px">
       <h3 style="padding:6px 8px 0">${esc(T.plans[pid].name)}：${esc(T.plans[pid].label)}</h3>
       ${table(body)}
       <div class="facts" style="padding:0 6px 6px">
         <div class="fact"><div class="t">🚇 全選大眾運輸（估算）</div><div class="v">${sum('pt')}</div></div>
         <div class="fact"><div class="t">🚐 全選包車／計程車（估算）</div><div class="v">${sum('car')}</div></div>
+        <div class="fact"><div class="t">✅ 依建議（＝總預算的交通）</div><div class="v">${sum('rec')}</div></div>
       </div></div>`;
   };
   const flex = [];
+  (T.days[T.usj.day]?.stops||[]).forEach(st => { if (st.leg && TR()[st.leg] && !flex.some(x => x.id === st.leg)) flex.push({c:{icon:'🎢'}, id: st.leg, g: TR()[st.leg]}); });
   Object.values(T.days).forEach(d => (d.choices||[]).forEach(c => { if (c.leg && TR()[c.leg]) flex.push({c, id: c.leg, g: TR()[c.leg]}); }));
-  const flexHtml = flex.length ? `<div class="card" style="padding:6px"><h3 style="padding:6px 8px 0">彈性日三選一 <span class="tiny muted">（不加總）</span></h3>
+  const flexHtml = flex.length ? `<div class="card" style="padding:6px"><h3 style="padding:6px 8px 0">3/02 選項：USJ 或彈性日三選一 <span class="tiny muted">（不加總，計在總預算的 3/02 欄）</span></h3>
     ${table(flex.map(({c, id, g}) => { const pt = g.options.find(isPt), car = g.options.find(o => !isPt(o));
       return `<tr><td class="d">${esc(c.icon||'')}</td><td class="small">${esc(legName(g))}</td><td class="small">${cell(pt)}</td><td class="small">${cell(car)}</td><td class="small">${useCell(id, g)}</td></tr>`; }).join(''))}</div>` : '';
   const notes = [...new Set(Object.values(TR()).map(g => g.note).filter(Boolean))];
   const usjT = T.usj.options.find(o => o.id === S.usj)?.label || '';
   return `<h2 class="sec-title">🚦 交通預算 <span class="tiny muted">（日圓，全團，估算）</span></h2>
-    <p class="tiny muted" style="margin-top:-4px">兩個方案各自只算用到的路段（目前 USJ 選項：${esc(usjT)}）；去回程合在同一段的只算一次。到「📅 行程」交通站展開「🚦 交通方式比較」可以投票。</p>
+    <p class="tiny muted" style="margin-top:-4px">兩個方案各自只算固定行程用到的路段（3/02 的 USJ／彈性日另列）；去回程合在同一段的只算一次；建議是「去程／回程各一種」的路段，以兩種方式的平均計。匯率 1 日圓＝${T.budget?.fx || 0.22} 台幣。到「📅 行程」交通站展開「🚦 交通方式比較」可以投票。</p>
     ${planBlock('p1')}${planBlock('p2')}${flexHtml}
     ${notes.length ? `<p class="tiny muted">${notes.map(esc).join('<br>')}</p>` : ''}`;
 }
@@ -1199,11 +1216,20 @@ function viewCompare(){
       ${linksRow(tp.links)}<p class="tiny muted">詳細：${srcLink(tp.src)}</p>
       ${voteRow('topic/' + tp.id + '/note')}</div>`;
   };
-  const B = T.budget, yn = b => b ? '✅' : '—';
-  const budgetHtml = `<h2 class="sec-title">💰 總預算對照 <span class="tiny muted">（新台幣，全團）</span></h2>
-    <div class="card" style="padding:6px;overflow-x:auto"><table class="cmp"><thead><tr><th>住宿</th><th>USJ</th><th>總額</th><th>說明</th></tr></thead><tbody>
-    ${B.rows.map(r => `<tr class="${S.plan===(r.plan==='方案一'?'p1':'p2') && (S.usj!=='none')===r.usj ? 'cur' : ''}"><td>${esc(r.plan)}</td><td>${yn(r.usj)}</td><td><b>${r.total.toLocaleString()}</b></td><td class="small"><span class="pill info">${esc(r.tag)}</span> ${esc(r.note)}</td></tr>`).join('')}
-    </tbody></table><p class="tiny muted" style="padding:0 8px">${esc(B.note)} 粗體框＝目前上方選的方案與 USJ。詳細：${srcLink(B.src)}</p></div>`;
+  const B = T.budget, nt = v => 'NT$' + Math.round(v).toLocaleString(), rng = a => Array.isArray(a) ? (a[0]===a[1] ? nt(a[0]) : `${nt(a[0])}～${nt(a[1]).replace('NT$','')}`) : nt(a);
+  const curRow = r => S.plan===(r.plan==='方案一'?'p1':'p2') && (S.usj!=='none')===r.usj;
+  const budgetHtml = `<h2 class="sec-title">💰 總預算對照 <span class="tiny muted">（新台幣，全團，區間）</span></h2>
+    <div class="card">
+    ${B.rows.map(r => `<details class="brow ${curRow(r)?'cur':''}"><summary><span><b>${esc(r.plan)}</b>・${r.usj?'🎢 去 USJ':'不去 USJ'}</span><b class="bamt">${rng([r.min, r.max])}</b></summary>
+      <dl class="kv small">
+        <dt>🏨 住宿</dt><dd>${rng(r.hotel)}</dd>
+        <dt>🚦 交通</dt><dd>${rng(r.transport)}<span class="tiny muted">（依各段建議）</span></dd>
+        <dt>🎟️ 門票</dt><dd>${rng(r.tickets)}</dd>
+        <dt>📅 3/02</dt><dd>${rng(r.day32)}<span class="tiny muted">（${r.usj?'USJ':'彈性日三選一'}）</span></dd>
+      </dl>${r.note?`<p class="tiny muted" style="margin:6px 0 0">${esc(r.note)}</p>`:''}</details>`).join('')}
+    ${(B.pending||[]).length?`<div class="callout warn"><b>⚠️ 待查，未計入總額</b><ul class="small" style="margin:4px 0 0;padding-left:1.2em">${B.pending.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></div>`:''}
+    ${B.changes?`<p class="small" style="margin:10px 0 0">🔁 ${esc(B.changes)}</p>`:''}
+    <p class="tiny muted" style="margin-bottom:0">${esc(B.note)} 點每一列可看分項；粗框＝目前上方選的方案與 USJ。詳細：${srcLink(B.src)}</p></div>`;
   const bookHtml = `<h2 class="sec-title">⏰ 預約時程 <span class="tiny muted">（要搶的先排前面）</span></h2>
     <div class="card"><table class="cmp"><tbody>${T.bookings.items.map(b => `<tr><td class="d">${esc(b.when)}</td><td><b>${esc(b.what)}</b><div class="tiny muted">${esc(b.how)}｜${esc(b.tip)}</div>${safeUrl(b.url)?`<a class="tiny" href="${esc(b.url)}" target="_blank" rel="noopener">🔗 官網</a>`:''}</td></tr>`).join('')}</tbody></table>
     <p class="tiny muted">${esc(T.bookings.note)} 詳細：${srcLink(T.bookings.src)}</p></div>`;
