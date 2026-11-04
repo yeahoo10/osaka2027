@@ -156,6 +156,23 @@ main{padding-top:14px}
 .stop.travel .body{background:transparent;border:1.5px dashed var(--line);padding:8px 10px}
 .stop.travel .pm h3{font-size:.92rem;font-weight:700;color:var(--muted)}
 .stop.travel .pm .meta{color:var(--muted)}
+/* 交通比較 */
+details.tcmp{margin-top:8px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:0 10px}
+details.tcmp > summary{cursor:pointer;list-style:none;font-weight:800;font-size:.88rem;color:var(--brand);padding:10px 0;min-height:44px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+details.tcmp > summary::-webkit-details-marker{display:none}
+details.tcmp > summary:before{content:"▸"}
+details.tcmp[open] > summary:before{content:"▾"}
+.topts{display:grid;gap:8px;padding-bottom:6px}
+@media (min-width:560px){.topts{grid-template-columns:1fr 1fr}}
+.topt{border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--bg);min-width:0}
+.topt.rec{border:2px solid var(--ok)}
+.topt.mine{box-shadow:0 0 0 3px var(--q)}
+.topt h4{font-size:.95rem;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.topt .kv{font-size:.82rem}
+.topt .kv dd{min-width:0;overflow-wrap:anywhere}
+.mvote{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.mvote button{flex:1 1 140px}
+.ttips{margin:6px 0;padding-left:1.2em;font-size:.82rem}
 .why{margin-top:8px}
 .why b{color:var(--time)}
 .credit{margin:6px 0 0}
@@ -283,6 +300,10 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
   - 備選分類：alternates.items 的 cat 可填 spot（景點，預設）／food（餐廳）／shop（購物），
     分類名稱在 alternates.cats；投票鍵一律是 alt/<id>，id 不可重複。
     出處是 repo 裡的檔案就填 src（路徑），不是檔案就填 srcT（純文字）。
+  - 交通比較：transport 以路段 id 為 key，{from,to,options:[{id,label,route,time,cost,yen,
+    stroller,pros,cons}],pick,tips:[{t,url}],links:[{t,url}]}；yen＝全團日圓數字（加總用，
+    沒填會從 cost 的「全團約 ¥X」讀）。大眾運輸選項 id 用 pt。stop 加 "leg":"<路段 id>"
+    就會出現比較與投票（投票鍵 move/<路段 id>）。
   - 尚未查證的資訊請寫「待查（T5-1）」之類，對應 agy待查任務清單.md 的任務編號。
   - 個資規則：只寫角色代稱，嚴禁真實姓名、證件、電話、Email、訂位代號、座位號碼。
   - 改了 JSON 後，請把 sw.js 的 CACHE 版本號 +1，讓家人手機抓到新版。
@@ -668,6 +689,8 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
     "src": "20-預算/總預算對照.md"
   },
 
+  "transport": {},
+
   "bookings": {
     "note": "日期以台灣時間為準；餐廳開放日依各店公告，以實際為準。",
     "items": [
@@ -891,6 +914,29 @@ function placeGuide(p){
     (p.tip?`<div class="callout rest"><b>💡 建議</b>${esc(p.tip)}</div>`:'') +
     (p.warn?`<div class="callout warn"><b>⚠️ 注意</b>${esc(p.warn)}</div>`:'');
 }
+/* ---------- 交通比較（transport／leg） ---------- */
+const TR = () => T.transport || {};
+const yenOf = o => { if (typeof o.yen === 'number') return o.yen; const m = String(o.cost||'').match(/全團[^¥]*¥\s*([\d,]+)/); return m ? +m[1].replace(/,/g,'') : null; };
+const legName = g => `${g.from||''} → ${g.to||''}`;
+const legChoice = id => { const g = TR()[id]; if (!g) return null; const v = S.votes['move/'+id]; return g.options.find(o => o.id === v) || null; };
+function mvoteBtns(id){
+  const g = TR()[id], k = 'move/' + id;
+  return `<div class="mvote" data-mkey="${esc(k)}">${g.options.map(o => `<button class="btn" data-act="mvote" data-key="${esc(k)}" data-v="${esc(o.id)}" aria-pressed="${S.votes[k]===o.id}">${esc(o.label)}</button>`).join('')}</div>`;
+}
+function legHtml(id){
+  const g = TR()[id]; if (!g || !(g.options||[]).length) return '';
+  const k = 'move/' + id, mine = S.votes[k], rec = g.options.find(o => o.id === g.pick);
+  const row = (t, v) => v ? `<dt>${t}</dt><dd>${esc(v)}</dd>` : '';
+  const opts = g.options.map(o => `<div class="topt ${o.id===g.pick?'rec':''} ${o.id===mine?'mine':''}" data-oid="${esc(o.id)}">
+      <h4>${esc(o.label)}${o.id===g.pick?'<span class="pill ok">👍 建議</span>':''}</h4>
+      <dl class="kv">${row('🗺️ 路線', o.route)}${row('⏱️ 時間', o.time)}${row('💴 費用', o.cost)}${row('👶 推車', o.stroller)}${row('👍 優點', o.pros)}${row('👎 缺點', o.cons)}</dl></div>`).join('');
+  const tips = (g.tips||[]).length ? `<div class="small" style="font-weight:800;margin-top:6px">💬 社群建議</div><ul class="ttips">${g.tips.map(t => `<li>${extUrl(t.url) ? `<a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.t)}</a>` : esc(t.t)}</li>`).join('')}</ul>` : '';
+  return `<details class="tcmp" data-leg="${esc(id)}"><summary>🚦 交通方式比較 ${rec?`<span class="chip g">建議：${esc(rec.label)}</span>`:''}<span class="chip mysel ${mine?'':'hide'}">我選：${esc(g.options.find(o=>o.id===mine)?.label||'')}</span></summary>
+    <div class="tiny muted" style="margin-bottom:6px">${esc(legName(g))}</div>
+    <div class="topts">${opts}</div>
+    <div class="small" style="font-weight:800">我想要：</div>${mvoteBtns(id)}
+    ${tips}${linksRow(g.links)}</details>`;
+}
 function stopBtns(st){
   const p = st.place && T.places[st.place];
   if (!p) return '';
@@ -916,6 +962,7 @@ function stopHtml(dayId, st, cls="", mode="full", n=null, leg=false, showNav=tru
           <h3>${esc(st.title)}</h3>${sub?`<div class="sub">${sub}</div>`:''}</div>${nav}</div>
       ${st.fixed?'<div class="chips"><span class="pill ok">✅ 已確定</span></div>':''}
       ${st.note?`<div class="note">${esc(st.note)}</div>`:''}
+      ${st.leg?legHtml(st.leg):''}
       ${st.rest||!full?'':placeGuide(p)}
       ${st.rest||!full?'':placeBits(st)}
       ${full?stopBtns(st):''}
@@ -1039,6 +1086,37 @@ function altEntry(d){
     <div class="btns"><button class="btn primary" data-act="altgo" data-id="spot">看備選景點清單</button></div></section>`;
 }
 
+function legRows(){
+  const out = [];
+  schedule().forEach(r => [...(r.d.stops||[])].sort((a,b) => toMin(a.time)-toMin(b.time)).forEach(st => {
+    if (st.leg && TR()[st.leg]) out.push({r, st, id: st.leg, g: TR()[st.leg]});
+  }));
+  return out;
+}
+function transportBudget(){
+  const rows = legRows(); if (!rows.length) return '';
+  const isPt = o => o.id === 'pt';
+  const tot = {pt:0, car:0, mine:0}, miss = {pt:0, car:0, mine:0}; let undecided = 0;
+  const add = (k, o) => { const y = o ? yenOf(o) : null; if (y == null) miss[k]++; else tot[k] += y; };
+  const body = rows.map(({r, st, id, g}) => {
+    const pt = g.options.find(isPt), car = g.options.find(o => !isPt(o));
+    const mine = legChoice(id), rec = g.options.find(o => o.id === g.pick);
+    add('pt', pt || g.options[0]); add('car', car || g.options[0]);
+    const use = mine || rec || pt || g.options[0]; if (!mine && !rec) undecided++;
+    add('mine', use);
+    const cell = o => o ? `${esc(o.label)}<br><span class="tiny muted">${esc(o.time||'')}・${yenOf(o)!=null?'¥'+yenOf(o).toLocaleString():'費用待查'}</span>` : '—';
+    return `<tr><td class="d">D${r.n}<br><span class="tiny muted">${esc(st.time)}</span></td><td class="small">${esc(legName(g))}</td><td class="small">${cell(pt)}</td><td class="small">${cell(car)}</td><td class="small">${esc(use.label)}${mine?'<br><span class="tiny muted">（我選）</span>':rec?'<br><span class="tiny muted">（建議）</span>':''}</td></tr>`;
+  }).join('');
+  const sum = k => `¥${tot[k].toLocaleString()}${miss[k]?`<span class="tiny muted">（另有 ${miss[k]} 段費用待查）</span>`:''}`;
+  return `<h2 class="sec-title">🚦 交通預算 <span class="tiny muted">（日圓，全團；依上方選的方案）</span></h2>
+    <div class="card" style="padding:6px"><div style="overflow-x:auto"><table class="cmp"><thead><tr><th>日</th><th>路段</th><th>大眾運輸</th><th>包車／計程車</th><th>採用</th></tr></thead><tbody>${body}</tbody></table></div>
+    <div class="facts" style="padding:0 6px 6px">
+      <div class="fact"><div class="t">🚇 全選大眾運輸</div><div class="v">${sum('pt')}</div></div>
+      <div class="fact"><div class="t">🚐 全選包車／計程車</div><div class="v">${sum('car')}</div></div>
+      <div class="fact"><div class="t">✅ 依我的選擇＋建議</div><div class="v">${sum('mine')}</div></div>
+    </div>
+    <p class="tiny muted" style="padding:0 8px">「採用」欄：有投票用你的選擇，沒有就用建議${undecided?`；${undecided} 段兩者都沒有，暫以大眾運輸計`:''}。到「📅 行程」各交通站展開「🚦 交通方式比較」可以選。</p></div>`;
+}
 function viewCompare(){
   const a = schedule('p1'), b = schedule('p2');
   const planCard = id => {
@@ -1105,7 +1183,7 @@ function viewCompare(){
     <div class="card tbd"><h3>大阪（方案一 5 晚／方案二 7 晚）</h3>${hotelList(T.hotels.osaka)}</div></div>
     <p class="tiny muted">${esc(T.hotels.priceNote)} 詳細：${srcLink('20-預算/住宿比價_2027-02.md')}</p>
     ${T.topics.map(topicHtml).join('')}
-    ${budgetHtml}${bookHtml}${srcHtml}`;
+    ${budgetHtml}${transportBudget()}${bookHtml}${srcHtml}`;
 }
 
 /* ---------- alternates（備選景點） ---------- */
@@ -1194,6 +1272,7 @@ function labelIndex(){
   const catT = {spot:'🗺️ 備選景點', food:'🍽️ 備選餐廳', shop:'🛍️ 備選購物'};
   (T.alternates?.items||[]).forEach(x => m['alt/'+x.id] = `${catT[x.cat||'spot'] || '🗺️ 備選'}｜${x.name}`);
   // 舊版「天橋立去不去」投票（已決定不去），留著讓舊意見還看得懂
+  Object.entries(T.transport||{}).forEach(([id, g]) => m['move/'+id] = `🚦 交通｜${legName(g)}`);
   m['d-harvest/animal'] ??= '草莓日｜餵水豚、羊駝、小羊＋森林小火車（舊投票）';
   m['d-lego/wheel'] ??= '天保山大摩天輪（舊投票，已改為備案）'; m['alt/kaiyukan'] ??= '🗺️ 備選景點｜海遊館（已排入天保山日）';
   m['topic/amano'] ??= '🌊 天橋立（舊投票，已決定不去）'; m['topic/amano/note'] ??= '🌊 天橋立（舊投票）｜整體意見';
@@ -1202,6 +1281,8 @@ function labelIndex(){
 const valLabel = (k, v) => {
   if (k === 'plan') return T.plans[v]?.name + ' ' + T.plans[v]?.label;
   if (k === 'usj') return T.usj.options.find(o=>o.id===v)?.label || v;
+  const mv = k.match(/^move\/(.+)$/);
+  if (mv) return (T.transport||{})[mv[1]]?.options.find(o=>o.id===v)?.label || v;
   const tm = k.match(/^topic\/([^/]+)$/);
   if (tm) return (T.topics||[]).find(t=>t.id===tm[1])?.options.find(o=>o.id===v)?.label || v;
   return VLABEL[v] || v;
@@ -1223,6 +1304,12 @@ function exportText(){
   t += `\n\n（規劃者彙整用，請整段保留）\nOSK27:${code}`;
   return t;
 }
+function moveSummary(){
+  const ids = Object.keys(TR()); if (!ids.length) return '';
+  const picked = ids.filter(id => S.votes['move/'+id]);
+  return `<div class="small" style="margin:6px 0"><b>🚦 我的交通選擇</b>（${picked.length}／${ids.length} 段）` +
+    (picked.length ? `<ul class="ttips">${picked.map(id => `<li>${esc(legName(TR()[id]))}：${esc(legChoice(id)?.label||'')}</li>`).join('')}</ul>` : `<span class="muted">：還沒選，到「📅 行程」交通站展開「🚦 交通方式比較」選擇。</span>`) + `</div>`;
+}
 function viewVote(){
   const n = voteCount();
   return `<h2 class="sec-title">💬 我的意見</h2>
@@ -1236,6 +1323,7 @@ function viewVote(){
   </section>
   <section class="card">
     <h3>已表態 ${n} 項</h3>
+    ${moveSummary()}
     ${n ? `<pre style="white-space:pre-wrap;font-family:inherit;font-size:.82rem;background:var(--bg);padding:10px;border-radius:12px;max-height:260px;overflow:auto">${esc(exportText())}</pre>`
         : `<p class="small muted">還沒有。去「📅 行程」、「🗺️ 備選」或「⚖️ 比較」頁，在景點下面點 👍／❤️／👎／❓。</p>`}
     <div class="btns">
@@ -1386,6 +1474,16 @@ document.addEventListener('click', ev => {
     updBadge();
   }
   else if (a === 'cm'){ const c = $('.cbox', el.closest('.votes')); c.classList.toggle('hide'); if (!c.classList.contains('hide')) $('textarea', c).focus(); }
+  else if (a === 'mvote'){
+    const k = el.dataset.key, v = el.dataset.v, id = k.slice(5);
+    if (S.votes[k] === v) delete S.votes[k]; else S.votes[k] = v;
+    LS.set('votes', S.votes); updBadge();
+    $$(`.mvote[data-mkey="${CSS.escape(k)}"] button`).forEach(b => b.setAttribute('aria-pressed', S.votes[k] === b.dataset.v));
+    $$(`details.tcmp[data-leg="${CSS.escape(id)}"]`).forEach(d => {
+      $$('.topt', d).forEach(t => t.classList.toggle('mine', t.dataset.oid === S.votes[k]));
+      const c = $('.mysel', d), o = legChoice(id); c.classList.toggle('hide', !o); c.textContent = o ? '我選：' + o.label : '';
+    });
+  }
   else if (a === 'pick'){ const k = el.dataset.key; if (S.votes[k] === el.dataset.v) delete S.votes[k]; else S.votes[k] = el.dataset.v; LS.set('votes', S.votes); render(true); }
   else if (a === 'copy') copy(exportText());
   else if (a === 'line') window.open('https://line.me/R/share?text=' + encodeURIComponent(exportText()), '_blank', 'noopener');
