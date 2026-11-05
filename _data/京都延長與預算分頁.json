@@ -1,5 +1,5 @@
 {
- "_說明": "2026-11-05 規劃者核對。給雲端：(1) 方案一 p1-d3 整天換成下面 days.p1-d3；新增 places.byodoin、places.gion；更新 places.kitano.tip；transport.kyoto-osaka-move 整個換掉；alternates.items 加 osaka-castle-p1，uji 項目加註「方案一已排入 2/26」；plans.p1.cons 第 1 條改成 2/26 全日包車。(2) budget 整個換成下面 budget；新增「💰預算」分頁放在「比較」和「備選」之間，把比較頁裡的總預算、交通預算表搬過去，再加 buyGuide（逐項怎麼買）、usjDetail（USJ 明細）、express（快速通關買不買）。完成後刪除 _data/ 並 sw.js CACHE +1。",
+ "_說明": "2026-11-05 規劃者核對。給雲端：(1) 方案一 p1-d3 整天換成下面 days.p1-d3；新增 places.byodoin、places.gion；更新 places.kitano.tip；transport.kyoto-osaka-move 整個換掉；新增 days.p1-d4（方案一 2/27，大阪城上午＋原 d4-meet 下午），plans.p1.days 照 planDays 換成 p1-d4（方案二仍用 d4-meet）；alternates.items 加 kuromon-p1，uji 項目加註「方案一已排入 2/26」；plans.p1.cons 第 1 條改成 2/26 全日包車。(2) budget 整個換成下面 budget；新增「💰預算」分頁放在「比較」和「備選」之間，把比較頁裡的總預算、交通預算表搬過去，再加 buyGuide（逐項怎麼買）、usjDetail（USJ 明細）、express（快速通關買不買）。完成後刪除 _data/ 並 sw.js CACHE +1。",
  "days": {
   "p1-d3": {
    "title": "宇治平等院 ➔ 祇園看舞妓 ➔ 傍晚移動大阪",
@@ -101,6 +101,103 @@
      "icon": "🏨",
      "title": "入住大阪飯店，司機幫忙卸行李",
      "place": "hotel-osaka"
+    }
+   ]
+  },
+  "p1-d4": {
+   "title": "大阪城梅林＋御座船 ＋ 第 9 位成員抵達 ＋ HARUKAS 夕陽",
+   "city": "大阪",
+   "sleep": "心齋橋／難波",
+   "transport": "地鐵",
+   "people": "8 → 9 人",
+   "rest": "13:30–16:30 主部隊回飯店大休息，等第 9 位成員。",
+   "rain": "梅林改去大阪歷史博物館（電梯直上 10F 落地窗看大阪城，全室內）；HARUKAS 與 Q's Mall 全室內。",
+   "warn": "2/27 是週六，梅林人多，9:30 前出發。地鐵一日券週末 ¥620。",
+   "stops": [
+    {
+     "id": "metro",
+     "leg": "castle-go",
+     "travel": true,
+     "time": "09:30",
+     "icon": "🚇",
+     "title": "地鐵 心齋橋 → 森之宮（約 10 分鐘）",
+     "place": "osaka-castle",
+     "mode": "transit",
+     "move": "長堀鶴見綠地線，兩站都有無障礙電梯"
+    },
+    {
+     "id": "plum",
+     "time": "10:00",
+     "icon": "🌸",
+     "title": "大阪城梅林",
+     "place": "osaka-castle",
+     "note": "約 1,270 株梅花 2 月下旬見頃，地面平坦推車好走；到天守閣的上坡搭 Road Train。"
+    },
+    {
+     "id": "boat",
+     "time": "11:15",
+     "icon": "🚤",
+     "title": "御座船（約 20 分鐘）",
+     "place": "osaka-castle",
+     "note": "到了先去極樂橋登記班次。"
+    },
+    {
+     "id": "lunch",
+     "time": "12:00",
+     "icon": "🍽️",
+     "title": "JO-TERRACE OSAKA 午餐",
+     "place": "jo-terrace",
+     "mode": "walking"
+    },
+    {
+     "id": "fl9",
+     "leg": "member9",
+     "time": "11:15",
+     "end": "14:45",
+     "icon": "✈️",
+     "title": "第 9 位成員 CX564 桃園 → 關西",
+     "fixed": true,
+     "vote": false,
+     "note": "抵達後搭南海 Rapi:t（約 38 分）到難波，再搭計程車 5～7 分鐘到飯店。用 LINE 回報班次。"
+    },
+    {
+     "id": "nap",
+     "leg": "castle-back",
+     "time": "13:30",
+     "end": "16:30",
+     "icon": "😴",
+     "title": "回飯店午休，等第 9 位成員",
+     "place": "hotel-osaka",
+     "mode": "transit",
+     "rest": true,
+     "vote": false
+    },
+    {
+     "id": "meet",
+     "time": "16:45",
+     "icon": "🎉",
+     "title": "9 人在飯店會合、拍全家福",
+     "place": "hotel-osaka"
+    },
+    {
+     "id": "harukas",
+     "leg": "harukas-go",
+     "time": "17:30",
+     "end": "18:30",
+     "icon": "🌇",
+     "title": "HARUKAS 300 展望台夕陽 ＋ Q's Mall 阿卡將",
+     "place": "harukas",
+     "mode": "transit",
+     "move": "地鐵御堂筋線 心齋橋 → 天王寺約 10 分鐘（電梯）"
+    },
+    {
+     "id": "dinner",
+     "time": "18:30",
+     "end": "20:30",
+     "icon": "🍲",
+     "title": "9 人團聚晚餐（建議預約包廂）",
+     "place": "harukas",
+     "note": "候選：難波「炙屋」燒肉（連通沙發大桌）、阿倍野 HARUKAS 餐廳樓層、心齋橋しゃぶ亭。用餐前約 30 天在 TableCheck／官網預約。"
     }
    ]
   }
@@ -213,27 +310,35 @@
  },
  "alternatesAdd": [
   {
-   "id": "osaka-castle-p1",
+   "id": "kuromon-p1",
    "region": "osaka",
-   "fit": "top",
-   "icon": "🏯",
-   "name": "大阪城梅林＋御座船（方案一）",
-   "q": "大阪城公園",
-   "why": "方案一 2/26 改留京都後，大阪城從行程移出；可排在 3/02 彈性日或 2/27 上午。梅林 2 月下旬見頃。",
-   "tip": "御座船 ¥1,500～1,800、Road Train 大人 ¥400／4 歲以上 ¥200（2025～2026）；地鐵到森之宮站。方案二仍排在 2/25。",
-   "elev": "森之宮站有電梯；到天守閣是長上坡，搭 Road Train",
+   "fit": "ok",
+   "icon": "🦀",
+   "name": "黑門市場（方案一）",
+   "q": "黒門市場",
+   "why": "方案一 2/27 上午改去大阪城後移到備選；烤海鮮、草莓大福，有屋頂雨天也能逛。方案二仍排在 2/27。",
+   "tip": "離心齋橋步行或地鐵 1 站；早上 9～11 點人較少。",
+   "elev": "平地商店街",
    "baby": "待查",
-   "stroller": "ok",
-   "rain": "改去大阪歷史博物館",
-   "rainOk": false,
-   "links": [
-    {
-     "t": "大阪城御座船官網",
-     "url": "https://www.banpaku-bune.com/gozabune/"
-    }
-   ]
+   "stroller": "part",
+   "strollerNote": "走道窄、人多時推車不好走",
+   "rain": "有屋頂",
+   "rainOk": true,
+   "links": []
   }
  ],
+ "planDays": {
+  "p1": [
+   "p1-d1",
+   "p1-d2",
+   "p1-d3",
+   "p1-d4",
+   "d-harvest",
+   "d-lego",
+   "d-flex",
+   "d8-home"
+  ]
+ },
  "alternatesPatch": {
   "uji": {
    "note": "方案一已排入 2/26（宇治平等院 ➔ 祇園）"
@@ -261,14 +366,14 @@
    {
     "plan": "方案一",
     "usj": false,
-    "min": 212451,
-    "max": 252198,
+    "min": 215817,
+    "max": 255894,
     "parts": {
      "hotel": 104178,
-     "transport": 51528,
+     "transport": 52760,
      "tickets": [
-      19822,
-      22792
+      21956,
+      25256
      ],
      "berry": 4070,
      "meals": [
@@ -293,14 +398,14 @@
    {
     "plan": "方案一",
     "usj": true,
-    "min": 227428,
-    "max": 258503,
+    "min": 230794,
+    "max": 262199,
     "parts": {
      "hotel": 104178,
-     "transport": 51528,
+     "transport": 52760,
      "tickets": [
-      19822,
-      22792
+      21956,
+      25256
      ],
      "berry": 4070,
      "meals": [
@@ -326,14 +431,14 @@
     "plan": "方案一",
     "usj": true,
     "express": true,
-    "min": 242520,
-    "max": 285915,
+    "min": 245886,
+    "max": 289611,
     "parts": {
      "hotel": 104178,
-     "transport": 51528,
+     "transport": 52760,
      "tickets": [
-      19822,
-      22792
+      21956,
+      25256
      ],
      "berry": 4070,
      "meals": [
@@ -487,7 +592,7 @@
    "北野梅苑未就學幼兒費",
    "伴手禮與個人購物"
   ],
-  "changes": "方案一 2/26 改留京都（宇治平等院＋祇園，全日包車含行李，傍晚到大阪）：交通改全日包車、加平等院門票，大阪城移到備選。和舊版比：加入三餐與採草莓（往年價）、包車費依新查行情調高、北野梅苑改官網價 ¥2,800～3,000、USJ 改用 2026 同期價；方案二因京都日包車全日，比方案一多約 NT$5,000～6,000；依 2026 規則採草莓只在週四、六、日，方案二 3/1（週一）可能沒有。",
+  "changes": "方案一 2/26 改留京都（宇治平等院＋祇園，全日包車含行李，傍晚到大阪）：交通改全日包車、加平等院門票；大阪城改到 2/27 上午（第 9 位成員抵達前），黑門市場移到備選。和舊版比：加入三餐與採草莓（往年價）、包車費依新查行情調高、北野梅苑改官網價 ¥2,800～3,000、USJ 改用 2026 同期價；方案二因京都日包車全日，比方案一多約 NT$5,000～6,000；依 2026 規則採草莓只在週四、六、日，方案二 3/1（週一）可能沒有。",
   "src": "20-預算/總預算對照.md",
   "optional": [
    {
@@ -571,7 +676,7 @@
   },
   {
    "item": "🏯 大阪城御座船＋Road Train",
-   "plans": "方案二（2/25）",
+   "plans": "兩方案（方案一 2/27、方案二 2/25）",
    "price": "御座船 ¥1,500～1,800、Road Train 大人 ¥400／4 歲以上 ¥200（2025～2026）",
    "who": "成人＋5 歲（小火車）",
    "how": "現場買，先到極樂橋登記御座船班次",
