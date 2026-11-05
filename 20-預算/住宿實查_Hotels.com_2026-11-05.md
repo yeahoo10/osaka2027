@@ -154,6 +154,6 @@
   | 市公車 | — | 約 10～12 分（含走到站牌），坐車約 4 分，¥230 | 「七条大宮・京都水族館前」站牌步行 1 分；早上尖峰帶大行李不實際 |
   | 到京都站後 | — | 中央口 → B1 Crosta，站內約 3～5 分（agy 估，未核對） | 交件填單另計 |
 
-  結論：住 RESI 的話，2/26 早上要多排 **2 台計程車＋約 20～30 分**，原本 08:40 的 JR 奈良線很可能要延後一班。HANDS FREE 的條件是 13:00 前交件，時間足夠。
+  結論：住 RESI 的話，2/26 早上要多排 **2 台計程車＋約 20～30 分**，原本 08:40 的 JR 奈良線很可能要延後一班。Crosta 是 13:00 前交件，時間足夠。
 - **路書要修正**：PR #9 的 2/26 寫用 Airporter，實查名單不支援，應改成 Crosta。
 - 〔[Crosta 京都](https://handsfree-japan.com/kyoto/)、[京都端名單](https://handsfree-japan.com/kyoto/hotel/)、[大阪端名單](https://handsfree-japan.com/kyoto/osakahotel/)〕
