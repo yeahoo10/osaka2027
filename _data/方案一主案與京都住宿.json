@@ -1,0 +1,567 @@
+{
+ "_說明": "2026-11-05 規劃者核對。給雲端：(1) 方案一改為主方案：預設顯示方案一，行程、今天、比較、預算都以方案一為主；拿掉方案一／二並排切換（或收起來）。(2) 方案二整個移到「🗺️備選」頁，當成一大項「方案二：全住大阪 7 晚」（放在備選最上面），展開可看方案二的優缺點、預算 3 列、住宿、每日行程（可點進去看每天，沿用現有 dayHtml）。方案二資料不要刪。預算頁總預算表以方案一 3 列為主，方案二 3 列收進可展開的「方案二比較」。(3) 京都住宿暫選 VISCHIO：hotels.kyoto 中 id=h-vischio-kyoto 整筆換成 hotel（含 rooms 分房表，請顯示），排第一；其他京都飯店保留當候選，MIMARU 京都的 tag「首選」拿掉。places.hotel-kyoto 換成 place。days.p1-d1、p1-d2 的 sleep 換成 sleep。plans.p1.stays[0]、plans.p1.budget 照 planPatch。(4) budget 整個換成 budget。完成後刪除 _data/、sw.js CACHE +1，開 PR。",
+ "hotel": {
+  "id": "h-vischio-kyoto",
+  "name": "HOTEL VISCHIO KYOTO by GRANVIA",
+  "q": "HOTEL VISCHIO KYOTO",
+  "tag": "暫選",
+  "station": "京都站八條口步行約 2 分鐘",
+  "kitchen": "無廚房（冰箱、電熱水壺）",
+  "rooms": [
+   {
+    "who": "小家庭：2 大＋5 歲、3 歲、1 歲",
+    "room": "家庭房 Family Room",
+    "spec": "39.5㎡、110cm 床 × 4、可住 3～4 人、有沙發客廳角",
+    "note": "1 歲借嬰兒床（官網貸出備品有）；5 人能否同住一間要訂房前寫信確認"
+   },
+   {
+    "who": "2 位長輩＋叔叔",
+    "room": "三人房 Triple Room",
+    "spec": "26.2㎡、100cm 床 × 3、可住 2～3 人、1.5m 寬洗手台",
+    "note": "另有 Superior Twin 3 人使用（28.8㎡、120cm 床 2＋加床）可選"
+   }
+  ],
+  "price": "2 間：2 晚約 ¥90,531（NT$19,917）",
+  "priceNote": "Google Hotels 2026-11-05 查 2027/2/24～26：4 人約 ¥48,281、3 人約 ¥42,250（2 晚含稅，未指定房型，實際以訂房為準）",
+  "note": "JR 西日本 Granvia 系列，全室獨立洗手台與洗場的浴室；館內大浴場附三溫暖。check-in 15:00／check-out 11:00。",
+  "link": "https://www.hotelvischio-kyoto.jp/",
+  "links": [
+   {
+    "t": "官網：家庭房",
+    "url": "https://www.hotelvischio-kyoto.jp/rooms/family/"
+   },
+   {
+    "t": "官網：三人房",
+    "url": "https://www.hotelvischio-kyoto.jp/rooms/triple/"
+   },
+   {
+    "t": "官網：大浴場",
+    "url": "https://www.hotelvischio-kyoto.jp/bath/"
+   }
+  ]
+ },
+ "place": {
+  "name": "HOTEL VISCHIO KYOTO（暫選）",
+  "q": "HOTEL VISCHIO KYOTO",
+  "elev": "京都站八條口步行約 2 分鐘，平路",
+  "baby": "可借嬰兒床（需預約）；房內無廚房，熱水用電熱水壺",
+  "stroller": "ok",
+  "rain": "—",
+  "link": "https://www.hotelvischio-kyoto.jp/",
+  "tbd": false
+ },
+ "sleep": "京都站八條口 HOTEL VISCHIO KYOTO（暫選）：家庭房＋三人房",
+ "planPatch": {
+  "p1": {
+   "stays0": "2/24–2/26 京都站八條口 HOTEL VISCHIO KYOTO 2 晚（暫選：家庭房＋三人房）",
+   "budget": "住宿約 NT$94,963（京都 VISCHIO 2 間 2 晚約 NT$19,917＋大阪 MIMARU 2 間 5 晚約 NT$75,046；Google Hotels 含稅價，會浮動）"
+  }
+ },
+ "budget": {
+  "note": "全團總額（NT$），匯率 1 日圓＝0.22 台幣。2027 年價格還沒公布的用往年價（註明年份），接近出發時再查；機票已付不計、天橋立不去不列。Google Gemini 用 MCP 查詢、規劃者 2026-11-04 核對重算。",
+  "fx": 0.22,
+  "labels": {
+   "hotel": "🏨 住宿",
+   "transport": "🚐 交通（依建議）",
+   "tickets": "🎟️ 門票",
+   "berry": "🍓 採草莓（2026 官網價）",
+   "meals": "🍱 三餐（往年行情粗估）",
+   "seats": "💺 兒童座椅加價",
+   "city": "🚇 其他市區電車",
+   "day32": "🎢 3/02"
+  },
+  "rows": [
+   {
+    "plan": "方案一",
+    "usj": false,
+    "min": 195602,
+    "max": 235679,
+    "parts": {
+     "hotel": 94963,
+     "transport": 41760,
+     "tickets": [
+      21956,
+      25256
+     ],
+     "berry": 4070,
+     "meals": [
+      26851,
+      47872
+     ],
+     "seats": [
+      2640,
+      4400
+     ],
+     "city": [
+      660,
+      1320
+     ],
+     "day32": [
+      2702,
+      16038
+     ]
+    },
+    "note": "3/02 彈性日三選一（Kids Plaza 最省、神戶動物王國最貴）"
+   },
+   {
+    "plan": "方案一",
+    "usj": true,
+    "min": 210579,
+    "max": 241984,
+    "parts": {
+     "hotel": 94963,
+     "transport": 41760,
+     "tickets": [
+      21956,
+      25256
+     ],
+     "berry": 4070,
+     "meals": [
+      26851,
+      47872
+     ],
+     "seats": [
+      2640,
+      4400
+     ],
+     "city": [
+      660,
+      1320
+     ],
+     "day32": [
+      17679,
+      22343
+     ]
+    },
+    "note": "USJ 不含 Express（2026 同期價）"
+   },
+   {
+    "plan": "方案一",
+    "usj": true,
+    "express": true,
+    "min": 225671,
+    "max": 269396,
+    "parts": {
+     "hotel": 94963,
+     "transport": 41760,
+     "tickets": [
+      21956,
+      25256
+     ],
+     "berry": 4070,
+     "meals": [
+      26851,
+      47872
+     ],
+     "seats": [
+      2640,
+      4400
+     ],
+     "city": [
+      660,
+      1320
+     ],
+     "day32": [
+      32771,
+      49755
+     ]
+    },
+    "note": "USJ＋Express 4 七張（2026 同期 ¥9,800～17,800／張）"
+   },
+   {
+    "plan": "方案二",
+    "usj": false,
+    "min": 209778,
+    "max": 249349,
+    "parts": {
+     "hotel": 103903,
+     "transport": 48294,
+     "tickets": [
+      20658,
+      23452
+     ],
+     "berry": 4070,
+     "meals": [
+      26851,
+      47872
+     ],
+     "seats": [
+      2640,
+      4400
+     ],
+     "city": [
+      660,
+      1320
+     ],
+     "day32": [
+      2702,
+      16038
+     ]
+    },
+    "note": "3/02 彈性日三選一（Kids Plaza 最省、神戶動物王國最貴）"
+   },
+   {
+    "plan": "方案二",
+    "usj": true,
+    "min": 224755,
+    "max": 255654,
+    "parts": {
+     "hotel": 103903,
+     "transport": 48294,
+     "tickets": [
+      20658,
+      23452
+     ],
+     "berry": 4070,
+     "meals": [
+      26851,
+      47872
+     ],
+     "seats": [
+      2640,
+      4400
+     ],
+     "city": [
+      660,
+      1320
+     ],
+     "day32": [
+      17679,
+      22343
+     ]
+    },
+    "note": "USJ 不含 Express（2026 同期價）"
+   },
+   {
+    "plan": "方案二",
+    "usj": true,
+    "express": true,
+    "min": 239847,
+    "max": 283066,
+    "parts": {
+     "hotel": 103903,
+     "transport": 48294,
+     "tickets": [
+      20658,
+      23452
+     ],
+     "berry": 4070,
+     "meals": [
+      26851,
+      47872
+     ],
+     "seats": [
+      2640,
+      4400
+     ],
+     "city": [
+      660,
+      1320
+     ],
+     "day32": [
+      32771,
+      49755
+     ]
+    },
+    "note": "USJ＋Express 4 七張（2026 同期 ¥9,800～17,800／張）"
+   }
+  ],
+  "optional": [
+   {
+    "t": "祇園 Corner 舞妓表演（方案一 2/26，5 位成人，幼兒免費）",
+    "yen": 27500,
+    "nt": 6050,
+    "src": "官網 2026"
+   }
+  ],
+  "recheck": [
+   {
+    "t": "VISCHIO 家庭房能否住 2 大 3 小（5 歲佔床、3 歲同床、1 歲嬰兒床）與實際房價",
+    "when": "訂房前寫信問飯店"
+   },
+   {
+    "t": "住宿 2027 實價",
+    "when": "訂房系統開放後"
+   },
+   {
+    "t": "採草莓 2027 規則與價格",
+    "when": "2026 年 11 月上旬官網公布"
+   },
+   {
+    "t": "USJ 3/02 票價與 Express",
+    "when": "入園前約 2 個月"
+   },
+   {
+    "t": "海遊館、樂高浮動票價",
+    "when": "出發前 1 個月"
+   },
+   {
+    "t": "包車報價與兒童座椅",
+    "when": "確定方案後詢價"
+   },
+   {
+    "t": "北野梅苑 2027 入苑料",
+    "when": "2027 年 2 月初"
+   },
+   {
+    "t": "祇園 Corner 2027 冬季演出日",
+    "when": "出發前 1～2 個月"
+   }
+  ],
+  "pending": [
+   "北野梅苑未就學幼兒費",
+   "伴手禮與個人購物"
+  ],
+  "changes": "方案一京都住宿暫選 HOTEL VISCHIO KYOTO（家庭房＋三人房 2 間，Google Hotels 2026-11-05 查 2027/2/24～26 約 ¥90,531），方案一住宿降到約 NT$94,963。方案一 2/26 改留京都（宇治平等院＋祇園，全日包車含行李，傍晚到大阪）：行李當日配送＋電車、加平等院門票；大阪城改到 2/27 上午（第 9 位成員抵達前），黑門市場移到備選。和舊版比：加入三餐與採草莓（往年價）、包車費依新查行情調高、北野梅苑改官網價 ¥2,800～3,000、USJ 改用 2026 同期價；方案二因京都日包車全日，比方案一多約 NT$5,000～6,000；依 2026 規則採草莓只在週四、六、日，方案二 3/1（週一）可能沒有。",
+  "src": "20-預算/總預算對照.md",
+  "buyGuide": [
+   {
+    "item": "🎢 USJ 一日券",
+    "plans": "3/02 選 USJ 才買",
+    "price": "2026 同期：大人 ¥8,400～10,900、4～11 歲 ¥5,500～6,100（浮動價），未滿 4 歲免費",
+    "who": "6 大＋5 歲",
+    "how": "Klook／KKday 或 USJ 官網（官網常擋海外信用卡）；全員門票綁同一支手機的 USJ App",
+    "when": "入園前約 2 個月開賣，開賣就買（越接近越貴）",
+    "verdict": "必買（若去 USJ）",
+    "url": "https://www.usj.co.jp/web/zh/tw/"
+   },
+   {
+    "item": "⚡ USJ 快速通關",
+    "plans": "3/02 選 USJ 才考慮",
+    "price": "2026 同期 Express 4 每張 ¥9,800～17,800；4 歲以上都要一張",
+    "who": "—",
+    "how": "見下方「快速通關買不買」",
+    "when": "與門票同時",
+    "verdict": "不推薦全家買",
+    "url": "https://www.usj.co.jp/web/zh/tw/"
+   },
+   {
+    "item": "🚂 京都鐵道博物館",
+    "plans": "兩方案",
+    "price": "大人 ¥1,500、3 歲以上幼兒 ¥200（2026）",
+    "who": "全員",
+    "how": "現場售票機買即可；想省排隊可先在 KKday／Klook 買電子票",
+    "when": "不用提早",
+    "verdict": "現場買",
+    "url": "https://www.kyotorailwaymuseum.jp/"
+   },
+   {
+    "item": "🌸 北野天滿宮梅苑",
+    "plans": "兩方案",
+    "price": "官網：大人 前売 ¥2,800／當日 ¥3,000，小人 ¥1,400～1,500（附茶點）；未就學幼兒費待查",
+    "who": "成人",
+    "how": "前売券管道看官網公告；不然當天現場買",
+    "when": "2027 年 2 月初官網公布",
+    "verdict": "有前売就買（每人省 ¥200）",
+    "url": "https://kitanotenmangu.or.jp/guidance/baien/"
+   },
+   {
+    "item": "🍵 梅花祭野點大茶湯",
+    "plans": "兩方案（2/25）",
+    "price": "往年約 ¥3,000（Google Gemini 整理，未核對）",
+    "who": "想喝茶的大人",
+    "how": "境內現場售票，數量有限",
+    "when": "當天早點到",
+    "verdict": "自由參加（看舞妓奉茶）",
+    "url": "https://kitanotenmangu.or.jp/"
+   },
+   {
+    "item": "🏯 宇治平等院",
+    "plans": "方案一（2/26）",
+    "price": "官網：大人 ¥700，鳳凰堂內部另 ¥300／人",
+    "who": "成人",
+    "how": "現場買；內部參觀 9:10 起現場領時段券（每場 35 人）",
+    "when": "當天早到",
+    "verdict": "現場買、早點到",
+    "url": "https://www.byodoin.or.jp/guide/"
+   },
+   {
+    "item": "👘 祇園 Corner 舞妓表演",
+    "plans": "方案一（2/26，自選）",
+    "price": "官網：一般 ¥5,500，未就學免費（佔位要付費）",
+    "who": "成人",
+    "how": "官網線上購票",
+    "when": "出發前 1 個月確認演出日後訂",
+    "verdict": "想保證看到舞妓再買",
+    "url": "https://www.ookinizaidan.com/gion_coner/payment/"
+   },
+   {
+    "item": "🏯 大阪城御座船＋Road Train",
+    "plans": "兩方案（方案一 2/27、方案二 2/25）",
+    "price": "御座船 ¥1,500～1,800、Road Train 大人 ¥400／4 歲以上 ¥200（2025～2026）",
+    "who": "成人＋5 歲（小火車）",
+    "how": "現場買，先到極樂橋登記御座船班次",
+    "when": "當天",
+    "verdict": "現場買；不買大阪周遊卡",
+    "url": "https://www.banpaku-bune.com/gozabune/"
+   },
+   {
+    "item": "🌇 HARUKAS 300",
+    "plans": "兩方案（2/27）",
+    "price": "官網：大人 ¥2,200，5 歲以下免費",
+    "who": "6 位成人",
+    "how": "官網或 KKday／Klook 預購電子票，免在 16 樓排隊",
+    "when": "出發前",
+    "verdict": "預購",
+    "url": "https://www.abenoharukas-300.jp/"
+   },
+   {
+    "item": "🍓 Harvest Hill 入園＋採草莓",
+    "plans": "兩方案",
+    "price": "官網：入園 大人 ¥1,500、4 歲以上 ¥1,000；採草莓 2026 大人 ¥2,700、4 歲～未就學 ¥1,300、1～3 歲 ¥500",
+    "who": "全員",
+    "how": "採草莓官網預約制（2026 為前月抽選，只週四六日）；入園當天買",
+    "when": "2027 年規則公布後立刻報名",
+    "verdict": "一定要先報名",
+    "url": "https://farm.or.jp/"
+   },
+   {
+    "item": "🧱 樂高探索中心",
+    "plans": "兩方案",
+    "price": "3 歲以上 ¥2,500～3,300（2026），未滿 3 歲免費",
+    "who": "成人＋3、5 歲",
+    "how": "官網線上買、指定入場時段（線上通常比現場便宜）",
+    "when": "出發前 1 個月",
+    "verdict": "官網預購",
+    "url": "https://www.legolanddiscoverycenter.com/osaka/"
+   },
+   {
+    "item": "🐋 海遊館",
+    "plans": "兩方案",
+    "price": "大人 ¥2,700～3,500、3 歲以上 ¥700～900（2026 浮動），2 歲以下免費",
+    "who": "成人＋3、5 歲",
+    "how": "官網買日期時段指定票",
+    "when": "出發前 1 個月",
+    "verdict": "官網預購",
+    "url": "https://www.kaiyukan.com/"
+   },
+   {
+    "item": "🚇 大阪地鐵一日券",
+    "plans": "兩方案",
+    "price": "官網：平日 ¥820、週末 ¥620；未就學每位大人可免費帶 2 位",
+    "who": "成人",
+    "how": "車站售票機現場買；只搭 1～2 趟就用 ICOCA／手機刷卡",
+    "when": "當天",
+    "verdict": "搭 3 趟以上才買",
+    "url": "https://subway.osakametro.co.jp/"
+   },
+   {
+    "item": "🚐 包車",
+    "plans": "兩方案",
+    "price": "見交通方式比較",
+    "who": "全團",
+    "how": "KKday／Klook／台灣常用包車平台；下單時註明 3 張兒童座椅、8 箱行李（14 人座）",
+    "when": "出發前 2～3 個月",
+    "verdict": "確定方案就訂",
+    "url": ""
+   }
+  ],
+  "usjDetail": {
+   "note": "3/02 選 USJ 時全團花費（2026 同期往年價，匯率 0.22）",
+   "rows": [
+    {
+     "t": "一日券 大人 6 位",
+     "calc": "¥8,400～10,900 × 6",
+     "nt": [
+      11088,
+      14388
+     ]
+    },
+    {
+     "t": "一日券 5 歲",
+     "calc": "¥5,500～6,100",
+     "nt": [
+      1210,
+      1342
+     ]
+    },
+    {
+     "t": "一日券 3 歲、1 歲",
+     "calc": "未滿 4 歲免費",
+     "nt": [
+      0,
+      0
+     ]
+    },
+    {
+     "t": "園內一餐 大人 6 位",
+     "calc": "¥1,800～2,600 × 6",
+     "nt": [
+      2376,
+      3432
+     ]
+    },
+    {
+     "t": "園內一餐 2 位女兒",
+     "calc": "¥1,100～1,500 × 2",
+     "nt": [
+      484,
+      660
+     ]
+    },
+    {
+     "t": "去程電車",
+     "calc": "地鐵＋JR 夢咲線 ¥410 × 6（幼兒免費）",
+     "nt": [
+      541,
+      541
+     ]
+    },
+    {
+     "t": "回程計程車",
+     "calc": "2 台 × ¥4,000～5,000，取中間",
+     "nt": [
+      1980,
+      1980
+     ]
+    }
+   ],
+   "total": [
+    17679,
+    22343
+   ],
+   "express": {
+    "t": "＋快速通關 4（7 張，不推薦）",
+    "calc": "¥9,800～17,800 × 7",
+    "nt": [
+     15092,
+     27412
+    ]
+   },
+   "excluded": "點心飲料、紀念品、任天堂世界確約券、寄物櫃不含"
+  },
+  "express": {
+   "verdict": "不推薦全家買快速通關",
+   "why": [
+    "官網身高限制：瑪利歐賽車 107cm 以上（有大人陪同）、耀西冒險 92cm 以上、鷹馬飛行 92cm 以上、哈利波特禁忌之旅 122cm 以上。3 歲、1 歲多數刺激設施不能玩，5 歲也有不少玩不了。",
+    "4 歲以上每人都要一張，7 張約 NT$15,000～27,000，長輩和小孩用不到的設施等於白付。",
+    "2～3 月平日是淡季，排隊比暑假、連假短。"
+   ],
+   "instead": [
+    "開園前 60 分鐘到門口，一進園先去超級任天堂世界（入園初期常不用整理券）。",
+    "入園後馬上在 USJ App 抽任天堂世界的免費整理券。",
+    "大人想玩刺激設施用 Child Switch（輪流搭乘）：一組大人先玩，另一組顧小孩，換手不用再排（Google Gemini 整理）。",
+    "小孩主力玩環球奇境（Wonderland），設施多半沒有身高門檻。"
+   ],
+   "maybe": "如果有 2～3 位大人很想玩哈利波特、瑪利歐賽車：只幫這幾位大人買 Express 4（每張 ¥9,800～17,800），小孩和長輩去環球奇境，中午會合。",
+   "links": [
+    {
+     "t": "USJ 瑪利歐賽車（身高限制）",
+     "url": "https://www.usj.co.jp/web/zh/tw/attractions/mario-kart-koopas-challenge"
+    },
+    {
+     "t": "USJ 耀西冒險（身高限制）",
+     "url": "https://www.usj.co.jp/web/zh/tw/attractions/yoshis-adventure"
+    },
+    {
+     "t": "USJ 鷹馬飛行（身高限制）",
+     "url": "https://www.usj.co.jp/web/zh/tw/attractions/flight-of-the-hippogriff"
+    },
+    {
+     "t": "USJ 哈利波特禁忌之旅（身高限制）",
+     "url": "https://www.usj.co.jp/web/zh/tw/attractions/harry-potter-and-the-forbidden-journey"
+    }
+   ]
+  }
+ }
+}
