@@ -183,11 +183,14 @@ details.brow > summary > span{flex:1 1 10em;min-width:0}
 .hotel .rooms{margin:6px 0;padding:6px 10px;border:1px dashed var(--line);border-radius:10px}
 .hotel .room + .room{margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
 .hotel .rooms .pc-label{margin-top:0}
-.hotel .nearby{margin:6px 0;padding:6px 10px;border:1px dashed var(--line);border-radius:10px}
-.hotel .nearby .pc-label{margin-top:0}
-.hotel .nb-cat{margin-top:8px;font-weight:600;font-size:13px}
-.hotel .nb-row{padding:5px 0;border-top:1px solid var(--line);overflow-wrap:anywhere}
-.hotel .nb-row a{color:var(--brand);font-weight:600;text-decoration:none}
+.nearby{margin:6px 0;padding:6px 10px;border:1px dashed var(--line);border-radius:10px}
+.nearby .pc-label{margin-top:0}
+.nb-cat{margin-top:8px;font-weight:600;font-size:13px}
+.nb-row{padding:5px 0;border-top:1px solid var(--line);overflow-wrap:anywhere}
+.tl li.nbli{margin:6px 0}
+.tl li.nbli > details{padding:6px 10px}
+.tl li.nbli summary{cursor:pointer;padding:4px 0}
+.nb-row a{color:var(--brand);font-weight:600;text-decoration:none}
 details.brow.sub{padding:0 8px}
 details.brow.p2day > article.card{margin:0 0 10px;box-shadow:none;padding-left:8px;padding-right:8px}
 details.brow.p2day .chip{white-space:normal;max-width:100%}
@@ -410,7 +413,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
   "days": {
     "p1-d1": {
       "title": "抵達關西 ➔ Haruka 直達京都",
-      "city": "京都", "sleep": "京都站八條口 HOTEL VISCHIO KYOTO（暫選）：家庭房＋三人房", "transport": "JR 關空特急 Haruka", "people": "8 人",
+      "nearbyHotel":"h-vischio-kyoto","city": "京都", "sleep": "京都站八條口 HOTEL VISCHIO KYOTO（暫選）：家庭房＋三人房", "transport": "JR 關空特急 Haruka", "people": "8 人",
       "rest": "抵達日不排景點，晚餐後早點休息。",
       "rain": "全程在機場、電車、車站內，不受雨影響。",
       "stops": [
@@ -418,12 +421,12 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
         {"id":"arr","time":"14:45","icon":"🛬","title":"入境、領行李與推車","place":"kix","note":"入境＋領行李約 45～60 分鐘。"},
         {"id":"haruka","leg":"kix-kyoto","travel":true,"time":"15:45","end":"17:15","icon":"🚌","title":"機場利木津巴士直達京都站八條口（約 85～90 分鐘）","place":"kyoto-st","mode":"transit","move":"T1 1 樓 8 號乘車處買票，先到先上；行李放車腹","note":"不能預約，8 人可能拆成兩班（15～20 分一班）。1～5 歲抱腿上免費（每位大人帶 1 位），坐位子收 ¥1,400。"},
         {"id":"hotel","time":"17:30","icon":"🏨","title":"入住京都飯店","place":"hotel-kyoto","mode":"walking","move":"八條口 KY2 下車，步行約 2～3 分鐘","note":"HOTEL VISCHIO KYOTO（已訂，三人房 × 2）。check-in 15:00。"},
-        {"id":"dinner","time":"18:30","icon":"🍱","title":"晚餐：京都站伊勢丹 11F 美食街／Porta 地下街","place":"kyoto-isetan","mode":"walking","note":"飯店周邊晚餐與採買見住宿卡片「附近」清單；推薦：東洋亭（八條口側、平路）、がんこ（可訂包廂）。"}
+        {"id":"dinner","time":"18:30","icon":"🍱","title":"晚餐：京都站伊勢丹 11F 美食街／Porta 地下街","place":"kyoto-isetan","mode":"walking","note":"晚餐和採買的店家見下方「📍 飯店附近」；推薦東洋亭（八條口側、平路）、がんこ（可訂包廂）。"}
       ]
     },
     "p1-d2": {
       "title": "京都鐵道博物館 ＋ 北野天滿宮梅花祭",
-      "city": "京都", "sleep": "京都站八條口 HOTEL VISCHIO KYOTO（暫選）：家庭房＋三人房", "transport": "計程車（2 台）／步行", "people": "8 人",
+      "nearbyHotel":"h-vischio-kyoto","city": "京都", "sleep": "京都站八條口 HOTEL VISCHIO KYOTO（暫選）：家庭房＋三人房", "transport": "計程車（2 台）／步行", "people": "8 人",
       "rest": "上午室內、午餐後才去北野天滿宮；幼兒可在推車上午睡，16:00 後回飯店休息。",
       "rain": "北野天滿宮改去京都水族館（梅小路公園內，全室內，就在鐵道博物館旁）。",
       "alt": "備案 B：京都站八條口參加 KKday「金閣寺＋嵐山＋宇治」一日遊（步行與階梯較多，老小較累）。",
@@ -431,7 +434,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
         {"id":"rail","time":"09:30","end":"12:30","icon":"🚂","title":"京都鐵道博物館","place":"rail-museum","mode":"driving","move":"京都站叫計程車約 10 分鐘","note":"全館室內暖氣，53 輛實體火車、幼童模擬駕駛、2 樓看新幹線。"},
         {"id":"lunch","time":"12:30","end":"13:30","icon":"🍙","title":"館內餐廳午餐","place":"rail-museum"},
         {"id":"kitano","leg":"rail-kitano","time":"14:00","end":"16:00","icon":"🌸","title":"北野天滿宮（2/25 梅花祭）","place":"kitano","mode":"driving","move":"計程車直達（2 台），約 20 分；2/25 梅花祭塞車可能到 40 分","note":"梅花祭正日，走平坦主參道賞梅、摸神牛。人潮可能很多，推車注意。"},
-        {"id":"dinner","leg":"kitano-kyotost","time":"17:00","icon":"🍲","title":"晚餐：京都車站周邊湯豆腐或和牛","place":"kyoto-st","mode":"driving","move":"北野天滿宮搭計程車回京都站約 20 分，塞車約 40 分"}
+        {"id":"dinner","leg":"kitano-kyotost","time":"17:00","icon":"🍲","title":"晚餐：京都車站周邊湯豆腐或和牛","place":"kyoto-st","mode":"driving","move":"北野天滿宮搭計程車回京都站約 20 分，塞車約 40 分","note":"晚餐和採買的店家見下方「📍 飯店附近」；推薦東洋亭（八條口側、平路）、がんこ（可訂包廂）。"}
       ]
     },
     "p1-d3": {
@@ -1066,6 +1069,17 @@ function stopHtml(dayId, st, cls="", mode="full", n=null, leg=false, showNav=tru
       ${st.vote===false||mode==='travel'?'':voteRow(key)}
     </div></li>`;
 }
+function nearbyHtml(h){
+  return (h.nearby||[]).length?`<div class="nearby"><div class="pc-label">📍 附近（步行）</div>${[...new Set(h.nearby.map(n => n.cat))].map(c => `<div class="nb-cat">${esc(c)}</div>${h.nearby.filter(n => n.cat === c).map(n => `<div class="nb-row small"><a href="${mapUrl(n.q)}" target="_blank" rel="noopener">${esc(n.name)}</a><div class="tiny muted">🚶 ${esc(n.walk)}｜🕘 ${esc(n.hours)}${n.note?`｜${esc(n.note)}`:''}</div></div>`).join('')}`).join('')}
+        <div class="tiny muted">營業時間為 2026-11-05 Google 地圖資料，出發前再確認。</div></div>`:'';
+}
+function nearbyDayHtml(d){
+  if (!d.nearbyHotel) return '';
+  const h = [...(T.hotels.kyoto||[]), ...(T.hotels.osaka||[])].find(x => x.id === d.nearbyHotel);
+  if (!h || !(h.nearby||[]).length) return '';
+  const cats = [...new Set(h.nearby.map(n => n.cat.replace(/^\S+\s*/, '')))].filter(c => !/便利商店/.test(c)).join('、');
+  return `<li class="nbli"><details class="card" data-keep="nb-${esc(h.id)}" ${S.open['nb-'+h.id]?'open':''}><summary><b>📍 飯店附近（晚上可用）：${esc(cats)}</b></summary>${nearbyHtml(h)}</details></li>`;
+}
 function dayHtml(row, opts={}){
   const d = row.d, now = opts.now;
   const stops = [...(d.stops||[])].sort((a,b) => toMin(a.time)-toMin(b.time));
@@ -1073,13 +1087,14 @@ function dayHtml(row, opts={}){
   if (now != null) stops.forEach((s,i) => { if (toMin(s.time) <= now) cur = i; });
   // 每個 place 的完整資料只在當天第一個「非交通、非休息」站顯示一次
   const seen = new Set(); let num = 0;
+  const dinnerId = stops.some(s => s.id === 'dinner') ? 'dinner' : null;
   const li = stops.map((s,i) => {
     let mode = 'full';
     if (s.travel) mode = 'travel';
     else if (s.place && !s.rest){ if (seen.has(s.place)) mode = 'repeat'; else seen.add(s.place); }
     const showNav = mode !== 'repeat' || !(i>0 && stops[i-1].place === s.place);
-    return stopHtml(row.id, s, now==null?'':(i===cur?'now':(i<cur?'past':'')), mode, s.travel ? null : ++num, i>0, showNav);
-  }).join('');
+    return stopHtml(row.id, s, now==null?'':(i===cur?'now':(i<cur?'past':'')), mode, s.travel ? null : ++num, i>0, showNav) + (s.id === dinnerId ? nearbyDayHtml(d) : '');
+  }).join('') + (d.nearbyHotel && dinnerId == null ? nearbyDayHtml(d) : '');
   const choices = (d.choices||[]).map((c,i) => stopHtml(row.id, {...c, time:'三選一', end:''}, '', 'full', 'ABC'[i] || i+1, i>0 || stops.length>0)).join('');
   return `<article class="card tbd">
     <div class="dayhead">
@@ -1267,8 +1282,7 @@ function viewCompare(){
       <div class="small">🚉 ${esc(h.station)}｜🍳 ${esc(h.kitchen)}</div>
       <div class="small">💴 <span class="${/待查/.test(h.price)?'todo':''}">${esc(h.price)}</span>｜${esc(h.note)}</div>
       ${h.priceNote?`<div class="tiny muted">${esc(h.priceNote)}</div>`:''}
-      ${(h.nearby||[]).length?`<div class="nearby"><div class="pc-label">📍 附近（步行）</div>${[...new Set(h.nearby.map(n => n.cat))].map(c => `<div class="nb-cat">${esc(c)}</div>${h.nearby.filter(n => n.cat === c).map(n => `<div class="nb-row small"><a href="${mapUrl(n.q)}" target="_blank" rel="noopener">${esc(n.name)}</a><div class="tiny muted">🚶 ${esc(n.walk)}｜🕘 ${esc(n.hours)}${n.note?`｜${esc(n.note)}`:''}</div></div>`).join('')}`).join('')}
-        <div class="tiny muted">營業時間為 2026-11-05 Google 地圖資料，出發前再確認。</div></div>`:''}
+      ${nearbyHtml(h)}
       ${(h.rooms||[]).length?`<div class="rooms"><div class="pc-label">🛏️ 分房</div>${h.rooms.map(r => `<div class="room"><b class="small">${esc(r.room)}</b> <span class="tiny muted">${esc(r.who)}</span><div class="tiny">${esc(r.spec)}</div>${r.note?`<div class="tiny muted">💡 ${esc(r.note)}</div>`:''}</div>`).join('')}</div>`:''}
       <div class="btns"><a class="btn" href="${mapUrl(h.q)}" target="_blank" rel="noopener">📍 地圖</a>${linkBtn(h.link, '🔗 官網')}${(h.links||[]).map(l => linkBtn(l.url, '🔗 ' + l.t)).join('')}</div>
       ${voteRow('hotel/'+h.id)}</div>`).join('');
