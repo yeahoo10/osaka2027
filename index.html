@@ -75,7 +75,7 @@ header .pill.tbd{background:#fff5d6;color:#8a5a00;border-color:#ffd35c}
 /* combo bar */
 .combo{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0}
 .combo .wrap{display:flex;gap:8px;align-items:center;flex-wrap:nowrap}
-.combo .seg{flex:0 0 auto}.combo select{flex:1 1 auto;min-width:0}
+.combo .seg{flex:0 0 auto}.combo .pmain{flex:0 0 auto;font-size:.88rem;white-space:nowrap}.combo select{flex:1 1 auto;min-width:0}
 .long{display:none}
 @media (min-width:560px){.long{display:inline}}
 @media (max-width:559px){.combo .lbl{display:none}.combo .seg button{padding:7px 10px}header .pill{font-size:.7rem;padding:1px 8px}.fact{padding:6px 8px}.fact .v{font-size:.82rem}}
@@ -179,15 +179,21 @@ details.brow > summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wra
 details.brow > summary::-webkit-details-marker{display:none}
 details.brow > summary:before{content:"▸";color:var(--brand)}
 details.brow[open] > summary:before{content:"▾"}
-details.brow > summary > span{flex:1 1 auto}
-details.brow .kv.bg{grid-template-columns:auto minmax(0,1fr)}
-details.brow .kv.bg dd{white-space:normal;text-align:left}
+details.brow > summary > span{flex:1 1 10em;min-width:0}
+.hotel .rooms{margin:6px 0;padding:6px 10px;border:1px dashed var(--line);border-radius:10px}
+.hotel .room + .room{margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
+.hotel .rooms .pc-label{margin-top:0}
+details.brow.sub{padding:0 8px}
+details.brow.p2day > article.card{margin:0 0 10px;box-shadow:none;padding-left:8px;padding-right:8px}
+details.brow.p2day .chip{white-space:normal;max-width:100%}
+details.brow > .kv.bg{grid-template-columns:auto minmax(0,1fr)}
+details.brow > .kv.bg dd{white-space:normal;text-align:left}
 table.bud td.amt{text-align:right;white-space:nowrap;vertical-align:top}
 table.bud tr.tot td{border-top:2px solid var(--line)}
 table.bud tr.add td{color:var(--muted)}
-details.brow .kv{padding-bottom:8px;grid-template-columns:minmax(0,1fr) auto}
-details.brow .kv dt{white-space:normal}
-details.brow .kv dd{white-space:nowrap;text-align:right}
+details.brow > .kv{padding-bottom:8px;grid-template-columns:minmax(0,1fr) auto}
+details.brow > .kv dt{white-space:normal}
+details.brow > .kv dd{white-space:nowrap;text-align:right}
 .bamt{color:var(--brand)}
 .why{margin-top:8px}
 .why b{color:var(--time)}
@@ -354,10 +360,10 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
     "p1": {
       "name": "方案一",
       "label": "京都 2 晚＋大阪 5 晚",
-      "stays": ["2/24–2/26 京都站周邊 2 晚","2/26–3/03 心齋橋／難波 5 晚"],
+      "stays": ["2/24–2/26 京都站八條口 HOTEL VISCHIO KYOTO 2 晚（暫選：家庭房＋三人房）","2/26–3/03 心齋橋／難波 5 晚"],
       "pros": ["下機搭 JR Haruka 直達京都，不用轉車","2/25 正好是北野天滿宮梅花祭，住在京都可從容玩","京都不用一天來回趕車"],
       "cons": ["2/26 換飯店：8 箱行李早上交京都飯店當日配送到大阪飯店（Airporter，約 NT$3,900～6,800），人搭電車玩宇治、祇園，傍晚到大阪","京都段要另找飯店、多一次入住退房"],
-      "budget": "住宿（MIMARU 2 間）約 NT$104,178；若改住 VISCHIO 京都＋難波日和，住宿約降到 NT$65,483（2026-11-03 Google Hotels 含稅價，會浮動）",
+      "budget": "住宿約 NT$94,963（京都 VISCHIO 2 間 2 晚約 NT$19,917＋大阪 MIMARU 2 間 5 晚約 NT$75,046；Google Hotels 含稅價，會浮動）",
       "src": "00-行程規劃_2月24日-3月3日/方案一_京都2晚+大阪5晚_每日行程.md",
       "days": ["p1-d1","p1-d2","p1-d3","p1-d4","d-harvest","d-lego","d-flex","d8-home"]
     },
@@ -399,7 +405,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
   "days": {
     "p1-d1": {
       "title": "抵達關西 ➔ Haruka 直達京都",
-      "city": "京都", "sleep": "京都站周邊（候選：MIMARU 京都 STATION）", "transport": "JR 關空特急 Haruka", "people": "8 人",
+      "city": "京都", "sleep": "京都站八條口 HOTEL VISCHIO KYOTO（暫選）：家庭房＋三人房", "transport": "JR 關空特急 Haruka", "people": "8 人",
       "rest": "抵達日不排景點，晚餐後早點休息。",
       "rain": "全程在機場、電車、車站內，不受雨影響。",
       "stops": [
@@ -412,7 +418,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
     },
     "p1-d2": {
       "title": "京都鐵道博物館 ＋ 北野天滿宮梅花祭",
-      "city": "京都", "sleep": "京都站周邊", "transport": "計程車（2 台）／步行", "people": "8 人",
+      "city": "京都", "sleep": "京都站八條口 HOTEL VISCHIO KYOTO（暫選）：家庭房＋三人房", "transport": "計程車（2 台）／步行", "people": "8 人",
       "rest": "上午室內、午餐後才去北野天滿宮；幼兒可在推車上午睡，16:00 後回飯店休息。",
       "rain": "北野天滿宮改去京都水族館（梅小路公園內，全室內，就在鐵道博物館旁）。",
       "alt": "備案 B：京都站八條口參加 KKday「金閣寺＋嵐山＋宇治」一日遊（步行與階梯較多，老小較累）。",
@@ -596,7 +602,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
     "kix": {"name":"關西機場 T1","q":"関西国際空港 第1ターミナル","elev":"2F 空橋與航廈大電梯相連，推車可一路平推","baby":"航廈內設有哺乳室（出發前再確認位置）","stroller":"ok","rain":"室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Kansai_International_Airport_Terminal.JPG/500px-Kansai_International_Airport_Terminal.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"Own work / CC BY-SA 3.0","imgPage":"https://commons.wikimedia.org/wiki/File:Kansai_International_Airport_Terminal.JPG","why":"返台前讓小孩在兒童遊戲區放電，上飛機比較好睡。","tip":"帶幼兒和長輩可走家庭／優先安檢通道；建議起飛前 3 小時以上到，留時間退稅和託運。","warn":"安檢時推車要收折過 X 光，小孩抱著過。","strollerNote":"自己的推車可以在櫃台申請推到登機門再託運；機場也有免費推車可借。","links":[{"t":"關西機場官網","url":"https://www.kansai-airport.or.jp/"}]},
     "kyoto-st": {"name":"京都車站","q":"京都駅","elev":"八條口有無障礙直達電梯與平坦人行道","baby":"京都伊勢丹 7F Baby Salon（調乳熱水、微波爐、餵食椅）","stroller":"ok","rain":"車站與地下街室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Kyoto-STA_Central.jpg/500px-Kyoto-STA_Central.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"MaedaAkihiko / CC0","imgPage":"https://commons.wikimedia.org/wiki/File:Kyoto-STA_Central.jpg"},
     "kyoto-isetan": {"name":"京都車站伊勢丹","q":"ジェイアール京都伊勢丹","elev":"推車可搭電梯直達餐廳樓層","baby":"7F Baby Salon：調乳 70°C 熱水、微波爐、餵食椅","stroller":"ok","rain":"室內","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/JR-Kyoto-Isetan-01.jpg/500px-JR-Kyoto-Isetan-01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"J o / CC BY-SA 3.0","imgPage":"https://commons.wikimedia.org/wiki/File:JR-Kyoto-Isetan-01.jpg","why":"京都車站直通的百貨，育嬰室設備完整，吃飯、買伴手禮、補給一次搞定。","tip":"美食街和餐廳 11:30 前去比較不用等。","warn":"車站南北通道人多，推車不要搭中央大手扶梯，走電梯。","strollerNote":"館內有大型電梯；可在店內借推車。","links":[{"t":"JR 京都伊勢丹官網","url":"https://kyoto.wjr-isetan.co.jp/"}]},
-    "hotel-kyoto": {"name":"京都住宿（未定）","q":"MIMARU KYOTO STATION","elev":"候選飯店都在京都站步行 1～3 分鐘；電梯待確認","baby":"可借嬰兒床（依飯店）","stroller":"ok","rain":"—","tbd":true},
+    "hotel-kyoto": {"name":"HOTEL VISCHIO KYOTO（暫選）","q":"HOTEL VISCHIO KYOTO","elev":"京都站八條口步行約 2 分鐘，平路","baby":"可借嬰兒床（需預約）；房內無廚房，熱水用電熱水壺","stroller":"ok","rain":"—","link":"https://www.hotelvischio-kyoto.jp/","tbd":false},
     "hotel-osaka": {"name":"大阪住宿（未定）","q":"MIMARU Osaka Shinsaibashi","elev":"首選候選：長堀橋站電梯出口步行約 2 分鐘","baby":"房內客廳可餵奶換尿布","stroller":"ok","rain":"—","tbd":true},
     "rail-museum": {"name":"京都鐵道博物館","q":"京都鉄道博物館","elev":"全館無障礙，4 部大電梯","baby":"1F／2F 都有獨立哺乳室（附調乳熱水）","stroller":"ok","strollerNote":"1F 入口有免費推車停放區","rain":"全室內暖氣","link":"https://www.kyotorailwaymuseum.jp/","todo":"每週三休館（方案一 2/25 週四、方案二 2/28 週日都有開）","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/%E4%BA%AC%E9%83%BD%E9%89%84%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg/500px-%E4%BA%AC%E9%83%BD%E9%89%84%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"小父 / CC BY-SA 4.0","imgPage":"https://commons.wikimedia.org/wiki/File:%E4%BA%AC%E9%83%BD%E9%89%84%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8.jpg","why":"全室內有暖氣，53 輛真火車與新幹線，小孩看火車、長輩可以坐著看窗外真的列車經過。","tip":"停留 2.5～3 小時。大人 ¥1,500、3 歲以上幼兒 ¥200；蒸汽火車 Steam 號另收大人 ¥300／小孩 ¥100。駕駛模擬器要先上網預約。（票價依 2025～2026 年資料，出發前再看官網）","warn":"每週三休館（2/24、3/3 都是週三；目前排 2/25 或 2/28 沒問題）；扇形車庫有煤炭機油味。","links":[{"t":"官網","url":"https://www.kyotorailwaymuseum.jp/"},{"t":"Mimi韓 親子心得","url":"https://mimihan.tw/kyoto-railway-museum"},{"t":"PTT 帶兩寶遊京都推車討論","url":"https://www.ptt.cc/bbs/BabyMother/M.1492014194.A.53B.html"}]},
     "kitano": {"name":"北野天滿宮","q":"北野天満宮","elev":"一之鳥居到本殿為平坦石板路","baby":"境內無固定育嬰室，建議先在京都站或車上餵奶換尿布","link":"https://kitanotenmangu.or.jp/","stroller":"part","strollerNote":"主參道可推；梅苑內與祭典人潮待確認","rain":"改去京都水族館（全室內）","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Kitano-tenmangu.jpg/500px-Kitano-tenmangu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail","imgCredit":"ja:利用者:Stanislaus / Public domain","imgPage":"https://commons.wikimedia.org/wiki/File:Kitano-tenmangu.jpg","why":"2/25 梅花祭正日，梅苑盛開，上七軒藝妓舞妓在境內辦野點大茶湯，長輩會很喜歡；當天也是每月 25 日的天神市。","tip":"人潮很多，建議 9:00 前到。境內參拜免費，梅苑要門票（附茶點，官網：大人 前売 ¥2,800／當日 ¥3,000，小人 ¥1,400～1,500）。2/25 梅花祭的野點大茶湯由上七軒藝妓舞妓奉茶，是這趟最近距離看舞妓的機會：往年約 10:00～15:00、茶券約 ¥3,000、數量有限、排隊常 40～90 分鐘（Google Gemini 整理，未核對官網）。","warn":"參道多碎石，推車推起來吃力；本殿有門檻階梯。境內沒有哺乳室，熱水自備保溫瓶。","links":[{"t":"北野天滿宮官網","url":"https://kitanotenmangu.or.jp/"},{"t":"PTT 帶爸媽遊京都","url":"https://www.ptt.cc/bbs/Japan_Travel/M.1454067923.A.939.html"}]},
@@ -697,9 +703,9 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
 
   "hotels": {
     "kyoto": [
-      {"id":"h-mimaru-kyoto","name":"MIMARU 京都 STATION","q":"MIMARU KYOTO STATION","tag":"首選","station":"八條東口步行約 2 分鐘","kitchen":"完整廚房＋洗脫烘","price":"2 間：2 晚約 ¥132,416（NT$29,132）","note":"兩房連通家庭套房，可全家坐客廳吃飯。"},
+      {"id":"h-vischio-kyoto","name":"HOTEL VISCHIO KYOTO by GRANVIA","q":"HOTEL VISCHIO KYOTO","tag":"暫選","station":"京都站八條口步行約 2 分鐘","kitchen":"無廚房（冰箱、電熱水壺）","rooms":[{"who":"小家庭：2 大＋5 歲、3 歲、1 歲","room":"家庭房 Family Room","spec":"39.5㎡、110cm 床 × 4、可住 3～4 人、有沙發客廳角","note":"1 歲借嬰兒床（官網貸出備品有）；5 人能否同住一間要訂房前寫信確認"},{"who":"2 位長輩＋叔叔","room":"三人房 Triple Room","spec":"26.2㎡、100cm 床 × 3、可住 2～3 人、1.5m 寬洗手台","note":"另有 Superior Twin 3 人使用（28.8㎡、120cm 床 2＋加床）可選"}],"price":"2 間：2 晚約 ¥90,531（NT$19,917）","priceNote":"Google Hotels 2026-11-05 查 2027/2/24～26：4 人約 ¥48,281、3 人約 ¥42,250（2 晚含稅，未指定房型，實際以訂房為準）","note":"JR 西日本 Granvia 系列，全室獨立洗手台與洗場的浴室；館內大浴場附三溫暖。check-in 15:00／check-out 11:00。","link":"https://www.hotelvischio-kyoto.jp/","links":[{"t":"官網：家庭房","url":"https://www.hotelvischio-kyoto.jp/rooms/family/"},{"t":"官網：三人房","url":"https://www.hotelvischio-kyoto.jp/rooms/triple/"},{"t":"官網：大浴場","url":"https://www.hotelvischio-kyoto.jp/bath/"}]},
+      {"id":"h-mimaru-kyoto","name":"MIMARU 京都 STATION","q":"MIMARU KYOTO STATION","station":"八條東口步行約 2 分鐘","kitchen":"完整廚房＋洗脫烘","price":"2 間：2 晚約 ¥132,416（NT$29,132）","note":"兩房連通家庭套房，可全家坐客廳吃飯。"},
       {"id":"h-miyako-hachijo","name":"都酒店 京都八條","q":"Miyako Hotel Kyoto Hachijo","station":"八條口正對面約 1 分鐘","kitchen":"無廚房（快煮壺、小冰箱）","price":"3 間：2 晚約 ¥84,000（NT$18,480）","note":"四星大飯店，行李專人搬運、自助早餐。"},
-      {"id":"h-vischio-kyoto","name":"HOTEL VISCHIO KYOTO","q":"HOTEL VISCHIO KYOTO","tag":"高 CP","station":"八條口步行約 2 分鐘","kitchen":"待查","price":"3 間：2 晚約 ¥57,435（NT$12,636）","note":"JR 系新穎商旅、有大浴場；3 間雙床／三人房。"},
       {"id":"h-mitsui-kyoto","name":"三井花園飯店 京都站前","q":"Mitsui Garden Hotel Kyoto Station","station":"站前平路直達","kitchen":"待查","price":"3 間：2 晚約 ¥89,352（NT$19,657）","note":"日式貼心服務。"},
       {"id":"h-keihan-grande","name":"京阪京都大飯店","q":"Hotel Keihan Kyoto Grande","station":"八條東口 2F 空橋直通約 1 分鐘","kitchen":"無廚房","price":"2 晚約 ¥68,000～¥88,000","note":"室內空橋＋電梯，不吹風。"},
       {"id":"h-ref-kyoto","name":"REF 京都八條口 by VESSEL","q":"REF Kyoto Hachijoguchi by VESSEL HOTELS","tag":"高 CP","station":"八條口步行約 3 分鐘","kitchen":"無廚房（公共微波爐）","price":"2 晚約 ¥44,000～¥54,000","note":"18 歲以下添寢免費；可借嬰兒床圍。"},
@@ -725,17 +731,17 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
     "fx": 0.22,
     "labels": {"hotel":"🏨 住宿","transport":"🚐 交通（依建議）","tickets":"🎟️ 門票","berry":"🍓 採草莓（2026 官網價）","meals":"🍱 三餐（往年行情粗估）","seats":"💺 兒童座椅加價","city":"🚇 其他市區電車","day32":"🎢 3/02"},
     "rows": [
-      {"plan":"方案一","usj":false,"min":204817,"max":244894,"parts":{"hotel":104178,"transport":41760,"tickets":[21956,25256],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[2702,16038]},"note":"3/02 彈性日三選一（Kids Plaza 最省、神戶動物王國最貴）"},
-      {"plan":"方案一","usj":true,"min":219794,"max":251199,"parts":{"hotel":104178,"transport":41760,"tickets":[21956,25256],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[17679,22343]},"note":"USJ 不含 Express（2026 同期價）"},
-      {"plan":"方案一","usj":true,"express":true,"min":234886,"max":278611,"parts":{"hotel":104178,"transport":41760,"tickets":[21956,25256],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[32771,49755]},"note":"USJ＋Express 4 七張（2026 同期 ¥9,800～17,800／張）"},
+      {"plan":"方案一","usj":false,"min":195602,"max":235679,"parts":{"hotel":94963,"transport":41760,"tickets":[21956,25256],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[2702,16038]},"note":"3/02 彈性日三選一（Kids Plaza 最省、神戶動物王國最貴）"},
+      {"plan":"方案一","usj":true,"min":210579,"max":241984,"parts":{"hotel":94963,"transport":41760,"tickets":[21956,25256],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[17679,22343]},"note":"USJ 不含 Express（2026 同期價）"},
+      {"plan":"方案一","usj":true,"express":true,"min":225671,"max":269396,"parts":{"hotel":94963,"transport":41760,"tickets":[21956,25256],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[32771,49755]},"note":"USJ＋Express 4 七張（2026 同期 ¥9,800～17,800／張）"},
       {"plan":"方案二","usj":false,"min":209778,"max":249349,"parts":{"hotel":103903,"transport":48294,"tickets":[20658,23452],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[2702,16038]},"note":"3/02 彈性日三選一（Kids Plaza 最省、神戶動物王國最貴）"},
       {"plan":"方案二","usj":true,"min":224755,"max":255654,"parts":{"hotel":103903,"transport":48294,"tickets":[20658,23452],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[17679,22343]},"note":"USJ 不含 Express（2026 同期價）"},
       {"plan":"方案二","usj":true,"express":true,"min":239847,"max":283066,"parts":{"hotel":103903,"transport":48294,"tickets":[20658,23452],"berry":4070,"meals":[26851,47872],"seats":[2640,4400],"city":[660,1320],"day32":[32771,49755]},"note":"USJ＋Express 4 七張（2026 同期 ¥9,800～17,800／張）"}
     ],
     "optional": [{"t":"祇園 Corner 舞妓表演（方案一 2/26，5 位成人，幼兒免費）","yen":27500,"nt":6050,"src":"官網 2026"}],
-    "recheck": [{"t":"住宿 2027 實價","when":"訂房系統開放後"},{"t":"採草莓 2027 規則與價格","when":"2026 年 11 月上旬官網公布"},{"t":"USJ 3/02 票價與 Express","when":"入園前約 2 個月"},{"t":"海遊館、樂高浮動票價","when":"出發前 1 個月"},{"t":"包車報價與兒童座椅","when":"確定方案後詢價"},{"t":"北野梅苑 2027 入苑料","when":"2027 年 2 月初"},{"t":"祇園 Corner 2027 冬季演出日","when":"出發前 1～2 個月"}],
+    "recheck": [{"t":"VISCHIO 家庭房能否住 2 大 3 小（5 歲佔床、3 歲同床、1 歲嬰兒床）與實際房價","when":"訂房前寫信問飯店"},{"t":"住宿 2027 實價","when":"訂房系統開放後"},{"t":"採草莓 2027 規則與價格","when":"2026 年 11 月上旬官網公布"},{"t":"USJ 3/02 票價與 Express","when":"入園前約 2 個月"},{"t":"海遊館、樂高浮動票價","when":"出發前 1 個月"},{"t":"包車報價與兒童座椅","when":"確定方案後詢價"},{"t":"北野梅苑 2027 入苑料","when":"2027 年 2 月初"},{"t":"祇園 Corner 2027 冬季演出日","when":"出發前 1～2 個月"}],
     "pending": ["北野梅苑未就學幼兒費", "伴手禮與個人購物"],
-    "changes": "方案一 2/26 改留京都（宇治平等院＋祇園，全日包車含行李，傍晚到大阪）：行李當日配送＋電車、加平等院門票；大阪城改到 2/27 上午（第 9 位成員抵達前），黑門市場移到備選。和舊版比：加入三餐與採草莓（往年價）、包車費依新查行情調高、北野梅苑改官網價 ¥2,800～3,000、USJ 改用 2026 同期價；方案二因京都日包車全日，比方案一多約 NT$5,000～6,000；依 2026 規則採草莓只在週四、六、日，方案二 3/1（週一）可能沒有。",
+    "changes": "方案一京都住宿暫選 HOTEL VISCHIO KYOTO（家庭房＋三人房 2 間，Google Hotels 2026-11-05 查 2027/2/24～26 約 ¥90,531），方案一住宿降到約 NT$94,963。方案一 2/26 改留京都（宇治平等院＋祇園，全日包車含行李，傍晚到大阪）：行李當日配送＋電車、加平等院門票；大阪城改到 2/27 上午（第 9 位成員抵達前），黑門市場移到備選。和舊版比：加入三餐與採草莓（往年價）、包車費依新查行情調高、北野梅苑改官網價 ¥2,800～3,000、USJ 改用 2026 同期價；方案二因京都日包車全日，比方案一多約 NT$5,000～6,000；依 2026 規則採草莓只在週四、六、日，方案二 3/1（週一）可能沒有。",
     "src": "20-預算/總預算對照.md",
     "buyGuide": [
       {"item":"🎢 USJ 一日券","plans":"3/02 選 USJ 才買","price":"2026 同期：大人 ¥8,400～10,900、4～11 歲 ¥5,500～6,100（浮動價），未滿 4 歲免費","who":"6 大＋5 歲","how":"Klook／KKday 或 USJ 官網（官網常擋海外信用卡）；全員門票綁同一支手機的 USJ App","when":"入園前約 2 個月開賣，開賣就買（越接近越貴）","verdict":"必買（若去 USJ）","url":"https://www.usj.co.jp/web/zh/tw/"},
@@ -854,10 +860,7 @@ nav.tabs button[aria-current="page"]:after{content:"";position:absolute;top:0;le
 <div class="combo" id="combo">
   <div class="wrap">
     <span class="lbl">正在看</span>
-    <div class="seg" role="group" aria-label="住宿方案">
-      <button data-act="plan" data-id="p1">方案一<span class="long"> 京都＋大阪</span></button>
-      <button data-act="plan" data-id="p2">方案二<span class="long"> 全住大阪</span></button>
-    </div>
+    <b class="pmain">🏨 方案一<span class="long"> 京都 2 晚＋大阪 5 晚</span></b>
     <select id="usjSel" aria-label="USJ 選項"></select>
   </div>
 </div>
@@ -903,7 +906,8 @@ const STROLLER = {ok:['g','👶 推車 OK'], part:['y','👶 推車部分可'], 
 /* ---------- state ---------- */
 const qs = new URLSearchParams(location.search);
 const S = {
-  plan: qs.get('plan') || LS.get('plan', 'p1'),
+  plan: 'p1', // 方案一為主方案；方案二收在備選頁
+  open: {},
   usj: qs.get('usj') || LS.get('usj', T.usj.default),
   tab: 'today', day: null,
   votes: LS.get('votes', {}), comments: LS.get('comments', {}),
@@ -911,7 +915,6 @@ const S = {
   altRegion: LS.get('altRegion', 'all'), altRain: LS.get('altRain', false), altCat: LS.get('altCat', 'spot'), altQ: '',
   who: LS.get('who', {role:'', tag:''})
 };
-if (!T.plans[S.plan]) S.plan = 'p1';
 if (!T.usj.options.some(o => o.id === S.usj)) S.usj = T.usj.default;
 
 /* ---------- time (Japan) ---------- */
@@ -1150,7 +1153,7 @@ function viewToday(){
 function todoCard(){
   return `<section class="card"><h3 class="sec-title" style="margin-top:0">🗳️ 出發前要一起決定</h3>
     <ol class="small" style="margin:0;padding-left:1.3em">
-      <li>住宿方案一或方案二 → 到「⚖️ 比較」頁投票</li>
+      <li>住宿：以方案一（京都 2 晚＋大阪 5 晚）為主；方案二收在「🗺️ 備選」頁，想改回來可以去投票</li>
       <li>USJ 去不去、哪一天 → 同上</li>
       <li>備選景點想換哪些進行程 → 到「🗺️ 備選」頁點 👍／❤️（天橋立已決定不去）</li>
       <li>每天每個景點點 👍／❤️／👎／❓ → 到「💬 意見」頁傳到 LINE 群組</li>
@@ -1225,8 +1228,8 @@ function transportBudget(){
   const notes = [...new Set(Object.values(TR()).map(g => g.note).filter(Boolean))];
   const usjT = T.usj.options.find(o => o.id === S.usj)?.label || '';
   return `<h2 class="sec-title">🚦 交通預算 <span class="tiny muted">（日圓，全團，估算）</span></h2>
-    <p class="tiny muted" style="margin-top:-4px">兩個方案各自只算固定行程用到的路段（3/02 的 USJ／彈性日另列）；去回程合在同一段的只算一次；建議是「去程／回程各一種」的路段，以兩種方式的平均計。匯率 1 日圓＝${T.budget?.fx || 0.22} 台幣。到「📅 行程」交通站展開「🚦 交通方式比較」可以投票。</p>
-    ${planBlock('p1')}${planBlock('p2')}${flexHtml}
+    <p class="tiny muted" style="margin-top:-4px">主方案（方案一）與備選的方案二各自只算固定行程用到的路段（3/02 的 USJ／彈性日另列）；去回程合在同一段的只算一次；建議是「去程／回程各一種」的路段，以兩種方式的平均計。匯率 1 日圓＝${T.budget?.fx || 0.22} 台幣。到「📅 行程」交通站展開「🚦 交通方式比較」可以投票。</p>
+    ${planBlock('p1')}${(() => { const p2 = planBlock('p2'); return p2 ? `<details class="card" data-keep="tr-p2" ${S.open['tr-p2']?'open':''} style="padding:6px"><summary style="padding:8px"><b>📊 方案二比較</b> <span class="tiny muted">（備選，點開）</span></summary>${p2}</details>` : ''; })()}${flexHtml}
     ${notes.length ? `<p class="tiny muted">${notes.map(esc).join('<br>')}</p>` : ''}`;
 }
 function viewCompare(){
@@ -1234,7 +1237,7 @@ function viewCompare(){
   const planCard = id => {
     const p = T.plans[id], v = S.votes['plan'] === id;
     return `<article class="card tbd plan-card ${S.plan===id?'sel':''}">
-      <div class="chips"><span class="pill tbd">🔄 考慮中</span></div>
+      <div class="chips"><span class="pill ${id==='p1'?'ok':'tbd'}">${id==='p1'?'⭐ 主方案':'🗺️ 備選方案'}</span></div>
       <h3 style="margin-top:6px">${esc(p.name)}：${esc(p.label)}</h3>
       <div class="pc-label">🏨 住宿</div><ul class="small">${p.stays.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
       <div class="pc-label">👍 優點</div><ul class="small">${p.pros.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
@@ -1245,8 +1248,8 @@ function viewCompare(){
     </article>`;
   };
   const cell = (r, other, pid) => {
-    const diff = r.id !== other.id, usj = r.id === T.usj.day;
-    return `<td class="${usj?'usj':diff?'diff':''}"><a href="#" data-act="jump" data-plan="${pid}" data-i="${r.i}"><b>${esc(r.d.title)}</b><br><span class="muted tiny">${esc(r.d.city)}・${esc(r.d.transport)}</span></a></td>`;
+    const diff = r.id !== other.id, usj = r.id === T.usj.day, inner = `<b>${esc(r.d.title)}</b><br><span class="muted tiny">${esc(r.d.city)}・${esc(r.d.transport)}</span>`;
+    return `<td class="${usj?'usj':diff?'diff':''}">${pid==='p1' ? `<a href="#" data-act="jump" data-plan="${pid}" data-i="${r.i}">${inner}</a>` : inner}</td>`;
   };
   const rows = a.map((r,i) => `<tr><td class="d">D${r.n}<br><span class="muted tiny">${fmtDate(r.date)}</span></td>${cell(r,b[i],'p1')}${cell(b[i],r,'p2')}</tr>`).join('');
   const usjOpts = T.usj.options.map(o => {
@@ -1255,10 +1258,12 @@ function viewCompare(){
       <div class="btns"><button class="btn ${v?'primary':''}" data-act="pick" data-key="usj" data-v="${o.id}">${v?'✅ 我投這個':'我投這個'}</button>
       <button class="btn" data-act="usj" data-id="${o.id}">套用到行程</button></div></div>`;
   }).join('');
-  const hotelList = arr => arr.map(h => `<div class="hotel"><b>${esc(h.name)}</b> ${h.tag?`<span class="pill info">${esc(h.tag)}</span>`:''}
+  const hotelList = arr => arr.map(h => `<div class="hotel"><b>${esc(h.name)}</b> ${h.tag?`<span class="pill ${h.tag==='暫選'?'ok':'info'}">${h.tag==='暫選'?'✅ ':''}${esc(h.tag)}</span>`:''}
       <div class="small">🚉 ${esc(h.station)}｜🍳 ${esc(h.kitchen)}</div>
       <div class="small">💴 <span class="${/待查/.test(h.price)?'todo':''}">${esc(h.price)}</span>｜${esc(h.note)}</div>
-      <div class="btns"><a class="btn" href="${mapUrl(h.q)}" target="_blank" rel="noopener">📍 地圖</a>${linkBtn(h.link, '🔗 官網')}</div>
+      ${h.priceNote?`<div class="tiny muted">${esc(h.priceNote)}</div>`:''}
+      ${(h.rooms||[]).length?`<div class="rooms"><div class="pc-label">🛏️ 分房</div>${h.rooms.map(r => `<div class="room"><b class="small">${esc(r.room)}</b> <span class="tiny muted">${esc(r.who)}</span><div class="tiny">${esc(r.spec)}</div>${r.note?`<div class="tiny muted">💡 ${esc(r.note)}</div>`:''}</div>`).join('')}</div>`:''}
+      <div class="btns"><a class="btn" href="${mapUrl(h.q)}" target="_blank" rel="noopener">📍 地圖</a>${linkBtn(h.link, '🔗 官網')}${(h.links||[]).map(l => linkBtn(l.url, '🔗 ' + l.t)).join('')}</div>
       ${voteRow('hotel/'+h.id)}</div>`).join('');
   const topicHtml = tp => {
     const opts = tp.options.map(o => {
@@ -1278,36 +1283,43 @@ function viewCompare(){
     <p class="tiny muted">${esc(T.bookings.note)} 詳細：${srcLink(T.bookings.src)}</p></div>`;
   const srcHtml = `<details class="card"><summary><b>📚 關鍵結論的出處</b> <span class="tiny muted">（推估的會標明）</span></summary>
     <ul class="small" style="padding-left:1.2em">${T.sources.map(x => `<li>${esc(x.claim)} <span class="pill ${x.kind==='官方'?'ok':'tbd'}">${esc(x.kind)}</span> ${safeUrl(x.url)?`<a href="${esc(x.url)}" target="_blank" rel="noopener">🔗 官網</a>`:''} ${srcLink(x.src)}</li>`).join('')}</ul></details>`;
-  return `<h2 class="sec-title">🏨 住宿方案比較</h2>
-    <div class="grid2">${planCard('p1')}${planCard('p2')}</div>
-    <h2 class="sec-title">📅 每天並排看 <span class="tiny muted">（黃底＝兩案不同；紫底＝USJ；點格子看詳細）</span></h2>
-    <div class="card" style="padding:6px;overflow-x:auto"><table class="cmp"><thead><tr><th>日期</th><th>方案一 京都＋大阪</th><th>方案二 全住大阪</th></tr></thead><tbody>${rows}</tbody></table>
-    <p class="tiny muted" style="padding:0 8px">目前套用：${esc(T.usj.options.find(o=>o.id===S.usj).label)}（可在上方切換）</p></div>
+  return `<h2 class="sec-title">🏨 主方案</h2>
+    ${planCard('p1')}
+    <section class="card"><b>🗺️ 方案二（${esc(T.plans.p2.label)}）收到備選了</b>
+      <p class="small" style="margin:4px 0 0">優缺點、預算、每日行程都還在，想比較或改回來可以到備選頁投票。</p>
+      <div class="btns"><button class="btn" data-act="gotab" data-tab="alt">看方案二</button></div></section>
+    <details class="card" data-keep="cmpdays" ${S.open.cmpdays?'open':''} style="padding:6px"><summary style="padding:8px"><b>📅 方案一 vs 方案二 每天並排</b> <span class="tiny muted">（點開；黃底＝兩案不同；紫底＝USJ）</span></summary>
+    <div style="overflow-x:auto"><table class="cmp"><thead><tr><th>日期</th><th>方案一 京都＋大阪</th><th>方案二 全住大阪</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="tiny muted" style="padding:0 8px">目前套用：${esc(T.usj.options.find(o=>o.id===S.usj).label)}（可在上方切換）</p></details>
     <h2 class="sec-title">🎢 USJ 去不去、哪一天</h2>
     <div class="card tbd"><ul class="small" style="margin:0;padding-left:1.2em">${T.usj.facts.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>${usjOpts}${linksRow(T.usj.links)}<p class="tiny muted">詳細：${srcLink(T.usj.src)}</p></div>
     <h2 class="sec-title">🛏️ 住宿候選</h2>
     <div class="grid2"><div class="card tbd"><h3>京都 2 晚（方案一）</h3>${hotelList(T.hotels.kyoto)}</div>
-    <div class="card tbd"><h3>大阪（方案一 5 晚／方案二 7 晚）</h3>${hotelList(T.hotels.osaka)}</div></div>
+    <div class="card tbd"><h3>大阪 5 晚（方案一）</h3>${hotelList(T.hotels.osaka)}</div></div>
     <p class="tiny muted">${esc(T.hotels.priceNote)} 詳細：${srcLink('20-預算/住宿比價_2027-02.md')}</p>
     ${T.topics.map(topicHtml).join('')}
     ${bookHtml}${srcHtml}`;
 }
+const nt = v => 'NT$' + Math.round(v).toLocaleString(), rng = a => Array.isArray(a) ? (a[0]===a[1] ? nt(a[0]) : `${nt(a[0])}～${nt(a[1]).replace('NT$','')}`) : nt(a);
+const curRow = r => S.plan===(r.plan==='方案一'?'p1':'p2') && (S.usj!=='none')===!!r.usj;
+const rowName = r => !r.usj ? '不去 USJ（彈性日）' : r.express ? '🎢 USJ＋Express' : '🎢 USJ';
+const budRow = r => `<details class="brow ${curRow(r)?'cur':''}"><summary><span><b>${esc(r.plan)}</b>・${rowName(r)}</span><b class="bamt">${rng([r.min, r.max])}</b></summary>
+      <dl class="kv small">${Object.entries(r.parts||{}).map(([k,v]) => `<dt>${esc((T.budget.labels||{})[k]||k)}</dt><dd>${rng(v)}</dd>`).join('')}</dl>
+      ${r.note?`<p class="tiny muted" style="margin:0 0 8px">${esc(r.note)}</p>`:''}</details>`;
 function viewBudget(){
-  const B = T.budget, nt = v => 'NT$' + Math.round(v).toLocaleString(), rng = a => Array.isArray(a) ? (a[0]===a[1] ? nt(a[0]) : `${nt(a[0])}～${nt(a[1]).replace('NT$','')}`) : nt(a);
-  const curRow = r => S.plan===(r.plan==='方案一'?'p1':'p2') && (S.usj!=='none')===!!r.usj;
-  const rowName = r => !r.usj ? '不去 USJ（彈性日）' : r.express ? '🎢 USJ＋Express' : '🎢 USJ';
+  const B = T.budget;
   const L = B.labels || {}, ul = arr => `<ul class="small" style="margin:4px 0 0;padding-left:1.2em">${arr.map(x=>`<li>${x}</li>`).join('')}</ul>`;
   const optHtml = (B.optional||[]).length ? `<div class="callout rest"><b>➕ 自選，未計入總額</b>${ul(B.optional.map(o => `${esc(o.t)}：約 ¥${(+o.yen).toLocaleString()}（≈${nt(o.nt)}）${o.src?`<span class="muted">｜${esc(o.src)}</span>`:''}`))}</div>` : '';
   const budgetHtml = `<h2 class="sec-title">💰 總預算對照 <span class="tiny muted">（新台幣，全團，區間）</span></h2>
     <div class="card">
-    ${B.rows.map(r => `<details class="brow ${curRow(r)?'cur':''}"><summary><span><b>${esc(r.plan)}</b>・${rowName(r)}</span><b class="bamt">${rng([r.min, r.max])}</b></summary>
-      <dl class="kv small">${Object.entries(r.parts||{}).map(([k,v]) => `<dt>${esc(L[k]||k)}</dt><dd>${rng(v)}</dd>`).join('')}</dl>
-      ${r.note?`<p class="tiny muted" style="margin:0 0 8px">${esc(r.note)}</p>`:''}</details>`).join('')}
+    ${B.rows.filter(r => r.plan === T.plans.p1.name).map(budRow).join('')}
+    ${B.rows.some(r => r.plan === T.plans.p2.name) ? `<details class="brow sub" data-keep="bud-p2" ${S.open['bud-p2']?'open':''}><summary><span><b>📊 方案二比較</b> <span class="tiny muted">（${esc(T.plans.p2.label)}，備選）</span></span></summary>
+      ${B.rows.filter(r => r.plan === T.plans.p2.name).map(budRow).join('')}</details>` : ''}
     ${optHtml}
     ${(B.recheck||[]).length?`<div class="callout rest"><b>⏰ 接近出發要再查</b>${ul(B.recheck.map(x=>`${esc(x.t)}<span class="muted">｜${esc(x.when)}</span>`))}</div>`:''}
     ${(B.pending||[]).length?`<div class="callout warn"><b>⚠️ 待查，未計入總額</b>${ul(B.pending.map(esc))}</div>`:''}
     ${B.changes?`<p class="small" style="margin:10px 0 0">🔁 ${esc(B.changes)}</p>`:''}
-    <p class="tiny muted" style="margin-bottom:0">${esc(B.note)} 點每一列可看分項；粗框＝目前上方選的方案與 USJ。詳細：${srcLink(B.src)}</p></div>`;
+    <p class="tiny muted" style="margin-bottom:0">${esc(B.note)} 點每一列可看分項；粗框＝目前上方選的 USJ 選項。詳細：${srcLink(B.src)}</p></div>`;
   const U = B.usjDetail, usjHtml = U ? `<h2 class="sec-title">🎢 環球影城 3/02 明細 <span class="tiny muted">（全團，新台幣）</span></h2>
     <div class="card" style="padding:6px"><table class="cmp bud"><tbody>
       ${U.rows.map(r => `<tr><td><b class="small">${esc(r.t)}</b><div class="tiny muted">${esc(r.calc)}</div></td><td class="amt small">${rng(r.nt)}</td></tr>`).join('')}
@@ -1388,7 +1400,7 @@ function viewAlt(){
   if (!cats.some(c => c.id === S.altCat)) S.altCat = cats[0].id;
   const n = id => A.items.filter(x => catOf(x) === id).length;
   const r = altListHtml();
-  return `<h2 class="sec-title">🗺️ 備選清單</h2>
+  return `${plan2Html()}<h2 class="sec-title">🗺️ 備選清單</h2>
   <section class="card">
     <p class="small" style="margin-top:0">${esc(A.note)}</p>
     <div class="sbox" role="search"><input type="search" id="altQ" value="${esc(S.altQ)}" placeholder="🔍 搜尋名稱、日文名、特色…" aria-label="搜尋備選" autocomplete="off" enterkeyhint="search">
@@ -1402,6 +1414,29 @@ function viewAlt(){
   </section>
   <div id="altList">${r.body}</div>`;
 }
+function plan2Html(){
+  const p = T.plans.p2; if (!p) return '';
+  const v = S.votes['plan'] === 'p2', ul = arr => `<ul class="small" style="margin:4px 0 0;padding-left:1.2em">${arr.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+  const sch = schedule('p2');
+  return `<h2 class="sec-title">🏨 備選住宿方案</h2>
+  <section class="card tbd p2box"><details class="brow" data-keep="p2" ${S.open.p2?'open':''}><summary><span><b>${esc(p.name)}：${esc(p.label)}</b><br><span class="tiny muted">目前以方案一為主；方案二的資料都留著，點開看優缺點、預算、每日行程</span></span></summary>
+    <div class="pc-label">🏨 住宿</div>${ul(p.stays)}
+    <div class="pc-label">👍 優點</div>${ul(p.pros)}
+    <div class="pc-label">👎 缺點</div>${ul(p.cons)}
+    <div class="pc-label">💰 預算（全團，依 3/02 選項）</div>${(T.budget.rows||[]).filter(r => r.plan === p.name).map(budRow).join('')}
+    <p class="small" style="margin:4px 0 0">${esc(p.budget)}</p>
+    <div class="pc-label">📅 每日行程 <span class="tiny muted">（點開看每天；目前 USJ 選項：${esc(T.usj.options.find(o=>o.id===S.usj)?.label||'')}）</span></div>
+    ${sch.map(r => `<details class="brow p2day" data-keep="p2d${r.i}" data-p2day="${r.i}" ${S.open['p2d'+r.i]?'open':''}><summary><span><b>D${r.n}・${fmtDate(r.date)}</b> ${esc(r.d.title)}</span></summary>${S.open['p2d'+r.i]?dayHtml(r):''}</details>`).join('')}
+    <div class="btns"><button class="btn ${v?'primary':''}" data-act="pick" data-key="plan" data-v="p2">${v?'✅ 我偏好方案二':'我偏好方案二'}</button></div>
+    <p class="tiny muted" style="margin-bottom:8px">詳細：${srcLink(p.src)}</p>
+  </details></section>`;
+}
+/* 可展開區塊：記住開合，方案二每日行程點開時才產生 */
+document.addEventListener('toggle', ev => {
+  const el = ev.target; if (!el.dataset || !el.dataset.keep) return;
+  S.open[el.dataset.keep] = el.open;
+  if (el.open && el.dataset.p2day != null && !el.querySelector('.dayhead')) el.insertAdjacentHTML('beforeend', dayHtml(schedule('p2')[+el.dataset.p2day]));
+}, true);
 function altRefresh(){
   const r = altListHtml();
   $('#altList').innerHTML = r.body; $('#altCount').textContent = r.count;
