@@ -41,8 +41,11 @@
 ### 🟡 第三優先：官方高精度地圖層 (Google Maps Platform)
 - **工具清單**：
   - `travel-planner` / Google Maps API (每月 \$200 美元常態免費額度，約 28,000~40,000 次查詢)
+  - 2026-11-05 起改用官方 `@modelcontextprotocol/server-google-maps`。舊版只會原樣回傳輸入，沒有實際查詢。工具：`maps_directions`、`maps_distance_matrix`、`maps_search_places`、`maps_place_details`、`maps_geocode`、`maps_reverse_geocode`、`maps_elevation`。
 - **約束規則**：
-  - 用途：精確計算點對點行車耗時、大眾運輸轉乘路徑、店家營業時間、官方地址。
+  - 用途：精確計算點對點步行、開車耗時，查店家營業時間、官方地址。
+  - ⚠️ **日本的大眾運輸（transit）會回 ZERO_RESULTS**（Google API 不提供日本轉乘資料）。電車、公車路線改用 Claude 以 Chrome 開 Google 地圖查，或查 JR／京阪／市巴士官網時刻表；不得憑記憶填寫。
+  - 回報時要附上 MCP 回傳的原始距離和時間。
   - 產出給使用者的路書地圖連結，必須採用原生 Google Maps App 格式（免 API Key、手機點擊直接啟動導航）。
 
 ### 🔴 第四優先：精準戰略打擊層 (SerpAPI Google Flights & Hotels)
