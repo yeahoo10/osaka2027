@@ -1,6 +1,6 @@
 // 隨身路書離線快取：先抓網路（拿到最新版），沒網路才用快取。
 // 更新 index.html 的行程資料後，把 CACHE 版本號 +1。
-const CACHE = 'osaka2027-v31';
+const CACHE = 'osaka2027-v35';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
